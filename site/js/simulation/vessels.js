@@ -592,10 +592,10 @@ export const VESSEL_SPECS = {
       bottom: -0.06, top: 0.18,
     },
     rig: {
-      regionMotors: {
+      singleOutboard: {
         // Boxes use the shared raw SketchUp coordinate space across material meshes.
         exclude: ['Zodiac_couleur_boudin.'],
-        motors: [
+        sourceMotors: [
           {
             box: { x: [44, 72], y: [-3, 45], z: [5, 92] },
             steer: { pivot: [56, 38, 48], axis: 'z', ratio: 1 },

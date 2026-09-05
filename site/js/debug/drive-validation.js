@@ -10,8 +10,9 @@ const EVENTS = [
   [32, 'sample', 'reverse'], [32, 'press', 'Space'], [32.1, 'release', 'Space'],
 ];
 export class DriveValidation {
-  constructor(drive, boat, element) {
+  constructor(drive, boat, element, snapshot = null) {
     this.drive=drive;this.boat=boat;this.element=element;
+    this.snapshot=snapshot;
     this.time=0;this.index=0;this.samples=[];
     this.bodyVelocity=new THREE.Vector3();this.inverse=new THREE.Quaternion();
   }
@@ -24,7 +25,9 @@ export class DriveValidation {
         const b=this.boat,v=this.bodyVelocity.copy(b.vel).applyQuaternion(this.inverse.copy(b.quat).invert());
         this.samples.push({stage:value,time:+this.time.toFixed(2),u:+v.z.toFixed(4),
           steering:+b.steer.toFixed(3),throttle:+b.throttle.toFixed(3),yawRate:+b.angVelB.y.toFixed(4),
-          y:+b.pos.y.toFixed(4),wakeSources:b.wf.wakeField.activeCount});
+          y:+b.pos.y.toFixed(4),wakeSources:b.wf.wakeField.activeCount,
+          rigSteering:b.visualRig?._steer,propellerAngle:b.visualRig?.propellers[0]?.pivot.rotation.y,
+          twin:this.snapshot?.()});
         if(this.element)this.element.textContent=JSON.stringify(this.samples,null,2);
       }else if(action==='reset')this.drive.reset();
       else this.drive[action](value);

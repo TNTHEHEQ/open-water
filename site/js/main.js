@@ -1,6 +1,7 @@
 import { loadSingleVessel } from './controllers/single-vessel-loader.js';
 import { SimulationStartup } from './ui/simulation-startup.js';
 import { SIMULATOR_CONFIG } from './config/simulator-config.js';
+import { SimulationStateSource } from './twin/simulation-state-source.js';
 import { VESSEL_SPECS } from './simulation/vessels.js';
 import * as THREE from 'three';
 import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
@@ -81,7 +82,7 @@ if (new URLSearchParams(location.search).has('debug')
   const { DriveValidation } = await import('./debug/drive-validation.js');
   const output = document.getElementById('validation-results');
   output.hidden = false;
-  driveValidation = new DriveValidation(drive, boat, output);
+  driveValidation = new DriveValidation(drive, boat, output, () => window.openWater.twin.getState());
 }
 const cameraController = new CameraController({
   camera,
@@ -248,6 +249,7 @@ const headingElement = document.getElementById('heading');
 const debugElement = new URLSearchParams(location.search).has('debug') ? document.getElementById('sim-debug') : null;
 if (debugElement) debugElement.hidden = false;
 const headingForward = new THREE.Vector3();
+const twinStateSource = new SimulationStateSource(boat, waveField);
 let debugElapsed = 0;
 
 addEventListener('resize', () => {
@@ -259,6 +261,7 @@ addEventListener('resize', () => {
 
 if (new URLSearchParams(location.search).has('debug')) {
   window.openWater = {
+    twin: Object.freeze({ getState: () => twinStateSource.snapshot() }),
     boat, waveField, wakeField, camera, ocean, effects, foamTrail,
     weather, perceptualEffects, colorGrading, audio, renderer,
     snapCamera: () => cameraController.snap(),
@@ -288,6 +291,7 @@ renderer.setAnimationLoop(() => {
   driveValidation?.update(dt);
   drive.update(dt, waveField.time, gestureDrive.state);
   boat.update(dt);
+  twinStateSource.update();
   ocean.update(dt, boat.pos.x, boat.pos.z, boat);
   foamTrail.update(renderer, dt, boat);
   ocean.uniforms.uFoamTrail.value = foamTrail.texture;
@@ -313,7 +317,17 @@ renderer.setAnimationLoop(() => {
     headingForward.set(0, 0, 1).applyQuaternion(boat.quat);
     const heading = (Math.atan2(headingForward.x, headingForward.z) * 180 / Math.PI + 360) % 360;
     headingElement.textContent = heading.toFixed(1) + '°';
-    if (debugElement) debugElement.textContent = `Zodiac | ${boat.physicsHz} Hz | Sea ${waveField.preset}\nTime ${waveField.time.toFixed(2)} s\nPosition ${boat.pos.x.toFixed(3)}, ${boat.pos.y.toFixed(3)}, ${boat.pos.z.toFixed(3)}\nSpeed ${boat.vel.length().toFixed(3)} m/s\nThrottle ${boat.throttle.toFixed(2)} | Steering ${boat.steer.toFixed(2)}\nWake sources ${wakeField.activeCount}`;
+    if (debugElement) {
+      const s = twinStateSource.getState(), p = s.pose.position, v = s.velocity.body;
+      debugElement.textContent = `Twin v${s.schemaVersion} | ${s.source} | ${s.vesselId} | ${boat.physicsHz} Hz | Sea ${s.environment.seaState}\n`
+        + `Time ${s.timestamp.toFixed(2)} s | Sequence ${s.sequence}\n`
+        + `ENU E ${p.x.toFixed(3)} N ${p.y.toFixed(3)} U ${p.z.toFixed(3)} m\n`
+        + `Heading ${s.pose.headingRad.toFixed(3)} rad | Surge ${v.surge.toFixed(3)} Sway ${v.sway.toFixed(3)} m/s\n`
+        + `Yaw rate ${v.yawRate.toFixed(3)} rad/s | Throttle ${s.control.throttleCommand.toFixed(2)} Steering ${s.control.steeringCommand.toFixed(2)}\n`
+        + `Actual steer ${s.control.actualSteeringRad.toFixed(3)} rad | Thrust ${s.control.propulsion.thrustN.toFixed(1)} N | Wet ${s.control.propulsion.ventilationFactor.toFixed(3)}\n`
+        + `Planing ${s.dynamics.planingForceN.toFixed(1)} N | Submerged ${s.dynamics.submergedPoints} | Wake ${wakeField.activeCount}\n`
+        + `Rig steer ${boat.visualRig?._steer.toFixed(3)} rad | Pivots ${boat.visualRig?.steerPivots.length} | Props ${boat.visualRig?.propellers.length} | Jet anchors ${effects._propPositions.length}`;
+    }
   }
   environment.positionSunLight(boat.pos);
   performanceManager.beginGpu();

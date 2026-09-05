@@ -340,6 +340,13 @@ function splitMeshByBox(mesh, box) {
   movingGeometry.clearGroups();
   movingGeometry.addGroup(0, movingIndices.length, 0);
 
+  // Cloned attributes include unused hull vertices; bound only rendered indices.
+  const movingBounds = new THREE.Box3();
+  const boundPoint = new THREE.Vector3();
+  for (const i of movingIndices) movingBounds.expandByPoint(boundPoint.fromBufferAttribute(position, i));
+  movingGeometry.boundingBox = movingBounds;
+  movingGeometry.boundingSphere = movingBounds.getBoundingSphere(new THREE.Sphere());
+
   mesh.geometry = fixedGeometry;
   const movingMesh = new THREE.Mesh(movingGeometry, mesh.material);
   movingMesh.name = `${mesh.name}-region`;
@@ -487,6 +494,7 @@ export class VesselAnimationRig {
     }
     if (config.modelSteer) this._rigModelSteering(model, config.modelSteer);
     if (config.regionMotors) this._rigRegionMotors(model, config.regionMotors);
+    if (config.singleOutboard) this._rigSingleOutboard(model, config.singleOutboard);
     for (const controlConfig of config.nodeControls || []) {
       const pivot = this._rigNodePivot(model, controlConfig, 'control');
       if (!pivot) continue;
@@ -609,6 +617,33 @@ export class VesselAnimationRig {
       axis: AXES[config.axis || 'y'],
       ratio: config.ratio ?? 1,
     });
+  }
+
+  _rigSingleOutboard(model, config) {
+    // Runtime CC BY derivative: extract BOTH original engines so no side engine
+    // remains in the merged hull. Retain the first complete, unmirrored engine.
+    const startSteer = this.steerPivots.length;
+    const startProp = this.propellers.length;
+    this._rigRegionMotors(model, { exclude: config.exclude, motors: config.sourceMotors });
+    const engines = this.steerPivots.slice(startSteer);
+    const props = this.propellers.slice(startProp);
+    if (engines.length !== 2 || props.length !== 2) {
+      throw new Error('Zodiac single-outboard extraction requires two complete original engines');
+    }
+    const retained = engines[0].pivot;
+    const center = retained.position.clone().add(engines[1].pivot.position).multiplyScalar(0.5);
+    const root = new THREE.Group();
+    root.name = 'SingleOutboard';
+    retained.parent.add(root);
+    root.add(retained); // Same parent coordinate space, identity root.
+    retained.name = 'SteeringPivot';
+    retained.position.copy(center);
+    props[0].pivot.name = 'PropellerPivot';
+    engines[1].pivot.removeFromParent();
+    engines[1].pivot.traverse(o => { if (o.isMesh) o.geometry.dispose(); });
+    this.steerPivots.splice(startSteer + 1, 1);
+    this.propellers.splice(startProp + 1, 1);
+    this.singleOutboard = root;
   }
 
   _rigRegionMotors(model, config) {

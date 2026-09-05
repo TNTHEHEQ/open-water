@@ -202,6 +202,9 @@ export class Boat {
     this.visualRig = null;
     this.physicsHz = 240;
     this.physicsMaxSteps = 12;
+    // Output-only diagnostics: never read by force computation or integration.
+    this.diagnostics = { thrustN: 0, planingForceN: 0,
+      centerOfPressure: new THREE.Vector3(), submergedPoints: 0 };
 
     this.reset();
   }
@@ -409,6 +412,10 @@ export class Boat {
   }
 
   reset() {
+    this.diagnostics.thrustN = 0;
+    this.diagnostics.planingForceN = 0;
+    this.diagnostics.submergedPoints = 0;
+    this.diagnostics.centerOfPressure.set(0, 0, 0);
     this.pos.set(0, this.spec.rideHeight, 0);
     this.quat.setFromAxisAngle(this._up.set(0, 1, 0), this.startYaw);
     this.vel.set(0, 0, 0);
@@ -484,6 +491,9 @@ export class Boat {
 
   _step(h) {
     const S = this.spec, s = this._s;
+    this.diagnostics.planingForceN = 0;
+    this.diagnostics.centerOfPressure.copy(this.pos);
+    this.diagnostics.submergedPoints = 0;
     const F = this._F.set(0, -S.mass * G, 0);
     const tauW = this._tauW.set(0, 0, 0);
     const tauB = this._tauB.set(0, 0, 0);
@@ -529,6 +539,7 @@ export class Boat {
         : this.wf.heightAt(wp.x, wp.z);
       const depth = surfaceY - wp.y;
       if (depth <= 0) continue;
+      this.diagnostics.submergedPoints++;
       wet += bp.w * Math.min(depth / S.restDraft, 1);
       const d = Math.min(depth / S.restDraft, S.maxDepthFactor);
       const r = s[1].copy(wp).sub(this.pos);
@@ -572,6 +583,7 @@ export class Boat {
       1 - 0.38 * Math.abs(vLong) / S.maxPropSpeed, 0.58, 1);
     const thrustMag = (this.throttle >= 0 ? S.maxThrustFwd : S.maxThrustRev)
                       * this.throttle * this.propWet * heelCut * advanceRatio;
+    this.diagnostics.thrustN = thrustMag;
     if (thrustMag !== 0) {
       const dir = s[1].set(Math.sin(effSteer), 0, Math.cos(effSteer))
         .applyQuaternion(this.quat);
@@ -609,6 +621,8 @@ export class Boat {
         planing,
       );
       tauW.add(s[2].crossVectors(this.worldPoint(cp, s[3]).sub(this.pos), Fl));
+      this.diagnostics.planingForceN = lift;
+      this.diagnostics.centerOfPressure.copy(cp).applyQuaternion(this.quat).add(this.pos);
     }
 
     tauB.y -= (S.yawDamp[0] + S.yawDamp[1] * Math.abs(vLong)

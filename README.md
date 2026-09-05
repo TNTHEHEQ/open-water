@@ -3,10 +3,11 @@
 A single-vessel marine simulation and digital-twin foundation based on
 [bob6664569/open-water](https://github.com/bob6664569/open-water).
 
-Phase **USV-0** runs one Zodiac RIB with the original Open Water physics, ocean,
+Phase **USV-1** runs one Zodiac RIB with a single centerline outboard visual,
+and a one-way SI/ENU Twin State v0 observer. It retains the original Open Water physics, ocean,
 wind, current, waves, wake, spray, weather, audio and cameras. No boat selection,
 achievements, unlocks, missions, birds, fish or other wildlife run or download.
-SIM/LIVE/REPLAY, Qt, network telemetry and single-outboard conversion are deferred.
+LIVE/REPLAY, Qt, network telemetry and renderer decoupling are deferred.
 
 ## Run
 
@@ -35,9 +36,13 @@ profiles can lower the physics budget. `?quality=ultra&debug&validate=drive`
 runs an optional 32-second real-keyboard-input acceptance sequence after Start.
 Do not combine that test URL with `#auto`.
 
-The original steering sign is retained in USV-0: positive steering vectors the
+The original steering sign is retained: positive steering vectors the
 transom thrust toward local +X, producing negative yaw. This phase does not
-change the propulsion model or convert the two visible motors to one.
+change the equivalent single-thrust physics; only the original twin visual is
+converted to one centered motor. With `?debug`,
+`window.openWater.twin.getState()` returns an isolated, JSON-safe ENU snapshot.
+See [single-outboard audit](docs/USV1_SINGLE_OUTBOARD.md) and
+[state v0 schema and coordinate signs](docs/DIGITAL_TWIN_STATE_V0.md).
 
 ## Validate
 
@@ -63,7 +68,8 @@ The [original README](docs/UPSTREAM_README.md) is preserved as historical docume
 
 **Zodiac boat** by **RedC130**, [original model](https://sketchfab.com/3d-models/zodiac-boat-a10b7997f1514bd7829ece74f68c681c),
 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
-Original GLB, rig, materials and vessel physics profile are unchanged.
+Original GLB and physical parameters are unchanged; rig changes are runtime-only.
+Modified from the original twin-outboard visual configuration to a single centerline outboard configuration.
 
 This is a mixed-license repository. [Third-party notices](THIRD_PARTY_NOTICES.md)
 and [audio licenses](site/assets/audio/LICENSES.md) still apply. Other boats and
