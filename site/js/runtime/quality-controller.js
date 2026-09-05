@@ -13,7 +13,6 @@ export class QualityController {
     sunLight,
     budgetTargets = [],
     resolutionTarget = null,
-    achievements,
     elements = {},
     document = globalThis.document,
     location = globalThis.location,
@@ -32,7 +31,6 @@ export class QualityController {
     this.sunLight = sunLight;
     this.budgetTargets = budgetTargets;
     this.resolutionTarget = resolutionTarget;
-    this.achievements = achievements;
     this.controlElement = elements.control ?? null;
     this.currentElement = elements.current ?? null;
     this.selectElement = elements.select ?? null;
@@ -185,7 +183,6 @@ export class QualityController {
     this.pointerInteraction = false;
     const mode = this.selectElement.value;
     this.performanceManager.setMode(mode);
-    this.achievements.recordQualityChange();
     const url = new URL(this.location.href);
     if (mode === 'auto') url.searchParams.delete('quality');
     else url.searchParams.set('quality', mode);

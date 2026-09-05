@@ -1,3 +1,7 @@
+import { loadSingleVessel } from './controllers/single-vessel-loader.js';
+import { SimulationStartup } from './ui/simulation-startup.js';
+import { SIMULATOR_CONFIG } from './config/simulator-config.js';
+import { VESSEL_SPECS } from './simulation/vessels.js';
 import * as THREE from 'three';
 import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
 import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
@@ -16,17 +20,12 @@ import { ColorGrading } from './rendering/color-grading.js';
 import { VesselOcclusionPass } from './rendering/vessel-occlusion.js';
 import { WaterPassRenderer } from './rendering/water-pass-renderer.js';
 import { EnvironmentController } from './rendering/environment-controller.js';
-import { createFaunaManager } from './fauna/index.js';
 import { BoatAudio } from './runtime/audio.js';
 import { PerformanceManager } from './runtime/performance.js';
 import { QualityController } from './runtime/quality-controller.js';
-import { AchievementManager } from './ui/achievements.js';
-import { FirstVoyageGuide } from './ui/first-voyage.js';
-import { ExperienceController } from './ui/experience-controller.js';
 import { BoatHud } from './ui/hud.js';
 import { DriveController } from './controllers/drive-controller.js';
 import { CameraController } from './controllers/camera-controller.js';
-import { VesselController } from './controllers/vessel-controller.js';
 import { GestureDriveController } from './controllers/gesture-drive-controller.js';
 import { ViewInputController } from './controllers/view-input-controller.js';
 
@@ -65,79 +64,42 @@ scene.add(ocean.mesh);
 scene.add(ocean.patch);
 const boat = new Boat(waveField, scene, environment.startYaw());
 const effects = new BoatEffects(scene, waveField, boat);
-const audio = new BoatAudio(waveField);
+const audio = new BoatAudio(waveField, { engineBank: VESSEL_SPECS[SIMULATOR_CONFIG.vesselId].audio.bank, wildlife: SIMULATOR_CONFIG.wildlife });
 effects.onExhaustPop = (intensity, position) => audio.exhaustPop(intensity, position);
 const foamTrail = new FoamTrail();
 const weather = new WeatherEffects(scene, camera, waveField, audio);
 const perceptualEffects = new PerceptualEffects({ scene, camera, boat, waveField });
 const colorGrading = new ColorGrading(waveField);
-const fauna = createFaunaManager({ scene, camera, waveField, boat, audio });
-const achievements = new AchievementManager();
 const drive = new DriveController(boat, {
   isTouch: IS_TOUCH,
   auto: () => location.hash === '#auto',
 });
+// Development-only acceptance driver, absent from normal startup.
+let driveValidation = null;
+if (new URLSearchParams(location.search).has('debug')
+  && new URLSearchParams(location.search).get('validate') === 'drive') {
+  const { DriveValidation } = await import('./debug/drive-validation.js');
+  const output = document.getElementById('validation-results');
+  output.hidden = false;
+  driveValidation = new DriveValidation(drive, boat, output);
+}
 const cameraController = new CameraController({
   camera,
   boat,
   waveField,
-  achievements,
   isTouch: IS_TOUCH,
   reducedMotion: matchMedia('(prefers-reduced-motion: reduce)').matches,
   statusElement: document.getElementById('camera-status'),
 });
-const firstVoyageGuide = new FirstVoyageGuide({
-  scene, camera, boat, waveField, achievements,
-  fish: fauna.fish,
-  wildlife: fauna.wildlife,
-});
-achievements.button?.addEventListener('click', () => {
-  document.body.classList.remove('achievement-trial-visible');
-});
-
 const WAVE_INTENSITY_KEY = 'ocean-boat:wave-intensity';
-let experience;
-const vessels = new VesselController({
-  boat,
-  achievements,
-  cameraController,
-  audio,
-  isTouch: IS_TOUCH,
-  body: document.body,
-  elements: {
-    loader: document.getElementById('boat-loading'),
-    selector: document.getElementById('vessel-selector'),
-    name: document.getElementById('boatname'),
-    position: document.getElementById('boat-position'),
-    previousButton: document.getElementById('prev-boat'),
-    nextButton: document.getElementById('next-boat'),
-    unlockAlert: document.getElementById('vessel-unlock-alert'),
-    unlockName: document.getElementById('vessel-unlock-name'),
-    unlockHint: document.getElementById('vessel-unlock-hint'),
-  },
-  isAppStarted: () => experience.started,
-  onInitialReady: () => experience.markBoatReady(),
-  revealDock: delay => experience.revealAfter('dock-revealed', delay),
+const startup = new SimulationStartup({
+  performanceManager, audio, body: document.body,
+  loader: document.getElementById('loading'),
+  welcome: document.getElementById('welcome'),
+  startButton: document.getElementById('start-simulation'),
 });
-vessels.bind();
-
-experience = new ExperienceController({
-  achievements,
-  performanceManager,
-  audio,
-  vessels,
-  firstVoyageGuide,
-  isTouch: IS_TOUCH,
-  elements: {
-    loader: document.getElementById('loading'),
-    welcome: document.getElementById('welcome'),
-    startButton: document.getElementById('start-experience'),
-    helpHint: document.getElementById('help'),
-    waveControls: document.getElementById('controls'),
-    voyageIntro: document.getElementById('voyage-intro'),
-  },
-});
-experience.bind();
+startup.bind();
+void loadSingleVessel(boat, cameraController).then(() => startup.markBoatReady());
 
 function storedWaveIntensity() {
   try {
@@ -152,13 +114,12 @@ function rememberWaveIntensity(level) {
   try { localStorage.setItem(WAVE_INTENSITY_KEY, String(level)); } catch {  }
 }
 
-void vessels.loadCatalog();
 
 environment.load({
   ocean,
   boat,
   cameraController,
-  onReady: () => experience.markSkyReady(),
+  onReady: () => startup.markSkyReady(),
 });
 
 const waterPasses = new WaterPassRenderer({
@@ -201,11 +162,10 @@ const qualityController = new QualityController({
   smaa,
   sunLight,
   budgetTargets: [
-    boat, ocean, environment, effects, weather, perceptualEffects, fauna,
+    boat, ocean, environment, effects, weather, perceptualEffects,
     vesselOcclusion,
   ],
   resolutionTarget: ocean.uniforms.uResolution.value,
-  achievements,
   elements: {
     control: document.getElementById('quality-control'),
     current: document.getElementById('quality-current'),
@@ -218,7 +178,6 @@ const gestureDrive = new GestureDriveController({
   element: document.getElementById('gesture-drive'),
   tutorialElement: document.getElementById('drive-tutorial'),
   audio,
-  onEngage: () => experience.dismissIntro(),
 });
 gestureDrive.bind();
 
@@ -226,22 +185,18 @@ function resetBoat() {
   drive.resetOutput();
   wakeField.clear();
   boat.reset();
-  achievements.resetFlight();
-  achievements.resetCircle();
   cameraController.resetVessel();
   gestureDrive.reset();
 }
 
 addEventListener('keydown', (e) => {
-  if (!experience.started) return;
+  if (!startup.started) return;
   audio.start();
   drive.press(e.code);
   if (e.code === 'KeyR') resetBoat();
   if (e.code === 'KeyC') cameraController.cycle();
-  if (e.code === 'KeyB') e.shiftKey ? vessels.previous() : vessels.next();
-  if (e.code === 'KeyL') achievements.togglePanel(false);
   const states = { Digit1: 1, Digit2: 2, Digit3: 3, Digit4: 4 };
-  if (states[e.code] !== undefined && experience.seaControlsUnlocked()) {
+  if (states[e.code] !== undefined) {
     setWaveIntensity(states[e.code], { userInitiated: true });
   }
 });
@@ -251,17 +206,9 @@ document.addEventListener('visibilitychange', () => {
   if (document.hidden) { drive.clearInput(); gestureDrive.reset(); }
 });
 
-function setWaveIntensity(level, { userInitiated = false } = {}) {
+function setWaveIntensity(level) {
   if (!SEA_PRESETS[level]) return;
-  const changed = waveField.preset !== level;
-  if (userInitiated && changed) {
-    const continueOnboarding = document.body.classList.contains('sea-trial-visible');
-    achievements.recordWaveChange();
-    document.body.classList.remove('sea-trial-visible');
-    if (continueOnboarding) document.body.classList.add('achievement-trial-visible');
-  }
   waveField.setSeaPreset(level);
-  achievements.recordSea(level);
   rememberWaveIntensity(level);
   document.querySelectorAll('.wave-option').forEach(button => {
     const active = Number(button.dataset.wave) === level;
@@ -276,21 +223,19 @@ function blurAfterPointerClick(e) {
 
 document.querySelectorAll('.wave-option').forEach(button => {
   button.addEventListener('click', (e) => {
-    if (!experience.seaControlsUnlocked()) return;
     audio.start();
     setWaveIntensity(Number(button.dataset.wave), { userInitiated: true });
     blurAfterPointerClick(e);
   });
 });
-experience.syncSeaControlAccess();
-setWaveIntensity(experience.seaControlsUnlocked() ? storedWaveIntensity() : 2);
+setWaveIntensity(storedWaveIntensity());
 
 const viewInput = new ViewInputController({
   element: renderer.domElement,
   cameraController,
   audio,
   isTouch: IS_TOUCH,
-  isAppStarted: () => experience.started,
+  isAppStarted: () => startup.started,
   isGestureActive: () => gestureDrive.state.active,
 });
 viewInput.bind();
@@ -299,6 +244,11 @@ const elKn = document.getElementById('kn');
 const elThrottle = document.querySelector('#throttle i');
 const elRudder = document.querySelector('#rudder i');
 const boatHud = new BoatHud(elKn, elThrottle, elRudder);
+const headingElement = document.getElementById('heading');
+const debugElement = new URLSearchParams(location.search).has('debug') ? document.getElementById('sim-debug') : null;
+if (debugElement) debugElement.hidden = false;
+const headingForward = new THREE.Vector3();
+let debugElapsed = 0;
 
 addEventListener('resize', () => {
   camera.aspect = innerWidth / innerHeight;
@@ -310,7 +260,7 @@ addEventListener('resize', () => {
 if (new URLSearchParams(location.search).has('debug')) {
   window.openWater = {
     boat, waveField, wakeField, camera, ocean, effects, foamTrail,
-    weather, perceptualEffects, colorGrading, audio, renderer, achievements,
+    weather, perceptualEffects, colorGrading, audio, renderer,
     snapCamera: () => cameraController.snap(),
     environmentState: () => ({
       trueWindMps: boat.trueWind.length(),
@@ -331,13 +281,13 @@ renderer.setAnimationLoop(() => {
   qualityController.applyPending();
   renderer.info.reset();
   const frameDt = Math.min(clock.getDelta(), 0.05);
-  const dt = experience.started ? frameDt : 0;
+  const dt = startup.started ? frameDt : 0;
   waveField.update(dt, boat.pos.x, boat.pos.z);
   wakeField.update(dt, boat, waveField);
   environment.updateAtmosphere(dt);
+  driveValidation?.update(dt);
   drive.update(dt, waveField.time, gestureDrive.state);
   boat.update(dt);
-  achievements.update(dt, boat, waveField, fauna.achievementSources);
   ocean.update(dt, boat.pos.x, boat.pos.z, boat);
   foamTrail.update(renderer, dt, boat);
   ocean.uniforms.uFoamTrail.value = foamTrail.texture;
@@ -345,7 +295,6 @@ renderer.setAnimationLoop(() => {
   effects.update(dt);
   environment.positionSunHolder(camera.position);
   cameraController.update(dt);
-  firstVoyageGuide.update(dt);
   environment.positionSky(camera.position);
   audio.update(boat, camera, dt);
   weather.update(dt);
@@ -357,8 +306,15 @@ renderer.setAnimationLoop(() => {
     effects.cameraSprayExposure(camera.position),
   );
   colorGrading.update(dt);
-  fauna.update(dt);
   boatHud.update(boat.speedKn, drive.throttle, drive.wheel);
+  debugElapsed += frameDt;
+  if (debugElapsed > 0.2) {
+    debugElapsed = 0;
+    headingForward.set(0, 0, 1).applyQuaternion(boat.quat);
+    const heading = (Math.atan2(headingForward.x, headingForward.z) * 180 / Math.PI + 360) % 360;
+    headingElement.textContent = heading.toFixed(1) + '°';
+    if (debugElement) debugElement.textContent = `Zodiac | ${boat.physicsHz} Hz | Sea ${waveField.preset}\nTime ${waveField.time.toFixed(2)} s\nPosition ${boat.pos.x.toFixed(3)}, ${boat.pos.y.toFixed(3)}, ${boat.pos.z.toFixed(3)}\nSpeed ${boat.vel.length().toFixed(3)} m/s\nThrottle ${boat.throttle.toFixed(2)} | Steering ${boat.steer.toFixed(2)}\nWake sources ${wakeField.activeCount}`;
+  }
   environment.positionSunLight(boat.pos);
   performanceManager.beginGpu();
   waterPasses.render(frameStart, qualityController.current);
@@ -366,5 +322,5 @@ renderer.setAnimationLoop(() => {
   performanceManager.endGpu();
   performanceManager.endFrame();
   qualityController.updateHud(frameStart);
-  experience.frameRendered();
+  startup.frameRendered();
 });

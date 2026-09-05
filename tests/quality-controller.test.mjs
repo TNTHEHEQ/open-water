@@ -106,7 +106,6 @@ function createFixture({ perf = false } = {}) {
     createElement: () => createElement(),
   };
   const replacedUrls = [];
-  let achievementChanges = 0;
   const resolutionTarget = { x: 0, y: 0 };
   const controller = new QualityController({
     performanceManager,
@@ -118,7 +117,6 @@ function createFixture({ perf = false } = {}) {
     sunLight,
     budgetTargets,
     resolutionTarget,
-    achievements: { recordQualityChange: () => { achievementChanges++; } },
     elements,
     document,
     location: {
@@ -149,7 +147,6 @@ function createFixture({ perf = false } = {}) {
       height = nextHeight;
       dpr = nextDpr;
     },
-    get achievementChanges() { return achievementChanges; },
   };
 }
 
@@ -212,7 +209,6 @@ test('manual selection updates persistence URL, telemetry and pointer focus', ()
   fixture.elements.select.dispatch('change');
 
   assert.deepEqual(fixture.calls.at(-1), ['mode', 'low']);
-  assert.equal(fixture.achievementChanges, 1);
   assert.equal(fixture.replacedUrls[0], 'https://example.test/play?quality=low');
   assert.equal(fixture.elements.select.blurred, 1);
   assert.equal(fixture.elements.control.dataset.mode, 'manual');

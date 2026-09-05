@@ -28,7 +28,6 @@ export class CameraController {
     camera,
     boat,
     waveField,
-    achievements,
     isTouch = false,
     reducedMotion = false,
     statusElement = null,
@@ -40,7 +39,6 @@ export class CameraController {
     this.camera = camera;
     this.boat = boat;
     this.waveField = waveField;
-    this.achievements = achievements;
     this.isTouch = isTouch;
     this.reducedMotion = reducedMotion;
     this.statusElement = statusElement;
@@ -78,7 +76,6 @@ export class CameraController {
     this.impactVelocity = 0;
     this.lastSlam = 0;
 
-    this.achievements.recordCamera(this.mode);
   }
 
   activeZoom() {
@@ -86,37 +83,25 @@ export class CameraController {
   }
 
   setActiveZoom(value) {
-    const before = this.activeZoom();
     if (this.mode === 2) {
       this.topDistance = THREE.MathUtils.clamp(value, TOP_MIN, TOP_MAX);
     } else {
       this.orbitDistance = THREE.MathUtils.clamp(value, ORBIT_MIN, ORBIT_MAX);
-    }
-    if ((this.mode === 0 || this.mode === 2)
-      && Math.abs(this.activeZoom() - before) > 0.001) {
-      this.achievements.recordCameraControl('zoom');
     }
   }
 
   orbitHoriz(deltaX) {
     if (this.mode === 2) this.topYaw -= deltaX * 0.006;
     else this.orbitYaw -= deltaX * 0.006;
-    if ((this.mode === 0 || this.mode === 2) && Math.abs(deltaX) > 0.1) {
-      this.achievements.recordCameraControl('orbit');
-    }
   }
 
   orbitPitchBy(deltaY) {
     if (this.mode === 2) return;
-    const previousPitch = this.orbitPitch;
     this.orbitPitch = THREE.MathUtils.clamp(
       this.orbitPitch + deltaY * 0.004,
       0.14,
       1.25,
     );
-    if (this.mode === 0 && Math.abs(this.orbitPitch - previousPitch) > 0.0001) {
-      this.achievements.recordCameraControl('orbit');
-    }
   }
 
   cycle() {
@@ -124,7 +109,6 @@ export class CameraController {
     this._rememberMode();
     if (this.mode === 3) this._beginCinematic();
     else this.initialized = false;
-    this.achievements.recordCamera(this.mode);
     this._announceMode();
   }
 
@@ -226,7 +210,6 @@ export class CameraController {
       camera.fov = 55;
       camera.updateProjectionMatrix();
     }
-    if (this.topDistance >= TOP_MAX) this.achievements.recordAntWorld();
     this.initialized = true;
   }
 

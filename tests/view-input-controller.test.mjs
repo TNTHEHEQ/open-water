@@ -64,7 +64,7 @@ function pointer(pointerId, clientX, clientY, pointerType = 'mouse') {
   return { pointerId, clientX, clientY, pointerType };
 }
 
-test('single-pointer drag orbits while wheel zoom ignores the achievements panel', () => {
+test('single-pointer drag orbits while wheel zoom ignores simulator form controls', () => {
   const fixture = createFixture();
   fixture.controller.bind();
   fixture.element.dispatch('pointerdown', pointer(1, 10, 20));
@@ -74,7 +74,7 @@ test('single-pointer drag orbits while wheel zoom ignores the achievements panel
 
   fixture.eventTarget.dispatch('wheel', {
     deltaY: 100,
-    target: { closest: selector => selector === '#achievements-panel' },
+    target: { closest: selector => selector === 'button, select, input' },
   });
   assert.equal(fixture.calls.length, 2);
   fixture.eventTarget.dispatch('wheel', { deltaY: 100, target: { closest: () => null } });

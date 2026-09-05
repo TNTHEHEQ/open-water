@@ -16,6 +16,7 @@ venv/
 
 # JavaScript dependencies and generated output
 node_modules/
+artifacts/
 dist/
 build/
 coverage/

@@ -310,10 +310,7 @@ test('fauna frame loops avoid temporary threat objects and square-root distance 
   }
 });
 
-test('main delegates fauna construction, budgets and frame updates to one manager', () => {
+test('USV composition never imports or creates fauna', () => {
   const source = readFileSync(resolve(JS_DIR, 'main.js'), 'utf8');
-  assert.match(source, /createFaunaManager\(/);
-  assert.match(source, /budgetTargets:\s*\[[^\]]*\bfauna\b[^\]]*\]/);
-  assert.match(source, /fauna\.update\(dt\)/);
-  assert.doesNotMatch(source, /new (Wildlife|FishLife|Dolphins|Whales|Seabed|Turtles|Mantas|Birds)\(/);
+  assert.doesNotMatch(source, /fauna|createFaunaManager|new (Wildlife|FishLife|Dolphins|Whales|Seabed|Turtles|Mantas|Birds)\(/);
 });

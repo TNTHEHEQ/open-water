@@ -25,12 +25,6 @@ function createFixture({ storedMode = null, isTouch = false, reducedMotion = fal
       return output.copy(point).applyQuaternion(this.quat).add(this.pos);
     },
   };
-  const calls = { camera: [], controls: [], antWorld: 0 };
-  const achievements = {
-    recordCamera(mode) { calls.camera.push(mode); },
-    recordCameraControl(control) { calls.controls.push(control); },
-    recordAntWorld() { calls.antWorld++; },
-  };
   const values = new Map();
   if (storedMode !== null) values.set('ocean-boat:camera-mode', String(storedMode));
   const storage = {
@@ -51,7 +45,6 @@ function createFixture({ storedMode = null, isTouch = false, reducedMotion = fal
     camera,
     boat,
     waveField: { heightAt: () => 0 },
-    achievements,
     isTouch,
     reducedMotion,
     statusElement,
@@ -63,7 +56,7 @@ function createFixture({ storedMode = null, isTouch = false, reducedMotion = fal
     },
     clearTimer: () => {},
   });
-  return { controller, camera, boat, calls, storage, statusElement, timers };
+  return { controller, camera, boat, storage, statusElement, timers };
 }
 
 function assertFiniteVector(vector) {
@@ -74,9 +67,8 @@ function assertFiniteVector(vector) {
 
 test('restores, cycles, persists and announces all camera modes', () => {
   const fixture = createFixture({ storedMode: 1 });
-  const { controller, calls, storage, statusElement, timers } = fixture;
+  const { controller, storage, statusElement, timers } = fixture;
   assert.equal(controller.mode, 1);
-  assert.deepEqual(calls.camera, [1]);
 
   controller.cycle();
   assert.equal(controller.mode, 2);
@@ -90,26 +82,22 @@ test('restores, cycles, persists and announces all camera modes', () => {
   controller.cycle();
   controller.cycle();
   assert.equal(controller.mode, 0);
-  assert.deepEqual(calls.camera, [1, 2, 3, 0]);
 });
 
-test('camera controls retain mode-specific clamps and achievement semantics', () => {
-  const { controller, calls } = createFixture();
+test('camera controls retain mode-specific clamps without a reward system', () => {
+  const { controller } = createFixture();
   controller.setActiveZoom(1000);
   assert.equal(controller.activeZoom(), 90);
   controller.orbitHoriz(10);
   controller.orbitPitchBy(1000);
   assert.equal(controller.orbitPitch, 1.25);
-  assert.deepEqual(calls.controls, ['zoom', 'orbit', 'orbit']);
 
   controller.cycle();
-  calls.controls.length = 0;
   controller.setActiveZoom(1);
   controller.orbitHoriz(10);
   controller.orbitPitchBy(-1000);
   assert.equal(controller.activeZoom(), 2.5);
   assert.equal(controller.orbitPitch, 0.14);
-  assert.deepEqual(calls.controls, []);
 
   controller.cycle();
   controller.setActiveZoom(1000);
@@ -118,7 +106,6 @@ test('camera controls retain mode-specific clamps and achievement semantics', ()
   controller.orbitPitchBy(50);
   assert.equal(controller.activeZoom(), 320);
   assert.equal(controller.orbitPitch, pitch);
-  assert.deepEqual(calls.controls, ['zoom', 'orbit']);
 });
 
 test('vessel changes preserve orbit angles while reset restores camera defaults', () => {
@@ -144,7 +131,7 @@ test('vessel changes preserve orbit angles while reset restores camera defaults'
 });
 
 test('updates chase, helm, top and cinematic modes without replacing scratch vectors', () => {
-  const { controller, camera, boat, calls } = createFixture({ reducedMotion: true });
+  const { controller, camera, boat } = createFixture({ reducedMotion: true });
   const scratch = [
     controller.target,
     controller.desired,
@@ -176,7 +163,6 @@ test('updates chase, helm, top and cinematic modes without replacing scratch vec
   controller.update(1 / 60);
   assert.deepEqual(camera.position.toArray(), [10, 322, -4]);
   assert.equal(camera.fov, 55);
-  assert.equal(calls.antWorld, 1);
 
   controller.cycle();
   const previousAngle = controller.cinematicAngle;
@@ -258,11 +244,6 @@ test('storage failures fall back safely without blocking camera use', () => {
     camera,
     boat,
     waveField: { heightAt: () => 0 },
-    achievements: {
-      recordCamera() {},
-      recordCameraControl() {},
-      recordAntWorld() {},
-    },
     storage: {
       getItem() { throw new Error('blocked'); },
       setItem() { throw new Error('blocked'); },

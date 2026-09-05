@@ -133,7 +133,7 @@ export class ViewInputController {
   }
 
   _handleWheel(event) {
-    if (event.target?.closest?.('#achievements-panel')) return;
+    if (event.target?.closest?.('button, select, input')) return;
     this.cameraController.setActiveZoom(
       this.cameraController.activeZoom() * Math.exp(event.deltaY * 0.0012),
     );

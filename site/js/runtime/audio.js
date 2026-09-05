@@ -112,7 +112,9 @@ function setSmooth(param, value, time, constant = 0.08) {
 }
 
 export class BoatAudio {
-  constructor(waveField) {
+  constructor(waveField, { engineBank = null, wildlife = true } = {}) {
+    this.engineBank = engineBank;
+    this.wildlife = wildlife;
     this.wf = waveField;
     this.ctx = null;
     this.started = false;
@@ -182,7 +184,11 @@ export class BoatAudio {
 
   _requestAssets() {
     if (this.assetRequests) return;
-    const assets = CONSTRAINED_AUDIO ? CORE_ASSETS : ALL_ASSETS;
+    const assets = this.engineBank ? [
+      ...engineAssets(ENGINE_BANKS[this.engineBank]),
+      ...Object.values(AMBIENT_ASSETS),
+      ...(CONSTRAINED_AUDIO ? [] : new Set(Object.values(THUNDER_BANKS).flat())),
+    ] : (CONSTRAINED_AUDIO ? CORE_ASSETS : ALL_ASSETS).filter(path => this.wildlife || !path.includes('/animals/'));
     this.assetRequests = new Map(assets.map(path => [path,
       fetch(path).then(response => {
         if (!response.ok) throw new Error(`${response.status} ${path}`);
@@ -434,6 +440,7 @@ export class BoatAudio {
 
   _startSampleLayers() {
     for (const [id, config] of Object.entries(ENGINE_BANKS)) {
+      if (this.engineBank && id !== this.engineBank) continue;
       const bankGain = this.ctx.createGain();
       if (config.full) {
         const buffer = this.buffers.get(config.full);
