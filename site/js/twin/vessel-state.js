@@ -11,6 +11,8 @@ export function createVesselState(vesselId = 'usv001') {
       steeringActualRad: 0, steeringEffectiveRad: 0, steeringRateRadPerSec: 0, ventilationFactor: 1 },
     attitude: { rollRad: 0, pitchRad: 0, yawRad: 0 },
     environment: { seaState: 0, localWaterHeight: 0,
+      wave: { significantHeightM: 0, peakPeriodSec: 0 },
+      windSpeedMps: 0, windDirectionRad: 0, currentSpeedMps: 0, currentDirectionRad: 0,
       waterVelocity: vector(), current: vector(), wind: vector() },
     dynamics: { planingForceN: 0, centerOfPressure: vector(), submergedPoints: 0 },
   };

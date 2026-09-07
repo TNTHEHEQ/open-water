@@ -50,6 +50,8 @@ body.touch.started #drive { display: block; }
 #gesture-drive.active { border-color: var(--ice); }
 body.touch #help { display: none; }
 @media(max-width: 650px) { #controls { top: auto; bottom: 190px; right: 10px; } #attribution { bottom: 4px; font-size: 8px; } #quality-control { bottom: 20px; } }
+#recorder-controls { position:fixed; right:12px; top:65px; z-index:25; }
+#csv-preview { position:fixed; inset:30% 5% 15%; overflow:auto; z-index:26; background:#112; color:white; pointer-events:none; }
 </style>
 <script type="importmap">{"imports":{"three":"./vendor/three.module.js","three/addons/":"./vendor/addons/"}}</script>
 </head>
@@ -88,6 +90,13 @@ body.touch #help { display: none; }
 <div id="attribution"><a href="https://github.com/bob6664569/open-water">Open Water / bob6664569</a> · Zodiac / RedC130 / CC BY 4.0</div>
 <div id="drive" role="group" aria-label="Touch controls"><button id="gesture-drive" type="button" aria-label="Touch here, then slide to steer and control throttle"><span class="drive-label">Hold and slide</span><span class="drive-vector" aria-hidden="true"></span></button></div>
 <pre id="sim-debug" hidden></pre>
+<div id="recorder-controls" hidden>
+<button id="record-start" type="button">REC start</button>
+<button id="record-stop" type="button">REC stop</button>
+<button id="record-preview" type="button">CSV preview</button>
+<button id="record-download" type="button">CSV download</button>
+</div>
+<pre id="csv-preview" hidden></pre>
 <pre id="validation-results" hidden></pre>
 <script type="module" src="./js/main.js"></script>
 </body>

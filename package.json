@@ -11,7 +11,8 @@
     "lint:html": "html-validate site/index.html",
     "test": "node --disable-warning=ExperimentalWarning --test --import ./tests/register-three.mjs",
     "test:coverage": "node --disable-warning=ExperimentalWarning --experimental-test-coverage --test-coverage-exclude='site/vendor/**' --test-coverage-exclude='tests/**' --test-coverage-lines=60 --test-coverage-branches=50 --test-coverage-functions=50 --test --import ./tests/register-three.mjs",
-    "check": "npm run lint && npm test && npm run test:coverage"
+    "check": "npm run lint && npm test && npm run test:coverage",
+    "planner:smoke": "node tools/planner-ws-smoke-server.mjs"
   },
   "engines": {
     "node": ">=22"
@@ -19,6 +20,7 @@
   "devDependencies": {
     "eslint": "10.7.0",
     "globals": "17.7.0",
-    "html-validate": "11.5.6"
+    "html-validate": "11.5.6",
+    "ws": "^8.21.3"
   }
 }

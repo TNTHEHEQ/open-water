@@ -51,7 +51,7 @@ test('source projects deterministically, preserves references and snapshots isol
     angVelB:new T.Vector3(.1,.2,.3),throttle:.7,steer:-.4,_effSteer:-.1,propWet:.9,
     _waterVel:new T.Vector3(1,2,3),surfaceCurrent:new T.Vector3(.1,0,.2),trueWind:new T.Vector3(3,0,4),
     diagnostics:{propulsionCommand:.7,actualPropulsion:.6,steeringCommandRad:-.2,steeringActualRad:-.15,steeringEffectiveRad:-.1,steeringRateRadPerSec:.05,rawThrustN:800,effectiveThrustN:700,ventilationFactor:.9,thrustN:700,planingForceN:123,centerOfPressure:new T.Vector3(7,8,9),submergedPoints:6}};
-  const water={time:12,preset:2,heightAt:()=>.45};
+  const water={time:12,preset:2,heightAt:()=>.45,significantWaveHeight:.9,peakPeriod:5.4};
   const source=new SimulationStateSource(boat,water);
   const s=source.update(), pos=s.pose.position, control=s.control;
   assert.equal(validateVesselState(s),true);
@@ -64,6 +64,9 @@ test('source projects deterministically, preserves references and snapshots isol
   assert.equal(s.actuator.steeringActualRad,-.15);
   assert.equal(s.actuator.steeringEffectiveRad,-.1);
   assert.equal(s.actuator.rawThrustN,800);
+  assert.deepEqual(s.environment.wave,{significantHeightM:.9,peakPeriodSec:5.4});
+  near(s.environment.windSpeedMps,5); near(s.environment.windDirectionRad,Math.atan2(3,4));
+  near(s.environment.currentSpeedMps,Math.hypot(.1,.2));
   assert.ok(!('actualSteeringRad' in s.control));
   const copy=source.snapshot();copy.pose.position.x=900;assert.equal(s.pose.position.x,1);
   assert.equal(source.update(),s);assert.equal(s.pose.position,pos);assert.equal(s.control,control);

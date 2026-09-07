@@ -1,8 +1,8 @@
 # Digital Twin State v1
 
 P0-A intentionally breaks the v0 **control** schema. The old document remains
-historical. `schemaVersion=1`; source remains SIM. No transport or LIVE/REPLAY
-implementation is added.
+historical. `schemaVersion=1`; source remains SIM. P0-B/C/D finalizes v1 with
+environment metadata and WebSocket transport; LIVE/REPLAY remain unimplemented.
 
 ## Command, actual, effective
 
@@ -44,6 +44,8 @@ pose follows it (at most one step offset).
 | velocity | linear {x,y,z} ENU m/s; angular {x,y,z} ENU rad/s; body {surge,sway,heave,rollRate,pitchRate,yawRate} |
 | attitude | rollRad, pitchRad, yawRad |
 | environment | seaState (preset index), localWaterHeight (m), waterVelocity/current/wind {x,y,z} ENU m/s |
+| environment.wave | significantHeightM, peakPeriodSec (current blended spectrum, not target preset) |
+| environment flow metadata | windSpeedMps, windDirectionRad, currentSpeedMps, currentDirectionRad |
 | dynamics | planingForceN, centerOfPressure {x,y,z} absolute ENU metres, submergedPoints |
 
 ENU is east/north/up. OW position/linear vectors map (x,y,z)→(x,z,y);
@@ -59,6 +61,13 @@ derivatives. Navigation heading/yawRad is north=0, east=+π/2, [-π,π]; it is o
 ENU +Z rotation for a level vessel. Positive mechanical steering retains original
 positive transom lateral thrust/negative navigation yaw; no command sign was flipped.
 
+P0-B/C/D retains existing wind/current vector objects, adding adjacent metadata
+instead of replacing them with a parallel environment schema. Flow speed is the
+magnitude of the local sampled vector; direction is navigation bearing **toward**
+flow, north=0/east=+π/2 (0 for zero flow), not meteorological wind-from bearing.
+Hs/Tp read WaveField.significantWaveHeight/peakPeriod directly. Unit-test flat-water
+adapters without spectrum fields report 0/0. Browser WaveField always supplies them.
+
 ## Lifetime and validation
 
 All fields are finite plain JSON data, with SI units. The reusable internal object
@@ -69,8 +78,8 @@ and nested objects are updated in place; `getState()` is read-only by convention
 
 Strict `validateVesselState()` rejects v0/unknown fields, nonfinite values,
 non-plain objects, wrong identifiers/types, malformed quaternion and invalid
-propulsion/ventilation ranges. It is used by tests/development, not a deep walk
-in each animation frame. Steering bounds belong to the active vessel profile,
+propulsion/ventilation ranges. It is used by tests and on due network publishes,
+not a deep walk in every animation frame. Steering bounds belong to the active vessel profile,
 not a hardcoded ±30° protocol-wide validator.
 
 Reset produces zero commands/actuals/rate/thrust, ventilation default 1. Before

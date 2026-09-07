@@ -1,6 +1,6 @@
 export class DriveController {
-  constructor(boat, { isTouch = false, auto = false } = {}) {
-    this.boat = boat;
+  constructor(commandSink, { isTouch = false, auto = false } = {}) {
+    this.commandSink = commandSink;
     this.isTouch = isTouch;
     this.isAuto = typeof auto === 'function' ? auto : () => auto;
     this.keys = new Set();
@@ -70,6 +70,6 @@ export class DriveController {
   }
 
   _apply() {
-    this.boat.setControls(this.throttle, this.wheel);
+    this.commandSink.setControls(this.throttle, this.wheel);
   }
 }

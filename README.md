@@ -3,13 +3,38 @@
 A single-vessel marine simulation and digital-twin foundation based on
 [bob6664569/open-water](https://github.com/bob6664569/open-water).
 
-Phase **P0-A** runs one Zodiac RIB with a single centerline outboard visual
-and a one-way SI/ENU Twin State v1 observer. A 240 Hz actuator adds lag,
+Phase **P0-B/C/D** runs one Zodiac RIB with a single centerline outboard visual
+and SI/ENU Twin State v1 telemetry. A 240 Hz actuator adds lag,
 saturation and rate limits before the original Open Water force model.
 Ocean, wind, current, waves, wake, spray, weather, audio and cameras remain.
 No boat selection,
 achievements, unlocks, missions, birds, fish or other wildlife run or download.
-LIVE/REPLAY, Qt, network telemetry and renderer decoupling are deferred.
+An optional WebSocket planner bridge adds explicit control ownership and a 50 Hz
+experiment recorder. LIVE/REPLAY, Qt and renderer decoupling are deferred.
+
+## External plant loop (P0-B/C/D)
+
+Standalone remains the default. Start the external substitute in a separate terminal:
+
+```sh
+npm ci
+npm run planner:smoke -- --experiment suite
+```
+
+With the static server below, open
+`http://127.0.0.1:8089/?debug&planner=ws://127.0.0.1:8765` and Start Simulation.
+Browser is the WebSocket client; the smoke tool/future C++ program is the server.
+The server must claim EXTERNAL before sending mechanical-radian commands.
+Timeout/disconnect select neutral commands while actual actuators decay normally.
+
+After startup, REC start/stop and CSV preview/download buttons are available only
+in debug mode. API: `window.openWater.recorder.start('turning')`, `.stop()`,
+`.getCsv()`, `.downloadCsv()`. Recorder and transport default to 50 Hz; plant stays
+240 Hz. All generated experiment files stay outside Git.
+
+See [wire protocol](docs/PLANNER_BRIDGE_PROTOCOL_V1.md),
+[recorder](docs/EXPERIMENT_RECORDER.md), and
+[actual test/benchmark results](docs/P0BCD_VALIDATION.md).
 
 ## Run
 
@@ -28,7 +53,7 @@ button also provides the user gesture needed by Web Audio. The original
 - W / Up: increase throttle; S / Down: reduce throttle, then reverse.
 - A / D or Left / Right: steering command; release to recenter.
 - Space: throttle to neutral (does not instantly stop motion).
-- R: reset vessel and wake. C: Chase / Helm / Top / Cinematic cameras.
+- R: reset vessel and wake (MANUAL only). C: Chase / Helm / Top / Cinematic cameras.
 - Mouse drag: orbit; wheel: zoom. Touch: hold and slide the drive pad.
 - 1–4 or **Sea State** buttons: Calm / Moderate / Rough / Storm, always available.
 
@@ -90,7 +115,8 @@ boat.setActuatorCommands({ propulsionCommand: 0.55, steeringAngleRad: Math.PI / 
 
 The default is `generic` (steering ±30°, 45°/s, T=0.35s; propulsion T=0.6s).
 `boat.setActuatorMode('ideal')` is for regression only; changing mode resets actuator
-commands/state. Manual UI still uses the compatibility `setControls()` wrapper.
+commands/state. Manual UI now enters CommandMux; Boat.setControls remains an offline
+compatibility wrapper. Runtime callers must respect control ownership through the bridge/mux.
 
 Offline acceptance commands, from the repository root:
 

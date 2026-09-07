@@ -48,6 +48,14 @@ export class SimulationStateSource extends VesselStateSource {
     openWaterPositionToENU(b._waterVel, s.environment.waterVelocity);
     openWaterPositionToENU(b.surfaceCurrent, s.environment.current);
     openWaterPositionToENU(b.trueWind, s.environment.wind);
+    const e = s.environment;
+    e.wave.significantHeightM = this.water.significantWaveHeight ?? 0;
+    e.wave.peakPeriodSec = this.water.peakPeriod ?? 0;
+    // Local sampled flow, ENU navigation bearing toward flow (north=0, clockwise).
+    e.windSpeedMps = Math.hypot(e.wind.x, e.wind.y, e.wind.z);
+    e.windDirectionRad = e.windSpeedMps > 0 ? Math.atan2(e.wind.x, e.wind.y) : 0;
+    e.currentSpeedMps = Math.hypot(e.current.x, e.current.y, e.current.z);
+    e.currentDirectionRad = e.currentSpeedMps > 0 ? Math.atan2(e.current.x, e.current.y) : 0;
     s.dynamics.planingForceN = b.diagnostics.planingForceN;
     openWaterPositionToENU(b.diagnostics.centerOfPressure, s.dynamics.centerOfPressure);
     s.dynamics.submergedPoints = b.diagnostics.submergedPoints;

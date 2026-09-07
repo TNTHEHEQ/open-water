@@ -2,6 +2,9 @@ import { loadSingleVessel } from './controllers/single-vessel-loader.js';
 import { SimulationStartup } from './ui/simulation-startup.js';
 import { SIMULATOR_CONFIG } from './config/simulator-config.js';
 import { SimulationStateSource } from './twin/simulation-state-source.js';
+import { CommandMux } from './control/command-authority.js';
+import { PlannerBridge, resolvePlannerEndpoint } from './bridge/planner-bridge.js';
+import { ExperimentRecorder } from './experiments/experiment-recorder.js';
 import { VESSEL_SPECS } from './simulation/vessels.js';
 import * as THREE from 'three';
 import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
@@ -72,7 +75,19 @@ const foamTrail = new FoamTrail();
 const weather = new WeatherEffects(scene, camera, waveField, audio);
 const perceptualEffects = new PerceptualEffects({ scene, camera, boat, waveField });
 const colorGrading = new ColorGrading(waveField);
-const drive = new DriveController(boat, {
+const commandMux = new CommandMux(boat, {
+  maxSteerRad: VESSEL_SPECS[SIMULATOR_CONFIG.vesselId].maxSteerRad,
+  externalCommandTimeoutSec: SIMULATOR_CONFIG.externalCommandTimeoutSec,
+});
+let plannerEndpoint = '';
+try { plannerEndpoint = resolvePlannerEndpoint(location.search, SIMULATOR_CONFIG); }
+catch { console.warn('Invalid planner URL: continuing standalone MANUAL'); }
+const plannerBridge = new PlannerBridge(commandMux, {
+  endpoint: plannerEndpoint, stateRateHz: SIMULATOR_CONFIG.plannerStateRateHz,
+});
+const recorder = new ExperimentRecorder({ sampleRateHz: SIMULATOR_CONFIG.recorderSampleRateHz });
+let plannerStarted = false;
+const drive = new DriveController(commandMux, {
   isTouch: IS_TOUCH,
   auto: () => location.hash === '#auto',
 });
@@ -197,7 +212,7 @@ addEventListener('keydown', (e) => {
   if (!startup.started) return;
   audio.start();
   drive.press(e.code);
-  if (e.code === 'KeyR') resetBoat();
+  if (e.code === 'KeyR' && commandMux.mode === 'MANUAL') resetBoat();
   if (e.code === 'KeyC') cameraController.cycle();
   const states = { Digit1: 1, Digit2: 2, Digit3: 3, Digit4: 4 };
   if (states[e.code] !== undefined) {
@@ -265,6 +280,7 @@ addEventListener('resize', () => {
 if (new URLSearchParams(location.search).has('debug')) {
   window.openWater = {
     twin: Object.freeze({ getState: () => twinStateSource.snapshot() }),
+    bridge: plannerBridge, recorder,
     boat, waveField, wakeField, camera, ocean, effects, foamTrail,
     weather, perceptualEffects, colorGrading, audio, renderer,
     snapCamera: () => cameraController.snap(),
@@ -277,6 +293,15 @@ if (new URLSearchParams(location.search).has('debug')) {
       gustFactor: waveField.gustFactor,
       wakeSources: wakeField.activeCount,
     }),
+  };
+  const controls = document.getElementById('recorder-controls'); controls.hidden = false;
+  document.getElementById('record-start').onclick = () => recorder.start('experiment');
+  document.getElementById('record-stop').onclick = () => recorder.stop();
+  document.getElementById('record-download').onclick = () => recorder.downloadCsv();
+  document.getElementById('record-preview').onclick = () => {
+    const output = document.getElementById('csv-preview');
+    output.hidden = !output.hidden;
+    if (!output.hidden) output.textContent = recorder.getCsv();
   };
 }
 
@@ -293,8 +318,13 @@ renderer.setAnimationLoop(() => {
   environment.updateAtmosphere(dt);
   driveValidation?.update(dt);
   drive.update(dt, waveField.time, gestureDrive.state);
+  // Connect only after startup; the server's presence never grants ownership.
+  if (startup.started && !plannerStarted) { plannerStarted = true; plannerBridge.start(); }
+  commandMux.apply(performance.now() / 1000);
   boat.update(dt);
-  twinStateSource.update();
+  const state = twinStateSource.update();
+  plannerBridge.update(state);
+  recorder.update(state);
   ocean.update(dt, boat.pos.x, boat.pos.z, boat);
   foamTrail.update(renderer, dt, boat);
   ocean.uniforms.uFoamTrail.value = foamTrail.texture;
@@ -329,7 +359,10 @@ renderer.setAnimationLoop(() => {
         + `Yaw rate ${v.yawRate.toFixed(3)} rad/s | Prop Cmd ${s.control.propulsionCommand.toFixed(2)} Actual ${s.actuator.propulsionActual.toFixed(3)}\n`
         + `Steer Cmd ${s.control.steeringCommandRad.toFixed(3)} Actual ${s.actuator.steeringActualRad.toFixed(3)} Effective ${s.actuator.steeringEffectiveRad.toFixed(3)} rad\nRate ${s.actuator.steeringRateRadPerSec.toFixed(3)} rad/s | Raw ${s.actuator.rawThrustN.toFixed(1)} Effective ${s.actuator.effectiveThrustN.toFixed(1)} N | Wet ${s.actuator.ventilationFactor.toFixed(3)}\n`
         + `Planing ${s.dynamics.planingForceN.toFixed(1)} N | Submerged ${s.dynamics.submergedPoints} | Wake ${wakeField.activeCount}\n`
-        + `Rig steer ${boat.visualRig?._steer.toFixed(3)} rad | Pivots ${boat.visualRig?.steerPivots.length} | Props ${boat.visualRig?.propellers.length} | Jet anchors ${effects._propPositions.length}`;
+        + `Rig steer ${boat.visualRig?._steer.toFixed(3)} rad | Pivots ${boat.visualRig?.steerPivots.length} | Props ${boat.visualRig?.propellers.length} | Jet anchors ${effects._propPositions.length}\n`
+        + `Planner: ${plannerBridge.diagnostics.connected ? 'CONNECTED' : 'DISCONNECTED'} | Authority: ${commandMux.mode} | Failsafe: ${commandMux.failsafe ? 'YES' : 'NO'}\n`
+        + `Command age: ${plannerBridge.diagnostics.lastCommandAgeMs?.toFixed(0) ?? '-'} ms | RX seq: ${plannerBridge.diagnostics.lastCommandSequence} | TX state: ${plannerBridge.diagnostics.stateSequence}\n`
+        + `REC ${recorder.recording ? 'ON' : 'OFF'} | Samples ${recorder.rows.length} | Skipped ${recorder.skippedSlots}`;
     }
   }
   environment.positionSunLight(boat.pos);
