@@ -32,4 +32,8 @@ test('actual Zodiac GLB: complete original engine centered, no second rig or sid
   assert.ok(rig._steer<0);assert.ok(pivot.rotation.y<angle);
   boat.throttle=0;const stopped=pivot.rotation.y;rig.update(.2,boat);assert.equal(pivot.rotation.y,stopped);
   assert.equal(rig.getPropellerWorldPositions().length,1);
+  // P0-A: mechanical actuator angle is authoritative, no second visual lag.
+  boat.outboardActuator={actualSteeringRad:.2,actualPropulsion:.5};
+  boat._effSteer=.1;rig.update(1/60,boat);assert.equal(rig._steer,.2);
+  boat.outboardActuator.actualSteeringRad=-.15;rig.update(1/144,boat);assert.equal(rig._steer,-.15);
 });

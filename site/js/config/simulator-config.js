@@ -1,5 +1,6 @@
 export const SIMULATOR_CONFIG = Object.freeze({
   vesselId: 'zodiac_boat',
+  actuatorMode: 'generic',
   modelUrl: './assets/boats/zodiac_boat.glb',
   wildlife: false,
   achievements: false,

@@ -9,14 +9,14 @@ import { runRegression } from '../../tools/usv1-regression.mjs';
 const near = (a,b) => assert.ok(Math.abs(a-b)<1e-12, `${a} != ${b}`);
 const vectorNear = (a,b) => { for(const key of ['x','y','z']) near(a[key],b[key]); };
 
-test('v0 is complete, finite, plain and JSON safe; validator rejects leakage and malformed states',()=>{
+test('v1 is complete, finite, plain and JSON safe; validator rejects leakage and malformed states',()=>{
   const state=createVesselState();
   assert.equal(validateVesselState(state),true);
   assert.deepEqual(JSON.parse(JSON.stringify(state)),state);
   const changes=[s=>{s.pose.position=new T.Vector3();},s=>{s.velocity.linear.x=NaN;},
     s=>{s.pose.orientation.w=0;},s=>{s.source='LIVE';},s=>{s.velocity.angular.z=Infinity;},
-    s=>{s.callback=()=>{};},s=>{s.circular=s;},s=>{delete s.control;},s=>{s.schemaVersion=1;},
-    s=>{s.control.throttleCommand=2;},s=>{s.sequence=-1;}];
+    s=>{s.callback=()=>{};},s=>{s.circular=s;},s=>{delete s.control;},s=>{s.schemaVersion=0;},
+    s=>{s.control.propulsionCommand=2;},s=>{s.sequence=-1;}];
   for(const change of changes){const broken=createVesselState();change(broken);assert.throws(()=>validateVesselState(broken));}
 });
 test('ENU polar and axial maps are distinct involutions, including in-place conversion',()=>{
@@ -50,7 +50,7 @@ test('source projects deterministically, preserves references and snapshots isol
   const boat={pos:new T.Vector3(1,2,3),quat:new T.Quaternion(),vel:new T.Vector3(4,5,6),
     angVelB:new T.Vector3(.1,.2,.3),throttle:.7,steer:-.4,_effSteer:-.1,propWet:.9,
     _waterVel:new T.Vector3(1,2,3),surfaceCurrent:new T.Vector3(.1,0,.2),trueWind:new T.Vector3(3,0,4),
-    diagnostics:{thrustN:700,planingForceN:123,centerOfPressure:new T.Vector3(7,8,9),submergedPoints:6}};
+    diagnostics:{propulsionCommand:.7,actualPropulsion:.6,steeringCommandRad:-.2,steeringActualRad:-.15,steeringEffectiveRad:-.1,steeringRateRadPerSec:.05,rawThrustN:800,effectiveThrustN:700,ventilationFactor:.9,thrustN:700,planingForceN:123,centerOfPressure:new T.Vector3(7,8,9),submergedPoints:6}};
   const water={time:12,preset:2,heightAt:()=>.45};
   const source=new SimulationStateSource(boat,water);
   const s=source.update(), pos=s.pose.position, control=s.control;
@@ -58,7 +58,13 @@ test('source projects deterministically, preserves references and snapshots isol
   assert.deepEqual(s.pose.position,{x:1,y:3,z:2});
   assert.deepEqual(s.velocity.angular,{x:-.1,y:-.3,z:-.2});
   assert.deepEqual(s.velocity.body,{surge:6,sway:4,heave:5,rollRate:-.3,pitchRate:-.1,yawRate:.2});
-  assert.equal(s.control.propulsion.thrustN,700); assert.equal(s.environment.localWaterHeight,.45);
+  assert.equal(s.actuator.effectiveThrustN,700); assert.equal(s.environment.localWaterHeight,.45);
+  assert.equal(s.schemaVersion,1);
+  assert.equal(s.control.steeringCommandRad,-.2);
+  assert.equal(s.actuator.steeringActualRad,-.15);
+  assert.equal(s.actuator.steeringEffectiveRad,-.1);
+  assert.equal(s.actuator.rawThrustN,800);
+  assert.ok(!('actualSteeringRad' in s.control));
   const copy=source.snapshot();copy.pose.position.x=900;assert.equal(s.pose.position.x,1);
   assert.equal(source.update(),s);assert.equal(s.pose.position,pos);assert.equal(s.control,control);
   assert.equal(s.sequence,2);assert.equal(s.timestamp,12);

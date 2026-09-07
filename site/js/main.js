@@ -64,6 +64,7 @@ const ocean = new Ocean(waveField, performanceManager.quality);
 scene.add(ocean.mesh);
 scene.add(ocean.patch);
 const boat = new Boat(waveField, scene, environment.startYaw());
+boat.setActuatorMode(SIMULATOR_CONFIG.actuatorMode);
 const effects = new BoatEffects(scene, waveField, boat);
 const audio = new BoatAudio(waveField, { engineBank: VESSEL_SPECS[SIMULATOR_CONFIG.vesselId].audio.bank, wildlife: SIMULATOR_CONFIG.wildlife });
 effects.onExhaustPop = (intensity, position) => audio.exhaustPop(intensity, position);
@@ -163,7 +164,9 @@ const qualityController = new QualityController({
   smaa,
   sunLight,
   budgetTargets: [
-    boat, ocean, environment, effects, weather, perceptualEffects,
+    // Render quality must not change this plant's 240 Hz actuator integration.
+    { setPerformanceBudget: budget => boat.setPerformanceBudget({ ...budget, physicsHz: 240, physicsMaxSteps: 12 }) },
+    ocean, environment, effects, weather, perceptualEffects,
     vesselOcclusion,
   ],
   resolutionTarget: ocean.uniforms.uResolution.value,
@@ -323,8 +326,8 @@ renderer.setAnimationLoop(() => {
         + `Time ${s.timestamp.toFixed(2)} s | Sequence ${s.sequence}\n`
         + `ENU E ${p.x.toFixed(3)} N ${p.y.toFixed(3)} U ${p.z.toFixed(3)} m\n`
         + `Heading ${s.pose.headingRad.toFixed(3)} rad | Surge ${v.surge.toFixed(3)} Sway ${v.sway.toFixed(3)} m/s\n`
-        + `Yaw rate ${v.yawRate.toFixed(3)} rad/s | Throttle ${s.control.throttleCommand.toFixed(2)} Steering ${s.control.steeringCommand.toFixed(2)}\n`
-        + `Actual steer ${s.control.actualSteeringRad.toFixed(3)} rad | Thrust ${s.control.propulsion.thrustN.toFixed(1)} N | Wet ${s.control.propulsion.ventilationFactor.toFixed(3)}\n`
+        + `Yaw rate ${v.yawRate.toFixed(3)} rad/s | Prop Cmd ${s.control.propulsionCommand.toFixed(2)} Actual ${s.actuator.propulsionActual.toFixed(3)}\n`
+        + `Steer Cmd ${s.control.steeringCommandRad.toFixed(3)} Actual ${s.actuator.steeringActualRad.toFixed(3)} Effective ${s.actuator.steeringEffectiveRad.toFixed(3)} rad\nRate ${s.actuator.steeringRateRadPerSec.toFixed(3)} rad/s | Raw ${s.actuator.rawThrustN.toFixed(1)} Effective ${s.actuator.effectiveThrustN.toFixed(1)} N | Wet ${s.actuator.ventilationFactor.toFixed(3)}\n`
         + `Planing ${s.dynamics.planingForceN.toFixed(1)} N | Submerged ${s.dynamics.submergedPoints} | Wake ${wakeField.activeCount}\n`
         + `Rig steer ${boat.visualRig?._steer.toFixed(3)} rad | Pivots ${boat.visualRig?.steerPivots.length} | Props ${boat.visualRig?.propellers.length} | Jet anchors ${effects._propPositions.length}`;
     }

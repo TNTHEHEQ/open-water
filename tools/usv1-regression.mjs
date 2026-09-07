@@ -13,7 +13,7 @@ export function runRegression(preset = 1, projectState = null) {
   for(let i=0;i<1800;i++) water.update(1/60,0,0);
   const wake=new WakeField();water.setWakeField(wake);
   const boat=new Boat(water,new THREE.Scene(),.37);
-  boat.setSpec(VESSEL_SPECS.zodiac_boat);boat.reset();
+  boat.setSpec(VESSEL_SPECS.zodiac_boat);boat.setActuatorMode('ideal');boat.reset();
   let planing=0, cop=[0,0,0], copWorld=null;
   const worldPoint=boat.worldPoint;
   boat.worldPoint=function(local,out){

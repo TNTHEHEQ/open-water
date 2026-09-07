@@ -886,9 +886,10 @@ export class VesselAnimationRig {
     this._time += dt;
     const hasSteering = this.steerPivots.length || this.bones.length;
     const throttle = this.bones.length || this.propellers.length
-      ? boat.throttle : 0;
+      ? (boat.outboardActuator?.actualPropulsion ?? boat.throttle) : 0;
     if (hasSteering) {
-      this._steer += (boat._effSteer - this._steer) * (1 - Math.exp(-dt * 9));
+      if (boat.outboardActuator) this._steer = boat.outboardActuator.actualSteeringRad;
+      else this._steer += (boat._effSteer - this._steer) * (1 - Math.exp(-dt * 9));
       for (const steer of this.steerPivots) {
         this._rotation.setFromAxisAngle(steer.axis, this._steer * steer.ratio);
         steer.pivot.quaternion.copy(steer.base).multiply(this._rotation);

@@ -1,13 +1,14 @@
 const vector = () => ({ x: 0, y: 0, z: 0 });
 export function createVesselState(vesselId = 'usv001') {
   return {
-    schemaVersion: 0, vesselId, source: 'SIM', sequence: 0, timestamp: 0,
+    schemaVersion: 1, vesselId, source: 'SIM', sequence: 0, timestamp: 0,
     pose: { position: vector(), orientation: { x: 0, y: 0, z: 0, w: 1 }, headingRad: 0 },
     velocity: { linear: vector(), angular: vector(), body: {
       surge: 0, sway: 0, heave: 0, rollRate: 0, pitchRate: 0, yawRate: 0,
     } },
-    control: { throttleCommand: 0, steeringCommand: 0, actualSteeringRad: 0,
-      propulsion: { type: 'single_outboard', thrustN: 0, ventilationFactor: 1 } },
+    control: { propulsionCommand: 0, steeringCommandRad: 0 },
+    actuator: { type: 'single_outboard', propulsionActual: 0, rawThrustN: 0, effectiveThrustN: 0,
+      steeringActualRad: 0, steeringEffectiveRad: 0, steeringRateRadPerSec: 0, ventilationFactor: 1 },
     attitude: { rollRad: 0, pitchRad: 0, yawRad: 0 },
     environment: { seaState: 0, localWaterHeight: 0,
       waterVelocity: vector(), current: vector(), wind: vector() },
@@ -18,7 +19,7 @@ export function createVesselState(vesselId = 'usv001') {
 // Explicit debug/transport operation, never called by the animation loop.
 export function snapshotVesselState(state) { return JSON.parse(JSON.stringify(state)); }
 
-// Strict v0 contract: reject extra fields as well as Three instances/functions/cycles.
+// Strict v1 contract: reject extra fields as well as Three instances/functions/cycles.
 // Validation is opt-in for development/tests, not a per-frame deep walk.
 export function validateVesselState(state) {
   const template = createVesselState();
@@ -34,14 +35,14 @@ export function validateVesselState(state) {
   }
   check(state, template, 'state');
   const q = state.pose.orientation;
-  if (state.schemaVersion !== 0 || state.source !== 'SIM' || !state.vesselId
-      || state.control.propulsion.type !== 'single_outboard'
+  if (state.schemaVersion !== 1 || state.source !== 'SIM' || !state.vesselId
+      || state.actuator.type !== 'single_outboard'
       || !Number.isSafeInteger(state.sequence) || state.sequence < 0 || state.timestamp < 0
       || !Number.isInteger(state.dynamics.submergedPoints) || state.dynamics.submergedPoints < 0
       || Math.abs(Math.hypot(q.x, q.y, q.z, q.w) - 1) > 1e-6
-      || Math.abs(state.control.throttleCommand) > 1 || Math.abs(state.control.steeringCommand) > 1
-      || state.control.propulsion.ventilationFactor < 0 || state.control.propulsion.ventilationFactor > 1) {
-    throw new RangeError('Invalid VesselState v0 identity, quaternion or control range');
+      || Math.abs(state.control.propulsionCommand) > 1 || Math.abs(state.actuator.propulsionActual) > 1
+      || state.actuator.ventilationFactor < 0 || state.actuator.ventilationFactor > 1) {
+    throw new RangeError('Invalid VesselState v1 identity, quaternion or control range');
   }
   return true;
 }

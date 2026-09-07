@@ -1,4 +1,6 @@
-# Digital Twin State v0
+# Digital Twin State v0 (historical)
+
+Superseded by [Twin State v1](DIGITAL_TWIN_STATE_V1.md) in P0-A. Do not use the v0 control semantics for current data.
 
 USV-1 is a one-way observation layer, not a renderer rewrite or a network client.
 

@@ -1,6 +1,15 @@
 import * as THREE from 'three';
 
 const v3 = (x, y, z) => new THREE.Vector3(x, y, z);
+export const REALISTIC_GENERIC_ACTUATOR = Object.freeze({
+  steeringMinRad: -Math.PI / 6, steeringMaxRad: Math.PI / 6,
+  steeringRateRadPerSec: Math.PI / 4, steeringTimeConstantSec: 0.35,
+  propulsionMin: -1, propulsionMax: 1, propulsionTimeConstantSec: 0.6,
+  steeringDelaySec: 0, propulsionDelaySec: 0,
+});
+// Regression only; vessel-specific angular bounds are retained when selecting it.
+export const IDEAL_ACTUATOR = Object.freeze({ steeringTimeConstantSec: 0,
+  steeringRateRadPerSec: Infinity, propulsionTimeConstantSec: 0 });
 
 function inertiaFor(mass, length, beam, height) {
   return v3(
@@ -60,6 +69,9 @@ function makeSpec(config) {
     maxThrustRev,
     maxPropSpeed: maxSpeed,
     maxSteerRad: THREE.MathUtils.degToRad(maxSteerDeg),
+    actuator: Object.freeze({ ...REALISTIC_GENERIC_ACTUATOR,
+      steeringMinRad: -THREE.MathUtils.degToRad(maxSteerDeg),
+      steeringMaxRad: THREE.MathUtils.degToRad(maxSteerDeg), ...config.actuator }),
     dragLong,
     dragLat,
     dragVert: mass * 0.21,

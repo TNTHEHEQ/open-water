@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import { VESSEL_SPECS } from './vessels.js';
+import { VESSEL_SPECS, IDEAL_ACTUATOR } from './vessels.js';
+import { OutboardActuator } from './outboard-actuator.js';
 import { VesselAnimationRig } from './vessel-animations.js';
 import { enableWaterPasses } from '../rendering/render-layers.js';
 import { enableVesselOcclusion } from '../rendering/vessel-occlusion.js';
@@ -153,6 +154,9 @@ export class Boat {
   constructor(waveField, scene, startYaw = FALLBACK_START_YAW) {
     this.wf = waveField;
     this.spec = VESSEL_SPECS.zefiro;
+    this.actuatorMode = 'generic';
+    this.outboardActuator = new OutboardActuator(this.spec.actuator);
+    this._actuatorCommand = { propulsionCommand: 0, steeringAngleRad: 0 };
     this.startYaw = startYaw;
 
     this.pos = new THREE.Vector3(0, 0.1, 0);
@@ -390,8 +394,35 @@ export class Boat {
   }
 
   setControls(throttle, steer) {
-    this.throttle = THREE.MathUtils.clamp(throttle, -1, 1);
-    this.steer = THREE.MathUtils.clamp(steer, -1, 1);
+    this._actuatorCommand.propulsionCommand = throttle;
+    this._actuatorCommand.steeringAngleRad = THREE.MathUtils.clamp(steer, -1, 1) * this.spec.maxSteerRad;
+    this.setActuatorCommands(this._actuatorCommand);
+  }
+
+  setActuatorCommands({ propulsionCommand, steeringAngleRad }) {
+    this.outboardActuator.setCommands(propulsionCommand, steeringAngleRad);
+    // Compatibility UI fields remain commands, never physical actuator outputs.
+    this.throttle = this.outboardActuator.propulsionCommand;
+    this.steer = this.outboardActuator.steeringCommandRad / this.spec.maxSteerRad;
+    this._syncActuatorDiagnostics();
+  }
+
+  setActuatorMode(mode) {
+    if (mode !== 'generic' && mode !== 'ideal') throw new RangeError('Unknown actuator mode');
+    this.actuatorMode = mode;
+    this.outboardActuator = new OutboardActuator(mode === 'ideal'
+      ? { ...this.spec.actuator, ...IDEAL_ACTUATOR } : this.spec.actuator);
+    this.throttle = this.steer = this._effSteer = 0;
+    this.diagnostics.rawThrustN = this.diagnostics.effectiveThrustN = this.diagnostics.thrustN = 0;
+    this._syncActuatorDiagnostics();
+  }
+
+  _syncActuatorDiagnostics() {
+    const a = this.outboardActuator, d = this.diagnostics;
+    d.propulsionCommand = a.propulsionCommand; d.actualPropulsion = a.actualPropulsion;
+    d.steeringCommandRad = a.steeringCommandRad; d.steeringActualRad = a.actualSteeringRad;
+    d.steeringRateRadPerSec = a.steeringRateRadPerSec;
+    d.steeringEffectiveRad = this._effSteer; d.ventilationFactor = this.propWet;
   }
 
   setPerformanceBudget({ physicsHz = 240, physicsMaxSteps = 12 } = {}) {
@@ -402,6 +433,7 @@ export class Boat {
 
   setSpec(spec) {
     this.spec = spec || VESSEL_SPECS.zefiro;
+    this.setActuatorMode(this.actuatorMode);
   }
 
   setStartYaw(yaw, applyNow = false) {
@@ -412,6 +444,11 @@ export class Boat {
   }
 
   reset() {
+    this.outboardActuator.reset();
+    this.throttle = this.steer = this._effSteer = 0;
+    this.propWet = 1;
+    this.diagnostics.rawThrustN = this.diagnostics.effectiveThrustN = 0;
+    this._syncActuatorDiagnostics();
     this.diagnostics.thrustN = 0;
     this.diagnostics.planingForceN = 0;
     this.diagnostics.submergedPoints = 0;
@@ -490,6 +527,7 @@ export class Boat {
   }
 
   _step(h) {
+    this.outboardActuator.update(h);
     const S = this.spec, s = this._s;
     this.diagnostics.planingForceN = 0;
     this.diagnostics.centerOfPressure.copy(this.pos);
@@ -573,7 +611,7 @@ export class Boat {
     this.wet = wet;
 
     const speed = Math.hypot(relCenter.x, relCenter.y, relCenter.z);
-    const effSteer = this.steer * S.maxSteerRad / (1 + speed * 0.045);
+    const effSteer = this.outboardActuator.actualSteeringRad / (1 + speed * 0.045);
     this._effSteer = effSteer;
     const propW = this.worldPoint(S.propPos, s[0]);
     const propDepth = this.wf.heightAt(propW.x, propW.z) - propW.y;
@@ -581,8 +619,12 @@ export class Boat {
     const heelCut = THREE.MathUtils.smoothstep(up.y, 0.25, 0.6);
     const advanceRatio = THREE.MathUtils.clamp(
       1 - 0.38 * Math.abs(vLong) / S.maxPropSpeed, 0.58, 1);
-    const thrustMag = (this.throttle >= 0 ? S.maxThrustFwd : S.maxThrustRev)
-                      * this.throttle * this.propWet * heelCut * advanceRatio;
+    const actualPropulsion = this.outboardActuator.actualPropulsion;
+    const rawThrust = (actualPropulsion >= 0 ? S.maxThrustFwd : S.maxThrustRev) * actualPropulsion;
+    const thrustMag = rawThrust * this.propWet * heelCut * advanceRatio;
+    this.diagnostics.rawThrustN = rawThrust;
+    this.diagnostics.effectiveThrustN = thrustMag;
+    this._syncActuatorDiagnostics();
     this.diagnostics.thrustN = thrustMag;
     if (thrustMag !== 0) {
       const dir = s[1].set(Math.sin(effSteer), 0, Math.cos(effSteer))

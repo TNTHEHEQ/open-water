@@ -32,11 +32,16 @@ export class SimulationStateSource extends VesselStateSource {
     s.attitude.rollRad = -Math.atan2(2 * (q.x * q.y + q.w * q.z), 1 - 2 * (q.x * q.x + q.z * q.z));
     s.attitude.pitchRad = Math.asin(Math.max(-1, Math.min(1, 2 * (q.y * q.z - q.w * q.x))));
     s.attitude.yawRad = s.pose.headingRad;
-    s.control.throttleCommand = b.throttle;
-    s.control.steeringCommand = b.steer;
-    s.control.actualSteeringRad = b._effSteer;
-    s.control.propulsion.thrustN = b.diagnostics.thrustN;
-    s.control.propulsion.ventilationFactor = b.propWet;
+    const d = b.diagnostics;
+    s.control.propulsionCommand = d.propulsionCommand;
+    s.control.steeringCommandRad = d.steeringCommandRad;
+    s.actuator.propulsionActual = d.actualPropulsion;
+    s.actuator.rawThrustN = d.rawThrustN;
+    s.actuator.effectiveThrustN = d.effectiveThrustN;
+    s.actuator.steeringActualRad = d.steeringActualRad;
+    s.actuator.steeringEffectiveRad = d.steeringEffectiveRad;
+    s.actuator.steeringRateRadPerSec = d.steeringRateRadPerSec;
+    s.actuator.ventilationFactor = d.ventilationFactor;
     s.environment.seaState = this.water.preset;
     s.environment.localWaterHeight = this.water.heightAt(b.pos.x, b.pos.z);
     // Boat already sampled these at its final COM after stepping; no duplicate query.
