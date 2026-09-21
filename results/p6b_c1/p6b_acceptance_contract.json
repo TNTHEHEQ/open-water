@@ -1,0 +1,17 @@
+{
+  "status": "NOT_FROZEN",
+  "reason": "Feedforward calibration failed strict KKT before an executable real-state plan existed.",
+  "gains_selected": null,
+  "thresholds": {
+    "max_position_error_m": null,
+    "rms_position_error_m": null,
+    "max_heading_error_rad": null,
+    "terminal_position_error_m": null,
+    "actuator_saturation_fraction": null,
+    "command_timeout_count": null
+  },
+  "formal_E1": "NOT_RUN",
+  "formal_E2": "NOT_RUN",
+  "diagnostic_E1_E2": "PLANNING_ONLY_FAILED",
+  "post_result_threshold_tuning": false
+}

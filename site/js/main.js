@@ -1,3 +1,4 @@
+import { plantCapabilities, SimulationHoldController, PlanExecutionController, P6BTestPreconditioner } from './integration/plan-execution.js';
 import { ObstacleManager } from './scenario/obstacle-manager.js';
 import { PlannerVisualizationGroup } from './visualization/planner-visualization-group.js';
 import { PlannerLog } from './experiments/planner-log.js';
@@ -85,6 +86,9 @@ const commandMux = new CommandMux(boat, {
 let plannerEndpoint = '';
 try { plannerEndpoint = resolvePlannerEndpoint(location.search, SIMULATOR_CONFIG); }
 catch { console.warn('Invalid planner URL: continuing standalone MANUAL'); }
+const p6bEnabled = new URLSearchParams(location.search).has('p6b') && new URLSearchParams(location.search).has('debug');
+const simulationHold = new SimulationHoldController();
+let execution = null, preconditioner = null;
 const obstacleManager = new ObstacleManager();
 const plannerVisuals = new PlannerVisualizationGroup(scene, (x, y) => waveField.heightAt(x, y));
 plannerVisuals.visible = Boolean(plannerEndpoint);
@@ -92,13 +96,19 @@ const plannerLog = new PlannerLog();
 let seedObstacleScenario = true, latestObstacles = null;
 const plannerBridge = new PlannerBridge(commandMux, {
   endpoint: plannerEndpoint, stateRateHz: SIMULATOR_CONFIG.plannerStateRateHz,
-  visualizationOnly: true,
+  visualizationOnly: !p6bEnabled,
   obstacleSource: time => obstacleManager.snapshot(time),
   onPlan: message => {
     plannerVisuals.planned.replace(message);
+    execution?.onPlan(message);
     plannerLog.record(message, twinStateSource.getState(), plannerBridge.diagnostics.obstacleSequence);
   },
 });
+if (p6bEnabled) {
+  execution = new PlanExecutionController(plannerBridge, commandMux, simulationHold, plantCapabilities(VESSEL_SPECS[SIMULATOR_CONFIG.vesselId]));
+  plannerBridge.execution = execution;
+  preconditioner = new P6BTestPreconditioner(commandMux, VESSEL_SPECS[SIMULATOR_CONFIG.vesselId], simulationHold);
+}
 const recorder = new ExperimentRecorder({ sampleRateHz: SIMULATOR_CONFIG.recorderSampleRateHz });
 let plannerStarted = false;
 const drive = new DriveController(commandMux, {
@@ -215,6 +225,7 @@ const gestureDrive = new GestureDriveController({
 gestureDrive.bind();
 
 function resetBoat() {
+  execution?.abort('RESET');
   plannerVisuals.clear(); seedObstacleScenario = true; obstacleManager.clear(); plannerBridge.invalidatePlans();
   drive.resetOutput();
   wakeField.clear();
@@ -295,7 +306,7 @@ addEventListener('resize', () => {
 if (new URLSearchParams(location.search).has('debug')) {
   window.openWater = {
     twin: Object.freeze({ getState: () => twinStateSource.snapshot() }),
-    bridge: plannerBridge, recorder, plannerVisuals, obstacleManager, plannerLog,
+    bridge: plannerBridge, recorder, plannerVisuals, obstacleManager, plannerLog, execution, simulationHold, preconditioner,
     boat, waveField, wakeField, camera, ocean, effects, foamTrail,
     weather, perceptualEffects, colorGrading, audio, renderer,
     snapCamera: () => cameraController.snap(),
@@ -315,6 +326,15 @@ if (new URLSearchParams(location.search).has('debug')) {
   const visibleToggle = document.getElementById('planner-visible'); visibleToggle.checked = plannerVisuals.visible;
   visibleToggle.onchange = () => { plannerVisuals.visible = visibleToggle.checked; };
   document.getElementById('plan-log-download').onclick = () => plannerLog.download();
+  if (p6bEnabled) {
+    const panel = document.createElement('div');
+    panel.innerHTML = '<select id="execution-scenario" aria-label="Execution scenario"><option>E1</option><option>E2</option><option>CALIBRATION</option></select> <button id="precondition">PRECONDITION 2 M/S</button> <button id="snapshot-plan">PLAN SNAPSHOT</button> <button id="execute-plan" disabled>EXECUTE LAST PLAN</button> <button id="abort-execution">ABORT EXECUTION</button>';
+    document.getElementById('recorder-controls').appendChild(panel);
+    document.getElementById('precondition').onclick = () => { execution.abort('PRECONDITION_RESTART'); obstacleManager.clear(); plannerVisuals.clear(); preconditioner.start(); };
+    document.getElementById('snapshot-plan').onclick = () => { if (!preconditioner.active) execution.request(twinStateSource.getState(), document.getElementById('execution-scenario').value); };
+    document.getElementById('execute-plan').onclick = () => execution.execute();
+    document.getElementById('abort-execution').onclick = () => { preconditioner.active = false; execution.abort(); };
+  }
   const controls = document.getElementById('recorder-controls'); controls.hidden = false;
   document.getElementById('record-start').onclick = () => recorder.start('experiment');
   document.getElementById('record-stop').onclick = () => recorder.stop();
@@ -333,20 +353,22 @@ renderer.setAnimationLoop(() => {
   qualityController.applyPending();
   renderer.info.reset();
   const frameDt = Math.min(clock.getDelta(), 0.05);
-  const dt = startup.started ? frameDt : 0;
+  const dt = startup.started ? simulationHold.timestep(frameDt) : 0;
   waveField.update(dt, boat.pos.x, boat.pos.z);
   wakeField.update(dt, boat, waveField);
   environment.updateAtmosphere(dt);
   driveValidation?.update(dt);
-  drive.update(dt, waveField.time, gestureDrive.state);
+  if (!simulationHold.held && !execution?.owns && !preconditioner?.active) drive.update(dt, waveField.time, gestureDrive.state);
+  if (startup.started) preconditioner?.update(twinStateSource.getState(), dt);
   // Connect only after startup; the server's presence never grants ownership.
   if (startup.started && !plannerStarted) { plannerStarted = true; plannerBridge.start(); }
   commandMux.apply(performance.now() / 1000);
   boat.update(dt);
   const state = twinStateSource.update();
-  if (seedObstacleScenario && startup.started) { obstacleManager.seedVisualScenario(state); seedObstacleScenario = false; }
+  if (seedObstacleScenario && startup.started && !p6bEnabled) { obstacleManager.seedVisualScenario(state); seedObstacleScenario = false; }
   latestObstacles = obstacleManager.snapshot(state.timestamp);
   plannerBridge.update(state);
+  execution?.update(state);
   plannerVisuals.update(state, latestObstacles);
   recorder.update(state);
   ocean.update(dt, boat.pos.x, boat.pos.z, boat);
@@ -371,6 +393,11 @@ renderer.setAnimationLoop(() => {
   debugElapsed += frameDt;
   if (debugElapsed > 0.2) {
     debugElapsed = 0;
+    if (p6bEnabled) {
+      document.getElementById('execute-plan').disabled = !(execution.status === 'PLAN_READY' && execution.plan?.execution_capable && simulationHold.held);
+      document.getElementById('snapshot-plan').disabled = preconditioner.active || execution.owns || execution.status === 'PLANNING';
+      document.getElementById('precondition').disabled = execution.owns || execution.status === 'PLANNING';
+    }
     headingForward.set(0, 0, 1).applyQuaternion(boat.quat);
     const heading = (Math.atan2(headingForward.x, headingForward.z) * 180 / Math.PI + 360) % 360;
     headingElement.textContent = heading.toFixed(1) + '°';
@@ -386,7 +413,7 @@ renderer.setAnimationLoop(() => {
         + `Rig steer ${boat.visualRig?._steer.toFixed(3)} rad | Pivots ${boat.visualRig?.steerPivots.length} | Props ${boat.visualRig?.propellers.length} | Jet anchors ${effects._propPositions.length}\n`
         + `Planner: ${plannerBridge.diagnostics.connected ? 'CONNECTED' : 'DISCONNECTED'} | Authority: ${commandMux.mode} | Failsafe: ${commandMux.failsafe ? 'YES' : 'NO'}\n`
         + `Command age: ${plannerBridge.diagnostics.lastCommandAgeMs?.toFixed(0) ?? '-'} ms | RX seq: ${plannerBridge.diagnostics.lastCommandSequence} | TX state: ${plannerBridge.diagnostics.stateSequence}\n`
-        + `P6A VISUALIZATION ONLY / SYNTHETIC MODEL | NO ACTUATOR MAPPING\n`
+        + (p6bEnabled ? `P6B ${execution.status} | HOLD ${simulationHold.held} | Precondition ${preconditioner.status}\nExecution ${JSON.stringify(execution.metrics)} | Timeouts ${execution.failures}\n` : `P6A VISUALIZATION ONLY / SYNTHETIC MODEL | NO ACTUATOR MAPPING\n`)
         + `Plant seq ${plannerBridge.diagnostics.stateSequence} | Obstacle seq ${plannerBridge.diagnostics.obstacleSequence} | Blocked control ${plannerBridge.diagnostics.blockedControlMessages}\n`
         + `Plan ${plannerBridge.diagnostics.planId} | ${plannerBridge.diagnostics.planStatus} | Points ${plannerBridge.diagnostics.planPoints}\n`
         + `Source sim ${plannerBridge.diagnostics.planSourceTime?.toFixed(2) ?? '-'} | Received sim ${plannerBridge.diagnostics.planReceivedTime?.toFixed(2) ?? '-'} | Plan age ${plannerBridge.diagnostics.planSourceTime === null ? '-' : (s.timestamp - plannerBridge.diagnostics.planSourceTime).toFixed(2)} s\n`

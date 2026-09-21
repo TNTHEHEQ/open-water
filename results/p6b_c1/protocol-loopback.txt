@@ -1,0 +1,1 @@
+PASS native protocol execution 1111 [ 'EXTERNAL', 'MANUAL', 'MANUAL' ]

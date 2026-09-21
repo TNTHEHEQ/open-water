@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "scope": "bounded actuator-driven Boat._step response, not model equivalence",
+  "duration_after_preconditioning": 8,
+  "feedback_signs": {
+    "Ky": "negative",
+    "Kpsi": "negative",
+    "Kr": "negative"
+  },
+  "results": [
+    {
+      "mechanical_command": -0.04,
+      "planner_command_sign": 1,
+      "planner_y": -0.4835270391961267,
+      "planner_heading": -0.09074737066846422,
+      "planner_yaw_rate": -0.0095587789267078,
+      "max_actual_rate": 0.11025247967667794,
+      "rate_limiter_triggered": false
+    },
+    {
+      "mechanical_command": 0.04,
+      "planner_command_sign": -1,
+      "planner_y": -0.33574479167711313,
+      "planner_heading": 0.07829377645583369,
+      "planner_yaw_rate": 0.013218935349764567,
+      "max_actual_rate": 0.11025247967667794,
+      "rate_limiter_triggered": false
+    }
+  ]
+}

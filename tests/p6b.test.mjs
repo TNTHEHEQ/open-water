@@ -1,0 +1,28 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import { SimulationHoldController,PlanExecutionController,plantCapabilities } from '../site/js/integration/plan-execution.js';
+import { CommandMux } from '../site/js/control/command-authority.js';
+import { VESSEL_SPECS } from '../site/js/simulation/vessels.js';
+import { parsePlannerMessage } from '../site/js/bridge/protocol.js';
+function setup(){const commands=[];const mux=new CommandMux({setActuatorCommands:c=>commands.push({...c})},{maxSteerRad:Math.PI/6});const hold=new SimulationHoldController();const sent=[];const bridge={simulationTime:5,claimed:false,now:()=>10,send:m=>{sent.push(m);return true;},diagnostics:{stateSequence:2,obstacleSequence:3},update:()=>{}};const e=new PlanExecutionController(bridge,mux,hold,plantCapabilities(VESSEL_SPECS.zodiac_boat));return {e,mux,hold,bridge,sent,commands};}
+test('P6B capabilities originate from active spec',()=>{const s=VESSEL_SPECS.zodiac_boat,c=plantCapabilities(s);assert.equal(c.actuator.max_thrust_fwd_n,s.maxThrustFwd);assert.equal(c.actuator.steering_time_constant_sec,s.actuator.steeringTimeConstantSec);});
+test('P6B hold only changes dt; release is continuous',()=>{const h=new SimulationHoldController();let time=1;const vessel={u:2,T:180};const snapshot={...vessel};h.hold();for(let i=0;i<100;i++)time+=h.timestep(.02);assert.equal(time,1);assert.deepEqual(vessel,snapshot);h.release();time+=h.timestep(.02);assert.equal(time,1.02);});
+test('P6B request enters hold before publishing frozen snapshot',()=>{const {e,hold,sent}=setup();e.request({timestamp:5},'E1');assert.equal(hold.held,true);assert.equal(sent.at(-1).type,'plan_request');assert.equal(sent.at(-1).state_sequence,1);assert.throws(()=>e.execute());});
+test('P6B only fresh ownership and first command can arm',()=>{const {e,hold,mux,bridge,sent}=setup();hold.hold();e.onPlan({status:'SUCCESS',execution_capable:true,plan_id:'p'});e.execute();e.receive({status:'ARMING'});mux.setMode('EXTERNAL');bridge.claimed=true;e.onControl();assert.equal(sent.at(-1).type,'execute_plan');mux.external.receive(.01,.1,10);e.onControl();assert.equal(sent.at(-1).type,'execution_ack');assert.equal(hold.held,true);e.receive({status:'ARMED'});assert.equal(hold.held,false);assert.equal(e.status,'EXECUTING');});
+test('P6B invalid arming and stale rejection cannot resume execution',()=>{const {e,hold,mux}=setup();hold.hold();e.receive({status:'ARMED'});assert.equal(mux.mode,'MANUAL');assert.equal(e.status,'ABORTED');e.receive({status:'REJECTED_STALE',reason:'old'});assert.equal(e.owns,false);});
+test('P6B abort is locally neutral/manual before notification',()=>{const {e,mux,hold,bridge}=setup();mux.setMode('EXTERNAL');hold.hold();e.owns=true;bridge.send=()=>{assert.equal(mux.mode,'MANUAL');assert.equal(hold.held,false);return false;};e.abort();assert.equal(mux.manual.propulsionCommand,0);assert.equal(mux.external.command.propulsionCommand,0);});
+test('P6B completion returns manual and holds terminal state',()=>{const {e,mux,hold}=setup();mux.setMode('EXTERNAL');e.owns=true;e.receive({status:'COMPLETE'});assert.equal(mux.mode,'MANUAL');assert.equal(hold.held,true);assert.equal(e.owns,false);});
+test('P6B disconnect returns manual without actuator reset API',()=>{const {e,mux}=setup();e.owns=true;mux.setMode('EXTERNAL');e.disconnected();assert.equal(e.status,'ABORTED');assert.equal(mux.mode,'MANUAL');});
+test('P6B unchanged 0.5 second timeout aborts active execution',()=>{const {e,mux}=setup();e.owns=true;e.status='EXECUTING';mux.setMode('EXTERNAL');mux.external.receive(.01,0,9.49);mux.apply(10);e.update({timestamp:5});assert.equal(e.failures,1);assert.equal(mux.mode,'MANUAL');});
+test('P6B bounded execution status protocol rejects nonfinite metrics',()=>{const m={protocol_version:1,type:'execution_status',status:'ARMED',reason:'',plan_id:'p'};assert.equal(parsePlannerMessage(JSON.stringify(m)).status,'ARMED');m.metrics={e:null};assert.throws(()=>parsePlannerMessage(JSON.stringify(m)));});
+test('P6B real Boat hold/release preserves state; neutral abort uses natural actuator decay',async()=>{
+ globalThis.window??={location:{search:''}};globalThis.matchMedia??=()=>({matches:false});
+ const THREE=await import('three');const {Boat}=await import('../site/js/simulation/boat.js');
+ const water={time:0,preset:1,heightAt:()=>0,velocityAt:(_x,_z,out)=>out.set(0,0,0),normalAt:(_x,_z,out)=>out.set(0,1,0)};
+ const b=new Boat(water,new THREE.Scene(),0);b.setSpec(VESSEL_SPECS.zodiac_boat);b.reset();
+ const mux=new CommandMux(b,{maxSteerRad:b.spec.maxSteerRad});mux.setControls(.01,.1);mux.apply(0);b.update(.1);
+ const h=new SimulationHoldController();h.hold();const state=()=>[...b.pos.toArray(),...b.vel.toArray(),...b.quat.toArray(),b.outboardActuator.actualPropulsion,b.outboardActuator.actualSteeringRad];const before=state();
+ for(let i=0;i<100;i++)b.update(h.timestep(.02));assert.deepEqual(state(),before);
+ const actual=b.outboardActuator.actualPropulsion;mux.setControls(0,0);mux.setMode('MANUAL');mux.apply(1);assert.equal(b.outboardActuator.actualPropulsion,actual);
+ h.release();b.update(h.timestep(.02));assert.ok(b.outboardActuator.actualPropulsion>0&&b.outboardActuator.actualPropulsion<actual);
+});
+test('P6B late plan from an older snapshot cannot replace requested plan',()=>{const {e}=setup();e.request({timestamp:5},'E1');e.onPlan({source_state_sequence:0,status:'SUCCESS',execution_capable:true,plan_id:'old'});assert.equal(e.plan,null);assert.equal(e.status,'PLANNING');e.onPlan({source_state_sequence:1,status:'SUCCESS',execution_capable:true,plan_id:'new'});assert.equal(e.plan.plan_id,'new');assert.equal(e.status,'PLAN_READY');});

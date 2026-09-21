@@ -38,6 +38,7 @@ export class PlannerBridge {
   disconnected() {
     this.diagnostics.connected = false; this.claimed = false;
     this.mux.external.invalidate(); this.mux.apply(this.now());
+    this.execution?.disconnected();
     this.refreshDiagnostics();
   }
   connect() {
@@ -52,6 +53,7 @@ export class PlannerBridge {
       this.claimed = false; this.mux.external.invalidate(); this.lastPlanSequence = -1;
       this.reconnectAt = Infinity; this.nextPublish = this.now();
       this.send({ protocol_version: PROTOCOL_VERSION, type: 'hello', role: 'openwater_plant', vessel_id: 'usv001' });
+      this.execution?.connected();
     };
     socket.onmessage = event => {
       if (this.socket === socket && this.running && this.diagnostics.connected && socket.readyState === 1) this.receive(event.data);
@@ -78,6 +80,8 @@ export class PlannerBridge {
         d.planSolveTime = m.diagnostics?.solve_time_sec ?? null;
         this.onPlan(m); return;
       }
+      if (m.type === 'execution_status' && this.execution) { this.execution.receive(m); return; }
+      if (this.execution && !this.execution.allowControl(m)) throw new RangeError('No P6B execution request');
       if (this.visualizationOnly) { d.blockedControlMessages++; throw new RangeError('P6A visual-only authority'); }
       if (m.type === 'set_control_mode') {
         this.mux.setMode(m.mode); this.claimed = m.mode === 'EXTERNAL';
@@ -88,6 +92,7 @@ export class PlannerBridge {
         this.lastSenderTimestamp = m.timestamp;
       }
       this.mux.apply(this.now());
+      this.execution?.onControl();
     } catch { d.invalidMessages++; }
     this.refreshDiagnostics();
   }

@@ -1,0 +1,44 @@
+{
+  "status": "PASS",
+  "scope": "manufactured protocol plant only; not 6DOF acceptance",
+  "commands": 1111,
+  "events": [
+    {
+      "status": "PLANNING",
+      "time": 5
+    },
+    {
+      "status": "PLANNING",
+      "time": 5
+    },
+    {
+      "status": "PLAN_READY",
+      "time": 5
+    },
+    {
+      "status": "ARMING",
+      "time": 5
+    },
+    {
+      "status": "ARMING",
+      "time": 5
+    },
+    {
+      "status": "ARMED",
+      "time": 5
+    },
+    {
+      "status": "COMPLETE",
+      "time": 27.05999999999953
+    }
+  ],
+  "modes": [
+    "EXTERNAL",
+    "MANUAL",
+    "MANUAL"
+  ],
+  "plan_points": 81,
+  "timeout_count": 0,
+  "simulation_time": 27.05999999999953,
+  "final_mode": "MANUAL"
+}

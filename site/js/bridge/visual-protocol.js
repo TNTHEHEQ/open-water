@@ -9,7 +9,7 @@ function fields(x, required, optional = []) {
 const seq = n => Number.isSafeInteger(n) && n >= 0;
 export function validatePlannedTrajectory(m) {
   fields(m, ['protocol_version', 'type', 'sequence', 'plan_id', 'source_state_sequence',
-    'source_simulation_time', 'obstacle_sequence', 'status', 'points'], ['diagnostics']);
+    'source_simulation_time', 'obstacle_sequence', 'status', 'points'], ['diagnostics', 'execution_capable', 'actuator_mapping_profile_id']);
   if (m.protocol_version !== 1 || m.type !== 'planned_trajectory' || !seq(m.sequence)
       || !seq(m.source_state_sequence) || !seq(m.obstacle_sequence)
       || typeof m.plan_id !== 'string' || !m.plan_id || m.plan_id.length > 80
@@ -17,6 +17,7 @@ export function validatePlannedTrajectory(m) {
       || !['SUCCESS', 'FAIL', 'STALE_INPUT', 'INFEASIBLE', 'SOLVER_ERROR'].includes(m.status)
       || !Array.isArray(m.points) || m.points.length > MAX_TRAJECTORY_POINTS
       || (m.status === 'SUCCESS' ? m.points.length < 2 : m.points.length !== 0)) throw new TypeError('Invalid plan');
+  if (m.execution_capable !== undefined && (typeof m.execution_capable !== 'boolean' || m.actuator_mapping_profile_id !== 'OW_RAW_FORCE_STEERING_REFLECTION_V1')) throw new TypeError('Execution capability schema');
   let time = -1;
   for (const p of m.points) {
     fields(p, ['t_rel', 'x', 'y', 'heading_rad', 'speed_mps']);

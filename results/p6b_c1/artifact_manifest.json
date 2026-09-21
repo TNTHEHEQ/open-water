@@ -1,0 +1,31 @@
+{
+  "algorithm": "SHA-256",
+  "files": {
+    "site/js/integration/plan-execution.js": "a8578236327211edc97be0263bc067f47e5d033a6ed889cb19334a7e4be86a41",
+    "tests/p6b.test.mjs": "77ee4b4d281e33a231d152cb7443439be1d752c937b9135de841c6f2544425b0",
+    "tools/p6b-run.mjs": "a3736fc605b6cadc59ff9a7f79c4a4322bcd6e9a258e988df553439d0959f14d",
+    "tools/p6b-protocol-loopback.mjs": "6c7efc5d37141701a05ba72d01d6c3664e7eddafd014b8fafcfbfbe4a42a9e73",
+    "tools/p6b-direction-diagnostic.mjs": "a9b7f62fe7ae1a1b1b2ffa4dba995c20786c627b7a6d80eb9e8a66c565fb7076",
+    "results/p6b_c1/lint.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/p6b_c1/npm-test.txt": "005a421a5cebd922a4b781327eadf33144ffc7aa7c07757f2b577cc2151e16c0",
+    "results/p6b_c1/README.md": "7ab02b037d3e48b125cf239867c96a609ee259d4062c37271cfabd03061eb0ef",
+    "results/p6b_c1/validation.md": "bbc7c53a074dbfc1a4cfe7b03ea2c632d3ed9ff4037618747d3995cc7eb97c86",
+    "results/p6b_c1/lint-html.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/p6b_c1/protocol-loopback.json": "6b41d42a4de7c8023c3dc265394e3516f4426a2e10b66247eefd68cb7c2b36df",
+    "results/p6b_c1/controller-directions.json": "92491e5b83a73b81764558d7e514ab14c49ba040283378d4049921f4b970ab67",
+    "results/p6b_c1/p6b_acceptance_contract.json": "37d232363125d2edeb3727d1200ba4fc566e1935b169489411e8c02a35b7d069",
+    "results/p6b_c1/protocol-loopback.txt": "a93e5eaebc40b40fba0a847b0da12078ad171fab1ed18a2265e13511faf292af",
+    "results/p6b_c1/gate.json": "6c7d7233bd221c5a4430d934f97b07c057cb31f9b46e2cd1fc493d7d7bddd5c6",
+    "results/p6b_c1/browser/p6b-E2.jpg": "a94a32f075563aab6b11d0b2902e062cff40dd5fd3510efa7764e4f6bd2b3dca",
+    "results/p6b_c1/browser/p6b-E1.jpg": "5b660a2f4501443d769644bf3516b0cd29f425fd3c07f0d7edfc03cbdfd94e4f",
+    "results/p6b_c1/browser/p6b-E1-dom.txt": "c424db5388792f39cadcb0218737682b5abe75b4fe9dbc4db1e9bd36178e6de6",
+    "results/p6b_c1/browser/p6b-E2-hold-dom.txt": "33acd01c73bb919075b9fcda3be5f5b68aeaf4d0fdbaab6fd26b554803782a99",
+    "results/p6b_c1/browser/p6b-E2-dom.txt": "b874fc0aac3b6b96dd9e2164aa3ad9537aac04782a2f6469595e153f2da96a22",
+    "results/p6b_c1/browser/p6b-hold-dom.txt": "7ac33eecf1d6a685d67cf9563206ff5819a39b38b587c45929121db6f2d86244",
+    "P6B_CONTRACT_RESOLUTION.md": "ca11bd43c1e767e5e00996495364436a9b09337055830ccbd2982497f1acd3c2",
+    "site/js/main.js": "b98d456ca17e19953cf45aee0d1240aa2c95bb8317823e4c5bf5cf44632cd39f",
+    "site/js/bridge/planner-bridge.js": "b7bf0b0875d4e58639271cee724cc199650882a0fb5f300b0fed69711249e98b",
+    "site/js/bridge/protocol.js": "b6d49158940067fbb4139d2a7f26937555637a2857329fe4dda7f3dacbe3ea24",
+    "site/js/bridge/visual-protocol.js": "b964c5e0a5b936c3d88e1701889bb8d6303911bf4620f3b2e95504b15d55aeb3"
+  }
+}

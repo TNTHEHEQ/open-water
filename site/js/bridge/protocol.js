@@ -26,7 +26,11 @@ export function parsePlannerMessage(text) {
   const m = JSON.parse(text);
   if (m?.type === 'planned_trajectory') { validatePlannedTrajectory(m); return m; }
   if (new TextEncoder().encode(text).length > 4096) throw new TypeError('Expected small JSON text frame');
-  if (m?.type === 'control_command') validateControlCommand(m);
+  if (m?.type === 'execution_status') {
+    validateProtocolVersion(m);
+    if (typeof m.status !== 'string' || !['PLANNING','PLAN_READY','ARMING','ARMED','EXECUTING','COMPLETE','ABORTED','REJECTED_STALE','REJECTED_STATE_MISMATCH','REJECTED_CAPABILITY','SOLVER_ERROR'].includes(m.status) || typeof m.reason !== 'string' || m.reason.length > 2048 || typeof m.plan_id !== 'string' || m.plan_id.length > 80 || Object.keys(m).some(k => !['protocol_version','type','status','reason','plan_id','metrics'].includes(k))) throw new TypeError('Execution status');
+    if (m.metrics && (Object.keys(m.metrics).length > 16 || !Object.values(m.metrics).every(Number.isFinite))) throw new TypeError('Execution metrics');
+  } else if (m?.type === 'control_command') validateControlCommand(m);
   else if (m?.type === 'set_control_mode') validateControlMode(m);
   else throw new TypeError('Unsupported message type');
   return m;

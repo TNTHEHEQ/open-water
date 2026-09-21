@@ -1,0 +1,13 @@
+import fs from 'node:fs';import * as THREE from 'three';import { WaveField } from '../site/js/simulation/waves.js';import { VESSEL_SPECS } from '../site/js/simulation/vessels.js';import { SimulationStateSource } from '../site/js/twin/simulation-state-source.js';import { CommandMux } from '../site/js/control/command-authority.js';import { SimulationHoldController,P6BTestPreconditioner } from '../site/js/integration/plan-execution.js';
+globalThis.window??={location:{search:''}};globalThis.matchMedia??=()=>({matches:false});const { Boat }=await import('../site/js/simulation/boat.js');
+const results=[];
+for(const mechanical of [-.04,.04]){
+ const w=new WaveField();w.setSeaPreset(1);const b=new Boat(w,new THREE.Scene(),0);b.setSpec(VESSEL_SPECS.zodiac_boat);b.reset();const source=new SimulationStateSource(b,w);source.update();const mux=new CommandMux(b,{maxSteerRad:b.spec.maxSteerRad});const hold=new SimulationHoldController();const pre=new P6BTestPreconditioner(mux,b.spec,hold);pre.start();let now=0;
+ while(pre.active){pre.update(source.getState(),.02);mux.apply(now);const dt=hold.timestep(.02);w.update(dt,b.pos.x,b.pos.z);b.update(dt);source.update();now+=.02;}
+ const start=source.snapshot();hold.release();let rate=0;
+ for(let k=0;k<400;k++){mux.setControls(200/b.spec.maxThrustFwd,mechanical/b.spec.maxSteerRad);mux.apply(now);w.update(.02,b.pos.x,b.pos.z);b.update(.02);source.update();rate=Math.max(rate,Math.abs(b.outboardActuator.steeringRateRadPerSec));now+=.02;}
+ const end=source.snapshot(),h=start.pose.headingRad,de=end.pose.position.x-start.pose.position.x,dn=end.pose.position.y-start.pose.position.y;
+ results.push({mechanical_command:mechanical,planner_command_sign:-Math.sign(mechanical),planner_y:-Math.cos(h)*de+Math.sin(h)*dn,planner_heading:-Math.atan2(Math.sin(end.pose.headingRad-h),Math.cos(end.pose.headingRad-h)),planner_yaw_rate:-end.velocity.body.yawRate,max_actual_rate:rate,rate_limiter_triggered:rate>=b.spec.actuator.steeringRateRadPerSec-1e-9});
+}
+const left=results[1],right=results[0];if(!(left.planner_y>right.planner_y&&left.planner_heading>right.planner_heading&&left.planner_yaw_rate>right.planner_yaw_rate))throw Error('Direction diagnostic failed');
+const report={status:'PASS',scope:'bounded actuator-driven Boat._step response, not model equivalence',duration_after_preconditioning:8,feedback_signs:{Ky:'negative',Kpsi:'negative',Kr:'negative'},results};fs.mkdirSync('results/p6b_c1',{recursive:true});fs.writeFileSync('results/p6b_c1/controller-directions.json',JSON.stringify(report,null,2));console.log(JSON.stringify(report));
