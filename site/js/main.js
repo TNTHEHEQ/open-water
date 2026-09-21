@@ -1,3 +1,6 @@
+import { ObstacleManager } from './scenario/obstacle-manager.js';
+import { PlannerVisualizationGroup } from './visualization/planner-visualization-group.js';
+import { PlannerLog } from './experiments/planner-log.js';
 import { loadSingleVessel } from './controllers/single-vessel-loader.js';
 import { SimulationStartup } from './ui/simulation-startup.js';
 import { SIMULATOR_CONFIG } from './config/simulator-config.js';
@@ -82,8 +85,19 @@ const commandMux = new CommandMux(boat, {
 let plannerEndpoint = '';
 try { plannerEndpoint = resolvePlannerEndpoint(location.search, SIMULATOR_CONFIG); }
 catch { console.warn('Invalid planner URL: continuing standalone MANUAL'); }
+const obstacleManager = new ObstacleManager();
+const plannerVisuals = new PlannerVisualizationGroup(scene, (x, y) => waveField.heightAt(x, y));
+plannerVisuals.visible = Boolean(plannerEndpoint);
+const plannerLog = new PlannerLog();
+let seedObstacleScenario = true, latestObstacles = null;
 const plannerBridge = new PlannerBridge(commandMux, {
   endpoint: plannerEndpoint, stateRateHz: SIMULATOR_CONFIG.plannerStateRateHz,
+  visualizationOnly: true,
+  obstacleSource: time => obstacleManager.snapshot(time),
+  onPlan: message => {
+    plannerVisuals.planned.replace(message);
+    plannerLog.record(message, twinStateSource.getState(), plannerBridge.diagnostics.obstacleSequence);
+  },
 });
 const recorder = new ExperimentRecorder({ sampleRateHz: SIMULATOR_CONFIG.recorderSampleRateHz });
 let plannerStarted = false;
@@ -201,6 +215,7 @@ const gestureDrive = new GestureDriveController({
 gestureDrive.bind();
 
 function resetBoat() {
+  plannerVisuals.clear(); seedObstacleScenario = true; obstacleManager.clear(); plannerBridge.invalidatePlans();
   drive.resetOutput();
   wakeField.clear();
   boat.reset();
@@ -280,7 +295,7 @@ addEventListener('resize', () => {
 if (new URLSearchParams(location.search).has('debug')) {
   window.openWater = {
     twin: Object.freeze({ getState: () => twinStateSource.snapshot() }),
-    bridge: plannerBridge, recorder,
+    bridge: plannerBridge, recorder, plannerVisuals, obstacleManager, plannerLog,
     boat, waveField, wakeField, camera, ocean, effects, foamTrail,
     weather, perceptualEffects, colorGrading, audio, renderer,
     snapCamera: () => cameraController.snap(),
@@ -294,6 +309,12 @@ if (new URLSearchParams(location.search).has('debug')) {
       wakeSources: wakeField.activeCount,
     }),
   };
+  const plannerControls = document.createElement('div');
+  plannerControls.innerHTML = '<label><input id="planner-visible" type="checkbox">Planner visualization</label> <button id="plan-log-download">Download plan log</button>';
+  document.getElementById('recorder-controls').appendChild(plannerControls);
+  const visibleToggle = document.getElementById('planner-visible'); visibleToggle.checked = plannerVisuals.visible;
+  visibleToggle.onchange = () => { plannerVisuals.visible = visibleToggle.checked; };
+  document.getElementById('plan-log-download').onclick = () => plannerLog.download();
   const controls = document.getElementById('recorder-controls'); controls.hidden = false;
   document.getElementById('record-start').onclick = () => recorder.start('experiment');
   document.getElementById('record-stop').onclick = () => recorder.stop();
@@ -323,7 +344,10 @@ renderer.setAnimationLoop(() => {
   commandMux.apply(performance.now() / 1000);
   boat.update(dt);
   const state = twinStateSource.update();
+  if (seedObstacleScenario && startup.started) { obstacleManager.seedVisualScenario(state); seedObstacleScenario = false; }
+  latestObstacles = obstacleManager.snapshot(state.timestamp);
   plannerBridge.update(state);
+  plannerVisuals.update(state, latestObstacles);
   recorder.update(state);
   ocean.update(dt, boat.pos.x, boat.pos.z, boat);
   foamTrail.update(renderer, dt, boat);
@@ -362,6 +386,13 @@ renderer.setAnimationLoop(() => {
         + `Rig steer ${boat.visualRig?._steer.toFixed(3)} rad | Pivots ${boat.visualRig?.steerPivots.length} | Props ${boat.visualRig?.propellers.length} | Jet anchors ${effects._propPositions.length}\n`
         + `Planner: ${plannerBridge.diagnostics.connected ? 'CONNECTED' : 'DISCONNECTED'} | Authority: ${commandMux.mode} | Failsafe: ${commandMux.failsafe ? 'YES' : 'NO'}\n`
         + `Command age: ${plannerBridge.diagnostics.lastCommandAgeMs?.toFixed(0) ?? '-'} ms | RX seq: ${plannerBridge.diagnostics.lastCommandSequence} | TX state: ${plannerBridge.diagnostics.stateSequence}\n`
+        + `P6A VISUALIZATION ONLY / SYNTHETIC MODEL | NO ACTUATOR MAPPING\n`
+        + `Plant seq ${plannerBridge.diagnostics.stateSequence} | Obstacle seq ${plannerBridge.diagnostics.obstacleSequence} | Blocked control ${plannerBridge.diagnostics.blockedControlMessages}\n`
+        + `Plan ${plannerBridge.diagnostics.planId} | ${plannerBridge.diagnostics.planStatus} | Points ${plannerBridge.diagnostics.planPoints}\n`
+        + `Source sim ${plannerBridge.diagnostics.planSourceTime?.toFixed(2) ?? '-'} | Received sim ${plannerBridge.diagnostics.planReceivedTime?.toFixed(2) ?? '-'} | Plan age ${plannerBridge.diagnostics.planSourceTime === null ? '-' : (s.timestamp - plannerBridge.diagnostics.planSourceTime).toFixed(2)} s\n`
+        + `Solve ${plannerBridge.diagnostics.planSolveTime?.toFixed(2) ?? '-'} s | Actual trail ${plannerVisuals.actual.count} | Obstacles ${plannerVisuals.obstacles.objects.size}\n`
+        + `Visual CPU mean ${(plannerVisuals.metrics.cpuMs / Math.max(1, plannerVisuals.metrics.updates)).toFixed(3)} ms | Cyan plan / Yellow actual / Orange prediction\n`
+        + `Frame CPU ON ${(plannerVisuals.frameCosts.on.totalMs / Math.max(1, plannerVisuals.frameCosts.on.count)).toFixed(3)} ms (${plannerVisuals.frameCosts.on.count}) / OFF ${(plannerVisuals.frameCosts.off.totalMs / Math.max(1, plannerVisuals.frameCosts.off.count)).toFixed(3)} ms (${plannerVisuals.frameCosts.off.count})\n`
         + `REC ${recorder.recording ? 'ON' : 'OFF'} | Samples ${recorder.rows.length} | Skipped ${recorder.skippedSlots}`;
     }
   }
@@ -373,4 +404,5 @@ renderer.setAnimationLoop(() => {
   performanceManager.endFrame();
   qualityController.updateHud(frameStart);
   startup.frameRendered();
+  if (startup.started) plannerVisuals.recordFrame(performance.now() - frameStart);
 });

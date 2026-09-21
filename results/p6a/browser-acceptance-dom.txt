@@ -1,0 +1,35 @@
+- generic: 0.5 KN
+- generic: Speed
+- generic: Throttle
+- generic: Steering
+- generic: 68.3°
+- generic: Heading
+- complementary "Simulation controls":
+  - generic: Sea State
+  - group "Sea State":
+    - button "Calm waves": Calm
+    - button "Moderate waves" [pressed]: Moderate
+    - button "Rough waves": Rough
+    - button "Storm waves": Storm
+- group "Rendering quality":
+  - text: "Render:"
+  - strong: ultra
+  - combobox "Rendering quality mode":
+    - option "Auto" [selected]
+    - option "Low"
+    - option "Medium"
+    - option "High"
+    - option "Ultra"
+- status
+- generic: W/↑ throttle · S/↓ reverse · A/D steering · Space neutral · R reset · C camera · Mouse orbit · Wheel zoom · 1–4 sea
+- link "Open Water / bob6664569":
+  - /url: https://github.com/bob6664569/open-water
+- text: · Zodiac / RedC130 / CC BY 4.0
+- generic: "Twin v1 | SIM | usv001 | 240 Hz | Sea 2 Time 56.39 s | Sequence 13868 ENU E 18.267 N 16.289 U 0.202 m Heading 1.192 rad | Surge 0.549 Sway -0.184 m/s Yaw rate 0.001 rad/s | Prop Cmd 0.00 Actual 0.000 Steer Cmd 0.000 Actual 0.000 Effective 0.000 rad Rate 0.000 rad/s | Raw 0.0 Effective 0.0 N | Wet 0.617 Planing 0.0 N | Submerged 8 | Wake 0 Rig steer 0.000 rad | Pivots 1 | Props 1 | Jet anchors 1 Planner: CONNECTED | Authority: MANUAL | Failsafe: NO Command age: - ms | RX seq: -1 | TX state: 2816 P6A VISUALIZATION ONLY / SYNTHETIC MODEL | NO ACTUATOR MAPPING Plant seq 2816 | Obstacle seq 16682 | Blocked control 0 Plan plan-7 | SUCCESS | Points 81 Source sim 23.91 | Received sim 35.38 | Plan age 32.48 s Solve 11.36 s | Actual trail 547 | Obstacles 1 Visual CPU mean 0.003 ms | Cyan plan / Yellow actual / Orange prediction Frame CPU ON 2.650 ms (10072) / OFF 0.000 ms (0) REC OFF | Samples 0 | Skipped 0"
+- button "REC start"
+- button "REC stop"
+- button "CSV preview"
+- button "CSV download"
+- checkbox "Planner visualization" [checked]
+- text: Planner visualization
+- button "Download plan log"

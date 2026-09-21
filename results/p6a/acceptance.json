@@ -1,0 +1,190 @@
+{
+  "status": "PASS",
+  "phase": "P6A",
+  "date": "2026-09-21",
+  "planner_baseline": "35d353dc7a7d960bf356b261a88f85bf9d993201",
+  "openwater_baseline": "cdefdd6643a64b6c0d183fd7261e07ba3df7192f",
+  "windows_browser": "Codex In-app Browser, real Three/WebGL renderer",
+  "localhost": "PASS",
+  "canonical_native_record": "final-native/plan-1.json",
+  "plan_id": "plan-1",
+  "source_state_sequence": 998,
+  "source_simulation_time": 20.061000000000426,
+  "obstacle_sequence": 32159,
+  "message_bytes": 11291,
+  "point_count": 81,
+  "diagnostics": {
+    "min_clearance_m": 1.4316055008123385e-09,
+    "objective": 0.866108179160557,
+    "solve_time_sec": 9.140851754
+  },
+  "tf": 38.4955405847154,
+  "receipt_sim_time_hud_rounded": 29.38,
+  "receipt_plan_age_sec_approx": 9.318999999999573,
+  "start_position_error_m": 0.0,
+  "start_heading_error_rad": 0.0,
+  "refinement_rounds": 2,
+  "added_positions": 4,
+  "rounds": [
+    {
+      "accepted": true,
+      "added": [
+        [
+          21,
+          0.572279663926
+        ],
+        [
+          21,
+          0.625
+        ]
+      ],
+      "audit_seconds": 0.001069504,
+      "complementarity": 9.091630721076208e-11,
+      "creation_seconds": 2.215854635,
+      "dual": 5.4395282026921515e-12,
+      "enforced_clearance": 2.809107613188644e-09,
+      "hessian_calls": 31,
+      "iterations": 31,
+      "minimum_bank_clearance": 5.382371119748777,
+      "minimum_collision_clearance": -0.0011673561639002905,
+      "neq": 1058,
+      "nineq": 1449,
+      "nvar": 1211,
+      "objective": 0.8660718236383613,
+      "primal": 2.7613467068476893e-12,
+      "rebuild_seconds": 0.047676025,
+      "round": 0,
+      "samples": [],
+      "sign_violation": 0.0,
+      "solve_seconds": 1.610844265,
+      "solver_status": "Solve_Succeeded"
+    },
+    {
+      "accepted": true,
+      "added": [
+        [
+          21,
+          0.56969855702
+        ],
+        [
+          21,
+          0.5703125
+        ]
+      ],
+      "audit_seconds": 0.000973077,
+      "complementarity": 9.119071362057805e-11,
+      "creation_seconds": 2.020314161,
+      "dual": 5.438774737734483e-12,
+      "enforced_clearance": 2.8133713136924143e-09,
+      "hessian_calls": 8,
+      "iterations": 8,
+      "minimum_bank_clearance": 5.378186959282793,
+      "minimum_collision_clearance": -1.4860937724847645e-06,
+      "neq": 1058,
+      "nineq": 1467,
+      "nvar": 1211,
+      "objective": 0.8661081328344388,
+      "primal": 2.7493562981817377e-12,
+      "rebuild_seconds": 0.048988593,
+      "round": 1,
+      "samples": [
+        [
+          21,
+          0.572279663926
+        ],
+        [
+          21,
+          0.625
+        ]
+      ],
+      "sign_violation": 0.0,
+      "solve_seconds": 0.452493627,
+      "solver_status": "Solve_Succeeded"
+    },
+    {
+      "accepted": true,
+      "added": [],
+      "audit_seconds": 0.001150357,
+      "complementarity": 9.108767194786621e-11,
+      "creation_seconds": 2.095416455,
+      "dual": 3.078221651302916e-12,
+      "enforced_clearance": 2.968270518266536e-09,
+      "hessian_calls": 9,
+      "iterations": 9,
+      "minimum_bank_clearance": 5.3782912264190745,
+      "minimum_collision_clearance": 1.4316055008123385e-09,
+      "neq": 1058,
+      "nineq": 1485,
+      "nvar": 1211,
+      "objective": 0.866108179160557,
+      "primal": 6.550315845288424e-14,
+      "rebuild_seconds": 0.051841226,
+      "round": 2,
+      "samples": [
+        [
+          21,
+          0.56969855702
+        ],
+        [
+          21,
+          0.5703125
+        ],
+        [
+          21,
+          0.572279663926
+        ],
+        [
+          21,
+          0.625
+        ]
+      ],
+      "sign_violation": 0.0,
+      "solve_seconds": 0.505277367,
+      "solver_status": "Solve_Succeeded"
+    }
+  ],
+  "manual_only": true,
+  "control_messages_sent": 0,
+  "actuator_mapping": "ACTUATOR_COMMAND_MAPPING_DEFERRED_TO_P6B",
+  "model_status": "VISUALIZATION_ONLY_MODEL_MISMATCH",
+  "initialization": "SYNTHETIC_CRUISE_2_MPS",
+  "screenshot_run": "plans/plan-7.json; separate successful rendering run from final-native detailed-log plan-1",
+  "tests": {
+    "npm_pass": 243,
+    "npm_fail": 0,
+    "gtest_pass": 9,
+    "selected_ctest_pass": 6,
+    "eslint": "PASS",
+    "native_loopback": "PASS",
+    "full_historical_p5b_solves": "NOT_RERUN"
+  },
+  "visual_cost": {
+    "on_ms": 2.574,
+    "on_frames": 5180,
+    "off_ms": 2.376,
+    "off_frames": 17338,
+    "delta_ms": 0.198,
+    "update_ms": 0.002,
+    "planned_points": 81,
+    "obstacles": 1,
+    "actual_points": 1206,
+    "capacity": 2000,
+    "note": "Sequential full-app observations, not isolated benchmark"
+  },
+  "receive_rates": {
+    "start": {
+      "at": 1789971282838,
+      "result": "STATUS\r\nstates=34213 obstacles=34213 invalid=0\r\n"
+    },
+    "end": {
+      "at": 1789971424102,
+      "result": "PLAN_RESULT \"SUCCESS\" bytes=11304\r\nSTATUS\r\nstates=41273 obstacles=41273 invalid=0\r\n"
+    },
+    "elapsed_seconds": 141.264,
+    "states_received": 7060,
+    "obstacles_received": 7060,
+    "state_hz": 49.97734737795899,
+    "obstacle_hz": 49.97734737795899,
+    "invalid_messages": 0
+  }
+}

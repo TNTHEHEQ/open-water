@@ -1,4 +1,5 @@
 import { parsePlannerMessage, PROTOCOL_VERSION } from './protocol.js';
+import { validateObstacleState } from './visual-protocol.js';
 import { validateVesselState } from '../twin/vessel-state.js';
 
 export function resolvePlannerEndpoint(search, config) {
@@ -12,15 +13,20 @@ export function resolvePlannerEndpoint(search, config) {
 
 export class PlannerBridge {
   constructor(mux, { endpoint = '', stateRateHz = 50, maxBufferedBytes = 65536,
+    visualizationOnly = false, onPlan = () => {}, obstacleSource = null,
     now = () => performance.now() / 1000, socketFactory = url => new WebSocket(url) } = {}) {
     if (!(Number.isFinite(stateRateHz) && stateRateHz >= 10 && stateRateHz <= 100)
       || !(Number.isFinite(maxBufferedBytes) && maxBufferedBytes > 0)) throw new RangeError('Invalid bridge budget');
+    this.visualizationOnly = visualizationOnly; this.onPlan = onPlan; this.obstacleSource = obstacleSource;
+    this.lastPlanSequence = -1; this.minimumSourceSequence = 0;
     this.mux = mux; this.endpoint = endpoint; this.now = now; this.socketFactory = socketFactory;
     this.period = 1 / stateRateHz; this.maxBufferedBytes = maxBufferedBytes;
     this.socket = null; this.running = false; this.claimed = false;
     this.reconnectAt = Infinity; this.retryDelay = 1; this.nextPublish = 0;
     this.diagnostics = { connected: false, controlMode: 'MANUAL', lastCommandSequence: -1,
       lastCommandAgeMs: null, stateSequence: 0, messagesReceived: 0, messagesSent: 0,
+      obstacleSequence: -1, planId: '-', planStatus: 'NONE', planSourceTime: null, planReceivedTime: null,
+      planPoints: 0, planSolveTime: null, blockedControlMessages: 0,
       invalidMessages: 0, droppedStateMessages: 0, failsafe: false };
   }
   start() { if (this.running || !this.endpoint) return; this.running = true; this.connect(); }
@@ -43,7 +49,7 @@ export class PlannerBridge {
     socket.onopen = () => {
       if (this.socket !== socket || !this.running) return;
       this.diagnostics.connected = true; this.diagnostics.lastCommandSequence = -1;
-      this.claimed = false; this.mux.external.invalidate();
+      this.claimed = false; this.mux.external.invalidate(); this.lastPlanSequence = -1;
       this.reconnectAt = Infinity; this.nextPublish = this.now();
       this.send({ protocol_version: PROTOCOL_VERSION, type: 'hello', role: 'openwater_plant', vessel_id: 'usv001' });
     };
@@ -64,6 +70,15 @@ export class PlannerBridge {
     const d = this.diagnostics; d.messagesReceived++;
     try {
       const m = parsePlannerMessage(text);
+      if (m.type === 'planned_trajectory') {
+        if (m.sequence <= this.lastPlanSequence || m.source_state_sequence < this.minimumSourceSequence) throw new RangeError('Stale plan');
+        this.lastPlanSequence = m.sequence;
+        d.planId = m.plan_id; d.planStatus = m.status; d.planSourceTime = m.source_simulation_time;
+        d.planReceivedTime = this.simulationTime; d.planPoints = m.points.length;
+        d.planSolveTime = m.diagnostics?.solve_time_sec ?? null;
+        this.onPlan(m); return;
+      }
+      if (this.visualizationOnly) { d.blockedControlMessages++; throw new RangeError('P6A visual-only authority'); }
       if (m.type === 'set_control_mode') {
         this.mux.setMode(m.mode); this.claimed = m.mode === 'EXTERNAL';
       } else {
@@ -87,7 +102,16 @@ export class PlannerBridge {
     try { this.socket.send(JSON.stringify(message)); this.diagnostics.messagesSent++; return true; }
     catch { this.disconnected(); this.socket?.close(); return false; }
   }
+  invalidatePlans() {
+    this.minimumSourceSequence = this.diagnostics.stateSequence;
+    this.diagnostics.planStatus = 'INVALIDATED';
+    this.diagnostics.planId = '-'; this.diagnostics.planPoints = 0;
+    this.diagnostics.planSourceTime = null; this.diagnostics.planReceivedTime = null; this.diagnostics.planSolveTime = null;
+    // A new hello explicitly clears the server session/snapshot. No silent reset.
+    const restart = this.running; this.stop(); if (restart) this.start();
+  }
   update(state) {
+    this.simulationTime = state.timestamp;
     const now = this.now();
     if (this.running && !this.socket && now >= this.reconnectAt) this.connect();
     this.refreshDiagnostics();
@@ -99,5 +123,11 @@ export class PlannerBridge {
     // send() serializes synchronously; no deep clone or queue of mutable snapshots.
     this.send({ protocol_version: PROTOCOL_VERSION, type: 'simulation_state',
       sequence: this.diagnostics.stateSequence++, simulation_time: state.timestamp, state });
+    if (this.obstacleSource) {
+      try {
+        const obstacles = this.obstacleSource(state.timestamp); validateObstacleState(obstacles);
+        if (this.socket?.bufferedAmount <= this.maxBufferedBytes && this.send(obstacles)) this.diagnostics.obstacleSequence = obstacles.sequence;
+      } catch { this.diagnostics.droppedStateMessages++; }
+    }
   }
 }

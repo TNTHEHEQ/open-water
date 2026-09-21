@@ -1,0 +1,2 @@
+PASS native loopback: 81 points, 3.436144041 seconds
+Windows Node -> WSL C++ server. STALE_INPUT then genuine snapshot solve.

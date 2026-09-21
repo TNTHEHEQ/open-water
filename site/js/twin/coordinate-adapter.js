@@ -36,3 +36,9 @@ export function rotateVector(v, q, out = {}) {
 export function openWaterHeadingRad(q) {
   return Math.atan2(2 * (q.x * q.z + q.w * q.y), 1 - 2 * (q.x * q.x + q.y * q.y));
 }
+
+// Visualization-only point, ENU metres; uses the same polar-vector basis map.
+export function enuPlanPointToOpenWater(point, waterHeight = 0, displayOffset = .2) {
+  if (![point.x, point.y, waterHeight, displayOffset].every(Number.isFinite)) throw new TypeError('Invalid ENU plan point');
+  return enuPositionToOpenWater({ x: point.x, y: point.y, z: waterHeight + displayOffset });
+}

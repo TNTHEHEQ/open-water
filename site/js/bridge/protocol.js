@@ -1,3 +1,4 @@
+import { MAX_TRAJECTORY_BYTES, validatePlannedTrajectory } from './visual-protocol.js';
 export const PROTOCOL_VERSION = 1;
 function fields(message, keys) {
   if (!message || Object.getPrototypeOf(message) !== Object.prototype
@@ -21,8 +22,10 @@ export function validateControlMode(m) {
   return true;
 }
 export function parsePlannerMessage(text) {
-  if (typeof text !== 'string' || text.length > 4096) throw new TypeError('Expected small JSON text frame');
+  if (typeof text !== 'string' || new TextEncoder().encode(text).length > MAX_TRAJECTORY_BYTES) throw new TypeError('JSON frame budget');
   const m = JSON.parse(text);
+  if (m?.type === 'planned_trajectory') { validatePlannedTrajectory(m); return m; }
+  if (new TextEncoder().encode(text).length > 4096) throw new TypeError('Expected small JSON text frame');
   if (m?.type === 'control_command') validateControlCommand(m);
   else if (m?.type === 'set_control_mode') validateControlMode(m);
   else throw new TypeError('Unsupported message type');
