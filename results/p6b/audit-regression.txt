@@ -1,0 +1,29 @@
+✔ steering commands saturate +50/-50 degrees to +30/-30, propulsion to +/-1 (1.096ms)
+✔ large reversing steering steps hit and never exceed 45 deg/s (3.4184ms)
+✔ 10 degree steering step follows discrete first-order solution monotonically (2.042ms)
+✔ propulsion 1 step has finite monotonic lag and correct discrete solution (2.2251ms)
+✔ propulsion -1 step has finite monotonic lag and correct discrete solution (2.3335ms)
+✔ reset clears commands, actual state, rate, thrust and effective angle (3.5217ms)
+✔ canonical radians API and normalized compatibility wrapper reach identical command states (12.0569ms)
+✔ actuator updates exactly once inside each native physics substep, not each frame (0.6381ms)
+✔ 2-second command response is identical at 30/60/120/144 render FPS with 240 Hz plant (14.1932ms)
+✔ actual mechanical angle differs from effective angle; raw thrust sign uses actual state (0.5984ms)
+✔ ideal bypass assigns command exactly, and invalid input or delay fails explicitly (0.4408ms)
+✔ P6A trajectory strict validation, finite points, limits and control budget (2.3863ms)
+✔ P6A geometry replacement, reset, disposal and ENU basis (2.0286ms)
+✔ P6A actual trail bounded memory and fixed buffer (0.6012ms)
+✔ P6A simulator-time obstacle truth, update, deletion and prediction (2.5128ms)
+✔ P6A visual-only bridge cannot claim or write external control; old default remains covered by legacy tests (1.395ms)
+✔ P6A paired publishing and no historical queue under backpressure (0.8358ms)
+✔ P6A separate bounded per-plan log (0.2743ms)
+✔ P6A visualization ON/OFF preserves identical physical integration (128.3662ms)
+✔ P6A hiding group preserves actual history (0.5689ms)
+✔ P6A reset before Start never opens a socket (0.3727ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 21
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 465.3967

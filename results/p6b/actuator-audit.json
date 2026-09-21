@@ -1,0 +1,128 @@
+{
+  "status": "STEERING_CONTRACT_CONFLICT_CONFIRMED",
+  "audit_assertions": "PASS",
+  "execution_enabled": false,
+  "plant": {
+    "vessel": "zodiac_boat",
+    "max_thrust_fwd_n": 10500,
+    "max_thrust_rev_n": 2700,
+    "steeringMinRad": -0.5235987755982988,
+    "steeringMaxRad": 0.5235987755982988,
+    "steeringRateRadPerSec": 0.7853981633974483,
+    "steeringTimeConstantSec": 0.35,
+    "propulsionMin": -1,
+    "propulsionMax": 1,
+    "propulsionTimeConstantSec": 0.6,
+    "steeringDelaySec": 0,
+    "propulsionDelaySec": 0
+  },
+  "mapping_cases": "forward/reverse/zero/saturation PASS",
+  "cardinals": [
+    {
+      "heading_rad": 0,
+      "planner_force_EN": [
+        -9.983341664682815,
+        99.50041652780259
+      ],
+      "openwater_force_EN": [
+        9.983341664682815,
+        99.50041652780257
+      ],
+      "same_sign_force_difference_N": 19.96668332936563,
+      "negative_mapping_force_error_N": 1.4210854715202004e-14,
+      "openwater_body_navigation_yaw_rate": -6.18862793479244e-8,
+      "openwater_after_p6a_ccw_conversion": 6.18862793479244e-8,
+      "heading_after_step": -2.5785907991698427e-10
+    },
+    {
+      "heading_rad": 1.5707963267948966,
+      "planner_force_EN": [
+        99.50041652780259,
+        9.98334166468282
+      ],
+      "openwater_force_EN": [
+        99.50041652780256,
+        -9.983341664682799
+      ],
+      "same_sign_force_difference_N": 19.96668332936562,
+      "negative_mapping_force_error_N": 3.66205343881779e-14,
+      "openwater_body_navigation_yaw_rate": -6.188627934792414e-8,
+      "openwater_after_p6a_ccw_conversion": 6.188627934792414e-8,
+      "heading_after_step": 1.5707963265370375
+    },
+    {
+      "heading_rad": 3.141592653589793,
+      "planner_force_EN": [
+        9.983341664682827,
+        -99.50041652780259
+      ],
+      "openwater_force_EN": [
+        -9.983341664682802,
+        -99.50041652780257
+      ],
+      "same_sign_force_difference_N": 19.96668332936563,
+      "negative_mapping_force_error_N": 1.4210854715202004e-14,
+      "openwater_body_navigation_yaw_rate": -6.18862793479244e-8,
+      "openwater_after_p6a_ccw_conversion": 6.18862793479244e-8,
+      "heading_after_step": 3.141592653331934
+    },
+    {
+      "heading_rad": -1.5707963267948966,
+      "planner_force_EN": [
+        -99.50041652780259,
+        -9.98334166468281
+      ],
+      "openwater_force_EN": [
+        -99.50041652780256,
+        9.983341664682843
+      ],
+      "same_sign_force_difference_N": 19.96668332936565,
+      "negative_mapping_force_error_N": 3.03543989777123e-14,
+      "openwater_body_navigation_yaw_rate": -6.18862793479236e-8,
+      "openwater_after_p6a_ccw_conversion": 6.18862793479236e-8,
+      "heading_after_step": -1.5707963270527556
+    }
+  ],
+  "step_diagnostics": [
+    {
+      "commandForce": 100,
+      "commandAngle": 0.1,
+      "thrust": {
+        "t10": 0.06666666666666667,
+        "t50": 0.4166666666666667,
+        "t90": 1.3791666666666667,
+        "settling_2pct_sec": 2.341666666666667,
+        "max_abs_error": 0.12810681169693083
+      },
+      "steering": {
+        "t10": 0.0375,
+        "t50": 0.24166666666666667,
+        "t90": 0.8041666666666667,
+        "settling_2pct_sec": 1.3625,
+        "max_abs_error": 0.0002200685565738325
+      },
+      "note": "Unity-gain continuous integration actuator equation vs real standalone 240Hz Euler actuator; raw force, not effective hydrodynamic force"
+    },
+    {
+      "commandForce": -100,
+      "commandAngle": -0.1,
+      "thrust": {
+        "t10": 0.06666666666666667,
+        "t50": 0.4166666666666667,
+        "t90": 1.3791666666666667,
+        "settling_2pct_sec": 2.341666666666667,
+        "max_abs_error": 0.12810681169695926
+      },
+      "steering": {
+        "t10": 0.0375,
+        "t50": 0.24166666666666667,
+        "t90": 0.8041666666666667,
+        "settling_2pct_sec": 1.3625,
+        "max_abs_error": 0.0002200685565738325
+      },
+      "note": "Unity-gain continuous integration actuator equation vs real standalone 240Hz Euler actuator; raw force, not effective hydrodynamic force"
+    }
+  ],
+  "inherited_steering_command_containment": "FAIL: .55 rad > pi/6 rad",
+  "proposed_sign_mapping": "deltaP=-deltaOW; deltacP=-deltacOW; output mechanical=-deltacP; pending explicit contract resolution"
+}
