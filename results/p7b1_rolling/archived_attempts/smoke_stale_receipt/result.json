@@ -1,0 +1,508 @@
+{
+  "status": "ROLLING_INFRASTRUCTURE_FAILURE",
+  "name": "smoke",
+  "state_origin": "OPENWATER_ACTUAL_TELEMETRY",
+  "controller_sha256": "cfe8accb0fdfeacb85ab566dd4b60d87a429e4f4c09c6c1f00a7f7c3504281f8",
+  "initial": {
+    "schemaVersion": 1,
+    "vesselId": "usv001",
+    "source": "SIM",
+    "sequence": 962,
+    "timestamp": 19.19999999999968,
+    "pose": {
+      "position": {
+        "x": 1.4568078218668974,
+        "y": 24.081244237312283,
+        "z": -0.02880299737163095
+      },
+      "orientation": {
+        "x": -0.007021959674481012,
+        "y": -0.004457223509863515,
+        "z": -0.00133466213772032,
+        "w": 0.9999645213295777
+      },
+      "headingRad": 0.002732098823446956
+    },
+    "velocity": {
+      "linear": {
+        "x": 0.03169733840416827,
+        "y": 2.057234689062681,
+        "z": -0.010233820256258403
+      },
+      "angular": {
+        "x": -0.0005540523178420796,
+        "y": 0.025332901099983814,
+        "z": -0.0018412290008081053
+      },
+      "body": {
+        "surge": 2.0572546716615525,
+        "sway": 0.026242093413494625,
+        "heave": 0.018400725033777546,
+        "rollRate": 0.025354634295490997,
+        "pitchRate": -0.0006365093652326918,
+        "yawRate": 0.0014799837552374993
+      }
+    },
+    "control": {
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0
+    },
+    "actuator": {
+      "type": "single_outboard",
+      "propulsionActual": 0.0190476190476188,
+      "rawThrustN": 199.99999999999739,
+      "effectiveThrustN": 192.62755463146846,
+      "steeringActualRad": 0,
+      "steeringEffectiveRad": 0,
+      "steeringRateRadPerSec": 0,
+      "ventilationFactor": 0.9938888181155465
+    },
+    "attitude": {
+      "rollRad": -0.008933872973767232,
+      "pitchRad": -0.014031983784837224,
+      "yawRad": 0.002732098823446956
+    },
+    "environment": {
+      "seaState": 1,
+      "localWaterHeight": -0.11351697093638378,
+      "wave": {
+        "significantHeightM": 0.35001426306825756,
+        "peakPeriodSec": 4.659875400235626
+      },
+      "windSpeedMps": 2.4233173083695303,
+      "windDirectionRad": 1.1791781892217488,
+      "currentSpeedMps": 0.1151470842609257,
+      "currentDirectionRad": 0.3163427389230472,
+      "waterVelocity": {
+        "x": -0.07537446384624613,
+        "y": 0.1030017561320117,
+        "z": -0.009509628889633331
+      },
+      "current": {
+        "x": 0.0358214360925301,
+        "y": 0.1094334305870994,
+        "z": 0
+      },
+      "wind": {
+        "x": 2.2398543818083754,
+        "y": 0.924942768682022,
+        "z": 0
+      }
+    },
+    "dynamics": {
+      "planingForceN": 0,
+      "centerOfPressure": {
+        "x": 1.4566757496235467,
+        "y": 24.072672426107857,
+        "z": -0.02876035645389654
+      },
+      "submergedPoints": 8
+    }
+  },
+  "episode_frame": {
+    "E_ref": 1.4568078218668974,
+    "N_ref": 24.081244237312283,
+    "H_ref": 0.002732098823446956
+  },
+  "preconditioning": "READY",
+  "error": "Error: Protocol wall timeout: SOLVER_ERROR",
+  "final": {
+    "schemaVersion": 1,
+    "vesselId": "usv001",
+    "source": "SIM",
+    "sequence": 963,
+    "timestamp": 19.19999999999968,
+    "pose": {
+      "position": {
+        "x": 1.4568078218668974,
+        "y": 24.081244237312283,
+        "z": -0.02880299737163095
+      },
+      "orientation": {
+        "x": -0.007021959674481012,
+        "y": -0.004457223509863515,
+        "z": -0.00133466213772032,
+        "w": 0.9999645213295777
+      },
+      "headingRad": 0.002732098823446956
+    },
+    "velocity": {
+      "linear": {
+        "x": 0.03169733840416827,
+        "y": 2.057234689062681,
+        "z": -0.010233820256258403
+      },
+      "angular": {
+        "x": -0.0005540523178420796,
+        "y": 0.025332901099983814,
+        "z": -0.0018412290008081053
+      },
+      "body": {
+        "surge": 2.0572546716615525,
+        "sway": 0.026242093413494625,
+        "heave": 0.018400725033777546,
+        "rollRate": 0.025354634295490997,
+        "pitchRate": -0.0006365093652326918,
+        "yawRate": 0.0014799837552374993
+      }
+    },
+    "control": {
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0
+    },
+    "actuator": {
+      "type": "single_outboard",
+      "propulsionActual": 0.0190476190476188,
+      "rawThrustN": 199.99999999999739,
+      "effectiveThrustN": 192.62755463146846,
+      "steeringActualRad": 0,
+      "steeringEffectiveRad": 0,
+      "steeringRateRadPerSec": 0,
+      "ventilationFactor": 0.9938888181155465
+    },
+    "attitude": {
+      "rollRad": -0.008933872973767232,
+      "pitchRad": -0.014031983784837224,
+      "yawRad": 0.002732098823446956
+    },
+    "environment": {
+      "seaState": 1,
+      "localWaterHeight": -0.11351697093638378,
+      "wave": {
+        "significantHeightM": 0.35001426306825756,
+        "peakPeriodSec": 4.659875400235626
+      },
+      "windSpeedMps": 2.4233173083695303,
+      "windDirectionRad": 1.1791781892217488,
+      "currentSpeedMps": 0.1151470842609257,
+      "currentDirectionRad": 0.3163427389230472,
+      "waterVelocity": {
+        "x": -0.07537446384624613,
+        "y": 0.1030017561320117,
+        "z": -0.009509628889633331
+      },
+      "current": {
+        "x": 0.0358214360925301,
+        "y": 0.1094334305870994,
+        "z": 0
+      },
+      "wind": {
+        "x": 2.2398543818083754,
+        "y": 0.924942768682022,
+        "z": 0
+      }
+    },
+    "dynamics": {
+      "planingForceN": 0,
+      "centerOfPressure": {
+        "x": 1.4566757496235467,
+        "y": 24.072672426107857,
+        "z": -0.02876035645389654
+      },
+      "submergedPoints": 8
+    }
+  },
+  "cycles": [],
+  "state_handover": [
+    {
+      "cycle_id": 0,
+      "previous_final_actual_hash": null,
+      "held_actual_hash": "869b8cc22e482c962ced931b3e54836b641b50fe6132fe193d3c7eff3e9017a7",
+      "expected_transformed_initial_hash": "616c447031cd08bee0d2f3c505ced411dae7a2bb3b509f3ae8ef4a78de4f1264",
+      "native_initial_hash": "616c447031cd08bee0d2f3c505ced411dae7a2bb3b509f3ae8ef4a78de4f1264",
+      "actual_fields": {
+        "schemaVersion": 1,
+        "vesselId": "usv001",
+        "source": "SIM",
+        "sequence": 963,
+        "timestamp": 19.19999999999968,
+        "pose": {
+          "position": {
+            "x": 1.4568078218668974,
+            "y": 24.081244237312283,
+            "z": -0.02880299737163095
+          },
+          "orientation": {
+            "x": -0.007021959674481012,
+            "y": -0.004457223509863515,
+            "z": -0.00133466213772032,
+            "w": 0.9999645213295777
+          },
+          "headingRad": 0.002732098823446956
+        },
+        "velocity": {
+          "linear": {
+            "x": 0.03169733840416827,
+            "y": 2.057234689062681,
+            "z": -0.010233820256258403
+          },
+          "angular": {
+            "x": -0.0005540523178420796,
+            "y": 0.025332901099983814,
+            "z": -0.0018412290008081053
+          },
+          "body": {
+            "surge": 2.0572546716615525,
+            "sway": 0.026242093413494625,
+            "heave": 0.018400725033777546,
+            "rollRate": 0.025354634295490997,
+            "pitchRate": -0.0006365093652326918,
+            "yawRate": 0.0014799837552374993
+          }
+        },
+        "control": {
+          "propulsionCommand": 0.01904761904761905,
+          "steeringCommandRad": 0
+        },
+        "actuator": {
+          "type": "single_outboard",
+          "propulsionActual": 0.0190476190476188,
+          "rawThrustN": 199.99999999999739,
+          "effectiveThrustN": 192.62755463146846,
+          "steeringActualRad": 0,
+          "steeringEffectiveRad": 0,
+          "steeringRateRadPerSec": 0,
+          "ventilationFactor": 0.9938888181155465
+        },
+        "attitude": {
+          "rollRad": -0.008933872973767232,
+          "pitchRad": -0.014031983784837224,
+          "yawRad": 0.002732098823446956
+        },
+        "environment": {
+          "seaState": 1,
+          "localWaterHeight": -0.11351697093638378,
+          "wave": {
+            "significantHeightM": 0.35001426306825756,
+            "peakPeriodSec": 4.659875400235626
+          },
+          "windSpeedMps": 2.4233173083695303,
+          "windDirectionRad": 1.1791781892217488,
+          "currentSpeedMps": 0.1151470842609257,
+          "currentDirectionRad": 0.3163427389230472,
+          "waterVelocity": {
+            "x": -0.07537446384624613,
+            "y": 0.1030017561320117,
+            "z": -0.009509628889633331
+          },
+          "current": {
+            "x": 0.0358214360925301,
+            "y": 0.1094334305870994,
+            "z": 0
+          },
+          "wind": {
+            "x": 2.2398543818083754,
+            "y": 0.924942768682022,
+            "z": 0
+          }
+        },
+        "dynamics": {
+          "planingForceN": 0,
+          "centerOfPressure": {
+            "x": 1.4566757496235467,
+            "y": 24.072672426107857,
+            "z": -0.02876035645389654
+          },
+          "submergedPoints": 8
+        }
+      },
+      "native_initial": [
+        0,
+        -0.012755879850451408,
+        0,
+        0,
+        2.0572546716615525,
+        -0.026242093413494625,
+        -0.0014799837552374993,
+        199.99999999999739,
+        0,
+        200.00000000000003,
+        0
+      ],
+      "expected_initial": [
+        0,
+        -0.012755879850451408,
+        0,
+        0,
+        2.0572546716615525,
+        -0.026242093413494625,
+        -0.0014799837552374993,
+        199.99999999999739,
+        0,
+        200.00000000000003,
+        0
+      ],
+      "max_transform_difference": 0,
+      "state_origin": "OPENWATER_ACTUAL_TELEMETRY",
+      "source_state_sequence": 0,
+      "source_sim_time": 19.19999999999968,
+      "plan_id": "execution-1",
+      "world_s": 0,
+      "hold_before": {
+        "water_time": 19.19999999999968,
+        "timestamp": 19.19999999999968,
+        "pose": {
+          "position": {
+            "x": 1.4568078218668974,
+            "y": 24.081244237312283,
+            "z": -0.02880299737163095
+          },
+          "orientation": {
+            "x": -0.007021959674481012,
+            "y": -0.004457223509863515,
+            "z": -0.00133466213772032,
+            "w": 0.9999645213295777
+          },
+          "headingRad": 0.002732098823446956
+        },
+        "velocity": {
+          "linear": {
+            "x": 0.03169733840416827,
+            "y": 2.057234689062681,
+            "z": -0.010233820256258403
+          },
+          "angular": {
+            "x": -0.0005540523178420796,
+            "y": 0.025332901099983814,
+            "z": -0.0018412290008081053
+          },
+          "body": {
+            "surge": 2.0572546716615525,
+            "sway": 0.026242093413494625,
+            "heave": 0.018400725033777546,
+            "rollRate": 0.025354634295490997,
+            "pitchRate": -0.0006365093652326918,
+            "yawRate": 0.0014799837552374993
+          }
+        },
+        "actuator": {
+          "type": "single_outboard",
+          "propulsionActual": 0.0190476190476188,
+          "rawThrustN": 199.99999999999739,
+          "effectiveThrustN": 192.62755463146846,
+          "steeringActualRad": 0,
+          "steeringEffectiveRad": 0,
+          "steeringRateRadPerSec": 0,
+          "ventilationFactor": 0.9938888181155465
+        },
+        "attitude": {
+          "rollRad": -0.008933872973767232,
+          "pitchRad": -0.014031983784837224,
+          "yawRad": 0.002732098823446956
+        },
+        "control": {
+          "propulsionCommand": 0.01904761904761905,
+          "steeringCommandRad": 0
+        }
+      },
+      "hold_after": {
+        "water_time": 19.19999999999968,
+        "timestamp": 19.19999999999968,
+        "pose": {
+          "position": {
+            "x": 1.4568078218668974,
+            "y": 24.081244237312283,
+            "z": -0.02880299737163095
+          },
+          "orientation": {
+            "x": -0.007021959674481012,
+            "y": -0.004457223509863515,
+            "z": -0.00133466213772032,
+            "w": 0.9999645213295777
+          },
+          "headingRad": 0.002732098823446956
+        },
+        "velocity": {
+          "linear": {
+            "x": 0.03169733840416827,
+            "y": 2.057234689062681,
+            "z": -0.010233820256258403
+          },
+          "angular": {
+            "x": -0.0005540523178420796,
+            "y": 0.025332901099983814,
+            "z": -0.0018412290008081053
+          },
+          "body": {
+            "surge": 2.0572546716615525,
+            "sway": 0.026242093413494625,
+            "heave": 0.018400725033777546,
+            "rollRate": 0.025354634295490997,
+            "pitchRate": -0.0006365093652326918,
+            "yawRate": 0.0014799837552374993
+          }
+        },
+        "actuator": {
+          "type": "single_outboard",
+          "propulsionActual": 0.0190476190476188,
+          "rawThrustN": 199.99999999999739,
+          "effectiveThrustN": 192.62755463146846,
+          "steeringActualRad": 0,
+          "steeringEffectiveRad": 0,
+          "steeringRateRadPerSec": 0,
+          "ventilationFactor": 0.9938888181155465
+        },
+        "attitude": {
+          "rollRad": -0.008933872973767232,
+          "pitchRad": -0.014031983784837224,
+          "yawRad": 0.002732098823446956
+        },
+        "control": {
+          "propulsionCommand": 0.01904761904761905,
+          "steeringCommandRad": 0
+        }
+      },
+      "hold_wall_sec": 4.233717403,
+      "Delta_Tc_handover": -2.842170943040401e-14,
+      "Delta_deltac_handover": 0
+    }
+  ],
+  "hold_checks": [],
+  "events": [
+    {
+      "t_sim": 19.19999999999968,
+      "plan_id": "",
+      "protocol_version": 1,
+      "reason": "",
+      "status": "PLANNING",
+      "type": "execution_status"
+    },
+    {
+      "t_sim": 19.19999999999968,
+      "plan_id": "execution-1",
+      "protocol_version": 1,
+      "reason": "Planned continuous safety certified; independent rollout remains a separate validation gate",
+      "status": "PLAN_READY",
+      "type": "execution_status"
+    },
+    {
+      "t_sim": 19.19999999999968,
+      "plan_id": "",
+      "protocol_version": 1,
+      "reason": "STALE_INPUT: receipt age",
+      "status": "SOLVER_ERROR",
+      "type": "execution_status"
+    }
+  ],
+  "bridge_diagnostics": {
+    "connected": true,
+    "controlMode": "MANUAL",
+    "lastCommandSequence": -1,
+    "lastCommandAgeMs": null,
+    "stateSequence": 1,
+    "messagesReceived": 4,
+    "messagesSent": 6,
+    "obstacleSequence": 0,
+    "planId": "execution-1",
+    "planStatus": "SUCCESS",
+    "planSourceTime": 19.19999999999968,
+    "planReceivedTime": 19.19999999999968,
+    "planPoints": 81,
+    "planSolveTime": 4.178699434,
+    "blockedControlMessages": 0,
+    "invalidMessages": 0,
+    "droppedStateMessages": 0,
+    "failsafe": false
+  },
+  "commands": []
+}

@@ -1,0 +1,58 @@
+[
+  {
+    "status": "HOLD_INITIAL_PLAN",
+    "time": 19.19999999999968
+  },
+  {
+    "status": "PLANNING",
+    "time": 19.19999999999968
+  },
+  {
+    "status": "PLAN_READY",
+    "time": 19.19999999999968
+  },
+  {
+    "status": "ARMING",
+    "time": 19.19999999999968
+  },
+  {
+    "status": "ARMING",
+    "time": 19.19999999999968
+  },
+  {
+    "status": "ARMED",
+    "time": 19.19999999999968
+  },
+  {
+    "status": "PLAN_PREFIX_COMPLETE",
+    "time": 21.199999999999637
+  },
+  {
+    "status": "HOLD_REPLAN",
+    "time": 21.199999999999637
+  },
+  {
+    "status": "PLANNING",
+    "time": 21.199999999999637
+  },
+  {
+    "status": "PLAN_READY",
+    "time": 21.199999999999637
+  },
+  {
+    "status": "ARMING",
+    "time": 21.199999999999637
+  },
+  {
+    "status": "ARMING",
+    "time": 21.199999999999637
+  },
+  {
+    "status": "ARMED",
+    "time": 21.199999999999637
+  },
+  {
+    "status": "PLAN_PREFIX_COMPLETE",
+    "time": 23.199999999999594
+  }
+]

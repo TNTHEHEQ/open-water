@@ -62,3 +62,41 @@ export class PlanExecutionController {
   }
   disconnected(){if(this.owns||this.status==='PLANNING')this.abort('DISCONNECTED',false);}
 }
+
+// Explicit integration-only mode; legacy P6B remains one-shot.
+export class RollingPlanExecutionController extends PlanExecutionController {
+  request(state,scenario='H1_ROLLING'){
+    if(scenario!=='H1_ROLLING'||(this.owns&&this.status!=='HOLD_REPLAN'))throw new Error('Invalid rolling request phase');
+    this.metrics={}; // Previous-cycle t_rel must never satisfy the next-cycle state ACK.
+    this.hold.hold();this.plan=null;this.status='PLANNING';this.bridge.nextPublish=-Infinity;this.bridge.update(state);
+    this.requestSourceSequence=this.bridge.diagnostics.stateSequence-1;this.bridge.minimumSourceSequence=this.requestSourceSequence;
+    this.bridge.send({protocol_version:1,type:'plan_request',request_id:++this.requestId,state_sequence:this.requestSourceSequence,simulation_time:state.timestamp,obstacle_sequence:this.bridge.diagnostics.obstacleSequence,hold:true,scenario});
+    this.event(this.owns?'HOLD_REPLAN':'HOLD_INITIAL_PLAN');
+  }
+  execute(){
+    const rows=this.rows,failures=this.failures;
+    super.execute();this.rows=rows;this.failures=failures;
+  }
+  allowControl(message){
+    return this.owns&&['ARMING','EXECUTING_PREFIX','HOLD_REPLAN','PLANNING','PLAN_READY'].includes(this.status)
+      &&['set_control_mode','control_command'].includes(message.type);
+  }
+  receive(message){
+    this.metrics=message.metrics??this.metrics;
+    if(message.status==='PLAN_PREFIX_COMPLETE'){
+      if(!this.owns||this.status!=='EXECUTING_PREFIX'){this.abort('INVALID_PREFIX_COMPLETE');return;}
+      this.hold.hold();this.status='HOLD_REPLAN';this.event('PLAN_PREFIX_COMPLETE');return;
+    }
+    if(message.status==='TASK_COMPLETE'){
+      this.hold.hold();this.owns=false;this.status='TASK_COMPLETE';this.mux.setControls(0,0);this.mux.setMode('MANUAL');this.bridge.claimed=false;this.event('TASK_COMPLETE');return;
+    }
+    if(message.status==='EXECUTING_PREFIX'){this.status='EXECUTING_PREFIX';return;}
+    super.receive(message);
+    if(message.status==='ARMED'&&this.status==='EXECUTING')this.status='EXECUTING_PREFIX';
+  }
+  update(state){
+    if(this.owns&&this.mux.failsafe){this.failures++;this.abort('COMMAND_TIMEOUT');return;}
+    if(this.owns&&this.status==='EXECUTING_PREFIX')this.rows.push({simulation_time:state.timestamp,plan_id:this.plan?.plan_id,control_mode:this.mux.mode,failsafe:this.mux.failsafe,...this.metrics});
+  }
+  abort(reason='LOCAL_ABORT',notify=true){super.abort(reason,notify);this.hold.hold();}
+}

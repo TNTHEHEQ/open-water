@@ -1,0 +1,12 @@
+✔ P7B1 prefix completion holds without neutral/manual or ownership loss (1.091651ms)
+✔ P7B1 only explicit actual TASK_COMPLETE releases ownership (0.178051ms)
+✔ P7B1 held timeout aborts and keeps simulation held (0.155056ms)
+✔ P7B1 prefix statuses are protocol checked and execution needs fresh held ACK (0.281565ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 99.097779

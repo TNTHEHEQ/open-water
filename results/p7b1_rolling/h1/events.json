@@ -1,0 +1,214 @@
+[
+  {
+    "status": "HOLD_INITIAL_PLAN",
+    "time": 19.19999999999968
+  },
+  {
+    "status": "PLANNING",
+    "time": 19.19999999999968
+  },
+  {
+    "status": "PLAN_READY",
+    "time": 19.19999999999968
+  },
+  {
+    "status": "ARMING",
+    "time": 19.19999999999968
+  },
+  {
+    "status": "ARMING",
+    "time": 19.19999999999968
+  },
+  {
+    "status": "ARMED",
+    "time": 19.19999999999968
+  },
+  {
+    "status": "PLAN_PREFIX_COMPLETE",
+    "time": 21.199999999999637
+  },
+  {
+    "status": "HOLD_REPLAN",
+    "time": 21.199999999999637
+  },
+  {
+    "status": "PLANNING",
+    "time": 21.199999999999637
+  },
+  {
+    "status": "PLAN_READY",
+    "time": 21.199999999999637
+  },
+  {
+    "status": "ARMING",
+    "time": 21.199999999999637
+  },
+  {
+    "status": "ARMING",
+    "time": 21.199999999999637
+  },
+  {
+    "status": "ARMED",
+    "time": 21.199999999999637
+  },
+  {
+    "status": "PLAN_PREFIX_COMPLETE",
+    "time": 23.199999999999594
+  },
+  {
+    "status": "HOLD_REPLAN",
+    "time": 23.199999999999594
+  },
+  {
+    "status": "PLANNING",
+    "time": 23.199999999999594
+  },
+  {
+    "status": "PLAN_READY",
+    "time": 23.199999999999594
+  },
+  {
+    "status": "ARMING",
+    "time": 23.199999999999594
+  },
+  {
+    "status": "ARMING",
+    "time": 23.199999999999594
+  },
+  {
+    "status": "ARMED",
+    "time": 23.199999999999594
+  },
+  {
+    "status": "PLAN_PREFIX_COMPLETE",
+    "time": 25.19999999999955
+  },
+  {
+    "status": "HOLD_REPLAN",
+    "time": 25.19999999999955
+  },
+  {
+    "status": "PLANNING",
+    "time": 25.19999999999955
+  },
+  {
+    "status": "PLAN_READY",
+    "time": 25.19999999999955
+  },
+  {
+    "status": "ARMING",
+    "time": 25.19999999999955
+  },
+  {
+    "status": "ARMING",
+    "time": 25.19999999999955
+  },
+  {
+    "status": "ARMED",
+    "time": 25.19999999999955
+  },
+  {
+    "status": "PLAN_PREFIX_COMPLETE",
+    "time": 27.19999999999951
+  },
+  {
+    "status": "HOLD_REPLAN",
+    "time": 27.19999999999951
+  },
+  {
+    "status": "PLANNING",
+    "time": 27.19999999999951
+  },
+  {
+    "status": "PLAN_READY",
+    "time": 27.19999999999951
+  },
+  {
+    "status": "ARMING",
+    "time": 27.19999999999951
+  },
+  {
+    "status": "ARMING",
+    "time": 27.19999999999951
+  },
+  {
+    "status": "ARMED",
+    "time": 27.19999999999951
+  },
+  {
+    "status": "PLAN_PREFIX_COMPLETE",
+    "time": 29.199999999999466
+  },
+  {
+    "status": "HOLD_REPLAN",
+    "time": 29.199999999999466
+  },
+  {
+    "status": "PLANNING",
+    "time": 29.199999999999466
+  },
+  {
+    "status": "PLAN_READY",
+    "time": 29.199999999999466
+  },
+  {
+    "status": "ARMING",
+    "time": 29.199999999999466
+  },
+  {
+    "status": "ARMING",
+    "time": 29.199999999999466
+  },
+  {
+    "status": "ARMED",
+    "time": 29.199999999999466
+  },
+  {
+    "status": "PLAN_PREFIX_COMPLETE",
+    "time": 31.199999999999424
+  },
+  {
+    "status": "HOLD_REPLAN",
+    "time": 31.199999999999424
+  },
+  {
+    "status": "PLANNING",
+    "time": 31.199999999999424
+  },
+  {
+    "status": "PLAN_READY",
+    "time": 31.199999999999424
+  },
+  {
+    "status": "ARMING",
+    "time": 31.199999999999424
+  },
+  {
+    "status": "ARMING",
+    "time": 31.199999999999424
+  },
+  {
+    "status": "ARMED",
+    "time": 31.199999999999424
+  },
+  {
+    "status": "PLAN_PREFIX_COMPLETE",
+    "time": 33.19999999999942
+  },
+  {
+    "status": "HOLD_REPLAN",
+    "time": 33.19999999999942
+  },
+  {
+    "status": "PLANNING",
+    "time": 33.19999999999942
+  },
+  {
+    "status": "SOLVER_FAILED_DURING_REFINEMENT: strict KKT rejected",
+    "time": 33.19999999999942
+  },
+  {
+    "status": "SOLVER_FAILED_DURING_REFINEMENT: strict KKT rejected",
+    "time": 33.19999999999942
+  }
+]

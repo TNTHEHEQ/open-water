@@ -1,0 +1,8 @@
+P6B LISTEN 8771 snapshot execution only; QUIT to stop
+
+******************************************************************************
+This program contains Ipopt, a library for large-scale nonlinear optimization.
+ Ipopt is released as open source code under the Eclipse Public License (EPL).
+         For more information visit http://projects.coin-or.org/Ipopt
+******************************************************************************
+

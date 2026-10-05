@@ -1,0 +1,26 @@
+[
+  {
+    "status": "HOLD_INITIAL_PLAN",
+    "time": 19.19999999999968
+  },
+  {
+    "status": "PLANNING",
+    "time": 19.19999999999968
+  },
+  {
+    "status": "PLAN_READY",
+    "time": 19.19999999999968
+  },
+  {
+    "status": "ARMING",
+    "time": 19.19999999999968
+  },
+  {
+    "status": "STALE_INPUT: receipt age",
+    "time": 19.19999999999968
+  },
+  {
+    "status": "STALE_INPUT: receipt age",
+    "time": 19.19999999999968
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "status": "PUSH_AUTHORIZED_BY_USER_AFTER_STAGE_DELIVERY",
+  "user_instruction": "提交并推送",
+  "branch": "test",
+  "repositories": ["TNTHEHEQ/all-in-planner", "TNTHEHEQ/open-water"],
+  "scope": "P7B1 implementation, reports, figures and complete saved evidence",
+  "main_unchanged": true,
+  "numerical_campaign_rerun": false,
+  "original_experiment_contract_unchanged": true
+}
