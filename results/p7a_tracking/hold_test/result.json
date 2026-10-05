@@ -1,0 +1,5456 @@
+{
+  "status": "HOLD_KEEPALIVE_PASS",
+  "wall_duration_sec": 10.000367348000001,
+  "native_timer_only": true,
+  "state_publications_during_hold": 0,
+  "keepalive_count": 100,
+  "max_command_receipt_gap_sec": 0.1038622109999996,
+  "simulation_time_unchanged": true,
+  "all_physical_fields_unchanged": true,
+  "all_commands_identical": true,
+  "failsafe_count": 0,
+  "before": {
+    "timestamp": 19.19999999999968,
+    "pose": {
+      "position": {
+        "x": 1.4568078218668974,
+        "y": 24.081244237312283,
+        "z": -0.02880299737163095
+      },
+      "orientation": {
+        "x": -0.007021959674481012,
+        "y": -0.004457223509863515,
+        "z": -0.00133466213772032,
+        "w": 0.9999645213295777
+      },
+      "headingRad": 0.002732098823446956
+    },
+    "velocity": {
+      "linear": {
+        "x": 0.03169733840416827,
+        "y": 2.057234689062681,
+        "z": -0.010233820256258403
+      },
+      "angular": {
+        "x": -0.0005540523178420796,
+        "y": 0.025332901099983814,
+        "z": -0.0018412290008081053
+      },
+      "body": {
+        "surge": 2.0572546716615525,
+        "sway": 0.026242093413494625,
+        "heave": 0.018400725033777546,
+        "rollRate": 0.025354634295490997,
+        "pitchRate": -0.0006365093652326918,
+        "yawRate": 0.0014799837552374993
+      }
+    },
+    "attitude": {
+      "rollRad": -0.008933872973767232,
+      "pitchRad": -0.014031983784837224,
+      "yawRad": 0.002732098823446956
+    },
+    "actuator": {
+      "type": "single_outboard",
+      "propulsionActual": 0.0190476190476188,
+      "rawThrustN": 199.99999999999739,
+      "effectiveThrustN": 192.62755463146846,
+      "steeringActualRad": 0,
+      "steeringEffectiveRad": 0,
+      "steeringRateRadPerSec": 0,
+      "ventilationFactor": 0.9938888181155465
+    },
+    "command": {
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0
+    }
+  },
+  "after": {
+    "timestamp": 19.19999999999968,
+    "pose": {
+      "position": {
+        "x": 1.4568078218668974,
+        "y": 24.081244237312283,
+        "z": -0.02880299737163095
+      },
+      "orientation": {
+        "x": -0.007021959674481012,
+        "y": -0.004457223509863515,
+        "z": -0.00133466213772032,
+        "w": 0.9999645213295777
+      },
+      "headingRad": 0.002732098823446956
+    },
+    "velocity": {
+      "linear": {
+        "x": 0.03169733840416827,
+        "y": 2.057234689062681,
+        "z": -0.010233820256258403
+      },
+      "angular": {
+        "x": -0.0005540523178420796,
+        "y": 0.025332901099983814,
+        "z": -0.0018412290008081053
+      },
+      "body": {
+        "surge": 2.0572546716615525,
+        "sway": 0.026242093413494625,
+        "heave": 0.018400725033777546,
+        "rollRate": 0.025354634295490997,
+        "pitchRate": -0.0006365093652326918,
+        "yawRate": 0.0014799837552374993
+      }
+    },
+    "attitude": {
+      "rollRad": -0.008933872973767232,
+      "pitchRad": -0.014031983784837224,
+      "yawRad": 0.002732098823446956
+    },
+    "actuator": {
+      "type": "single_outboard",
+      "propulsionActual": 0.0190476190476188,
+      "rawThrustN": 199.99999999999739,
+      "effectiveThrustN": 192.62755463146846,
+      "steeringActualRad": 0,
+      "steeringEffectiveRad": 0,
+      "steeringRateRadPerSec": 0,
+      "ventilationFactor": 0.9938888181155465
+    },
+    "command": {
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0
+    }
+  },
+  "commands": [
+    {
+      "received_wall_sec": 1.830269248,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 1,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 1.886038877,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 2,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 1.989591446,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 3,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 2.093334595,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 4,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 2.197131573,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 5,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 2.3009937839999997,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 6,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 2.403837608,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 7,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 2.503992986,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 8,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 2.604212812,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 9,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 2.7043726660000003,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 10,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 2.804570019,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 11,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 2.9047586919999997,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 12,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 3.004914182,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 13,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 3.105089053,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 14,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 3.205255723,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 15,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 3.305440291,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 16,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 3.405634349,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 17,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 3.505913181,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 18,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 3.605948574,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 19,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 3.706117694,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 20,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 3.806292602,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 21,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 3.906443839,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 22,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 4.006591805,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 23,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 4.106718471,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 24,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 4.206847508,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 25,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 4.306977687,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 26,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 4.407224371,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 27,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 4.5073389729999995,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 28,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 4.6074567129999995,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 29,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 4.7076035570000005,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 30,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 4.807724689,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 31,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 4.907895902,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 32,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 5.008036364,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 33,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 5.108162148,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 34,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 5.208271835,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 35,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 5.3084007,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 36,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 5.408603523,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 37,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 5.50871833,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 38,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 5.608853688,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 39,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 5.708984181,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 40,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 5.809107542,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 41,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 5.909275278,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 42,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 6.009426826,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 43,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 6.1094984089999995,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 44,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 6.209824165,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 45,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 6.309958537000001,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 46,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 6.410111243,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 47,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 6.510292914,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 48,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 6.610666996,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 49,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 6.712563417,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 50,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 6.815122566,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 51,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 6.91706736,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 52,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 7.018672319,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 53,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 7.12120263,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 54,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 7.2238044630000005,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 55,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 7.326459325,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 56,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 7.428072589,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 57,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 7.5307324840000005,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 58,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 7.632300199,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 59,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 7.734940416000001,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 60,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 7.837527277,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 61,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 7.939163735,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 62,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 8.039349545,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 63,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 8.142114255000001,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 64,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 8.244622962,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 65,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 8.347356565,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 66,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 8.45002781,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 67,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 8.552714959000001,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 68,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 8.655422772,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 69,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 8.757131587,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 70,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 8.859828306999999,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 71,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 8.96239319,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 72,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 9.065037887,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 73,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 9.166713433,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 74,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 9.268349966,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 75,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 9.371083224,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 76,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 9.473265083,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 77,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 9.575388418000001,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 78,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 9.677481085,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 79,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 9.780184826000001,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 80,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 9.882981808,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 81,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 9.984837233,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 82,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 10.08703883,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 83,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 10.188851099999999,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 84,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 10.291788977,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 85,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 10.394315243,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 86,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 10.495942065,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 87,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 10.597671667,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 88,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 10.699279682,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 89,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 10.801193839,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 90,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 10.903812344,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 91,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 11.004601892,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 92,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 11.104767497000001,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 93,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 11.204937262,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 94,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 11.305087898,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 95,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 11.405267167,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 96,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 11.50546353,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 97,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 11.605621719,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 98,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 11.705790601999999,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 99,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    },
+    {
+      "received_wall_sec": 11.805935009999999,
+      "propulsion_command": 0.01904761904761905,
+      "protocol_version": 1,
+      "sequence": 100,
+      "steering_angle_rad": 0,
+      "timestamp": 19.19999999999968,
+      "type": "control_command"
+    }
+  ],
+  "samples": [
+    {
+      "wall_sec": 0.020302578999999987,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 0.04030078299999995,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 0.060325501999999975,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 0.07974461200000005,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 0.10068816000000003,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 0.12165800500000001,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 0.142600775,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 0.16306368399999993,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 0.1841115339999999,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 0.20510626999999992,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 0.22607130699999978,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 0.246363718,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 0.265634543,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 0.28600229300000013,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 0.30701392299999997,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 0.32804395100000017,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 0.34891166900000004,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 0.36943570800000014,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 0.3897864850000001,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 0.41079131999999996,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 0.43185933200000015,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 0.45275893599999995,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 0.4732392919999997,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 0.4935813170000003,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 0.5146106019999999,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 0.5356572710000003,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 0.55651567,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 0.5770642650000002,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 0.5973755809999997,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 0.6165946500000001,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 0.6368245739999998,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 0.6570155390000001,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 0.6772448239999997,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 0.6964774650000001,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 0.716715991,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 0.7369628800000001,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 0.757194331,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 0.7773744779999996,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 0.7975968579999999,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 0.817820046,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 0.8380391949999999,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 0.858287421,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 0.8775388629999998,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 0.8977619609999996,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 0.9179924640000001,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 0.9382057320000001,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 0.958450156,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 0.9787716990000002,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 0.9990171999999999,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 1.019324106,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 1.0385398019999998,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 1.058731146,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 1.0788888499999998,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 1.0991131259999998,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 1.119453929,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 1.1396932729999998,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 1.1598942769999998,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 1.180097108,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 1.20030847,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 1.2195612310000001,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 1.2398131290000003,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 1.2600320859999998,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 1.280264604,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 1.299522155,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 1.3197244160000001,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 1.3399684440000001,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 1.3602402809999998,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 1.3804255800000003,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 1.400658279,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 1.4209288720000002,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 1.44118639,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 1.461441218,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 1.4816572319999999,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 1.5019095409999998,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 1.5222034669999998,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 1.542432136,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 1.5626541779999998,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 1.582832243,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 1.603048909,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 1.6233408949999997,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 1.6426298410000002,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 1.6628576699999997,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 1.6831548180000002,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 1.7034461160000003,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 1.7236950600000003,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 1.743952636,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 1.7642389509999998,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 1.7841355279999997,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 1.804359019,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 1.8235579459999998,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 1.843833107,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 1.8640444029999998,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 1.8842812249999996,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 1.9035063239999999,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 1.923749839,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 1.9439595009999997,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 1.964195594,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 1.9835375229999999,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 2.003775671,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 2.024015424,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 2.0442359619999997,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 2.0634553029999996,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 2.0836088129999997,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 2.1038367,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 2.1241124940000002,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 2.1443625280000003,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 2.163631269,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 2.1837967799999998,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 2.2040733550000002,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 2.2243414349999995,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 2.243546823,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 2.26375905,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 2.283883598,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 2.304079155,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 2.324348939,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 2.3436041229999995,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 2.363877123,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 2.383993534,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 2.4042224240000003,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 2.4244991560000004,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 2.4447636159999995,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 2.465028942,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 2.485156237,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 2.5053842090000007,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 2.5256403059999997,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 2.5458912600000003,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 2.566115525,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 2.586415593,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 2.606644124,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 2.6269422039999997,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 2.647194667,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 2.6674243769999997,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 2.687549077,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 2.707974309,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 2.728341757,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 2.747585355,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 2.7678574329999996,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 2.78757781,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 2.8077908860000003,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 2.828059627999999,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 2.8482811260000007,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 2.8675064509999997,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 2.88776248,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 2.9080011490000004,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 2.9282853609999995,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 2.947493661,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 2.96773459,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 2.987949327,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 3.008177837,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 3.028426415,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 3.0486340199999997,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 3.068859381,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 3.089095028,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 3.109317905,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 3.128604075,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 3.148854431,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 3.1690668650000005,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 3.189238619,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 3.2084733650000006,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 3.2287020760000003,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 3.248926451,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 3.269161834,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 3.289434214000001,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 3.309720788,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 3.3299716130000006,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 3.350236655,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 3.3695099930000003,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 3.3904697629999996,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 3.4107323119999995,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 3.430976126,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 3.451180979,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 3.4714419890000006,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 3.491615767,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 3.5118907619999993,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 3.5321298089999997,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 3.55237583,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 3.5726074729999997,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 3.5928024549999993,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 3.613090993,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 3.633381450000001,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 3.6526286699999995,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 3.6728562059999996,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 3.692920389,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 3.7131711549999995,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 3.733493697,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 3.753767957,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 3.773996243,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 3.7940126130000005,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 3.814227948,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 3.834484132,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 3.854719232,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 3.8749567700000007,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 3.89516699,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 3.9155856369999995,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 3.9358423710000006,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 3.956082707,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 3.9763115119999997,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 3.996277783,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 4.015508524,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 4.035762489000001,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 4.056004335,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 4.076218532,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 4.096454711,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 4.116648643,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 4.136901751,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 4.157146044,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 4.17734717,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 4.196616743,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 4.216867182,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 4.237139553,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 4.257385175,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 4.27762834,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 4.297694721,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 4.317986567,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 4.338277112,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 4.3575414509999995,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 4.377767427,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 4.398073104,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 4.4183370559999995,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 4.437590481,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 4.45785604,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 4.478115175,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 4.498163066,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 4.518412984999999,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 4.538652899000001,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 4.5589029619999994,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 4.579151046,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 4.599360043,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 4.618626741,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 4.638904537,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 4.659169475000001,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 4.67943902,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 4.700506265,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 4.720751135,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 4.7409858410000005,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 4.761241069,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 4.780786456,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 4.801048718,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 4.821775235,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 4.842581976,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 4.8630367009999995,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 4.882595755,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 4.903400626,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 4.923087408,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 4.9438706859999995,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 4.964136301,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 4.984870602,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 5.005809039,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 5.0264570310000005,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 5.047233605,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 5.066897632,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 5.087187836,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 5.108014926,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 5.128307268,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 5.147990591,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 5.1687037,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 5.188779621,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 5.209487741,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 5.23024614,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 5.2500108480000005,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 5.270766538,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 5.291239731999999,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 5.311858571999999,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 5.332559466999999,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 5.3532835389999995,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 5.372993355,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 5.393282344,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 5.413478946,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 5.43421294,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 5.455008336000001,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 5.475835914,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 5.496500085,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 5.51721885,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 5.537964965,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 5.558393325,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 5.579159009,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 5.599326968,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 5.618993017999999,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 5.63980086,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 5.660524851,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 5.681254866,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 5.700770008,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 5.721492275999999,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 5.7422455999999995,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 5.76198979,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 5.782809103999999,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 5.802335483999999,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 5.82309565,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 5.84350337,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 5.864217777,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 5.884977644999999,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 5.904975578,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 5.925710783,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 5.946457925,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 5.967239062,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 5.986976306,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 6.007119942,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 6.027140146,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 6.047925083,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 6.068672478,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 6.089402895,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 6.110328792,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 6.130093689,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 6.150881071000001,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 6.171670537,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 6.192414876,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 6.212545389,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 6.233240658999999,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 6.252949668,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 6.273617068000001,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 6.293940583999999,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 6.314349493999999,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 6.335084833000001,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 6.355486929999999,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 6.376160254999999,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 6.3966815200000005,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 6.416787462000001,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 6.437405559999999,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 6.457984624999999,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 6.478761596000001,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 6.499552634,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 6.5195165049999995,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 6.54012723,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 6.560550379000001,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 6.580957933,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 6.6017117569999995,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 6.622228554,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 6.642792491000001,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 6.663614009999999,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 6.684310525,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 6.704014525999999,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 6.723863482,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 6.744371233,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 6.764656938000001,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 6.785441254999999,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 6.8061994199999996,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 6.8254579600000005,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 6.8459130109999995,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 6.866213976,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 6.886879888,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 6.907671573000001,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 6.928368603,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 6.94877328,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 6.969027769999999,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 6.989769127,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 7.010456495000001,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 7.03103438,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 7.051420554000001,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 7.071830167000001,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 7.092548049,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 7.113282794999999,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 7.132447219,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 7.152731472,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 7.173437251,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 7.19424775,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 7.214050471999999,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 7.234814306000001,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 7.255746807,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 7.276008964,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 7.296733455000001,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 7.317060477999999,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 7.336752023,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 7.357455867,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 7.378196537,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 7.398973187,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 7.419781065,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 7.4394879099999995,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 7.459892102,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 7.480577492000001,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 7.501316875,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 7.521084953,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 7.541116038999999,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 7.561863701999999,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 7.582647813,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 7.602986662,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 7.623800118999999,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 7.644440923,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 7.665164408,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 7.6855146759999995,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 7.706527874,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 7.72737788,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 7.746601937,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 7.7674225439999995,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 7.787844965000001,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 7.808568758000001,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 7.8293200910000005,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 7.848661537000001,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 7.8693636620000005,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 7.888653907000001,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 7.909387638000001,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 7.930142967000001,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 7.950229262,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 7.971016758,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 7.991691864999999,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 8.012427066,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 8.033169263000001,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 8.053062453999999,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 8.073801328000002,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 8.094352565000001,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 8.114115176999999,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 8.134924770000001,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 8.154876439999999,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 8.175683559,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 8.195944939,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 8.216666125,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 8.237434103000002,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 8.258272633,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 8.278042619,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 8.298369317999999,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 8.318123926999998,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 8.338904898,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 8.358967527,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 8.37983615,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 8.400530821,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 8.421264830000002,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 8.440751086000002,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 8.461551825,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 8.482291242999999,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 8.501606122999998,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 8.522499254,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 8.543350875999998,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 8.563065805,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 8.583042579,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 8.603851078000002,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 8.624119311000001,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 8.644807505,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 8.665565462,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 8.686653895,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 8.707481610999999,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 8.728185776,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 8.748918541999998,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 8.768852969000001,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 8.789613154999998,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 8.810376753,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 8.831159108000001,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 8.851985859,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 8.872490018,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 8.893259154999999,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 8.912505597,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 8.933227092,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 8.954008676,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 8.974503987999999,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 8.995348469,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 9.014669310999999,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 9.035412843,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 9.055005462,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 9.075001713999999,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 9.095790472000001,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 9.116071823000002,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 9.136665479000001,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 9.157014647,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 9.176784463,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 9.197015361000002,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 9.217252792,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 9.236531033999999,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 9.256789586,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 9.276893799,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 9.297191621,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 9.317498147000002,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 9.337780694,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 9.358046646999998,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 9.378106699,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 9.397560465999998,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 9.417831181,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 9.438235147,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 9.45754437,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 9.478254523,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 9.497564347,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 9.517914955999998,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 9.538180367999999,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 9.558442657,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 9.579463931,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 9.599734877,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 9.620056458,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 9.640355672000002,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 9.659627341,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 9.679676706000002,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 9.699934244000001,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 9.720211533,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 9.740503203,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 9.760766453000002,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 9.780785228,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 9.801049259,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 9.821300111,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 9.840637653000002,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 9.860955331,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 9.88093614,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 9.901166738,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 9.921404553000002,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 9.941694321,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 9.961966807,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    },
+    {
+      "wall_sec": 9.982101541000002,
+      "t_sim": 19.19999999999968,
+      "propulsionCommand": 0.01904761904761905,
+      "steeringCommandRad": 0,
+      "rawThrustN": 199.99999999999739,
+      "steeringActualRad": 0,
+      "failsafe": false
+    }
+  ]
+}
