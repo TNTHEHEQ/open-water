@@ -1,0 +1,41 @@
+{
+  "sea_preset": 1,
+  "preset": {
+    "name": "Calm",
+    "hs": 0.35,
+    "tp": 4.5,
+    "windSpeed": 2.4,
+    "windDirection": 0.3839724354387525,
+    "gustiness": 0.12,
+    "currentSpeed": 0.12,
+    "currentDirection": 1.1868238913561442
+  },
+  "initial": {
+    "seaState": 1,
+    "localWaterHeight": -0.11351697093638378,
+    "wave": {
+      "significantHeightM": 0.35001426306825756,
+      "peakPeriodSec": 4.659875400235626
+    },
+    "windSpeedMps": 2.4233173083695303,
+    "windDirectionRad": 1.1791781892217488,
+    "currentSpeedMps": 0.1151470842609257,
+    "currentDirectionRad": 0.3163427389230472,
+    "waterVelocity": {
+      "x": -0.07537446384624613,
+      "y": 0.1030017561320117,
+      "z": -0.009509628889633331
+    },
+    "current": {
+      "x": 0.0358214360925301,
+      "y": 0.1094334305870994,
+      "z": 0
+    },
+    "wind": {
+      "x": 2.2398543818083754,
+      "y": 0.924942768682022,
+      "z": 0
+    }
+  },
+  "physical_dt_sec": 0.02
+}

@@ -1,0 +1,2122 @@
+[
+  {
+    "episode_id": 1,
+    "event": "SOLVE_QUEUED",
+    "generation": 1,
+    "identity": {
+      "configuration_id": "{\"command_bounds\":{\"Tc\":[0,200],\"deltac\":[-0.5235987755982988,0.5235987755982988]},\"controller_version\":\"OPENWATER_TRACKING_V1\",\"frozen_before_holdouts_and_obstacles\":true,\"gains\":{\"Kpsi\":-1.2,\"Kr\":-0.6,\"Ku\":0,\"Ky\":-0.08},\"rate_bounds\":{\"omegaT\":20,\"omegadelta\":0.15},\"selected_candidate\":\"Ku0_C\",\"selection_rank\":[4.855607357983705,1.4488454851196895,0.5496267419576737,1.3440238093129153],\"selection_score\":4.855607357983705,\"source_calibration_sha256\":\"5fa41e1a9facf3a88293dd9aab64fc0aef98af26bd0e7e0a6848f877ef4818dc\"}|{\"EMERGENCY_COVERAGE_SEC\":2.0,\"MAX_CONCURRENT_SOLVES\":1,\"MIN_REMAINING_SUFFIX_SEC\":4.0,\"control_dt_sec\":0.02,\"handover_policy\":\"NEXT_CONTROL_TICK_CURRENT_ABSOLUTE_TIME_SUFFIX\",\"maximum_fallback_recoveries\":3,\"mode\":\"DIRECT_ASYNC_SUFFIX_V1\",\"real_time_factor\":1.0,\"state_origin\":\"OPENWATER_ACTUAL_TELEMETRY\"}|{\"collision_representation\":\"RULE_SELECTED_CONVEX_ST_CHANNEL\",\"fixed_lookahead\":true,\"mission_goal_world_s\":75.0,\"prediction_intervals\":120,\"prediction_lookahead_m\":75.0,\"reference_end_world_s\":null,\"terminal_policy\":\"CRUISE_CONTINUATION_V1\"}|FULL_LIFTED_IPOPT_STRICT_REFERENCE_JCONT1",
+      "episode_id": 1,
+      "generation": 1,
+      "observed_snapshot_id": 0,
+      "parent_active_plan_id": "",
+      "plan_start_sim_time": 19.19999999999968,
+      "reference_id": "OW_FIXED_STRAIGHT",
+      "state_origin": "OPENWATER_ACTUAL_TELEMETRY"
+    },
+    "plan_id": "execution-1",
+    "protocol_version": 1,
+    "request_id": 1,
+    "simulation_time": 19.19999999999968,
+    "solve_in_flight": true,
+    "startup": true,
+    "type": "async_event",
+    "wall_elapsed_sec": 0.093251243,
+    "receipt_wall_sec": 0.136413986,
+    "receipt_sim_time": 19.19999999999968
+  },
+  {
+    "age_sec": 0,
+    "duration_wall_sec": 2.899509546,
+    "episode_id": 1,
+    "event": "SOLVE_RETURNED",
+    "generation": 1,
+    "plan_start_sim_time": 19.19999999999968,
+    "protocol_version": 1,
+    "remaining_suffix_sec": 29.70576852733164,
+    "request_id": 1,
+    "simulation_time": 19.19999999999968,
+    "solve_in_flight": false,
+    "type": "async_event",
+    "wall_elapsed_sec": 2.993242412,
+    "receipt_wall_sec": 3.025940275,
+    "receipt_sim_time": 19.19999999999968
+  },
+  {
+    "episode_id": 1,
+    "event": "STARTUP_ACTIVE",
+    "generation": 1,
+    "plan_id": "execution-1",
+    "protocol_version": 1,
+    "simulation_time": 19.19999999999968,
+    "solve_in_flight": false,
+    "state_origin": "OPENWATER_ACTUAL_TELEMETRY",
+    "type": "async_event",
+    "wall_elapsed_sec": 3.027552657,
+    "receipt_wall_sec": 3.066052387,
+    "receipt_sim_time": 19.19999999999968
+  },
+  {
+    "actual_snapshot": {
+      "protocol_version": 1,
+      "sequence": 145,
+      "simulation_time": 19.19999999999968,
+      "state": {
+        "actuator": {
+          "effectiveThrustN": 192.62755463146846,
+          "propulsionActual": 0.0190476190476188,
+          "rawThrustN": 199.99999999999739,
+          "steeringActualRad": 0,
+          "steeringEffectiveRad": 0,
+          "steeringRateRadPerSec": 0,
+          "type": "single_outboard",
+          "ventilationFactor": 0.9938888181155465
+        },
+        "attitude": {
+          "pitchRad": -0.014031983784837224,
+          "rollRad": -0.008933872973767232,
+          "yawRad": 0.002732098823446956
+        },
+        "control": {
+          "propulsionCommand": 0.01904761904761905,
+          "steeringCommandRad": 0
+        },
+        "dynamics": {
+          "centerOfPressure": {
+            "x": 1.4566757496235467,
+            "y": 24.072672426107857,
+            "z": -0.02876035645389654
+          },
+          "planingForceN": 0,
+          "submergedPoints": 8
+        },
+        "environment": {
+          "current": {
+            "x": 0.0358214360925301,
+            "y": 0.1094334305870994,
+            "z": 0
+          },
+          "currentDirectionRad": 0.3163427389230472,
+          "currentSpeedMps": 0.1151470842609257,
+          "localWaterHeight": -0.11351697093638378,
+          "seaState": 1,
+          "waterVelocity": {
+            "x": -0.07537446384624613,
+            "y": 0.1030017561320117,
+            "z": -0.009509628889633331
+          },
+          "wave": {
+            "peakPeriodSec": 4.659875400235626,
+            "significantHeightM": 0.35001426306825756
+          },
+          "wind": {
+            "x": 2.2398543818083754,
+            "y": 0.924942768682022,
+            "z": 0
+          },
+          "windDirectionRad": 1.1791781892217488,
+          "windSpeedMps": 2.4233173083695303
+        },
+        "pose": {
+          "headingRad": 0.002732098823446956,
+          "orientation": {
+            "w": 0.9999645213295777,
+            "x": -0.007021959674481012,
+            "y": -0.004457223509863515,
+            "z": -0.00133466213772032
+          },
+          "position": {
+            "x": 1.4568078218668974,
+            "y": 24.081244237312283,
+            "z": -0.02880299737163095
+          }
+        },
+        "schemaVersion": 1,
+        "sequence": 1108,
+        "source": "SIM",
+        "timestamp": 19.19999999999968,
+        "velocity": {
+          "angular": {
+            "x": -0.0005540523178420796,
+            "y": 0.025332901099983814,
+            "z": -0.0018412290008081053
+          },
+          "body": {
+            "heave": 0.018400725033777546,
+            "pitchRate": -0.0006365093652326918,
+            "rollRate": 0.025354634295490997,
+            "surge": 2.0572546716615525,
+            "sway": 0.026242093413494625,
+            "yawRate": 0.0014799837552374993
+          },
+          "linear": {
+            "x": 0.03169733840416827,
+            "y": 2.057234689062681,
+            "z": -0.010233820256258403
+          }
+        },
+        "vesselId": "usv001"
+      },
+      "type": "simulation_state"
+    },
+    "actual_world_s_origin": 0,
+    "episode_id": 1,
+    "event": "REQUEST",
+    "generation": 1,
+    "identity": {
+      "configuration_id": "{\"command_bounds\":{\"Tc\":[0,200],\"deltac\":[-0.5235987755982988,0.5235987755982988]},\"controller_version\":\"OPENWATER_TRACKING_V1\",\"frozen_before_holdouts_and_obstacles\":true,\"gains\":{\"Kpsi\":-1.2,\"Kr\":-0.6,\"Ku\":0,\"Ky\":-0.08},\"rate_bounds\":{\"omegaT\":20,\"omegadelta\":0.15},\"selected_candidate\":\"Ku0_C\",\"selection_rank\":[4.855607357983705,1.4488454851196895,0.5496267419576737,1.3440238093129153],\"selection_score\":4.855607357983705,\"source_calibration_sha256\":\"5fa41e1a9facf3a88293dd9aab64fc0aef98af26bd0e7e0a6848f877ef4818dc\"}|{\"EMERGENCY_COVERAGE_SEC\":2.0,\"MAX_CONCURRENT_SOLVES\":1,\"MIN_REMAINING_SUFFIX_SEC\":4.0,\"control_dt_sec\":0.02,\"handover_policy\":\"NEXT_CONTROL_TICK_CURRENT_ABSOLUTE_TIME_SUFFIX\",\"maximum_fallback_recoveries\":3,\"mode\":\"DIRECT_ASYNC_SUFFIX_V1\",\"real_time_factor\":1.0,\"state_origin\":\"OPENWATER_ACTUAL_TELEMETRY\"}|{\"collision_representation\":\"RULE_SELECTED_CONVEX_ST_CHANNEL\",\"fixed_lookahead\":true,\"mission_goal_world_s\":75.0,\"prediction_intervals\":120,\"prediction_lookahead_m\":75.0,\"reference_end_world_s\":null,\"terminal_policy\":\"CRUISE_CONTINUATION_V1\"}|FULL_LIFTED_IPOPT_STRICT_REFERENCE_JCONT1",
+      "episode_id": 1,
+      "generation": 1,
+      "observed_snapshot_id": 145,
+      "parent_active_plan_id": "execution-1",
+      "plan_start_sim_time": 19.19999999999968,
+      "reference_id": "OW_FIXED_STRAIGHT",
+      "state_origin": "OPENWATER_ACTUAL_TELEMETRY"
+    },
+    "protocol_version": 1,
+    "simulation_time": 19.19999999999968,
+    "solve_in_flight": true,
+    "type": "async_event",
+    "wall_elapsed_sec": 3.046549069,
+    "receipt_wall_sec": 3.070702009,
+    "receipt_sim_time": 19.21999999999968
+  },
+  {
+    "episode_id": 1,
+    "event": "SOLVE_QUEUED",
+    "generation": 1,
+    "identity": {
+      "configuration_id": "{\"command_bounds\":{\"Tc\":[0,200],\"deltac\":[-0.5235987755982988,0.5235987755982988]},\"controller_version\":\"OPENWATER_TRACKING_V1\",\"frozen_before_holdouts_and_obstacles\":true,\"gains\":{\"Kpsi\":-1.2,\"Kr\":-0.6,\"Ku\":0,\"Ky\":-0.08},\"rate_bounds\":{\"omegaT\":20,\"omegadelta\":0.15},\"selected_candidate\":\"Ku0_C\",\"selection_rank\":[4.855607357983705,1.4488454851196895,0.5496267419576737,1.3440238093129153],\"selection_score\":4.855607357983705,\"source_calibration_sha256\":\"5fa41e1a9facf3a88293dd9aab64fc0aef98af26bd0e7e0a6848f877ef4818dc\"}|{\"EMERGENCY_COVERAGE_SEC\":2.0,\"MAX_CONCURRENT_SOLVES\":1,\"MIN_REMAINING_SUFFIX_SEC\":4.0,\"control_dt_sec\":0.02,\"handover_policy\":\"NEXT_CONTROL_TICK_CURRENT_ABSOLUTE_TIME_SUFFIX\",\"maximum_fallback_recoveries\":3,\"mode\":\"DIRECT_ASYNC_SUFFIX_V1\",\"real_time_factor\":1.0,\"state_origin\":\"OPENWATER_ACTUAL_TELEMETRY\"}|{\"collision_representation\":\"RULE_SELECTED_CONVEX_ST_CHANNEL\",\"fixed_lookahead\":true,\"mission_goal_world_s\":75.0,\"prediction_intervals\":120,\"prediction_lookahead_m\":75.0,\"reference_end_world_s\":null,\"terminal_policy\":\"CRUISE_CONTINUATION_V1\"}|FULL_LIFTED_IPOPT_STRICT_REFERENCE_JCONT1",
+      "episode_id": 1,
+      "generation": 1,
+      "observed_snapshot_id": 145,
+      "parent_active_plan_id": "execution-1",
+      "plan_start_sim_time": 19.19999999999968,
+      "reference_id": "OW_FIXED_STRAIGHT",
+      "state_origin": "OPENWATER_ACTUAL_TELEMETRY"
+    },
+    "plan_id": "execution-2",
+    "protocol_version": 1,
+    "request_id": 2,
+    "simulation_time": 19.19999999999968,
+    "solve_in_flight": true,
+    "startup": false,
+    "type": "async_event",
+    "wall_elapsed_sec": 3.046656117,
+    "receipt_wall_sec": 3.0707521019999997,
+    "receipt_sim_time": 19.21999999999968
+  },
+  {
+    "age_sec": 2.1399999999999544,
+    "duration_wall_sec": 2.126689331,
+    "episode_id": 1,
+    "event": "SOLVE_RETURNED",
+    "generation": 1,
+    "plan_start_sim_time": 19.19999999999968,
+    "protocol_version": 1,
+    "remaining_suffix_sec": 27.56576852729077,
+    "request_id": 2,
+    "simulation_time": 21.339999999999634,
+    "solve_in_flight": false,
+    "type": "async_event",
+    "wall_elapsed_sec": 5.173925062,
+    "receipt_wall_sec": 5.209662182,
+    "receipt_sim_time": 21.359999999999634
+  },
+  {
+    "age_sec": 2.1399999999999544,
+    "episode_id": 1,
+    "event": "PENDING_READY",
+    "generation": 1,
+    "plan_id": "execution-2",
+    "protocol_version": 1,
+    "remaining_suffix_sec": 27.56576852729077,
+    "simulation_time": 21.339999999999634,
+    "solve_in_flight": false,
+    "type": "async_event",
+    "wall_elapsed_sec": 5.173945941,
+    "receipt_wall_sec": 5.209679403,
+    "receipt_sim_time": 21.359999999999634
+  },
+  {
+    "actual_applied_command_before": [
+      181.40667726157267,
+      0.029944945137023067
+    ],
+    "applied_command_change": [
+      -0.16132973223508884,
+      0.00026010722803544023
+    ],
+    "control_dt": 0.019999999999999574,
+    "episode_id": 1,
+    "event": "SWITCH",
+    "generation": 1,
+    "limiter_before": [
+      21.339999999999634,
+      181.40667726157267,
+      0.029944945137023067
+    ],
+    "new_candidate_t_rel": 2.159999999999954,
+    "new_plan_id": "execution-2",
+    "new_reference": [
+      5.754814124426891,
+      -0.06470711895216989,
+      -0.019169126470250673,
+      2.955918432580417,
+      0.002949125351266711,
+      -0.019728992294933242,
+      181.24534752933758,
+      0.009966486533465308
+    ],
+    "old_plan_id": "execution-1",
+    "old_reference": [
+      5.75481412442571,
+      -0.06470711895204584,
+      -0.019169126470022616,
+      2.9559184325788115,
+      0.0029491253509392476,
+      -0.01972899229462481,
+      181.2453475288543,
+      0.009966486533262509
+    ],
+    "plan_start_sim_time": 19.19999999999968,
+    "protocol_version": 1,
+    "ready_sim_time": 21.339999999999634,
+    "remaining_suffix_sec": 27.54576852729077,
+    "simulation_time": 21.359999999999634,
+    "solve_in_flight": false,
+    "type": "async_event",
+    "wall_elapsed_sec": 5.189285985,
+    "receipt_wall_sec": 5.228475148999999,
+    "receipt_sim_time": 21.379999999999633
+  },
+  {
+    "actual_snapshot": {
+      "protocol_version": 1,
+      "sequence": 255,
+      "simulation_time": 21.379999999999633,
+      "state": {
+        "actuator": {
+          "effectiveThrustN": 176.50635132913874,
+          "propulsionActual": 0.01771790667459252,
+          "rawThrustN": 186.03802008322145,
+          "steeringActualRad": -0.025824768993705605,
+          "steeringEffectiveRad": -0.023687715773160842,
+          "steeringRateRadPerSec": -0.012665879628008803,
+          "type": "single_outboard",
+          "ventilationFactor": 0.979860492525043
+        },
+        "attitude": {
+          "pitchRad": -0.00604760973396824,
+          "rollRad": 0.012919292764789394,
+          "yawRad": 0.011123778039975945
+        },
+        "control": {
+          "propulsionCommand": 0.017261461669460722,
+          "steeringCommandRad": -0.030205052365058507
+        },
+        "dynamics": {
+          "centerOfPressure": {
+            "x": 1.5577648960578783,
+            "y": 28.865176407759208,
+            "z": 0.16642185263024206
+          },
+          "planingForceN": 41.95441860529818,
+          "submergedPoints": 8
+        },
+        "environment": {
+          "current": {
+            "x": 0.03457154679659127,
+            "y": 0.10744944072597744,
+            "z": 0
+          },
+          "currentDirectionRad": 0.31128696198806616,
+          "currentSpeedMps": 0.11287415186939054,
+          "localWaterHeight": 0.07781499690667915,
+          "seaState": 1,
+          "waterVelocity": {
+            "x": 0.09498801450152719,
+            "y": 0.12461279105197193,
+            "z": 0.07555911901143086
+          },
+          "wave": {
+            "peakPeriodSec": 4.631393253738966,
+            "significantHeightM": 0.35000430025170526
+          },
+          "wind": {
+            "x": 2.27583268942583,
+            "y": 0.9645471831808952,
+            "z": 0
+          },
+          "windDirectionRad": 1.1699241690554993,
+          "windSpeedMps": 2.471794024355874
+        },
+        "pose": {
+          "headingRad": 0.011123778039975945,
+          "orientation": {
+            "w": 0.9999589894490457,
+            "x": -0.002987763166239249,
+            "y": 0.006476289619478809,
+            "z": -0.005581251120518199
+          },
+          "position": {
+            "x": 1.5556172358129925,
+            "y": 28.654066418833477,
+            "z": 0.16801970266358887
+          }
+        },
+        "schemaVersion": 1,
+        "sequence": 1218,
+        "source": "SIM",
+        "timestamp": 21.379999999999633,
+        "velocity": {
+          "angular": {
+            "x": 0.016182328669782614,
+            "y": 0.027980379138542275,
+            "z": -0.005539518115513883
+          },
+          "body": {
+            "heave": 0.07416214725602982,
+            "pitchRate": 0.01593812535131957,
+            "rollRate": 0.028191638661790763,
+            "surge": 2.129567310431236,
+            "sway": 0.04604831116539833,
+            "yawRate": 0.005163652652357173
+          },
+          "linear": {
+            "x": 0.0706925170116035,
+            "y": 2.129318619756144,
+            "z": 0.06068100446181582
+          }
+        },
+        "vesselId": "usv001"
+      },
+      "type": "simulation_state"
+    },
+    "actual_world_s_origin": 4.573075071674962,
+    "episode_id": 1,
+    "event": "REQUEST",
+    "generation": 1,
+    "identity": {
+      "configuration_id": "{\"command_bounds\":{\"Tc\":[0,200],\"deltac\":[-0.5235987755982988,0.5235987755982988]},\"controller_version\":\"OPENWATER_TRACKING_V1\",\"frozen_before_holdouts_and_obstacles\":true,\"gains\":{\"Kpsi\":-1.2,\"Kr\":-0.6,\"Ku\":0,\"Ky\":-0.08},\"rate_bounds\":{\"omegaT\":20,\"omegadelta\":0.15},\"selected_candidate\":\"Ku0_C\",\"selection_rank\":[4.855607357983705,1.4488454851196895,0.5496267419576737,1.3440238093129153],\"selection_score\":4.855607357983705,\"source_calibration_sha256\":\"5fa41e1a9facf3a88293dd9aab64fc0aef98af26bd0e7e0a6848f877ef4818dc\"}|{\"EMERGENCY_COVERAGE_SEC\":2.0,\"MAX_CONCURRENT_SOLVES\":1,\"MIN_REMAINING_SUFFIX_SEC\":4.0,\"control_dt_sec\":0.02,\"handover_policy\":\"NEXT_CONTROL_TICK_CURRENT_ABSOLUTE_TIME_SUFFIX\",\"maximum_fallback_recoveries\":3,\"mode\":\"DIRECT_ASYNC_SUFFIX_V1\",\"real_time_factor\":1.0,\"state_origin\":\"OPENWATER_ACTUAL_TELEMETRY\"}|{\"collision_representation\":\"RULE_SELECTED_CONVEX_ST_CHANNEL\",\"fixed_lookahead\":true,\"mission_goal_world_s\":75.0,\"prediction_intervals\":120,\"prediction_lookahead_m\":75.0,\"reference_end_world_s\":null,\"terminal_policy\":\"CRUISE_CONTINUATION_V1\"}|FULL_LIFTED_IPOPT_STRICT_REFERENCE_JCONT1",
+      "episode_id": 1,
+      "generation": 1,
+      "observed_snapshot_id": 255,
+      "parent_active_plan_id": "execution-2",
+      "plan_start_sim_time": 21.379999999999633,
+      "reference_id": "OW_FIXED_STRAIGHT",
+      "state_origin": "OPENWATER_ACTUAL_TELEMETRY"
+    },
+    "protocol_version": 1,
+    "simulation_time": 21.379999999999633,
+    "solve_in_flight": true,
+    "type": "async_event",
+    "wall_elapsed_sec": 5.207732964,
+    "receipt_wall_sec": 5.248443657,
+    "receipt_sim_time": 21.399999999999633
+  },
+  {
+    "episode_id": 1,
+    "event": "SOLVE_QUEUED",
+    "generation": 1,
+    "identity": {
+      "configuration_id": "{\"command_bounds\":{\"Tc\":[0,200],\"deltac\":[-0.5235987755982988,0.5235987755982988]},\"controller_version\":\"OPENWATER_TRACKING_V1\",\"frozen_before_holdouts_and_obstacles\":true,\"gains\":{\"Kpsi\":-1.2,\"Kr\":-0.6,\"Ku\":0,\"Ky\":-0.08},\"rate_bounds\":{\"omegaT\":20,\"omegadelta\":0.15},\"selected_candidate\":\"Ku0_C\",\"selection_rank\":[4.855607357983705,1.4488454851196895,0.5496267419576737,1.3440238093129153],\"selection_score\":4.855607357983705,\"source_calibration_sha256\":\"5fa41e1a9facf3a88293dd9aab64fc0aef98af26bd0e7e0a6848f877ef4818dc\"}|{\"EMERGENCY_COVERAGE_SEC\":2.0,\"MAX_CONCURRENT_SOLVES\":1,\"MIN_REMAINING_SUFFIX_SEC\":4.0,\"control_dt_sec\":0.02,\"handover_policy\":\"NEXT_CONTROL_TICK_CURRENT_ABSOLUTE_TIME_SUFFIX\",\"maximum_fallback_recoveries\":3,\"mode\":\"DIRECT_ASYNC_SUFFIX_V1\",\"real_time_factor\":1.0,\"state_origin\":\"OPENWATER_ACTUAL_TELEMETRY\"}|{\"collision_representation\":\"RULE_SELECTED_CONVEX_ST_CHANNEL\",\"fixed_lookahead\":true,\"mission_goal_world_s\":75.0,\"prediction_intervals\":120,\"prediction_lookahead_m\":75.0,\"reference_end_world_s\":null,\"terminal_policy\":\"CRUISE_CONTINUATION_V1\"}|FULL_LIFTED_IPOPT_STRICT_REFERENCE_JCONT1",
+      "episode_id": 1,
+      "generation": 1,
+      "observed_snapshot_id": 255,
+      "parent_active_plan_id": "execution-2",
+      "plan_start_sim_time": 21.379999999999633,
+      "reference_id": "OW_FIXED_STRAIGHT",
+      "state_origin": "OPENWATER_ACTUAL_TELEMETRY"
+    },
+    "plan_id": "execution-3",
+    "protocol_version": 1,
+    "request_id": 3,
+    "simulation_time": 21.379999999999633,
+    "solve_in_flight": true,
+    "startup": false,
+    "type": "async_event",
+    "wall_elapsed_sec": 5.207798516,
+    "receipt_wall_sec": 5.248458665,
+    "receipt_sim_time": 21.399999999999633
+  },
+  {
+    "age_sec": 2.6599999999999433,
+    "duration_wall_sec": 2.6688908920000003,
+    "episode_id": 1,
+    "event": "SOLVE_RETURNED",
+    "generation": 1,
+    "plan_start_sim_time": 21.379999999999633,
+    "protocol_version": 1,
+    "remaining_suffix_sec": 26.247176565967248,
+    "request_id": 3,
+    "simulation_time": 24.039999999999576,
+    "solve_in_flight": false,
+    "type": "async_event",
+    "wall_elapsed_sec": 7.877191674,
+    "receipt_wall_sec": 7.909873157,
+    "receipt_sim_time": 24.059999999999576
+  },
+  {
+    "age_sec": 2.6599999999999433,
+    "episode_id": 1,
+    "event": "PENDING_READY",
+    "generation": 1,
+    "plan_id": "execution-3",
+    "protocol_version": 1,
+    "remaining_suffix_sec": 26.247176565967248,
+    "simulation_time": 24.039999999999576,
+    "solve_in_flight": false,
+    "type": "async_event",
+    "wall_elapsed_sec": 7.877209077,
+    "receipt_wall_sec": 7.909893398,
+    "receipt_sim_time": 24.059999999999576
+  },
+  {
+    "actual_applied_command_before": [
+      161.4951611835658,
+      0.07821071114500684
+    ],
+    "applied_command_change": [
+      0.39999999999997726,
+      -0.0029999999999999333
+    ],
+    "control_dt": 0.019999999999999574,
+    "episode_id": 1,
+    "event": "SWITCH",
+    "generation": 1,
+    "limiter_before": [
+      24.039999999999576,
+      161.4951611835658,
+      0.07821071114500684
+    ],
+    "new_candidate_t_rel": 2.679999999999943,
+    "new_plan_id": "execution-3",
+    "new_reference": [
+      11.81140361181055,
+      -0.36962856604811595,
+      -0.05623784699922964,
+      2.9617403764608463,
+      -0.00938047455605992,
+      -0.020739185161083855,
+      180.87552325805981,
+      0.005978557304151677
+    ],
+    "old_plan_id": "execution-2",
+    "old_reference": [
+      13.73167335247565,
+      -0.4446176045768194,
+      -0.08480142459370858,
+      2.911748410787218,
+      0.011842886502895769,
+      -0.0239637148169195,
+      161.36176255932,
+      0.0008596338385606684
+    ],
+    "plan_start_sim_time": 21.379999999999633,
+    "protocol_version": 1,
+    "ready_sim_time": 24.039999999999576,
+    "remaining_suffix_sec": 26.227176565967248,
+    "simulation_time": 24.059999999999576,
+    "solve_in_flight": false,
+    "type": "async_event",
+    "wall_elapsed_sec": 7.889434154,
+    "receipt_wall_sec": 7.928563609,
+    "receipt_sim_time": 24.079999999999576
+  },
+  {
+    "actual_snapshot": {
+      "protocol_version": 1,
+      "sequence": 391,
+      "simulation_time": 24.079999999999576,
+      "state": {
+        "actuator": {
+          "effectiveThrustN": 159.91314116398402,
+          "propulsionActual": 0.01575803838437243,
+          "rawThrustN": 165.45940303591053,
+          "steeringActualRad": -0.07266867915356098,
+          "steeringEffectiveRad": -0.06657436409078582,
+          "steeringRateRadPerSec": -0.007350453951168179,
+          "type": "single_outboard",
+          "ventilationFactor": 0.9985857182392901
+        },
+        "attitude": {
+          "pitchRad": -0.00839004227642343,
+          "rollRad": 0.005882879259024187,
+          "yawRad": 0.03963447585737586
+        },
+        "control": {
+          "propulsionCommand": 0.015418586779387218,
+          "steeringCommandRad": -0.07521071114500691
+        },
+        "dynamics": {
+          "centerOfPressure": {
+            "x": 1.737478602517913,
+            "y": 34.64352981319744,
+            "z": 0.08725954220311954
+          },
+          "planingForceN": 42.551450180407905,
+          "submergedPoints": 8
+        },
+        "environment": {
+          "current": {
+            "x": 0.03326454194277571,
+            "y": 0.10555558944800278,
+            "z": 0
+          },
+          "currentDirectionRad": 0.3052860575353274,
+          "currentSpeedMps": 0.11067299677147086,
+          "localWaterHeight": 0.00843589656929455,
+          "seaState": 1,
+          "waterVelocity": {
+            "x": 0.10884049757604244,
+            "y": 0.11484330205770803,
+            "z": -0.017399953742320846
+          },
+          "wave": {
+            "peakPeriodSec": 4.60304798600923,
+            "significantHeightM": 0.3500009740170764
+          },
+          "wind": {
+            "x": 1.9740315157760708,
+            "y": 0.8394743255764957,
+            "z": 0
+          },
+          "windDirectionRad": 1.1687064715343827,
+          "windSpeedMps": 2.1451148147778207
+        },
+        "pose": {
+          "headingRad": 0.03963447585737586,
+          "orientation": {
+            "w": 0.9997902779474217,
+            "x": -0.0041358801820548,
+            "y": 0.0030239596326798713,
+            "z": -0.019828017678959517
+          },
+          "position": {
+            "x": 1.729063523860982,
+            "y": 34.43267206223729,
+            "z": 0.08900589036263774
+          }
+        },
+        "schemaVersion": 1,
+        "sequence": 1354,
+        "source": "SIM",
+        "timestamp": 24.079999999999576,
+        "velocity": {
+          "angular": {
+            "x": 0.006377980620834602,
+            "y": -0.09028480165143025,
+            "z": -0.017443705391977368
+          },
+          "body": {
+            "heave": -0.008096579910646,
+            "pitchRate": 0.010057308722261177,
+            "rollRate": -0.08981165737197151,
+            "surge": 2.149898957922112,
+            "sway": -0.016777559379414726,
+            "yawRate": 0.01813900893667212
+          },
+          "linear": {
+            "x": 0.06837046702870762,
+            "y": 2.148734564554357,
+            "z": -0.02603499005643266
+          }
+        },
+        "vesselId": "usv001"
+      },
+      "type": "simulation_state"
+    },
+    "actual_world_s_origin": 10.352133020094257,
+    "episode_id": 1,
+    "event": "REQUEST",
+    "generation": 1,
+    "identity": {
+      "configuration_id": "{\"command_bounds\":{\"Tc\":[0,200],\"deltac\":[-0.5235987755982988,0.5235987755982988]},\"controller_version\":\"OPENWATER_TRACKING_V1\",\"frozen_before_holdouts_and_obstacles\":true,\"gains\":{\"Kpsi\":-1.2,\"Kr\":-0.6,\"Ku\":0,\"Ky\":-0.08},\"rate_bounds\":{\"omegaT\":20,\"omegadelta\":0.15},\"selected_candidate\":\"Ku0_C\",\"selection_rank\":[4.855607357983705,1.4488454851196895,0.5496267419576737,1.3440238093129153],\"selection_score\":4.855607357983705,\"source_calibration_sha256\":\"5fa41e1a9facf3a88293dd9aab64fc0aef98af26bd0e7e0a6848f877ef4818dc\"}|{\"EMERGENCY_COVERAGE_SEC\":2.0,\"MAX_CONCURRENT_SOLVES\":1,\"MIN_REMAINING_SUFFIX_SEC\":4.0,\"control_dt_sec\":0.02,\"handover_policy\":\"NEXT_CONTROL_TICK_CURRENT_ABSOLUTE_TIME_SUFFIX\",\"maximum_fallback_recoveries\":3,\"mode\":\"DIRECT_ASYNC_SUFFIX_V1\",\"real_time_factor\":1.0,\"state_origin\":\"OPENWATER_ACTUAL_TELEMETRY\"}|{\"collision_representation\":\"RULE_SELECTED_CONVEX_ST_CHANNEL\",\"fixed_lookahead\":true,\"mission_goal_world_s\":75.0,\"prediction_intervals\":120,\"prediction_lookahead_m\":75.0,\"reference_end_world_s\":null,\"terminal_policy\":\"CRUISE_CONTINUATION_V1\"}|FULL_LIFTED_IPOPT_STRICT_REFERENCE_JCONT1",
+      "episode_id": 1,
+      "generation": 1,
+      "observed_snapshot_id": 391,
+      "parent_active_plan_id": "execution-3",
+      "plan_start_sim_time": 24.079999999999576,
+      "reference_id": "OW_FIXED_STRAIGHT",
+      "state_origin": "OPENWATER_ACTUAL_TELEMETRY"
+    },
+    "protocol_version": 1,
+    "simulation_time": 24.079999999999576,
+    "solve_in_flight": true,
+    "type": "async_event",
+    "wall_elapsed_sec": 7.907742885,
+    "receipt_wall_sec": 7.948427336,
+    "receipt_sim_time": 24.099999999999575
+  },
+  {
+    "episode_id": 1,
+    "event": "SOLVE_QUEUED",
+    "generation": 1,
+    "identity": {
+      "configuration_id": "{\"command_bounds\":{\"Tc\":[0,200],\"deltac\":[-0.5235987755982988,0.5235987755982988]},\"controller_version\":\"OPENWATER_TRACKING_V1\",\"frozen_before_holdouts_and_obstacles\":true,\"gains\":{\"Kpsi\":-1.2,\"Kr\":-0.6,\"Ku\":0,\"Ky\":-0.08},\"rate_bounds\":{\"omegaT\":20,\"omegadelta\":0.15},\"selected_candidate\":\"Ku0_C\",\"selection_rank\":[4.855607357983705,1.4488454851196895,0.5496267419576737,1.3440238093129153],\"selection_score\":4.855607357983705,\"source_calibration_sha256\":\"5fa41e1a9facf3a88293dd9aab64fc0aef98af26bd0e7e0a6848f877ef4818dc\"}|{\"EMERGENCY_COVERAGE_SEC\":2.0,\"MAX_CONCURRENT_SOLVES\":1,\"MIN_REMAINING_SUFFIX_SEC\":4.0,\"control_dt_sec\":0.02,\"handover_policy\":\"NEXT_CONTROL_TICK_CURRENT_ABSOLUTE_TIME_SUFFIX\",\"maximum_fallback_recoveries\":3,\"mode\":\"DIRECT_ASYNC_SUFFIX_V1\",\"real_time_factor\":1.0,\"state_origin\":\"OPENWATER_ACTUAL_TELEMETRY\"}|{\"collision_representation\":\"RULE_SELECTED_CONVEX_ST_CHANNEL\",\"fixed_lookahead\":true,\"mission_goal_world_s\":75.0,\"prediction_intervals\":120,\"prediction_lookahead_m\":75.0,\"reference_end_world_s\":null,\"terminal_policy\":\"CRUISE_CONTINUATION_V1\"}|FULL_LIFTED_IPOPT_STRICT_REFERENCE_JCONT1",
+      "episode_id": 1,
+      "generation": 1,
+      "observed_snapshot_id": 391,
+      "parent_active_plan_id": "execution-3",
+      "plan_start_sim_time": 24.079999999999576,
+      "reference_id": "OW_FIXED_STRAIGHT",
+      "state_origin": "OPENWATER_ACTUAL_TELEMETRY"
+    },
+    "plan_id": "execution-4",
+    "protocol_version": 1,
+    "request_id": 4,
+    "simulation_time": 24.079999999999576,
+    "solve_in_flight": true,
+    "startup": false,
+    "type": "async_event",
+    "wall_elapsed_sec": 7.907818825,
+    "receipt_wall_sec": 7.948437264,
+    "receipt_sim_time": 24.099999999999575
+  },
+  {
+    "age_sec": 2.5599999999999454,
+    "duration_wall_sec": 2.573436516000001,
+    "episode_id": 1,
+    "event": "SOLVE_RETURNED",
+    "generation": 1,
+    "plan_start_sim_time": 24.079999999999576,
+    "protocol_version": 1,
+    "remaining_suffix_sec": 25.941294751594665,
+    "request_id": 4,
+    "simulation_time": 26.63999999999952,
+    "solve_in_flight": false,
+    "type": "async_event",
+    "wall_elapsed_sec": 10.481607014,
+    "receipt_wall_sec": 10.510045207,
+    "receipt_sim_time": 26.65999999999952
+  },
+  {
+    "age_sec": 2.5599999999999454,
+    "episode_id": 1,
+    "event": "PENDING_READY",
+    "generation": 1,
+    "plan_id": "execution-4",
+    "protocol_version": 1,
+    "remaining_suffix_sec": 25.941294751594665,
+    "simulation_time": 26.63999999999952,
+    "solve_in_flight": false,
+    "type": "async_event",
+    "wall_elapsed_sec": 10.481625023,
+    "receipt_wall_sec": 10.510052287,
+    "receipt_sim_time": 26.65999999999952
+  },
+  {
+    "actual_applied_command_before": [
+      166.420534289653,
+      0.08992073932180875
+    ],
+    "applied_command_change": [
+      0.39999999999997726,
+      -0.0029999999999999333
+    ],
+    "control_dt": 0.019999999999999574,
+    "episode_id": 1,
+    "event": "SWITCH",
+    "generation": 1,
+    "limiter_before": [
+      26.63999999999952,
+      166.420534289653,
+      0.08992073932180875
+    ],
+    "new_candidate_t_rel": 2.579999999999945,
+    "new_plan_id": "execution-4",
+    "new_reference": [
+      17.07859072727927,
+      -0.753092524391925,
+      -0.12790796967462864,
+      2.8752314353490944,
+      0.00987481440238351,
+      -0.01565145235892716,
+      176.98284464591902,
+      -0.012610735687693879
+    ],
+    "old_plan_id": "execution-3",
+    "old_reference": [
+      19.484786163554492,
+      -1.0288765923352379,
+      -0.11419722446797653,
+      2.9303116021494144,
+      0.0013775084747482723,
+      -0.021351688221021653,
+      166.31983949792493,
+      -0.0002852486011538123
+    ],
+    "plan_start_sim_time": 24.079999999999576,
+    "protocol_version": 1,
+    "ready_sim_time": 26.63999999999952,
+    "remaining_suffix_sec": 25.921294751594665,
+    "simulation_time": 26.65999999999952,
+    "solve_in_flight": false,
+    "type": "async_event",
+    "wall_elapsed_sec": 10.489686074,
+    "receipt_wall_sec": 10.529664431999999,
+    "receipt_sim_time": 26.67999999999952
+  },
+  {
+    "actual_snapshot": {
+      "protocol_version": 1,
+      "sequence": 522,
+      "simulation_time": 26.67999999999952,
+      "state": {
+        "actuator": {
+          "effectiveThrustN": 163.00755342274286,
+          "propulsionActual": 0.016091875155542824,
+          "rawThrustN": 168.96468913319964,
+          "steeringActualRad": -0.08268869051710302,
+          "steeringEffectiveRad": -0.07569421139921557,
+          "steeringRateRadPerSec": -0.012237249555776541,
+          "type": "single_outboard",
+          "ventilationFactor": 0.9969535185746831
+        },
+        "attitude": {
+          "pitchRad": -0.02427702068575909,
+          "rollRad": 0.05090888802822977,
+          "yawRad": 0.08882816425386966
+        },
+        "control": {
+          "propulsionCommand": 0.015887669932347904,
+          "steeringCommandRad": -0.08692073932180881
+        },
+        "dynamics": {
+          "centerOfPressure": {
+            "x": 1.8582956430615776,
+            "y": 40.219693954153904,
+            "z": 0.16870153260277992
+          },
+          "planingForceN": 42.762025158649436,
+          "submergedPoints": 8
+        },
+        "environment": {
+          "current": {
+            "x": 0.03222228307466063,
+            "y": 0.1041712543117281,
+            "z": 0
+          },
+          "currentDirectionRad": 0.2999854383292038,
+          "currentSpeedMps": 0.10904093612686151,
+          "localWaterHeight": 0.08533245754624506,
+          "seaState": 1,
+          "waterVelocity": {
+            "x": 0.12116880624138436,
+            "y": 0.09576588597491645,
+            "z": 0.27472364517477765
+          },
+          "wave": {
+            "peakPeriodSec": 4.581548241332644,
+            "significantHeightM": 0.35000023309097633
+          },
+          "wind": {
+            "x": 2.130827172640188,
+            "y": 0.8813482398593697,
+            "z": 0
+          },
+          "windDirectionRad": 1.178605790023246,
+          "windSpeedMps": 2.3059052798337114
+        },
+        "pose": {
+          "headingRad": 0.08882816425386966,
+          "orientation": {
+            "w": 0.9986029383557035,
+            "x": -0.010992355155177129,
+            "y": 0.025963478857925024,
+            "z": -0.0446904620818773
+          },
+          "position": {
+            "x": 1.8391127577085093,
+            "y": 40.00959008959087,
+            "z": 0.17492231954594498
+          }
+        },
+        "schemaVersion": 1,
+        "sequence": 1485,
+        "source": "SIM",
+        "timestamp": 26.67999999999952,
+        "velocity": {
+          "angular": {
+            "x": -0.00979590246506313,
+            "y": -0.061599243302211,
+            "z": -0.017837549768051884
+          },
+          "body": {
+            "heave": 0.25807626336947,
+            "pitchRate": -0.0033028697734637817,
+            "rollRate": -0.06177405244232403,
+            "surge": 2.1402435122312466,
+            "sway": -0.1300315476115818,
+            "yawRate": 0.019536175632663744
+          },
+          "linear": {
+            "x": 0.0741071633525681,
+            "y": 2.1479243722160573,
+            "z": 0.21232727643203633
+          }
+        },
+        "vesselId": "usv001"
+      },
+      "type": "simulation_state"
+    },
+    "actual_world_s_origin": 15.929330898396037,
+    "episode_id": 1,
+    "event": "REQUEST",
+    "generation": 1,
+    "identity": {
+      "configuration_id": "{\"command_bounds\":{\"Tc\":[0,200],\"deltac\":[-0.5235987755982988,0.5235987755982988]},\"controller_version\":\"OPENWATER_TRACKING_V1\",\"frozen_before_holdouts_and_obstacles\":true,\"gains\":{\"Kpsi\":-1.2,\"Kr\":-0.6,\"Ku\":0,\"Ky\":-0.08},\"rate_bounds\":{\"omegaT\":20,\"omegadelta\":0.15},\"selected_candidate\":\"Ku0_C\",\"selection_rank\":[4.855607357983705,1.4488454851196895,0.5496267419576737,1.3440238093129153],\"selection_score\":4.855607357983705,\"source_calibration_sha256\":\"5fa41e1a9facf3a88293dd9aab64fc0aef98af26bd0e7e0a6848f877ef4818dc\"}|{\"EMERGENCY_COVERAGE_SEC\":2.0,\"MAX_CONCURRENT_SOLVES\":1,\"MIN_REMAINING_SUFFIX_SEC\":4.0,\"control_dt_sec\":0.02,\"handover_policy\":\"NEXT_CONTROL_TICK_CURRENT_ABSOLUTE_TIME_SUFFIX\",\"maximum_fallback_recoveries\":3,\"mode\":\"DIRECT_ASYNC_SUFFIX_V1\",\"real_time_factor\":1.0,\"state_origin\":\"OPENWATER_ACTUAL_TELEMETRY\"}|{\"collision_representation\":\"RULE_SELECTED_CONVEX_ST_CHANNEL\",\"fixed_lookahead\":true,\"mission_goal_world_s\":75.0,\"prediction_intervals\":120,\"prediction_lookahead_m\":75.0,\"reference_end_world_s\":null,\"terminal_policy\":\"CRUISE_CONTINUATION_V1\"}|FULL_LIFTED_IPOPT_STRICT_REFERENCE_JCONT1",
+      "episode_id": 1,
+      "generation": 1,
+      "observed_snapshot_id": 522,
+      "parent_active_plan_id": "execution-4",
+      "plan_start_sim_time": 26.67999999999952,
+      "reference_id": "OW_FIXED_STRAIGHT",
+      "state_origin": "OPENWATER_ACTUAL_TELEMETRY"
+    },
+    "protocol_version": 1,
+    "simulation_time": 26.67999999999952,
+    "solve_in_flight": true,
+    "type": "async_event",
+    "wall_elapsed_sec": 10.508961756,
+    "receipt_wall_sec": 10.549462081,
+    "receipt_sim_time": 26.69999999999952
+  },
+  {
+    "episode_id": 1,
+    "event": "SOLVE_QUEUED",
+    "generation": 1,
+    "identity": {
+      "configuration_id": "{\"command_bounds\":{\"Tc\":[0,200],\"deltac\":[-0.5235987755982988,0.5235987755982988]},\"controller_version\":\"OPENWATER_TRACKING_V1\",\"frozen_before_holdouts_and_obstacles\":true,\"gains\":{\"Kpsi\":-1.2,\"Kr\":-0.6,\"Ku\":0,\"Ky\":-0.08},\"rate_bounds\":{\"omegaT\":20,\"omegadelta\":0.15},\"selected_candidate\":\"Ku0_C\",\"selection_rank\":[4.855607357983705,1.4488454851196895,0.5496267419576737,1.3440238093129153],\"selection_score\":4.855607357983705,\"source_calibration_sha256\":\"5fa41e1a9facf3a88293dd9aab64fc0aef98af26bd0e7e0a6848f877ef4818dc\"}|{\"EMERGENCY_COVERAGE_SEC\":2.0,\"MAX_CONCURRENT_SOLVES\":1,\"MIN_REMAINING_SUFFIX_SEC\":4.0,\"control_dt_sec\":0.02,\"handover_policy\":\"NEXT_CONTROL_TICK_CURRENT_ABSOLUTE_TIME_SUFFIX\",\"maximum_fallback_recoveries\":3,\"mode\":\"DIRECT_ASYNC_SUFFIX_V1\",\"real_time_factor\":1.0,\"state_origin\":\"OPENWATER_ACTUAL_TELEMETRY\"}|{\"collision_representation\":\"RULE_SELECTED_CONVEX_ST_CHANNEL\",\"fixed_lookahead\":true,\"mission_goal_world_s\":75.0,\"prediction_intervals\":120,\"prediction_lookahead_m\":75.0,\"reference_end_world_s\":null,\"terminal_policy\":\"CRUISE_CONTINUATION_V1\"}|FULL_LIFTED_IPOPT_STRICT_REFERENCE_JCONT1",
+      "episode_id": 1,
+      "generation": 1,
+      "observed_snapshot_id": 522,
+      "parent_active_plan_id": "execution-4",
+      "plan_start_sim_time": 26.67999999999952,
+      "reference_id": "OW_FIXED_STRAIGHT",
+      "state_origin": "OPENWATER_ACTUAL_TELEMETRY"
+    },
+    "plan_id": "execution-5",
+    "protocol_version": 1,
+    "request_id": 5,
+    "simulation_time": 26.67999999999952,
+    "solve_in_flight": true,
+    "startup": false,
+    "type": "async_event",
+    "wall_elapsed_sec": 10.509021367,
+    "receipt_wall_sec": 10.549470401,
+    "receipt_sim_time": 26.69999999999952
+  },
+  {
+    "age_sec": 2.5199999999999463,
+    "duration_wall_sec": 2.5244913140000005,
+    "episode_id": 1,
+    "event": "SOLVE_RETURNED",
+    "generation": 1,
+    "plan_start_sim_time": 26.67999999999952,
+    "protocol_version": 1,
+    "remaining_suffix_sec": 25.37249069268255,
+    "request_id": 5,
+    "simulation_time": 29.199999999999466,
+    "solve_in_flight": false,
+    "type": "async_event",
+    "wall_elapsed_sec": 13.03388318,
+    "receipt_wall_sec": 13.069880915,
+    "receipt_sim_time": 29.219999999999466
+  },
+  {
+    "age_sec": 2.5199999999999463,
+    "episode_id": 1,
+    "event": "PENDING_READY",
+    "generation": 1,
+    "plan_id": "execution-5",
+    "protocol_version": 1,
+    "remaining_suffix_sec": 25.37249069268255,
+    "simulation_time": 29.199999999999466,
+    "solve_in_flight": false,
+    "type": "async_event",
+    "wall_elapsed_sec": 13.033905083,
+    "receipt_wall_sec": 13.069900926,
+    "receipt_sim_time": 29.219999999999466
+  },
+  {
+    "actual_applied_command_before": [
+      168.80762289060496,
+      0.07998814804223799
+    ],
+    "applied_command_change": [
+      0.4000000000000057,
+      0.0029999999999999333
+    ],
+    "control_dt": 0.019999999999999574,
+    "episode_id": 1,
+    "event": "SWITCH",
+    "generation": 1,
+    "limiter_before": [
+      29.199999999999466,
+      168.80762289060496,
+      0.07998814804223799
+    ],
+    "new_candidate_t_rel": 2.539999999999946,
+    "new_plan_id": "execution-5",
+    "new_reference": [
+      22.57108234928326,
+      -1.0444563955949544,
+      -0.22690850762939976,
+      2.9045601714445,
+      0.08477850830475178,
+      -0.02724999947283827,
+      183.21827576465114,
+      -0.05235587031939972
+    ],
+    "old_plan_id": "execution-4",
+    "old_reference": [
+      24.477526346345382,
+      -1.7730943925687195,
+      -0.13963788243406025,
+      2.9191537013310445,
+      -0.0039941303499659575,
+      -0.000969771871602097,
+      168.74951197556229,
+      -0.00035980008073300634
+    ],
+    "plan_start_sim_time": 26.67999999999952,
+    "protocol_version": 1,
+    "ready_sim_time": 29.199999999999466,
+    "remaining_suffix_sec": 25.35249069268255,
+    "simulation_time": 29.219999999999466,
+    "solve_in_flight": false,
+    "type": "async_event",
+    "wall_elapsed_sec": 13.049663524,
+    "receipt_wall_sec": 13.089767505,
+    "receipt_sim_time": 29.239999999999466
+  },
+  {
+    "actual_snapshot": {
+      "protocol_version": 1,
+      "sequence": 651,
+      "simulation_time": 29.239999999999466,
+      "state": {
+        "actuator": {
+          "effectiveThrustN": 164.70893634244632,
+          "propulsionActual": 0.016225635985273438,
+          "rawThrustN": 170.3691778453711,
+          "steeringActualRad": -0.08113172680325988,
+          "steeringEffectiveRad": -0.07419553915516224,
+          "steeringRateRadPerSec": -0.005367965028370003,
+          "type": "single_outboard",
+          "ventilationFactor": 0.9996081692945956
+        },
+        "attitude": {
+          "pitchRad": 0.013178203198218916,
+          "rollRad": -0.05469009242763393,
+          "yawRad": 0.13777684395567458
+        },
+        "control": {
+          "propulsionCommand": 0.01611501170386714,
+          "steeringCommandRad": -0.08298814804223792
+        },
+        "dynamics": {
+          "centerOfPressure": {
+            "x": 2.260060876868803,
+            "y": 45.74395339708584,
+            "z": 0.028218845825155298
+          },
+          "planingForceN": 45.30429069361862,
+          "submergedPoints": 8
+        },
+        "environment": {
+          "current": {
+            "x": 0.03138080552113131,
+            "y": 0.10314140317312491,
+            "z": 0
+          },
+          "currentDirectionRad": 0.29535160004859345,
+          "currentSpeedMps": 0.10780957287586371,
+          "localWaterHeight": -0.05937490238629591,
+          "seaState": 1,
+          "waterVelocity": {
+            "x": 0.0023727702452173947,
+            "y": 0.07414012329274501,
+            "z": -0.3530651250635101
+          },
+          "wave": {
+            "peakPeriodSec": 4.564766906019389,
+            "significantHeightM": 0.3500000570215251
+          },
+          "wind": {
+            "x": 2.1736296329455276,
+            "y": 0.8620984439821944,
+            "z": 0
+          },
+          "windDirectionRad": 1.1932097347856803,
+          "windSpeedMps": 2.338349740380046
+        },
+        "pose": {
+          "headingRad": 0.13777684395567458,
+          "orientation": {
+            "w": 0.9972211158460467,
+            "x": 0.004688975974598703,
+            "y": -0.027729576581657988,
+            "z": -0.06898644937723038
+          },
+          "position": {
+            "x": 2.230607160043869,
+            "y": 45.535040780310055,
+            "z": 0.024023352880812653
+          }
+        },
+        "schemaVersion": 1,
+        "sequence": 1614,
+        "source": "SIM",
+        "timestamp": 29.239999999999466,
+        "velocity": {
+          "angular": {
+            "x": -0.014267309722615324,
+            "y": -0.0195044999471312,
+            "z": -0.019455323241500518
+          },
+          "body": {
+            "heave": -0.32999456574336805,
+            "pitchRate": -0.012484273153401408,
+            "rollRate": -0.021533693823397752,
+            "surge": 2.14328097093385,
+            "sway": -0.13820500252514237,
+            "yawRate": 0.018518482699491533
+          },
+          "linear": {
+            "x": 0.17612243970761773,
+            "y": 2.1436614506795726,
+            "z": -0.3087828162512618
+          }
+        },
+        "vesselId": "usv001"
+      },
+      "type": "simulation_state"
+    },
+    "actual_world_s_origin": 21.455830567205847,
+    "episode_id": 1,
+    "event": "REQUEST",
+    "generation": 1,
+    "identity": {
+      "configuration_id": "{\"command_bounds\":{\"Tc\":[0,200],\"deltac\":[-0.5235987755982988,0.5235987755982988]},\"controller_version\":\"OPENWATER_TRACKING_V1\",\"frozen_before_holdouts_and_obstacles\":true,\"gains\":{\"Kpsi\":-1.2,\"Kr\":-0.6,\"Ku\":0,\"Ky\":-0.08},\"rate_bounds\":{\"omegaT\":20,\"omegadelta\":0.15},\"selected_candidate\":\"Ku0_C\",\"selection_rank\":[4.855607357983705,1.4488454851196895,0.5496267419576737,1.3440238093129153],\"selection_score\":4.855607357983705,\"source_calibration_sha256\":\"5fa41e1a9facf3a88293dd9aab64fc0aef98af26bd0e7e0a6848f877ef4818dc\"}|{\"EMERGENCY_COVERAGE_SEC\":2.0,\"MAX_CONCURRENT_SOLVES\":1,\"MIN_REMAINING_SUFFIX_SEC\":4.0,\"control_dt_sec\":0.02,\"handover_policy\":\"NEXT_CONTROL_TICK_CURRENT_ABSOLUTE_TIME_SUFFIX\",\"maximum_fallback_recoveries\":3,\"mode\":\"DIRECT_ASYNC_SUFFIX_V1\",\"real_time_factor\":1.0,\"state_origin\":\"OPENWATER_ACTUAL_TELEMETRY\"}|{\"collision_representation\":\"RULE_SELECTED_CONVEX_ST_CHANNEL\",\"fixed_lookahead\":true,\"mission_goal_world_s\":75.0,\"prediction_intervals\":120,\"prediction_lookahead_m\":75.0,\"reference_end_world_s\":null,\"terminal_policy\":\"CRUISE_CONTINUATION_V1\"}|FULL_LIFTED_IPOPT_STRICT_REFERENCE_JCONT1",
+      "episode_id": 1,
+      "generation": 1,
+      "observed_snapshot_id": 651,
+      "parent_active_plan_id": "execution-5",
+      "plan_start_sim_time": 29.239999999999466,
+      "reference_id": "OW_FIXED_STRAIGHT",
+      "state_origin": "OPENWATER_ACTUAL_TELEMETRY"
+    },
+    "protocol_version": 1,
+    "simulation_time": 29.239999999999466,
+    "solve_in_flight": true,
+    "type": "async_event",
+    "wall_elapsed_sec": 13.069103741,
+    "receipt_wall_sec": 13.109651426000001,
+    "receipt_sim_time": 29.259999999999465
+  },
+  {
+    "episode_id": 1,
+    "event": "SOLVE_QUEUED",
+    "generation": 1,
+    "identity": {
+      "configuration_id": "{\"command_bounds\":{\"Tc\":[0,200],\"deltac\":[-0.5235987755982988,0.5235987755982988]},\"controller_version\":\"OPENWATER_TRACKING_V1\",\"frozen_before_holdouts_and_obstacles\":true,\"gains\":{\"Kpsi\":-1.2,\"Kr\":-0.6,\"Ku\":0,\"Ky\":-0.08},\"rate_bounds\":{\"omegaT\":20,\"omegadelta\":0.15},\"selected_candidate\":\"Ku0_C\",\"selection_rank\":[4.855607357983705,1.4488454851196895,0.5496267419576737,1.3440238093129153],\"selection_score\":4.855607357983705,\"source_calibration_sha256\":\"5fa41e1a9facf3a88293dd9aab64fc0aef98af26bd0e7e0a6848f877ef4818dc\"}|{\"EMERGENCY_COVERAGE_SEC\":2.0,\"MAX_CONCURRENT_SOLVES\":1,\"MIN_REMAINING_SUFFIX_SEC\":4.0,\"control_dt_sec\":0.02,\"handover_policy\":\"NEXT_CONTROL_TICK_CURRENT_ABSOLUTE_TIME_SUFFIX\",\"maximum_fallback_recoveries\":3,\"mode\":\"DIRECT_ASYNC_SUFFIX_V1\",\"real_time_factor\":1.0,\"state_origin\":\"OPENWATER_ACTUAL_TELEMETRY\"}|{\"collision_representation\":\"RULE_SELECTED_CONVEX_ST_CHANNEL\",\"fixed_lookahead\":true,\"mission_goal_world_s\":75.0,\"prediction_intervals\":120,\"prediction_lookahead_m\":75.0,\"reference_end_world_s\":null,\"terminal_policy\":\"CRUISE_CONTINUATION_V1\"}|FULL_LIFTED_IPOPT_STRICT_REFERENCE_JCONT1",
+      "episode_id": 1,
+      "generation": 1,
+      "observed_snapshot_id": 651,
+      "parent_active_plan_id": "execution-5",
+      "plan_start_sim_time": 29.239999999999466,
+      "reference_id": "OW_FIXED_STRAIGHT",
+      "state_origin": "OPENWATER_ACTUAL_TELEMETRY"
+    },
+    "plan_id": "execution-6",
+    "protocol_version": 1,
+    "request_id": 6,
+    "simulation_time": 29.239999999999466,
+    "solve_in_flight": true,
+    "startup": false,
+    "type": "async_event",
+    "wall_elapsed_sec": 13.069157273,
+    "receipt_wall_sec": 13.109662143,
+    "receipt_sim_time": 29.259999999999465
+  },
+  {
+    "age_sec": 2.7399999999999416,
+    "duration_wall_sec": 2.7504650570000013,
+    "episode_id": 1,
+    "event": "SOLVE_RETURNED",
+    "generation": 1,
+    "plan_start_sim_time": 29.239999999999466,
+    "protocol_version": 1,
+    "remaining_suffix_sec": 24.710331948595062,
+    "request_id": 6,
+    "simulation_time": 31.979999999999407,
+    "solve_in_flight": false,
+    "type": "async_event",
+    "wall_elapsed_sec": 15.820041286,
+    "receipt_wall_sec": 15.848606678,
+    "receipt_sim_time": 31.999999999999407
+  },
+  {
+    "age_sec": 2.7399999999999416,
+    "episode_id": 1,
+    "event": "PENDING_READY",
+    "generation": 1,
+    "plan_id": "execution-6",
+    "protocol_version": 1,
+    "remaining_suffix_sec": 24.710331948595062,
+    "simulation_time": 31.979999999999407,
+    "solve_in_flight": false,
+    "type": "async_event",
+    "wall_elapsed_sec": 15.820059556,
+    "receipt_wall_sec": 15.848616694,
+    "receipt_sim_time": 31.999999999999407
+  },
+  {
+    "actual_applied_command_before": [
+      179.0276971215658,
+      0.05291679425605093
+    ],
+    "applied_command_change": [
+      0.4000000000000057,
+      -0.0029999999999999333
+    ],
+    "control_dt": 0.019999999999999574,
+    "episode_id": 1,
+    "event": "SWITCH",
+    "generation": 1,
+    "limiter_before": [
+      31.979999999999407,
+      179.0276971215658,
+      0.05291679425605093
+    ],
+    "new_candidate_t_rel": 2.759999999999941,
+    "new_plan_id": "execution-6",
+    "new_reference": [
+      28.738004567054812,
+      -1.8724393372362276,
+      -0.254223110302317,
+      2.9605443215561182,
+      0.045254575860419276,
+      0.011953675194195691,
+      190.3658610235976,
+      -0.06355449322605754
+    ],
+    "old_plan_id": "execution-5",
+    "old_reference": [
+      30.6363765593372,
+      -2.7368701022059443,
+      -0.16988452393008227,
+      2.9807493439550994,
+      -0.009485968842797678,
+      0.039248961762788234,
+      178.9974564767959,
+      -0.0020047713630038043
+    ],
+    "plan_start_sim_time": 29.239999999999466,
+    "protocol_version": 1,
+    "ready_sim_time": 31.979999999999407,
+    "remaining_suffix_sec": 24.690331948595063,
+    "simulation_time": 31.999999999999407,
+    "solve_in_flight": false,
+    "type": "async_event",
+    "wall_elapsed_sec": 15.828573541,
+    "receipt_wall_sec": 15.868572334,
+    "receipt_sim_time": 32.019999999999406
+  },
+  {
+    "actual_snapshot": {
+      "protocol_version": 1,
+      "sequence": 791,
+      "simulation_time": 32.019999999999406,
+      "state": {
+        "actuator": {
+          "effectiveThrustN": 169.91016266811644,
+          "propulsionActual": 0.01711177725015202,
+          "rawThrustN": 179.6736611265962,
+          "steeringActualRad": -0.06365713473488478,
+          "steeringEffectiveRad": -0.05837243574768379,
+          "steeringRateRadPerSec": 0.03973110499903676,
+          "type": "single_outboard",
+          "ventilationFactor": 0.9762766891871144
+        },
+        "attitude": {
+          "pitchRad": -0.031238328486122742,
+          "rollRad": 0.02891788626438607,
+          "yawRad": 0.2064466015008869
+        },
+        "control": {
+          "propulsionCommand": 0.017088352106815793,
+          "steeringCommandRad": -0.04991679425605099
+        },
+        "dynamics": {
+          "centerOfPressure": {
+            "x": 2.6632748876859718,
+            "y": 51.475439337186366,
+            "z": 0.24656844174539022
+          },
+          "planingForceN": 0,
+          "submergedPoints": 8
+        },
+        "environment": {
+          "current": {
+            "x": 0.030661994236813057,
+            "y": 0.10233320590957314,
+            "z": 0
+          },
+          "currentDirectionRad": 0.29111637557340125,
+          "currentSpeedMps": 0.10682809987222207,
+          "localWaterHeight": 0.1611962331887821,
+          "seaState": 1,
+          "waterVelocity": {
+            "x": 0.21709742853730923,
+            "y": 0.15505219249953467,
+            "z": 0.23314017440586854
+          },
+          "wave": {
+            "peakPeriodSec": 4.5504304300303335,
+            "significantHeightM": 0.3500000123595469
+          },
+          "wind": {
+            "x": 2.479506097725292,
+            "y": 0.9507787029415051,
+            "z": 0
+          },
+          "windDirectionRad": 1.2046338445186004,
+          "windSpeedMps": 2.6555471433631217
+        },
+        "pose": {
+          "headingRad": 0.2064466015008869,
+          "orientation": {
+            "w": 0.9944286483250038,
+            "x": -0.014044153866163922,
+            "y": 0.015988892239736596,
+            "z": -0.10324136989422225
+          },
+          "position": {
+            "x": 2.664435146272404,
+            "y": 51.4844593981014,
+            "z": 0.24721566744565313
+          }
+        },
+        "schemaVersion": 1,
+        "sequence": 1754,
+        "source": "SIM",
+        "timestamp": 32.019999999999406,
+        "velocity": {
+          "angular": {
+            "x": 0.018083428412203287,
+            "y": -0.086402758244177,
+            "z": -0.016444701593536625
+          },
+          "body": {
+            "heave": 0.21817618925226995,
+            "pitchRate": 0.035944020833464374,
+            "rollRate": -0.08030816527653377,
+            "surge": 2.170012705195337,
+            "sway": -0.17758426182051,
+            "yawRate": 0.017930454040036393
+          },
+          "linear": {
+            "x": 0.27846206074377877,
+            "y": 2.1648146196084865,
+            "z": 0.1553341680630949
+          }
+        },
+        "vesselId": "usv001"
+      },
+      "type": "simulation_state"
+    },
+    "actual_world_s_origin": 27.4064122401542,
+    "episode_id": 1,
+    "event": "REQUEST",
+    "generation": 1,
+    "identity": {
+      "configuration_id": "{\"command_bounds\":{\"Tc\":[0,200],\"deltac\":[-0.5235987755982988,0.5235987755982988]},\"controller_version\":\"OPENWATER_TRACKING_V1\",\"frozen_before_holdouts_and_obstacles\":true,\"gains\":{\"Kpsi\":-1.2,\"Kr\":-0.6,\"Ku\":0,\"Ky\":-0.08},\"rate_bounds\":{\"omegaT\":20,\"omegadelta\":0.15},\"selected_candidate\":\"Ku0_C\",\"selection_rank\":[4.855607357983705,1.4488454851196895,0.5496267419576737,1.3440238093129153],\"selection_score\":4.855607357983705,\"source_calibration_sha256\":\"5fa41e1a9facf3a88293dd9aab64fc0aef98af26bd0e7e0a6848f877ef4818dc\"}|{\"EMERGENCY_COVERAGE_SEC\":2.0,\"MAX_CONCURRENT_SOLVES\":1,\"MIN_REMAINING_SUFFIX_SEC\":4.0,\"control_dt_sec\":0.02,\"handover_policy\":\"NEXT_CONTROL_TICK_CURRENT_ABSOLUTE_TIME_SUFFIX\",\"maximum_fallback_recoveries\":3,\"mode\":\"DIRECT_ASYNC_SUFFIX_V1\",\"real_time_factor\":1.0,\"state_origin\":\"OPENWATER_ACTUAL_TELEMETRY\"}|{\"collision_representation\":\"RULE_SELECTED_CONVEX_ST_CHANNEL\",\"fixed_lookahead\":true,\"mission_goal_world_s\":75.0,\"prediction_intervals\":120,\"prediction_lookahead_m\":75.0,\"reference_end_world_s\":null,\"terminal_policy\":\"CRUISE_CONTINUATION_V1\"}|FULL_LIFTED_IPOPT_STRICT_REFERENCE_JCONT1",
+      "episode_id": 1,
+      "generation": 1,
+      "observed_snapshot_id": 791,
+      "parent_active_plan_id": "execution-6",
+      "plan_start_sim_time": 32.019999999999406,
+      "reference_id": "OW_FIXED_STRAIGHT",
+      "state_origin": "OPENWATER_ACTUAL_TELEMETRY"
+    },
+    "protocol_version": 1,
+    "simulation_time": 32.019999999999406,
+    "solve_in_flight": true,
+    "type": "async_event",
+    "wall_elapsed_sec": 15.847818043,
+    "receipt_wall_sec": 15.888282593,
+    "receipt_sim_time": 32.03999999999941
+  },
+  {
+    "episode_id": 1,
+    "event": "SOLVE_QUEUED",
+    "generation": 1,
+    "identity": {
+      "configuration_id": "{\"command_bounds\":{\"Tc\":[0,200],\"deltac\":[-0.5235987755982988,0.5235987755982988]},\"controller_version\":\"OPENWATER_TRACKING_V1\",\"frozen_before_holdouts_and_obstacles\":true,\"gains\":{\"Kpsi\":-1.2,\"Kr\":-0.6,\"Ku\":0,\"Ky\":-0.08},\"rate_bounds\":{\"omegaT\":20,\"omegadelta\":0.15},\"selected_candidate\":\"Ku0_C\",\"selection_rank\":[4.855607357983705,1.4488454851196895,0.5496267419576737,1.3440238093129153],\"selection_score\":4.855607357983705,\"source_calibration_sha256\":\"5fa41e1a9facf3a88293dd9aab64fc0aef98af26bd0e7e0a6848f877ef4818dc\"}|{\"EMERGENCY_COVERAGE_SEC\":2.0,\"MAX_CONCURRENT_SOLVES\":1,\"MIN_REMAINING_SUFFIX_SEC\":4.0,\"control_dt_sec\":0.02,\"handover_policy\":\"NEXT_CONTROL_TICK_CURRENT_ABSOLUTE_TIME_SUFFIX\",\"maximum_fallback_recoveries\":3,\"mode\":\"DIRECT_ASYNC_SUFFIX_V1\",\"real_time_factor\":1.0,\"state_origin\":\"OPENWATER_ACTUAL_TELEMETRY\"}|{\"collision_representation\":\"RULE_SELECTED_CONVEX_ST_CHANNEL\",\"fixed_lookahead\":true,\"mission_goal_world_s\":75.0,\"prediction_intervals\":120,\"prediction_lookahead_m\":75.0,\"reference_end_world_s\":null,\"terminal_policy\":\"CRUISE_CONTINUATION_V1\"}|FULL_LIFTED_IPOPT_STRICT_REFERENCE_JCONT1",
+      "episode_id": 1,
+      "generation": 1,
+      "observed_snapshot_id": 791,
+      "parent_active_plan_id": "execution-6",
+      "plan_start_sim_time": 32.019999999999406,
+      "reference_id": "OW_FIXED_STRAIGHT",
+      "state_origin": "OPENWATER_ACTUAL_TELEMETRY"
+    },
+    "plan_id": "execution-7",
+    "protocol_version": 1,
+    "request_id": 7,
+    "simulation_time": 32.019999999999406,
+    "solve_in_flight": true,
+    "startup": false,
+    "type": "async_event",
+    "wall_elapsed_sec": 15.847875343,
+    "receipt_wall_sec": 15.888293504,
+    "receipt_sim_time": 32.03999999999941
+  },
+  {
+    "age_sec": 2.7800000000004346,
+    "duration_wall_sec": 2.7884275510000016,
+    "episode_id": 1,
+    "event": "SOLVE_RETURNED",
+    "generation": 1,
+    "plan_start_sim_time": 32.019999999999406,
+    "protocol_version": 1,
+    "remaining_suffix_sec": 24.330895586359205,
+    "request_id": 7,
+    "simulation_time": 34.79999999999984,
+    "solve_in_flight": false,
+    "type": "async_event",
+    "wall_elapsed_sec": 18.636727072,
+    "receipt_wall_sec": 18.669844061999996,
+    "receipt_sim_time": 34.819999999999844
+  },
+  {
+    "age_sec": 2.7800000000004346,
+    "episode_id": 1,
+    "event": "PENDING_READY",
+    "generation": 1,
+    "plan_id": "execution-7",
+    "protocol_version": 1,
+    "remaining_suffix_sec": 24.330895586359205,
+    "simulation_time": 34.79999999999984,
+    "solve_in_flight": false,
+    "type": "async_event",
+    "wall_elapsed_sec": 18.636746896,
+    "receipt_wall_sec": 18.669851874,
+    "receipt_sim_time": 34.819999999999844
+  },
+  {
+    "actual_applied_command_before": [
+      189.13328825171754,
+      -0.07395007722932469
+    ],
+    "applied_command_change": [
+      0.40000000000006253,
+      0.0030000000000004745
+    ],
+    "control_dt": 0.020000000000003126,
+    "episode_id": 1,
+    "event": "SWITCH",
+    "generation": 1,
+    "limiter_before": [
+      34.79999999999984,
+      189.13328825171754,
+      -0.07395007722932469
+    ],
+    "new_candidate_t_rel": 2.8000000000004377,
+    "new_plan_id": "execution-7",
+    "new_reference": [
+      34.937799532444224,
+      -2.665335676639987,
+      -0.25598045486487525,
+      3.0411738724930415,
+      0.029834453237829815,
+      0.04915361503707513,
+      199.99848062983165,
+      -0.05482841179017699
+    ],
+    "old_plan_id": "execution-6",
+    "old_reference": [
+      37.10466299596441,
+      -3.458727834758729,
+      -0.08619621496412191,
+      3.0468623928946825,
+      -0.03144079884079615,
+      0.0667608947486868,
+      189.11501905616214,
+      0.005649530998692349
+    ],
+    "plan_start_sim_time": 32.019999999999406,
+    "protocol_version": 1,
+    "ready_sim_time": 34.79999999999984,
+    "remaining_suffix_sec": 24.3108955863592,
+    "simulation_time": 34.819999999999844,
+    "solve_in_flight": false,
+    "type": "async_event",
+    "wall_elapsed_sec": 18.649797416,
+    "receipt_wall_sec": 18.689848320999996,
+    "receipt_sim_time": 34.83999999999985
+  },
+  {
+    "actual_snapshot": {
+      "protocol_version": 1,
+      "sequence": 933,
+      "simulation_time": 34.83999999999985,
+      "state": {
+        "actuator": {
+          "effectiveThrustN": 182.1258649332802,
+          "propulsionActual": 0.018037928481582775,
+          "rawThrustN": 189.39824905661914,
+          "steeringActualRad": 0.05729678194472114,
+          "steeringEffectiveRad": 0.052235825668590245,
+          "steeringRateRadPerSec": 0.03947940805186567,
+          "type": "single_outboard",
+          "ventilationFactor": 0.995532203570231
+        },
+        "attitude": {
+          "pitchRad": -0.012284586074896972,
+          "rollRad": 0.018480662947249593,
+          "yawRad": 0.21851297119455856
+        },
+        "control": {
+          "propulsionCommand": 0.018050789357306432,
+          "steeringCommandRad": 0.07095007722932468
+        },
+        "dynamics": {
+          "centerOfPressure": {
+            "x": 3.7163752897321936,
+            "y": 57.78880312659274,
+            "z": -0.04303776646189285
+          },
+          "planingForceN": 48.89560129893923,
+          "submergedPoints": 8
+        },
+        "environment": {
+          "current": {
+            "x": 0.03013087974232264,
+            "y": 0.10180783638471345,
+            "z": 0
+          },
+          "currentDirectionRad": 0.28774475075255,
+          "currentSpeedMps": 0.10617299780727156,
+          "localWaterHeight": -0.13484123130934916,
+          "seaState": 1,
+          "waterVelocity": {
+            "x": -0.14749896768087772,
+            "y": 0.05920794528732437,
+            "z": 0.04475185207000286
+          },
+          "wave": {
+            "peakPeriodSec": 4.539126295624861,
+            "significantHeightM": 0.35000000262066644
+          },
+          "wind": {
+            "x": 2.2934631273838297,
+            "y": 0.8814668346918554,
+            "z": 0
+          },
+          "windDirectionRad": 1.2038634695490522,
+          "windSpeedMps": 2.4570219570306846
+        },
+        "pose": {
+          "headingRad": 0.21851297119455856,
+          "orientation": {
+            "w": 0.9939700688124115,
+            "x": -0.005097844757780422,
+            "y": 0.009854649732894075,
+            "z": -0.109088955272831
+          },
+          "position": {
+            "x": 3.6702457745223827,
+            "y": 57.58323602718448,
+            "z": -0.04027764966480791
+          }
+        },
+        "schemaVersion": 1,
+        "sequence": 1896,
+        "source": "SIM",
+        "timestamp": 34.83999999999985,
+        "velocity": {
+          "angular": {
+            "x": -0.011437051018081028,
+            "y": 0.08191879673462002,
+            "z": 0.012763330717099413
+          },
+          "body": {
+            "heave": 0.0455687824908748,
+            "pitchRate": -0.029171792747243297,
+            "rollRate": 0.07732890150681138,
+            "surge": 2.177893358468234,
+            "sway": -0.11067954738078153,
+            "yawRate": -0.013177462012617604
+          },
+          "linear": {
+            "x": 0.3650037748720226,
+            "y": 2.150321726068998,
+            "z": 0.020848878410537248
+          }
+        },
+        "vesselId": "usv001"
+      },
+      "type": "simulation_state"
+    },
+    "actual_world_s_origin": 33.50791407812255,
+    "episode_id": 1,
+    "event": "REQUEST",
+    "generation": 1,
+    "identity": {
+      "configuration_id": "{\"command_bounds\":{\"Tc\":[0,200],\"deltac\":[-0.5235987755982988,0.5235987755982988]},\"controller_version\":\"OPENWATER_TRACKING_V1\",\"frozen_before_holdouts_and_obstacles\":true,\"gains\":{\"Kpsi\":-1.2,\"Kr\":-0.6,\"Ku\":0,\"Ky\":-0.08},\"rate_bounds\":{\"omegaT\":20,\"omegadelta\":0.15},\"selected_candidate\":\"Ku0_C\",\"selection_rank\":[4.855607357983705,1.4488454851196895,0.5496267419576737,1.3440238093129153],\"selection_score\":4.855607357983705,\"source_calibration_sha256\":\"5fa41e1a9facf3a88293dd9aab64fc0aef98af26bd0e7e0a6848f877ef4818dc\"}|{\"EMERGENCY_COVERAGE_SEC\":2.0,\"MAX_CONCURRENT_SOLVES\":1,\"MIN_REMAINING_SUFFIX_SEC\":4.0,\"control_dt_sec\":0.02,\"handover_policy\":\"NEXT_CONTROL_TICK_CURRENT_ABSOLUTE_TIME_SUFFIX\",\"maximum_fallback_recoveries\":3,\"mode\":\"DIRECT_ASYNC_SUFFIX_V1\",\"real_time_factor\":1.0,\"state_origin\":\"OPENWATER_ACTUAL_TELEMETRY\"}|{\"collision_representation\":\"RULE_SELECTED_CONVEX_ST_CHANNEL\",\"fixed_lookahead\":true,\"mission_goal_world_s\":75.0,\"prediction_intervals\":120,\"prediction_lookahead_m\":75.0,\"reference_end_world_s\":null,\"terminal_policy\":\"CRUISE_CONTINUATION_V1\"}|FULL_LIFTED_IPOPT_STRICT_REFERENCE_JCONT1",
+      "episode_id": 1,
+      "generation": 1,
+      "observed_snapshot_id": 933,
+      "parent_active_plan_id": "execution-7",
+      "plan_start_sim_time": 34.83999999999985,
+      "reference_id": "OW_FIXED_STRAIGHT",
+      "state_origin": "OPENWATER_ACTUAL_TELEMETRY"
+    },
+    "protocol_version": 1,
+    "simulation_time": 34.83999999999985,
+    "solve_in_flight": true,
+    "type": "async_event",
+    "wall_elapsed_sec": 18.669268959,
+    "receipt_wall_sec": 18.709620385999997,
+    "receipt_sim_time": 34.85999999999985
+  },
+  {
+    "episode_id": 1,
+    "event": "SOLVE_QUEUED",
+    "generation": 1,
+    "identity": {
+      "configuration_id": "{\"command_bounds\":{\"Tc\":[0,200],\"deltac\":[-0.5235987755982988,0.5235987755982988]},\"controller_version\":\"OPENWATER_TRACKING_V1\",\"frozen_before_holdouts_and_obstacles\":true,\"gains\":{\"Kpsi\":-1.2,\"Kr\":-0.6,\"Ku\":0,\"Ky\":-0.08},\"rate_bounds\":{\"omegaT\":20,\"omegadelta\":0.15},\"selected_candidate\":\"Ku0_C\",\"selection_rank\":[4.855607357983705,1.4488454851196895,0.5496267419576737,1.3440238093129153],\"selection_score\":4.855607357983705,\"source_calibration_sha256\":\"5fa41e1a9facf3a88293dd9aab64fc0aef98af26bd0e7e0a6848f877ef4818dc\"}|{\"EMERGENCY_COVERAGE_SEC\":2.0,\"MAX_CONCURRENT_SOLVES\":1,\"MIN_REMAINING_SUFFIX_SEC\":4.0,\"control_dt_sec\":0.02,\"handover_policy\":\"NEXT_CONTROL_TICK_CURRENT_ABSOLUTE_TIME_SUFFIX\",\"maximum_fallback_recoveries\":3,\"mode\":\"DIRECT_ASYNC_SUFFIX_V1\",\"real_time_factor\":1.0,\"state_origin\":\"OPENWATER_ACTUAL_TELEMETRY\"}|{\"collision_representation\":\"RULE_SELECTED_CONVEX_ST_CHANNEL\",\"fixed_lookahead\":true,\"mission_goal_world_s\":75.0,\"prediction_intervals\":120,\"prediction_lookahead_m\":75.0,\"reference_end_world_s\":null,\"terminal_policy\":\"CRUISE_CONTINUATION_V1\"}|FULL_LIFTED_IPOPT_STRICT_REFERENCE_JCONT1",
+      "episode_id": 1,
+      "generation": 1,
+      "observed_snapshot_id": 933,
+      "parent_active_plan_id": "execution-7",
+      "plan_start_sim_time": 34.83999999999985,
+      "reference_id": "OW_FIXED_STRAIGHT",
+      "state_origin": "OPENWATER_ACTUAL_TELEMETRY"
+    },
+    "plan_id": "execution-8",
+    "protocol_version": 1,
+    "request_id": 8,
+    "simulation_time": 34.83999999999985,
+    "solve_in_flight": true,
+    "startup": false,
+    "type": "async_event",
+    "wall_elapsed_sec": 18.669328167,
+    "receipt_wall_sec": 18.709628001,
+    "receipt_sim_time": 34.85999999999985
+  },
+  {
+    "age_sec": 2.4200000000003783,
+    "duration_wall_sec": 2.424898423000002,
+    "episode_id": 1,
+    "event": "SOLVE_RETURNED",
+    "generation": 1,
+    "plan_start_sim_time": 34.83999999999985,
+    "protocol_version": 1,
+    "remaining_suffix_sec": 24.585425525341464,
+    "request_id": 8,
+    "simulation_time": 37.260000000000225,
+    "solve_in_flight": false,
+    "type": "async_event",
+    "wall_elapsed_sec": 21.094653967,
+    "receipt_wall_sec": 21.130015990999997,
+    "receipt_sim_time": 37.28000000000023
+  },
+  {
+    "age_sec": 2.4200000000003783,
+    "episode_id": 1,
+    "event": "PENDING_READY",
+    "generation": 1,
+    "plan_id": "execution-8",
+    "protocol_version": 1,
+    "remaining_suffix_sec": 24.585425525341464,
+    "simulation_time": 37.260000000000225,
+    "solve_in_flight": false,
+    "type": "async_event",
+    "wall_elapsed_sec": 21.094672857,
+    "receipt_wall_sec": 21.130023035999997,
+    "receipt_sim_time": 37.28000000000023
+  },
+  {
+    "actual_applied_command_before": [
+      198.23382499176074,
+      -0.1157268443076899
+    ],
+    "applied_command_change": [
+      0.40000000000006253,
+      0.0030000000000004745
+    ],
+    "control_dt": 0.020000000000003126,
+    "episode_id": 1,
+    "event": "SWITCH",
+    "generation": 1,
+    "limiter_before": [
+      37.260000000000225,
+      198.23382499176077,
+      -0.1157268443076899
+    ],
+    "new_candidate_t_rel": 2.4400000000003814,
+    "new_plan_id": "execution-8",
+    "new_reference": [
+      40.129478929986234,
+      -3.1292789432400583,
+      -0.13820664160192747,
+      3.039150904588779,
+      0.043424902899502724,
+      0.03271712967936945,
+      199.99999859648113,
+      -0.02930381812226276
+    ],
+    "old_plan_id": "execution-7",
+    "old_reference": [
+      42.430401174037776,
+      -3.9247629447439287,
+      -0.0552967251768082,
+      3.1138838890202805,
+      -0.02544606827808477,
+      0.07955431326034354,
+      198.20805531993722,
+      0.01143432934230156
+    ],
+    "plan_start_sim_time": 34.83999999999985,
+    "protocol_version": 1,
+    "ready_sim_time": 37.260000000000225,
+    "remaining_suffix_sec": 24.56542552534146,
+    "simulation_time": 37.28000000000023,
+    "solve_in_flight": false,
+    "type": "async_event",
+    "wall_elapsed_sec": 21.109896934,
+    "receipt_wall_sec": 21.149817785,
+    "receipt_sim_time": 37.30000000000023
+  },
+  {
+    "actual_snapshot": {
+      "protocol_version": 1,
+      "sequence": 1057,
+      "simulation_time": 37.30000000000023,
+      "state": {
+        "actuator": {
+          "effectiveThrustN": 191.73005641285002,
+          "propulsionActual": 0.018909801398588104,
+          "rawThrustN": 198.5529146851751,
+          "steeringActualRad": 0.09318146977944705,
+          "steeringEffectiveRad": 0.08504216571360833,
+          "steeringRateRadPerSec": 0.056516745623834685,
+          "type": "single_outboard",
+          "ventilationFactor": 0.9992862560837501
+        },
+        "attitude": {
+          "pitchRad": -0.0031874736163948034,
+          "rollRad": 0.01570358797652921,
+          "yawRad": 0.18415453609730997
+        },
+        "control": {
+          "propulsionCommand": 0.01891750714207245,
+          "steeringCommandRad": 0.1127268443076899
+        },
+        "dynamics": {
+          "centerOfPressure": {
+            "x": 4.799689562916276,
+            "y": 63.13293374877252,
+            "z": 0.16893708383664127
+          },
+          "planingForceN": 47.409658950514334,
+          "submergedPoints": 8
+        },
+        "environment": {
+          "current": {
+            "x": 0.029827449262213514,
+            "y": 0.10156902345755621,
+            "z": 0
+          },
+          "currentDirectionRad": 0.2856364319254206,
+          "currentSpeedMps": 0.10585812796196391,
+          "localWaterHeight": 0.07895217588494274,
+          "seaState": 1,
+          "waterVelocity": {
+            "x": 0.14706891385334703,
+            "y": 0.08995758819553608,
+            "z": 0.036513489169721414
+          },
+          "wave": {
+            "peakPeriodSec": 4.531355659067997,
+            "significantHeightM": 0.35000000067734693
+          },
+          "wind": {
+            "x": 2.2543730492001894,
+            "y": 0.8940999150569006,
+            "z": 0
+          },
+          "windDirectionRad": 1.1932184506936174,
+          "windSpeedMps": 2.4252036003323343
+        },
+        "pose": {
+          "headingRad": 0.18415453609730997,
+          "orientation": {
+            "w": 0.9957307727560294,
+            "x": -0.0008649937091789385,
+            "y": 0.007964977682178489,
+            "z": -0.09195672407761327
+          },
+          "position": {
+            "x": 4.761554656313933,
+            "y": 62.925917643835405,
+            "z": 0.16974592460447532
+          }
+        },
+        "schemaVersion": 1,
+        "sequence": 2020,
+        "source": "SIM",
+        "timestamp": 37.30000000000023,
+        "velocity": {
+          "angular": {
+            "x": 0.0028407894915815687,
+            "y": -0.03984666910486965,
+            "z": 0.020532617914424397
+          },
+          "body": {
+            "heave": 0.032513374147775886,
+            "pitchRate": 0.00976756554206084,
+            "rollRate": -0.03871797681119389,
+            "surge": 2.24198986803293,
+            "sway": 0.10424744634373136,
+            "yawRate": -0.020565224461152703
+          },
+          "linear": {
+            "x": 0.5135329309498533,
+            "y": 2.18498609292545,
+            "z": 0.023725945342770508
+          }
+        },
+        "vesselId": "usv001"
+      },
+      "type": "simulation_state"
+    },
+    "actual_world_s_origin": 38.85355731492848,
+    "episode_id": 1,
+    "event": "REQUEST",
+    "generation": 1,
+    "identity": {
+      "configuration_id": "{\"command_bounds\":{\"Tc\":[0,200],\"deltac\":[-0.5235987755982988,0.5235987755982988]},\"controller_version\":\"OPENWATER_TRACKING_V1\",\"frozen_before_holdouts_and_obstacles\":true,\"gains\":{\"Kpsi\":-1.2,\"Kr\":-0.6,\"Ku\":0,\"Ky\":-0.08},\"rate_bounds\":{\"omegaT\":20,\"omegadelta\":0.15},\"selected_candidate\":\"Ku0_C\",\"selection_rank\":[4.855607357983705,1.4488454851196895,0.5496267419576737,1.3440238093129153],\"selection_score\":4.855607357983705,\"source_calibration_sha256\":\"5fa41e1a9facf3a88293dd9aab64fc0aef98af26bd0e7e0a6848f877ef4818dc\"}|{\"EMERGENCY_COVERAGE_SEC\":2.0,\"MAX_CONCURRENT_SOLVES\":1,\"MIN_REMAINING_SUFFIX_SEC\":4.0,\"control_dt_sec\":0.02,\"handover_policy\":\"NEXT_CONTROL_TICK_CURRENT_ABSOLUTE_TIME_SUFFIX\",\"maximum_fallback_recoveries\":3,\"mode\":\"DIRECT_ASYNC_SUFFIX_V1\",\"real_time_factor\":1.0,\"state_origin\":\"OPENWATER_ACTUAL_TELEMETRY\"}|{\"collision_representation\":\"RULE_SELECTED_CONVEX_ST_CHANNEL\",\"fixed_lookahead\":true,\"mission_goal_world_s\":75.0,\"prediction_intervals\":120,\"prediction_lookahead_m\":75.0,\"reference_end_world_s\":null,\"terminal_policy\":\"CRUISE_CONTINUATION_V1\"}|FULL_LIFTED_IPOPT_STRICT_REFERENCE_JCONT1",
+      "episode_id": 1,
+      "generation": 1,
+      "observed_snapshot_id": 1057,
+      "parent_active_plan_id": "execution-8",
+      "plan_start_sim_time": 37.30000000000023,
+      "reference_id": "OW_FIXED_STRAIGHT",
+      "state_origin": "OPENWATER_ACTUAL_TELEMETRY"
+    },
+    "protocol_version": 1,
+    "simulation_time": 37.30000000000023,
+    "solve_in_flight": true,
+    "type": "async_event",
+    "wall_elapsed_sec": 21.129305984,
+    "receipt_wall_sec": 21.169649183999997,
+    "receipt_sim_time": 37.320000000000235
+  },
+  {
+    "episode_id": 1,
+    "event": "SOLVE_QUEUED",
+    "generation": 1,
+    "identity": {
+      "configuration_id": "{\"command_bounds\":{\"Tc\":[0,200],\"deltac\":[-0.5235987755982988,0.5235987755982988]},\"controller_version\":\"OPENWATER_TRACKING_V1\",\"frozen_before_holdouts_and_obstacles\":true,\"gains\":{\"Kpsi\":-1.2,\"Kr\":-0.6,\"Ku\":0,\"Ky\":-0.08},\"rate_bounds\":{\"omegaT\":20,\"omegadelta\":0.15},\"selected_candidate\":\"Ku0_C\",\"selection_rank\":[4.855607357983705,1.4488454851196895,0.5496267419576737,1.3440238093129153],\"selection_score\":4.855607357983705,\"source_calibration_sha256\":\"5fa41e1a9facf3a88293dd9aab64fc0aef98af26bd0e7e0a6848f877ef4818dc\"}|{\"EMERGENCY_COVERAGE_SEC\":2.0,\"MAX_CONCURRENT_SOLVES\":1,\"MIN_REMAINING_SUFFIX_SEC\":4.0,\"control_dt_sec\":0.02,\"handover_policy\":\"NEXT_CONTROL_TICK_CURRENT_ABSOLUTE_TIME_SUFFIX\",\"maximum_fallback_recoveries\":3,\"mode\":\"DIRECT_ASYNC_SUFFIX_V1\",\"real_time_factor\":1.0,\"state_origin\":\"OPENWATER_ACTUAL_TELEMETRY\"}|{\"collision_representation\":\"RULE_SELECTED_CONVEX_ST_CHANNEL\",\"fixed_lookahead\":true,\"mission_goal_world_s\":75.0,\"prediction_intervals\":120,\"prediction_lookahead_m\":75.0,\"reference_end_world_s\":null,\"terminal_policy\":\"CRUISE_CONTINUATION_V1\"}|FULL_LIFTED_IPOPT_STRICT_REFERENCE_JCONT1",
+      "episode_id": 1,
+      "generation": 1,
+      "observed_snapshot_id": 1057,
+      "parent_active_plan_id": "execution-8",
+      "plan_start_sim_time": 37.30000000000023,
+      "reference_id": "OW_FIXED_STRAIGHT",
+      "state_origin": "OPENWATER_ACTUAL_TELEMETRY"
+    },
+    "plan_id": "execution-9",
+    "protocol_version": 1,
+    "request_id": 9,
+    "simulation_time": 37.30000000000023,
+    "solve_in_flight": true,
+    "startup": false,
+    "type": "async_event",
+    "wall_elapsed_sec": 21.129368872,
+    "receipt_wall_sec": 21.169658313999996,
+    "receipt_sim_time": 37.320000000000235
+  },
+  {
+    "age_sec": 2.9200000000004565,
+    "duration_wall_sec": 2.9200713789999995,
+    "episode_id": 1,
+    "event": "SOLVE_RETURNED",
+    "generation": 1,
+    "plan_start_sim_time": 37.30000000000023,
+    "protocol_version": 1,
+    "remaining_suffix_sec": 24.05190011897573,
+    "request_id": 9,
+    "simulation_time": 40.22000000000069,
+    "solve_in_flight": false,
+    "type": "async_event",
+    "wall_elapsed_sec": 24.049894199,
+    "receipt_wall_sec": 24.088266121999997,
+    "receipt_sim_time": 40.24000000000069
+  },
+  {
+    "age_sec": 2.9200000000004565,
+    "episode_id": 1,
+    "event": "PENDING_READY",
+    "generation": 1,
+    "plan_id": "execution-9",
+    "protocol_version": 1,
+    "remaining_suffix_sec": 24.05190011897573,
+    "simulation_time": 40.22000000000069,
+    "solve_in_flight": false,
+    "type": "async_event",
+    "wall_elapsed_sec": 24.049914144,
+    "receipt_wall_sec": 24.088273127999997,
+    "receipt_sim_time": 40.24000000000069
+  },
+  {
+    "actual_applied_command_before": [
+      197.86964048419603,
+      -0.1817881590253707
+    ],
+    "applied_command_change": [
+      0.40000000000006253,
+      -0.0030000000000004745
+    ],
+    "control_dt": 0.020000000000003126,
+    "episode_id": 1,
+    "event": "SWITCH",
+    "generation": 1,
+    "limiter_before": [
+      40.22000000000069,
+      197.86964048419603,
+      -0.1817881590253707
+    ],
+    "new_candidate_t_rel": 2.9400000000004596,
+    "new_plan_id": "execution-9",
+    "new_reference": [
+      47.142863850417484,
+      -4.029600372170139,
+      0.10172514003768988,
+      3.0871316073438986,
+      -0.10499633571396381,
+      0.07076162969958254,
+      199.95615511322808,
+      0.043270714160377095
+    ],
+    "old_plan_id": "execution-8",
+    "old_reference": [
+      49.272506783566506,
+      -3.7110297880626266,
+      0.015968207872278734,
+      3.1151588193502304,
+      -0.0036774180923025597,
+      0.050208343231480365,
+      197.84066156697972,
+      0.008759629406911848
+    ],
+    "plan_start_sim_time": 37.30000000000023,
+    "protocol_version": 1,
+    "ready_sim_time": 40.22000000000069,
+    "remaining_suffix_sec": 24.031900118975727,
+    "simulation_time": 40.24000000000069,
+    "solve_in_flight": false,
+    "type": "async_event",
+    "wall_elapsed_sec": 24.068208007,
+    "receipt_wall_sec": 24.109208629999998,
+    "receipt_sim_time": 40.260000000000694
+  },
+  {
+    "actual_snapshot": {
+      "protocol_version": 1,
+      "sequence": 1206,
+      "simulation_time": 40.260000000000694,
+      "state": {
+        "actuator": {
+          "effectiveThrustN": 189.74019839344842,
+          "propulsionActual": 0.018906722168298775,
+          "rawThrustN": 198.52058276713714,
+          "steeringActualRad": 0.17216751099689628,
+          "steeringEffectiveRad": 0.15689896537700604,
+          "steeringRateRadPerSec": 0.0364934400823369,
+          "type": "single_outboard",
+          "ventilationFactor": 0.9894284622407465
+        },
+        "attitude": {
+          "pitchRad": -0.008837691547255446,
+          "rollRad": 0.007829254815053947,
+          "yawRad": 0.08213151228626742
+        },
+        "control": {
+          "propulsionCommand": 0.018882822903256765,
+          "steeringCommandRad": 0.1847881590253707
+        },
+        "dynamics": {
+          "centerOfPressure": {
+            "x": 6.228358835621103,
+            "y": 69.67293850217676,
+            "z": 0.12753343559586588
+          },
+          "planingForceN": 47.85468889931433,
+          "submergedPoints": 8
+        },
+        "environment": {
+          "current": {
+            "x": 0.029656816207950187,
+            "y": 0.1015334005615848,
+            "z": 0
+          },
+          "currentDirectionRad": 0.2841835303510301,
+          "currentSpeedMps": 0.10577598109774906,
+          "localWaterHeight": 0.03963124746486729,
+          "seaState": 1,
+          "waterVelocity": {
+            "x": 0.06728637304337462,
+            "y": 0.11860195027309053,
+            "z": 0.07693884748519539
+          },
+          "wave": {
+            "peakPeriodSec": 4.524022593019024,
+            "significantHeightM": 0.3500000001329775
+          },
+          "wind": {
+            "x": 1.9775992216399079,
+            "y": 0.8227738821415442,
+            "z": 0
+          },
+          "windDirectionRad": 1.1765334703165302,
+          "windSpeedMps": 2.141927996587429
+        },
+        "pose": {
+          "headingRad": 0.08213151228626742,
+          "orientation": {
+            "w": 0.9991387997079216,
+            "x": -0.004254362161555196,
+            "y": 0.004092689152228341,
+            "z": -0.041070783001000165
+          },
+          "position": {
+            "x": 6.212314864788439,
+            "y": 69.46324151991159,
+            "z": 0.12986632128899664
+          }
+        },
+        "schemaVersion": 1,
+        "sequence": 2169,
+        "source": "SIM",
+        "timestamp": 40.260000000000694,
+        "velocity": {
+          "angular": {
+            "x": -0.006607250194972575,
+            "y": -0.03821091280407868,
+            "z": 0.04651313409267293
+          },
+          "body": {
+            "heave": 0.11692061667881964,
+            "pitchRate": -0.0038115519438978434,
+            "rollRate": -0.03903371633184845,
+            "surge": 2.271506899096092,
+            "sway": 0.3004778267480436,
+            "yawRate": -0.04614154653548793
+          },
+          "linear": {
+            "x": 0.48679648223382466,
+            "y": 2.240045229961,
+            "z": 0.09448544981462094
+          }
+        },
+        "vesselId": "usv001"
+      },
+      "type": "simulation_state"
+    },
+    "actual_world_s_origin": 45.3948204078651,
+    "episode_id": 1,
+    "event": "REQUEST",
+    "generation": 1,
+    "identity": {
+      "configuration_id": "{\"command_bounds\":{\"Tc\":[0,200],\"deltac\":[-0.5235987755982988,0.5235987755982988]},\"controller_version\":\"OPENWATER_TRACKING_V1\",\"frozen_before_holdouts_and_obstacles\":true,\"gains\":{\"Kpsi\":-1.2,\"Kr\":-0.6,\"Ku\":0,\"Ky\":-0.08},\"rate_bounds\":{\"omegaT\":20,\"omegadelta\":0.15},\"selected_candidate\":\"Ku0_C\",\"selection_rank\":[4.855607357983705,1.4488454851196895,0.5496267419576737,1.3440238093129153],\"selection_score\":4.855607357983705,\"source_calibration_sha256\":\"5fa41e1a9facf3a88293dd9aab64fc0aef98af26bd0e7e0a6848f877ef4818dc\"}|{\"EMERGENCY_COVERAGE_SEC\":2.0,\"MAX_CONCURRENT_SOLVES\":1,\"MIN_REMAINING_SUFFIX_SEC\":4.0,\"control_dt_sec\":0.02,\"handover_policy\":\"NEXT_CONTROL_TICK_CURRENT_ABSOLUTE_TIME_SUFFIX\",\"maximum_fallback_recoveries\":3,\"mode\":\"DIRECT_ASYNC_SUFFIX_V1\",\"real_time_factor\":1.0,\"state_origin\":\"OPENWATER_ACTUAL_TELEMETRY\"}|{\"collision_representation\":\"RULE_SELECTED_CONVEX_ST_CHANNEL\",\"fixed_lookahead\":true,\"mission_goal_world_s\":75.0,\"prediction_intervals\":120,\"prediction_lookahead_m\":75.0,\"reference_end_world_s\":null,\"terminal_policy\":\"CRUISE_CONTINUATION_V1\"}|FULL_LIFTED_IPOPT_STRICT_REFERENCE_JCONT1",
+      "episode_id": 1,
+      "generation": 1,
+      "observed_snapshot_id": 1206,
+      "parent_active_plan_id": "execution-9",
+      "plan_start_sim_time": 40.260000000000694,
+      "reference_id": "OW_FIXED_STRAIGHT",
+      "state_origin": "OPENWATER_ACTUAL_TELEMETRY"
+    },
+    "protocol_version": 1,
+    "simulation_time": 40.260000000000694,
+    "solve_in_flight": true,
+    "type": "async_event",
+    "wall_elapsed_sec": 24.088719388,
+    "receipt_wall_sec": 24.130260959,
+    "receipt_sim_time": 40.2800000000007
+  },
+  {
+    "episode_id": 1,
+    "event": "SOLVE_QUEUED",
+    "generation": 1,
+    "identity": {
+      "configuration_id": "{\"command_bounds\":{\"Tc\":[0,200],\"deltac\":[-0.5235987755982988,0.5235987755982988]},\"controller_version\":\"OPENWATER_TRACKING_V1\",\"frozen_before_holdouts_and_obstacles\":true,\"gains\":{\"Kpsi\":-1.2,\"Kr\":-0.6,\"Ku\":0,\"Ky\":-0.08},\"rate_bounds\":{\"omegaT\":20,\"omegadelta\":0.15},\"selected_candidate\":\"Ku0_C\",\"selection_rank\":[4.855607357983705,1.4488454851196895,0.5496267419576737,1.3440238093129153],\"selection_score\":4.855607357983705,\"source_calibration_sha256\":\"5fa41e1a9facf3a88293dd9aab64fc0aef98af26bd0e7e0a6848f877ef4818dc\"}|{\"EMERGENCY_COVERAGE_SEC\":2.0,\"MAX_CONCURRENT_SOLVES\":1,\"MIN_REMAINING_SUFFIX_SEC\":4.0,\"control_dt_sec\":0.02,\"handover_policy\":\"NEXT_CONTROL_TICK_CURRENT_ABSOLUTE_TIME_SUFFIX\",\"maximum_fallback_recoveries\":3,\"mode\":\"DIRECT_ASYNC_SUFFIX_V1\",\"real_time_factor\":1.0,\"state_origin\":\"OPENWATER_ACTUAL_TELEMETRY\"}|{\"collision_representation\":\"RULE_SELECTED_CONVEX_ST_CHANNEL\",\"fixed_lookahead\":true,\"mission_goal_world_s\":75.0,\"prediction_intervals\":120,\"prediction_lookahead_m\":75.0,\"reference_end_world_s\":null,\"terminal_policy\":\"CRUISE_CONTINUATION_V1\"}|FULL_LIFTED_IPOPT_STRICT_REFERENCE_JCONT1",
+      "episode_id": 1,
+      "generation": 1,
+      "observed_snapshot_id": 1206,
+      "parent_active_plan_id": "execution-9",
+      "plan_start_sim_time": 40.260000000000694,
+      "reference_id": "OW_FIXED_STRAIGHT",
+      "state_origin": "OPENWATER_ACTUAL_TELEMETRY"
+    },
+    "plan_id": "execution-10",
+    "protocol_version": 1,
+    "request_id": 10,
+    "simulation_time": 40.260000000000694,
+    "solve_in_flight": true,
+    "startup": false,
+    "type": "async_event",
+    "wall_elapsed_sec": 24.088781252,
+    "receipt_wall_sec": 24.130275070999996,
+    "receipt_sim_time": 40.2800000000007
+  },
+  {
+    "episode_id": 1,
+    "event": "INVALIDATE",
+    "generation": 2,
+    "protocol_version": 1,
+    "reason": "TASK_COMPLETE",
+    "simulation_time": 56.82000000000328,
+    "solve_in_flight": true,
+    "type": "async_event",
+    "wall_elapsed_sec": 40.649040415,
+    "receipt_wall_sec": 40.69032533,
+    "receipt_sim_time": 56.840000000003286
+  },
+  {
+    "episode_id": 1,
+    "event": "TASK_COMPLETE",
+    "generation": 2,
+    "protocol_version": 1,
+    "simulation_time": 56.82000000000328,
+    "solve_in_flight": true,
+    "type": "async_event",
+    "wall_elapsed_sec": 40.649072236,
+    "receipt_wall_sec": 40.690420345,
+    "receipt_sim_time": 56.840000000003286
+  },
+  {
+    "age_sec": 16.58000000000259,
+    "duration_wall_sec": 17.522102969,
+    "episode_id": 1,
+    "event": "SOLVE_RETURNED",
+    "generation": 2,
+    "plan_start_sim_time": 40.260000000000694,
+    "protocol_version": 1,
+    "remaining_suffix_sec": 0,
+    "request_id": 10,
+    "simulation_time": 56.840000000003286,
+    "solve_in_flight": false,
+    "type": "async_event",
+    "wall_elapsed_sec": 41.611100785,
+    "receipt_wall_sec": 41.63266716,
+    "receipt_sim_time": 56.840000000003286
+  }
+]
