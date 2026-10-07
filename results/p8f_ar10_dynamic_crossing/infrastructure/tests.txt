@@ -1,0 +1,26 @@
+✔ truth uses episode time and ENU velocity with exact paired physical timestamp (1.589487ms)
+✔ actual safety uses all heading-dependent body circles and same target at physical time (0.222483ms)
+✔ AR10 point and velocity roundtrip in cardinal and arbitrary actual episode frames (1.359811ms)
+✔ target advances by simulation time, retains identity and never inflates radius with buffer (0.581297ms)
+✔ episode reset is deterministic and H1 publishes empty truth using the same clock (0.212183ms)
+✔ actual multi-circle audit is sampled, independent of planner, and uses radius and buffer once (0.257778ms)
+✔ A one command per physical tick preserves ordinary rate-limited commands (1.321741ms)
+✔ B two messages coalesce without applying or advancing previous physical state (0.192026ms)
+✔ C ten messages still consume only one physical thrust budget (0.229886ms)
+✔ D steering burst is limited to 0.003 rad in one physical step (0.186556ms)
+✔ E delayed older followed by current command retains newest sequence (0.17821ms)
+✔ F out-of-order and duplicate commands cannot overwrite target or refresh age (0.2749ms)
+✔ G switched plan reference can jump; physical history survives lifecycle invalidation (0.171238ms)
+✔ H no new messages: each real tick approaches retained target (0.233623ms)
+✔ I timeout holds physics and original emergency mux still selects neutral (0.926348ms)
+✔ identity, timestamp, protocol and amplitude validation (1.549293ms)
+✔ duplicate tick is rejected; limiter uses actual dt rather than message count or time (0.213175ms)
+✔ exact historical 40.08/40.10 burst keeps latest target but caps real 40.12 application (0.168252ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 101.345897

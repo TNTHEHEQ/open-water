@@ -1,0 +1,104 @@
+{
+  "stage": "P8F",
+  "planner_baseline": "a2ede8fc61df80b1de53fb47d2227e912cb5c19a",
+  "openwater_baseline": "e41d00852950fffaefd975b574b571508c701531",
+  "mode": "DIRECT_ASYNC_SUFFIX_V1",
+  "control_dt_sec": 0.02,
+  "maximum_fallback_recoveries": 3,
+  "real_time_factor": 1.0,
+  "maximum_simulated_execution_sec": 60.0,
+  "total_wall_watchdog_sec": 180.0,
+  "sea_preset": 1,
+  "mission_goal_world_s": 75,
+  "prediction_lookahead_m": 75,
+  "reference_coverage": "KNOWN_EXTENDABLE_STRAIGHT_AND_GLOBAL_BANKS",
+  "terminal_policy": "CRUISE_CONTINUATION_V1",
+  "N": 120,
+  "solver_profile": "STRICT_REFERENCE",
+  "w_cont": 1,
+  "command_thrust_limit_n": 200.0,
+  "safety_buffer_m": 0.5,
+  "controller_config": {
+    "controller_version": "OPENWATER_TRACKING_V1",
+    "gains": {
+      "Ku": 0,
+      "Ky": -0.08,
+      "Kpsi": -1.2,
+      "Kr": -0.6
+    },
+    "selected_candidate": "Ku0_C",
+    "selection_score": 4.855607357983705,
+    "source_calibration_sha256": "5fa41e1a9facf3a88293dd9aab64fc0aef98af26bd0e7e0a6848f877ef4818dc",
+    "command_bounds": {
+      "Tc": [
+        0,
+        200
+      ],
+      "deltac": [
+        -0.5235987755982988,
+        0.5235987755982988
+      ]
+    },
+    "rate_bounds": {
+      "omegaT": 20,
+      "omegadelta": 0.15
+    },
+    "selection_rank": [
+      4.855607357983705,
+      1.4488454851196895,
+      0.5496267419576737,
+      1.3440238093129153
+    ],
+    "frozen_before_holdouts_and_obstacles": true
+  },
+  "controller_sha256": "cfe8accb0fdfeacb85ab566dd4b60d87a429e4f4c09c6c1f00a7f7c3504281f8",
+  "stop_gates": [
+    "actual task complete",
+    "actual bank/capability",
+    "applied command limits",
+    "active coverage <=2s without valid candidate",
+    "timeout/failsafe",
+    "protocol/system failure",
+    "max3 fallback recoveries"
+  ],
+  "no_obstacle_campaigns": false,
+  "MIN_REMAINING_SUFFIX_SEC": 4.0,
+  "EMERGENCY_COVERAGE_SEC": 2.0,
+  "MAX_CONCURRENT_SOLVES": 1,
+  "planning_boundary": "X_actual(t_request)",
+  "state_origin": "OPENWATER_ACTUAL_TELEMETRY",
+  "plan_start_semantics": "REQUEST_TIME_UNCHANGED_AT_SWITCH",
+  "discarded_candidate_prefix": "[0, current_sim_time - request_sim_time): not executed, stitched or retimed",
+  "planned_safety": "ORIGINAL_CONTINUOUS_NOMINAL_AUDIT",
+  "actual_executed_safety": "ACTUAL_BANK_AND_CAPABILITY_MONITOR",
+  "production_predictor": false,
+  "production_tracking_error_gate": false,
+  "historical_openwater_log_archive": "/home/lzy/work/session-artifacts/open-water-historical-results-p7c1",
+  "physical_limiter": {
+    "thrust_rate_nps": 20,
+    "steering_rate_radps": 0.15,
+    "time_source": "actual Boat integration dt",
+    "receive": "validate and coalesce only",
+    "application": "once immediately before each physical step",
+    "steering_log_convention": "OPENWATER",
+    "timeout_behavior": "original neutral failsafe before physics; terminal HOLD; no slew history reset"
+  },
+  "historical_p7c1_failure": "run_20261006T082735Z",
+  "scene_identity": "P8F_AR10_DYNAMIC_CROSSING",
+  "formulation": "FULL_LIFTED",
+  "solver": "IPOPT",
+  "collision_representation": "RULE_SELECTED_CONVEX_ST_CHANNEL",
+  "target": {
+    "s_world": 50,
+    "l_at_episode_zero": -16.36108398930107,
+    "velocity": [
+      0,
+      1
+    ],
+    "radius_m": 2.5,
+    "planner_buffer_m": 0.5,
+    "model": "SIMULATOR_OWNED_KINEMATIC_CV_DISC",
+    "six_dof": false
+  },
+  "actual_safety_claim": "ACTUAL_50HZ_SAMPLED_ONLY"
+}
