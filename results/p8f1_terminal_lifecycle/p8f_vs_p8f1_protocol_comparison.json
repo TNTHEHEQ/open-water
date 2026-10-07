@@ -1,0 +1,83 @@
+{
+  "P8F": {
+    "classification": "P8F_TASK_COMPLETE_WITH_RUNTIME_DEGRADATION",
+    "terminal_neutral_accepted": false,
+    "generation_mismatch": 1,
+    "activated_plans": 9,
+    "switches": 8,
+    "sampled_dynamic_margin_m": 4.925697450615353,
+    "sampled_bank_margin_m": 1.0046287790566155,
+    "tracking": {
+      "cross_error": {
+        "rms": 2.6443056385604002,
+        "maximum_absolute": 5.235622470163214,
+        "p95_absolute": 5.147939031871897
+      },
+      "heading_error": {
+        "rms": 0.1627434128999088,
+        "maximum_absolute": 0.32188177511695437,
+        "p95_absolute": 0.31832184275557235
+      },
+      "speed_error": {
+        "rms": 0.8167763821462213,
+        "maximum_absolute": 0.9319648605667772,
+        "p95_absolute": 0.9258653509894893
+      },
+      "yaw_error": {
+        "rms": 0.041872101584464146,
+        "maximum_absolute": 0.08512603931232898,
+        "p95_absolute": 0.07901581596247127
+      },
+      "along_error": {
+        "rms": 6.575049245161614,
+        "maximum_absolute": 15.300656185119777,
+        "p95_absolute": 13.955350258294953
+      }
+    }
+  },
+  "P8F1": {
+    "classification": "P8F1_TERMINATION_H1_CONTROL_FAIL",
+    "H2_run": "NOT_RUN",
+    "reported_run_mode": "H1",
+    "terminal_neutral_accepted": true,
+    "generation_mismatch": 0,
+    "all_rejected_target_count": 1,
+    "activated_plans": 26,
+    "switches": 25,
+    "tracking": {
+      "cross_error": {
+        "rms": 0.7331727538699669,
+        "maximum_absolute": 2.4572038459513874,
+        "p95_absolute": 2.3010365473527474
+      },
+      "heading_error": {
+        "rms": 0.056454457800602716,
+        "maximum_absolute": 0.18144016547760297,
+        "p95_absolute": 0.12131277530287615
+      },
+      "speed_error": {
+        "rms": 0.7078747566691965,
+        "maximum_absolute": 0.9281994814726358,
+        "p95_absolute": 0.8396330580646496
+      },
+      "yaw_error": {
+        "rms": 0.03145524083998203,
+        "maximum_absolute": 0.08967661284641568,
+        "p95_absolute": 0.07697443000352969
+      },
+      "along_error": {
+        "rms": 1.3549700505921738,
+        "maximum_absolute": 4.447936943045491,
+        "p95_absolute": 2.969675982014381
+      }
+    }
+  },
+  "controller_equal": true,
+  "physics_equal": true,
+  "target_equal": true,
+  "buffer_equal": true,
+  "solver_equal": true,
+  "task_equal": true,
+  "mesh_equal": true,
+  "limits_equal": true
+}

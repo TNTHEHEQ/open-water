@@ -1,0 +1,21 @@
+{
+  "applicable": false,
+  "selected_branch": "STARBOARD_ASTERN",
+  "starboard_sign": "negative_l",
+  "actual_at_s50": {
+    "episode_time": 21.999718902849143,
+    "simulation_time": 41.19971890284882,
+    "own_l": 0.313731770948615,
+    "psi": 0.12305347859094547,
+    "u": 2.3585409595795577,
+    "v": -0.13827900819546096,
+    "r": -0.0007239629900589173,
+    "own_s": 50,
+    "target_l": 5.638634913548074,
+    "relative_l": -5.324903142599459,
+    "raw_clearance": 1.3627889959687054,
+    "buffered_clearance": 0.8627889959687054,
+    "method": "linear interpolation at first actual s=50 crossing"
+  },
+  "passed": null
+}

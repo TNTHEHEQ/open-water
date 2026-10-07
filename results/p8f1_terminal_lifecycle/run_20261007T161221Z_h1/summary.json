@@ -1,0 +1,337 @@
+{
+  "classification": "P8F1_TERMINATION_H1_CONTROL_FAIL",
+  "passed": false,
+  "run_mode": "H1",
+  "issues": [],
+  "native_TASK_COMPLETE": false,
+  "final_world": {
+    "s_world": 89.75455171701475,
+    "l_world": 1.4997582428970895,
+    "psi": -0.24534348269795572
+  },
+  "final_state": {
+    "timestamp": 58.06000000000348,
+    "pose": {
+      "position": {
+        "x": 0.2022731764157619,
+        "y": 113.83955845684727,
+        "z": -0.03592960994411586
+      },
+      "orientation": {
+        "x": -0.009442387175454037,
+        "y": 0.01177791377629693,
+        "z": -0.12381890539013571,
+        "w": 0.9921900023380077
+      },
+      "headingRad": 0.2480755815214027
+    },
+    "velocity": {
+      "linear": {
+        "x": 0.3407154647458198,
+        "y": 2.326302751412176,
+        "z": 0.12626622718111138
+      },
+      "angular": {
+        "x": 0.009503843175252984,
+        "y": 0.0029610526006695237,
+        "z": 0.002520679156127318
+      },
+      "body": {
+        "surge": 2.3354633981073945,
+        "sway": -0.24458074879489766,
+        "heave": 0.17177209520454947,
+        "rollRate": 0.005148165569798523,
+        "pitchRate": 0.008428578065257089,
+        "yawRate": -0.0028107212732103658
+      }
+    },
+    "actuator": {
+      "type": "single_outboard",
+      "propulsionActual": 0.018634524600477573,
+      "rawThrustN": 195.6625083050145,
+      "effectiveThrustN": 186.0204790460287,
+      "steeringActualRad": 0.02441503600779374,
+      "steeringEffectiveRad": 0.022179384464222605,
+      "steeringRateRadPerSec": 0.03969620775709226,
+      "ventilationFactor": 0.9856073376645267
+    },
+    "control": {
+      "propulsionCommand": 0,
+      "steeringCommandRad": 0
+    }
+  },
+  "requests": 27,
+  "successful_plans": 26,
+  "activated_plans": 26,
+  "switches": 25,
+  "solver_failures": 0,
+  "candidate_rejections": 0,
+  "fallbacks": 0,
+  "timeouts_failsafes": 1,
+  "protocol_failures": 1,
+  "invalid_control_messages": 1,
+  "active_plan_expiry": 0,
+  "terminal_generation_cancellations": 1,
+  "terminal_generation_events": [
+    {
+      "episode_id": 1,
+      "event": "SOLVE_DISCARDED",
+      "generation": 3,
+      "protocol_version": 1,
+      "reason": "GENERATION_EPISODE_OR_TERMINAL_PHASE",
+      "simulation_time": 58.06000000000348,
+      "solve_in_flight": false,
+      "type": "async_event",
+      "wall_elapsed_sec": 66.128790651
+    }
+  ],
+  "planned_audits_pass": true,
+  "actual_sampled_dynamic_CPA": null,
+  "H1_counterfactual_CPA": {
+    "simulation_time": 39.70000000000061,
+    "episode_time": 20.500000000000927,
+    "own_s": 46.45528402558615,
+    "own_l": 0.06797598891336834,
+    "psi": 0.12419506834424371,
+    "u": 2.3601792936519965,
+    "v": -0.12617408058566204,
+    "r": 0.0032125561150186987,
+    "target_s": 50,
+    "target_l": 4.138916010699859,
+    "circle": 2,
+    "circle_s": 48.572185786499695,
+    "circle_l": 0.332244878024919,
+    "circle_target_distance": 4.06563630205829,
+    "raw_clearance": 0.10352215542753607,
+    "buffered_clearance": -0.39647784457246393,
+    "bank_raw": 8.205640975344327,
+    "bank_buffered": 7.705640975344327
+  },
+  "actual_sampled_bank_minimum": {
+    "simulation_time": 54.52000000000292,
+    "episode_time": 35.32000000000325,
+    "own_s": 81.46494467775535,
+    "own_l": 2.346113087052204,
+    "psi": -0.17465729755340179,
+    "u": 2.3408036899795928,
+    "v": 0.34690095756112543,
+    "r": -0.036458865731194924,
+    "target_s": 50,
+    "target_l": 18.95891601070218,
+    "circle": 0,
+    "circle_s": 79.36406756124782,
+    "circle_l": 2.7168238266405274,
+    "circle_target_distance": 33.55672842005137,
+    "raw_clearance": 29.594614273420618,
+    "buffered_clearance": 29.094614273420618,
+    "bank_raw": 5.821062026728718,
+    "bank_buffered": 5.321062026728718
+  },
+  "rule15": {
+    "applicable": false,
+    "selected_branch": "STARBOARD_ASTERN",
+    "starboard_sign": "negative_l",
+    "actual_at_s50": {
+      "episode_time": 21.999718902849143,
+      "simulation_time": 41.19971890284882,
+      "own_l": 0.313731770948615,
+      "psi": 0.12305347859094547,
+      "u": 2.3585409595795577,
+      "v": -0.13827900819546096,
+      "r": -0.0007239629900589173,
+      "own_s": 50,
+      "target_l": 5.638634913548074,
+      "relative_l": -5.324903142599459,
+      "raw_clearance": 1.3627889959687054,
+      "buffered_clearance": 0.8627889959687054,
+      "method": "linear interpolation at first actual s=50 crossing"
+    },
+    "passed": null
+  },
+  "command_limits_pass": true,
+  "plant_capability_pass": true,
+  "max_applied_Tc_rate_Nps": 19.999999999998863,
+  "max_applied_delta_rate_radps": 0.15000000000000013,
+  "max_actual_steering_rad": 0.13501913530133844,
+  "max_actual_steering_rate_radps": 0.0721061759825381,
+  "raw_thrust_N": {
+    "minimum": 195.6625083050145,
+    "median": 199.99930766781307,
+    "maximum": 199.99999999999739
+  },
+  "tracking": {
+    "cross_error": {
+      "rms": 0.7331727538699669,
+      "maximum_absolute": 2.4572038459513874,
+      "p95_absolute": 2.3010365473527474
+    },
+    "heading_error": {
+      "rms": 0.056454457800602716,
+      "maximum_absolute": 0.18144016547760297,
+      "p95_absolute": 0.12131277530287615
+    },
+    "speed_error": {
+      "rms": 0.7078747566691965,
+      "maximum_absolute": 0.9281994814726358,
+      "p95_absolute": 0.8396330580646496
+    },
+    "yaw_error": {
+      "rms": 0.03145524083998203,
+      "maximum_absolute": 0.08967661284641568,
+      "p95_absolute": 0.07697443000352969
+    },
+    "along_error": {
+      "rms": 1.3549700505921738,
+      "maximum_absolute": 4.447936943045491,
+      "p95_absolute": 2.969675982014381
+    }
+  },
+  "actual_at_conflict": {
+    "episode_time": 21.999718902849143,
+    "simulation_time": 41.19971890284882,
+    "own_l": 0.313731770948615,
+    "psi": 0.12305347859094547,
+    "u": 2.3585409595795577,
+    "v": -0.13827900819546096,
+    "r": -0.0007239629900589173,
+    "own_s": 50,
+    "target_l": 5.638634913548074,
+    "relative_l": -5.324903142599459,
+    "raw_clearance": 1.3627889959687054,
+    "buffered_clearance": 0.8627889959687054,
+    "method": "linear interpolation at first actual s=50 crossing"
+  },
+  "offline_AR10_reference": {
+    "l": -4.672266,
+    "episode_time": 18.71568,
+    "u": 2.501698
+  },
+  "planning_wall_sec": {
+    "minimum": 0.980941799,
+    "median": 1.2852586,
+    "maximum": 30.148944661
+  },
+  "worker_wall_sec": {
+    "minimum": 0.9821132759999998,
+    "median": 1.2864268249999995,
+    "maximum": 30.149287805
+  },
+  "switch_age_sec": {
+    "minimum": 0.9999999999999787,
+    "median": 1.2999999999999723,
+    "maximum": 2.1799999999999535
+  },
+  "switch_remaining_suffix_sec": {
+    "minimum": 24.757837977675997,
+    "median": 25.57923841562256,
+    "maximum": 25.89570223066193
+  },
+  "dual_used_requests": 26,
+  "final_workspace_counters": {
+    "cache_hits": 27,
+    "cache_misses": 2,
+    "graph_builds": 1,
+    "graph_hits": 55,
+    "graph_seconds": 0.034976109,
+    "signature_seconds": 1.9615965249999998,
+    "solver_constructions": 2,
+    "solver_creation_seconds": 2.537145623
+  },
+  "active_sim_duration_sec": 38.860000000003794,
+  "active_wall_duration_sec": 38.88059434499999,
+  "real_time_factor": 0.9994703181537438,
+  "maximum_tick_lateness_ms": 0.6243070000000444,
+  "actual_safety_claim": "50Hz physical-tick sampled; no rigorous actual inter-tick certificate",
+  "environment": {
+    "sea_preset": 1,
+    "preset": {
+      "name": "Calm",
+      "hs": 0.35,
+      "tp": 4.5,
+      "windSpeed": 2.4,
+      "windDirection": 0.3839724354387525,
+      "gustiness": 0.12,
+      "currentSpeed": 0.12,
+      "currentDirection": 1.1868238913561442
+    },
+    "initial": {
+      "seaState": 1,
+      "localWaterHeight": -0.11351697093638378,
+      "wave": {
+        "significantHeightM": 0.35001426306825756,
+        "peakPeriodSec": 4.659875400235626
+      },
+      "windSpeedMps": 2.4233173083695303,
+      "windDirectionRad": 1.1791781892217488,
+      "currentSpeedMps": 0.1151470842609257,
+      "currentDirectionRad": 0.3163427389230472,
+      "waterVelocity": {
+        "x": -0.07537446384624613,
+        "y": 0.1030017561320117,
+        "z": -0.009509628889633331
+      },
+      "current": {
+        "x": 0.0358214360925301,
+        "y": 0.1094334305870994,
+        "z": 0
+      },
+      "wind": {
+        "x": 2.2398543818083754,
+        "y": 0.924942768682022,
+        "z": 0
+      }
+    },
+    "physical_dt_sec": 0.02
+  },
+  "runner_error": "Error: COMMAND_TIMEOUT_FAILSAFE",
+  "p8f_original_gates_pass": false,
+  "terminal_lifecycle": {
+    "old_generation": 1,
+    "new_generation": 2,
+    "invalidate_rx_index": 4100,
+    "neutral_rx_index": 4101,
+    "manual_rx_index": 4102,
+    "task_complete_rx_index": 4103,
+    "neutral_episode": 1,
+    "neutral_generation": 2,
+    "neutral_sequence": 1970,
+    "neutral_sender_timestamp": 58.06000000000348,
+    "neutral_receipt_sim_time": 58.06000000000348,
+    "neutral_accepted": true,
+    "neutral_rejection_reason": null,
+    "neutral_target": {
+      "Tc": 0,
+      "delta": 0
+    },
+    "old_generation_post_invalidate_accept_count": 0,
+    "generation_mismatch_count": 0,
+    "all_rejected_target_count": 1,
+    "terminal_generation_rollover_count": 2,
+    "terminal_INVALIDATE_received": 1,
+    "terminal_neutral_target_count": 1,
+    "final_mode": "MANUAL",
+    "final_control": {
+      "propulsionCommand": 0,
+      "steeringCommandRad": 0
+    },
+    "terminal_safety_handoff_excluded_from_ACTIVE_rate_statistics": true,
+    "checks": {
+      "one_rollover": false,
+      "one_accepted_neutral": true,
+      "wire_partial_order": true,
+      "same_episode_next_generation": true,
+      "sequence_monotonic": true,
+      "timestamp_rules": true,
+      "no_invalid_control": false,
+      "final_manual_neutral": true,
+      "rx_index_complete_unique": true,
+      "trusted_transitions_only": true
+    },
+    "passed": false
+  },
+  "legacy_commands_log_rejected_count": 0,
+  "invalid_control_count_source": "all WebSocket physical targets, lifecycle_messages.jsonl (includes pre-limiter ownership rejection)",
+  "native_task_complete_event_count": 1,
+  "native_task_complete_status_received": true,
+  "specific_failure": "TIMEOUT_FAILSAFE"
+}

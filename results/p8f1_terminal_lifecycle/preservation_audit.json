@@ -1,0 +1,43 @@
+{
+  "all-in-planner": {
+    "scope_pass": true,
+    "history_byte_identical": true,
+    "history_files": 221,
+    "protected_files": 340,
+    "main_unchanged": true,
+    "actual_changed_files": [
+      "cpp/lifted_stp/openwater/execution/direct_async_server.cpp",
+      "cpp/lifted_stp/openwater/execution/direct_async_tests.cpp",
+      "cpp/lifted_stp/openwater/execution/generation_rollover.hpp",
+      "research/lifted_stp/results/p8f1_terminal_lifecycle/contracts/P8F1_AR10.json",
+      "research/lifted_stp/results/p8f1_terminal_lifecycle/contracts/P8F1_FIX_SCOPE.json",
+      "research/lifted_stp/results/p8f1_terminal_lifecycle/contracts/contract_equality_audit.json",
+      "research/lifted_stp/results/p8f1_terminal_lifecycle/implementation/baseline.json",
+      "research/lifted_stp/results/p8f1_terminal_lifecycle/implementation/build.txt",
+      "research/lifted_stp/results/p8f1_terminal_lifecycle/implementation/freeze.py",
+      "research/lifted_stp/results/p8f1_terminal_lifecycle/implementation/historical_p8f_sha256.json",
+      "research/lifted_stp/results/p8f1_terminal_lifecycle/implementation/openwater-full-tests.txt",
+      "research/lifted_stp/results/p8f1_terminal_lifecycle/implementation/openwater-tests.txt",
+      "research/lifted_stp/results/p8f1_terminal_lifecycle/implementation/planner-tests.txt",
+      "research/lifted_stp/results/p8f1_terminal_lifecycle/implementation/wire-order.json",
+      "research/lifted_stp/results/p8f1_terminal_lifecycle/implementation/wire-test.txt",
+      "research/lifted_stp/scripts/validate_p8f1_openwater.py",
+      "tools/p8f-run.mjs",
+      "tools/p8f1-wire-test.mjs"
+    ]
+  },
+  "open-water": {
+    "scope_pass": true,
+    "history_byte_identical": true,
+    "history_files": 30,
+    "protected_files": 70,
+    "main_unchanged": true,
+    "actual_changed_files": [
+      "results/p8f1_terminal_lifecycle/contracts/P8F1_AR10.json",
+      "results/p8f1_terminal_lifecycle/contracts/P8F1_FIX_SCOPE.json",
+      "results/p8f1_terminal_lifecycle/contracts/contract_equality_audit.json",
+      "tests/fixtures/p8f-terminal-order.json",
+      "tests/termination-lifecycle.test.mjs"
+    ]
+  }
+}

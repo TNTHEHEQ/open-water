@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "transitions": [
+    {
+      "rx_index": 4100,
+      "before": 1,
+      "after": 2,
+      "event": "INVALIDATE",
+      "valid": true
+    },
+    {
+      "rx_index": 4105,
+      "before": 2,
+      "after": 3,
+      "event": "INVALIDATE",
+      "valid": true
+    }
+  ]
+}

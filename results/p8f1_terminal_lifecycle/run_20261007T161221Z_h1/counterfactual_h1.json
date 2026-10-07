@@ -1,0 +1,37 @@
+{
+  "method": "original multi-circle geometry on actual H1 50Hz physical states",
+  "minimum": {
+    "simulation_time": 39.70000000000061,
+    "episode_time": 20.500000000000927,
+    "own_s": 46.45528402558615,
+    "own_l": 0.06797598891336834,
+    "psi": 0.12419506834424371,
+    "u": 2.3601792936519965,
+    "v": -0.12617408058566204,
+    "r": 0.0032125561150186987,
+    "target_s": 50,
+    "target_l": 4.138916010699859,
+    "circle": 2,
+    "circle_s": 48.572185786499695,
+    "circle_l": 0.332244878024919,
+    "circle_target_distance": 4.06563630205829,
+    "raw_clearance": 0.10352215542753607,
+    "buffered_clearance": -0.39647784457246393,
+    "bank_raw": 8.205640975344327,
+    "bank_buffered": 7.705640975344327
+  },
+  "target": {
+    "s_world": 50,
+    "l_at_episode_zero": -16.36108398930107,
+    "velocity": [
+      0,
+      1
+    ],
+    "radius_m": 2.5,
+    "planner_buffer_m": 0.5,
+    "model": "SIMULATOR_OWNED_KINEMATIC_CV_DISC",
+    "six_dof": false
+  },
+  "conflicting": true,
+  "actual_continuous_certified": false
+}

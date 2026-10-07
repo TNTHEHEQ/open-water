@@ -1,0 +1,103 @@
+{
+  "stage_classification": "P8F1_TERMINATION_H1_CONTROL_FAIL",
+  "specific_failure": "TIMEOUT_FAILSAFE",
+  "runner_error": "Error: COMMAND_TIMEOUT_FAILSAFE",
+  "formal_episodes": {
+    "H1": 1,
+    "H2": 0
+  },
+  "stop_required": true,
+  "repair_or_rerun_after_H1": false,
+  "original_generation_ordering_defect_repaired_in_observed_run": true,
+  "task_complete_status_received": true,
+  "native_task_complete_event_count": 1,
+  "task_threshold_reached": true,
+  "final_phase": "ABORTED",
+  "clean_completion_gate": false,
+  "terminal_sequence": {
+    "invalidate_rx_index": 4100,
+    "neutral_rx_index": 4101,
+    "manual_rx_index": 4102,
+    "task_complete_rx_index": 4103
+  },
+  "invalidate_to_neutral_receiver_gap_sec": 0.020071429000005026,
+  "failure_mechanism": "Trusted INVALIDATE setIdentity calls invalidate(), clearing receiptWallSec. A pending physical tick checks isFresh before the next WebSocket frame carrying neutral arrives. Null freshness immediately fails, even though no 0.5-second age limit elapsed. Runner enters failure finalization and sends execution_abort. The original gen2 neutral is accepted; MANUAL/TASK_COMPLETE arrive; queued abort rolls generation to3, and its neutral is rejected UNOWNED_COMMAND after MANUAL.",
+  "causal_evidence": "Receiver rx_index and wall timestamps, unchanged limiter setIdentity/invalidate/isFresh implementation, unchanged runner tick freshness guard and failure-finalization execution_abort. No OS/network delay root cause is asserted.",
+  "original_terminal_neutral": {
+    "rx_index": 4101,
+    "wall_sec": 41.817537479,
+    "simulation_time": 58.06000000000348,
+    "type": "physical_command_target",
+    "event": null,
+    "status": null,
+    "mode": null,
+    "episode_id": 1,
+    "generation": 2,
+    "command_sequence": 1970,
+    "accepted": true,
+    "reason": null,
+    "receiver_generation_before": 2,
+    "sender_timestamp": 58.06000000000348,
+    "propulsion_command": 0,
+    "steering_angle_rad": 0,
+    "target": {
+      "Tc": 0,
+      "delta": 0
+    },
+    "receiver_generation_after": 2
+  },
+  "generation_mismatch_count": 0,
+  "all_rejected_target_count": 1,
+  "rejected_targets": [
+    {
+      "rx_index": 4106,
+      "wall_sec": 41.817821153,
+      "simulation_time": 58.06000000000348,
+      "type": "physical_command_target",
+      "event": null,
+      "status": null,
+      "mode": null,
+      "episode_id": 1,
+      "generation": 3,
+      "command_sequence": 1971,
+      "accepted": false,
+      "reason": "Error: UNOWNED_COMMAND",
+      "receiver_generation_before": 3,
+      "sender_timestamp": 58.040000000003474,
+      "propulsion_command": 0,
+      "steering_angle_rad": 0,
+      "receiver_generation_after": 3
+    }
+  ],
+  "legacy_commands_array_rejected_count": 0,
+  "why_counts_differ": "commands.json records only after ownership guard; lifecycle_messages records every inbound message including the rejected abort neutral. Primary rejected count uses the complete lifecycle log.",
+  "generation_rollovers": 2,
+  "final_mode": "MANUAL",
+  "final_command": {
+    "propulsionCommand": 0,
+    "steeringCommandRad": 0
+  },
+  "post_terminal_worker_discard": {
+    "native_events": [
+      {
+        "episode_id": 1,
+        "event": "SOLVE_DISCARDED",
+        "generation": 3,
+        "protocol_version": 1,
+        "reason": "GENERATION_EPISODE_OR_TERMINAL_PHASE",
+        "simulation_time": 58.06000000000348,
+        "solve_in_flight": false,
+        "type": "async_event",
+        "wall_elapsed_sec": 66.128790651
+      }
+    ],
+    "receiver_event_count": 0,
+    "note": "Existing terminal drain ends when SOLVE_RETURNED clears workerBusy. The native discard is present in native_events.jsonl; receiver capture ended before its frame was processed. It was never activated."
+  },
+  "counterfactual_buffered_minimum_m": -0.39647784457246393,
+  "actual_buffered_bank_minimum_m": 5.321062026728718,
+  "all_activated_planned_audits_pass": true,
+  "APPLIED_rate_pass": true,
+  "actual_capability_pass": true,
+  "production_changes_after_run": false
+}

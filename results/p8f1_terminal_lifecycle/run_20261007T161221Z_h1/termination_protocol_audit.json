@@ -1,0 +1,44 @@
+{
+  "old_generation": 1,
+  "new_generation": 2,
+  "invalidate_rx_index": 4100,
+  "neutral_rx_index": 4101,
+  "manual_rx_index": 4102,
+  "task_complete_rx_index": 4103,
+  "neutral_episode": 1,
+  "neutral_generation": 2,
+  "neutral_sequence": 1970,
+  "neutral_sender_timestamp": 58.06000000000348,
+  "neutral_receipt_sim_time": 58.06000000000348,
+  "neutral_accepted": true,
+  "neutral_rejection_reason": null,
+  "neutral_target": {
+    "Tc": 0,
+    "delta": 0
+  },
+  "old_generation_post_invalidate_accept_count": 0,
+  "generation_mismatch_count": 0,
+  "all_rejected_target_count": 1,
+  "terminal_generation_rollover_count": 2,
+  "terminal_INVALIDATE_received": 1,
+  "terminal_neutral_target_count": 1,
+  "final_mode": "MANUAL",
+  "final_control": {
+    "propulsionCommand": 0,
+    "steeringCommandRad": 0
+  },
+  "terminal_safety_handoff_excluded_from_ACTIVE_rate_statistics": true,
+  "checks": {
+    "one_rollover": false,
+    "one_accepted_neutral": true,
+    "wire_partial_order": true,
+    "same_episode_next_generation": true,
+    "sequence_monotonic": true,
+    "timestamp_rules": true,
+    "no_invalid_control": false,
+    "final_manual_neutral": true,
+    "rx_index_complete_unique": true,
+    "trusted_transitions_only": true
+  },
+  "passed": false
+}
