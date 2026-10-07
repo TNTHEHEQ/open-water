@@ -1,0 +1,13 @@
+{
+  "all_inherited_fields_equal_except_implementation_commits": true,
+  "changed_inherited_fields": [
+    "Planner_commit",
+    "OpenWater_commit"
+  ],
+  "added_fields": [
+    "protocol_lifecycle_version",
+    "protocol_fix_only"
+  ],
+  "source_contract_sha256": "64a2e20a553d42e9c11e9657bcb1bc6d7173c86f69067c7e47e179fde021ca65",
+  "new_contract_sha256": "b7fb1f6fce177ded9fd626c5a306643b786c244b6855f846744346ff9f3daea8"
+}

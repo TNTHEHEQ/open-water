@@ -1,0 +1,291 @@
+{
+  "stage": "P8F",
+  "planner_baseline": "a2ede8fc61df80b1de53fb47d2227e912cb5c19a",
+  "openwater_baseline": "e41d00852950fffaefd975b574b571508c701531",
+  "mode": "DIRECT_ASYNC_SUFFIX_V1",
+  "control_dt_sec": 0.02,
+  "maximum_fallback_recoveries": 3,
+  "real_time_factor": 1.0,
+  "maximum_simulated_execution_sec": 60.0,
+  "total_wall_watchdog_sec": 180.0,
+  "sea_preset": 1,
+  "mission_goal_world_s": 75,
+  "prediction_lookahead_m": 75,
+  "reference_coverage": "KNOWN_EXTENDABLE_STRAIGHT_AND_GLOBAL_BANKS",
+  "terminal_policy": "CRUISE_CONTINUATION_V1",
+  "N": 120,
+  "solver_profile": "STRICT_REFERENCE",
+  "w_cont": 1,
+  "command_thrust_limit_n": 200.0,
+  "safety_buffer_m": 0.5,
+  "controller_config": {
+    "controller_version": "OPENWATER_TRACKING_V1",
+    "gains": {
+      "Ku": 0,
+      "Ky": -0.08,
+      "Kpsi": -1.2,
+      "Kr": -0.6
+    },
+    "selected_candidate": "Ku0_C",
+    "selection_score": 4.855607357983705,
+    "source_calibration_sha256": "5fa41e1a9facf3a88293dd9aab64fc0aef98af26bd0e7e0a6848f877ef4818dc",
+    "command_bounds": {
+      "Tc": [
+        0,
+        200
+      ],
+      "deltac": [
+        -0.5235987755982988,
+        0.5235987755982988
+      ]
+    },
+    "rate_bounds": {
+      "omegaT": 20,
+      "omegadelta": 0.15
+    },
+    "selection_rank": [
+      4.855607357983705,
+      1.4488454851196895,
+      0.5496267419576737,
+      1.3440238093129153
+    ],
+    "frozen_before_holdouts_and_obstacles": true
+  },
+  "controller_sha256": "cfe8accb0fdfeacb85ab566dd4b60d87a429e4f4c09c6c1f00a7f7c3504281f8",
+  "stop_gates": [
+    "actual task complete",
+    "actual bank/capability",
+    "applied command limits",
+    "active coverage <=2s without valid candidate",
+    "timeout/failsafe",
+    "protocol/system failure",
+    "max3 fallback recoveries"
+  ],
+  "no_obstacle_campaigns": false,
+  "MIN_REMAINING_SUFFIX_SEC": 4.0,
+  "EMERGENCY_COVERAGE_SEC": 2.0,
+  "MAX_CONCURRENT_SOLVES": 1,
+  "planning_boundary": "X_actual(t_request)",
+  "state_origin": "OPENWATER_ACTUAL_TELEMETRY",
+  "plan_start_semantics": "REQUEST_TIME_UNCHANGED_AT_SWITCH",
+  "discarded_candidate_prefix": "[0, current_sim_time - request_sim_time): not executed, stitched or retimed",
+  "planned_safety": "ORIGINAL_CONTINUOUS_NOMINAL_AUDIT",
+  "actual_executed_safety": "ACTUAL_BANK_AND_CAPABILITY_MONITOR",
+  "production_predictor": false,
+  "production_tracking_error_gate": false,
+  "historical_openwater_log_archive": "/home/lzy/work/session-artifacts/open-water-historical-results-p7c1",
+  "physical_limiter": {
+    "thrust_rate_nps": 20,
+    "steering_rate_radps": 0.15,
+    "time_source": "actual Boat integration dt",
+    "receive": "validate and coalesce only",
+    "application": "once immediately before each physical step",
+    "steering_log_convention": "OPENWATER",
+    "timeout_behavior": "original neutral failsafe before physics; terminal HOLD; no slew history reset"
+  },
+  "historical_p7c1_failure": "run_20261006T082735Z",
+  "scene_identity": "P8F_AR10_DYNAMIC_CROSSING",
+  "formulation": "FULL_LIFTED",
+  "solver": "IPOPT",
+  "collision_representation": "RULE_SELECTED_CONVEX_ST_CHANNEL",
+  "target": {
+    "s_world": 50,
+    "l_at_episode_zero": -16.36108398930107,
+    "velocity": [
+      0,
+      1
+    ],
+    "radius_m": 2.5,
+    "planner_buffer_m": 0.5,
+    "model": "SIMULATOR_OWNED_KINEMATIC_CV_DISC",
+    "six_dof": false
+  },
+  "actual_safety_claim": "ACTUAL_50HZ_SAMPLED_ONLY",
+  "Planner_commit": "214547e10738164549dfd5275519cdeaf94965e4",
+  "OpenWater_commit": "acd7d3f1fe72aa82a392b4c5f0c9b4d03c874bb0",
+  "H1_control": "PASS",
+  "H1_run": "run_20261007T151907Z_h1",
+  "counterfactual_min_buffered_m": -0.39971276506311826,
+  "counterfactual_CPA": {
+    "simulation_time": 39.70000000000061,
+    "episode_time": 20.500000000000927,
+    "own_s": 46.45484460701058,
+    "own_l": 0.07172353124532205,
+    "psi": 0.12413194553006081,
+    "u": 2.360188790961503,
+    "v": -0.12342589090020828,
+    "r": 0.002023069015792861,
+    "target_s": 50,
+    "target_l": 4.138916010699859,
+    "circle": 2,
+    "circle_s": 48.571763045102706,
+    "circle_l": 0.3358587950339754,
+    "circle_target_distance": 4.062401381567636,
+    "raw_clearance": 0.10028723493688174,
+    "buffered_clearance": -0.39971276506311826,
+    "bank_raw": 8.202027058335272,
+    "bank_buffered": 7.702027058335272
+  },
+  "H1_summary_sha256": "c649e806a0cef0f39e39cc8b9b1f029ca326e24fbbe95323cdf037030fd70b0c",
+  "environment": {
+    "sea_preset": 1,
+    "preset": {
+      "name": "Calm",
+      "hs": 0.35,
+      "tp": 4.5,
+      "windSpeed": 2.4,
+      "windDirection": 0.3839724354387525,
+      "gustiness": 0.12,
+      "currentSpeed": 0.12,
+      "currentDirection": 1.1868238913561442
+    },
+    "initial": {
+      "seaState": 1,
+      "localWaterHeight": -0.11351697093638378,
+      "wave": {
+        "significantHeightM": 0.35001426306825756,
+        "peakPeriodSec": 4.659875400235626
+      },
+      "windSpeedMps": 2.4233173083695303,
+      "windDirectionRad": 1.1791781892217488,
+      "currentSpeedMps": 0.1151470842609257,
+      "currentDirectionRad": 0.3163427389230472,
+      "waterVelocity": {
+        "x": -0.07537446384624613,
+        "y": 0.1030017561320117,
+        "z": -0.009509628889633331
+      },
+      "current": {
+        "x": 0.0358214360925301,
+        "y": 0.1094334305870994,
+        "z": 0
+      },
+      "wind": {
+        "x": 2.2398543818083754,
+        "y": 0.924942768682022,
+        "z": 0
+      }
+    },
+    "physical_dt_sec": 0.02
+  },
+  "actual_initial_state_acceptance": {
+    "mode": "same deterministic P7C2 preconditioner; no state assignments",
+    "expected_initial": {
+      "schemaVersion": 1,
+      "vesselId": "usv001",
+      "source": "SIM",
+      "sequence": 962,
+      "timestamp": 19.19999999999968,
+      "pose": {
+        "position": {
+          "x": 1.4568078218668974,
+          "y": 24.081244237312283,
+          "z": -0.02880299737163095
+        },
+        "orientation": {
+          "x": -0.007021959674481012,
+          "y": -0.004457223509863515,
+          "z": -0.00133466213772032,
+          "w": 0.9999645213295777
+        },
+        "headingRad": 0.002732098823446956
+      },
+      "velocity": {
+        "linear": {
+          "x": 0.03169733840416827,
+          "y": 2.057234689062681,
+          "z": -0.010233820256258403
+        },
+        "angular": {
+          "x": -0.0005540523178420796,
+          "y": 0.025332901099983814,
+          "z": -0.0018412290008081053
+        },
+        "body": {
+          "surge": 2.0572546716615525,
+          "sway": 0.026242093413494625,
+          "heave": 0.018400725033777546,
+          "rollRate": 0.025354634295490997,
+          "pitchRate": -0.0006365093652326918,
+          "yawRate": 0.0014799837552374993
+        }
+      },
+      "control": {
+        "propulsionCommand": 0.01904761904761905,
+        "steeringCommandRad": 0
+      },
+      "actuator": {
+        "type": "single_outboard",
+        "propulsionActual": 0.0190476190476188,
+        "rawThrustN": 199.99999999999739,
+        "effectiveThrustN": 192.62755463146846,
+        "steeringActualRad": 0,
+        "steeringEffectiveRad": 0,
+        "steeringRateRadPerSec": 0,
+        "ventilationFactor": 0.9938888181155465
+      },
+      "attitude": {
+        "rollRad": -0.008933872973767232,
+        "pitchRad": -0.014031983784837224,
+        "yawRad": 0.002732098823446956
+      },
+      "environment": {
+        "seaState": 1,
+        "localWaterHeight": -0.11351697093638378,
+        "wave": {
+          "significantHeightM": 0.35001426306825756,
+          "peakPeriodSec": 4.659875400235626
+        },
+        "windSpeedMps": 2.4233173083695303,
+        "windDirectionRad": 1.1791781892217488,
+        "currentSpeedMps": 0.1151470842609257,
+        "currentDirectionRad": 0.3163427389230472,
+        "waterVelocity": {
+          "x": -0.07537446384624613,
+          "y": 0.1030017561320117,
+          "z": -0.009509628889633331
+        },
+        "current": {
+          "x": 0.0358214360925301,
+          "y": 0.1094334305870994,
+          "z": 0
+        },
+        "wind": {
+          "x": 2.2398543818083754,
+          "y": 0.924942768682022,
+          "z": 0
+        }
+      },
+      "dynamics": {
+        "planingForceN": 0,
+        "centerOfPressure": {
+          "x": 1.4566757496235467,
+          "y": 24.072672426107857,
+          "z": -0.02876035645389654
+        },
+        "submergedPoints": 8
+      }
+    },
+    "episode_frame": {
+      "E_ref": 1.4568078218668974,
+      "N_ref": 24.081244237312283,
+      "H_ref": 0.002732098823446956,
+      "episode_start_sim_time": 19.19999999999968
+    }
+  },
+  "task": {
+    "mission_goal_world_s": 75,
+    "prediction_lookahead_m": 75,
+    "terminal_policy": "CRUISE_CONTINUATION_V1",
+    "collision_representation": "RULE_SELECTED_CONVEX_ST_CHANNEL",
+    "prediction_intervals": 120,
+    "fixed_lookahead": true,
+    "reference_end_world_s": null
+  },
+  "formal_label": "P8F_AR10_OPENWATER_DYNAMIC_CROSSING",
+  "maximum_formal_episodes": 1,
+  "planning_start": "actual request simulation_time",
+  "task_contract_frozen_before_formal_H2": true,
+  "protocol_lifecycle_version": "GENERATION_INVALIDATE_BEFORE_NEW_COMMAND_V1",
+  "protocol_fix_only": true
+}
