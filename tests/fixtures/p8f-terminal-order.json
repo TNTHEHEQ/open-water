@@ -1,0 +1,63 @@
+{
+  "source_run": "run_20261007T153308Z_h2",
+  "previous": {
+    "wall_sec": 40.649508436999994,
+    "receipt_sim_time": 56.80000000000328,
+    "phase": "ACTIVE",
+    "held": false,
+    "sender_sim_time": 56.80000000000328,
+    "simulation_age_sec": 0,
+    "accepted": true,
+    "target": {
+      "Tc": 129.2967277252374,
+      "delta": -0.14016181242227632
+    },
+    "reference_command": {
+      "Tc": 129.2967277252374,
+      "delta": -0.14016181242227632
+    },
+    "episode_id": 1,
+    "generation": 1,
+    "propulsion_command": 0.012313974069070227,
+    "protocol_version": 1,
+    "sequence": 1889,
+    "steering_angle_rad": -0.14016181242227632,
+    "timestamp": 56.80000000000328,
+    "type": "control_command"
+  },
+  "neutral": {
+    "wall_sec": 40.670506385,
+    "receipt_sim_time": 56.82000000000328,
+    "phase": "ACTIVE",
+    "held": false,
+    "sender_sim_time": 56.82000000000328,
+    "simulation_age_sec": 0,
+    "accepted": false,
+    "reason": "EPISODE_GENERATION_MISMATCH",
+    "reference_command": {
+      "Tc": 0,
+      "delta": 0
+    },
+    "episode_id": 1,
+    "generation": 2,
+    "propulsion_command": 0,
+    "protocol_version": 1,
+    "sequence": 1890,
+    "steering_angle_rad": 0,
+    "timestamp": 56.82000000000328,
+    "type": "control_command"
+  },
+  "invalidate": {
+    "episode_id": 1,
+    "event": "INVALIDATE",
+    "generation": 2,
+    "protocol_version": 1,
+    "reason": "TASK_COMPLETE",
+    "simulation_time": 56.82000000000328,
+    "solve_in_flight": true,
+    "type": "async_event",
+    "wall_elapsed_sec": 40.649040415,
+    "receipt_wall_sec": 40.69032533,
+    "receipt_sim_time": 56.840000000003286
+  }
+}
