@@ -1,0 +1,54 @@
+{
+  "last_active_command_receipt_wall": 42.254684412,
+  "last_active_command_age_at_invalidate": 0.019470683000001543,
+  "old_generation": 1,
+  "new_generation": 2,
+  "receiptWallSec_before": 42.254684412,
+  "receiptWallSec_after_identity": 42.254684412,
+  "freshness_preserved": true,
+  "first_tick_after_invalidate_wall": 42.292656459999996,
+  "age_at_first_tick": 0.03797204799999321,
+  "fresh_at_first_tick": true,
+  "first_tick_precedes_neutral": true,
+  "neutral_receipt_wall": 42.293452841,
+  "invalidate_to_neutral_gap": 0.019280318999996382,
+  "neutral_accepted": true,
+  "receiptWallSec_after_neutral": 42.293452841,
+  "original_timeout_deadline": 42.754684412,
+  "effective_timeout_deadline_before_neutral": 42.754684412,
+  "timeout_deadline_unchanged": true,
+  "pre_neutral_tick_count": 1,
+  "pre_neutral_tick_observations": [
+    {
+      "wall_sec": 42.062688429000005,
+      "wall_time_sec": 42.292656459999996,
+      "simulation_time": 57.46000000000338,
+      "last_rx_index": 3888,
+      "claimed": true,
+      "phase": "ACTIVE",
+      "generation": 2,
+      "receiptWallSec": 42.254684412,
+      "age": 0.03797204799999321,
+      "fresh": true,
+      "pending": {
+        "reason": "TASK_COMPLETE",
+        "episode": 1,
+        "generation": 2,
+        "rx_index": 3888,
+        "startWallSec": 42.274356198,
+        "manualWallSec": null,
+        "neutralAccepted": false
+      },
+      "action": "EXTERNAL"
+    }
+  ],
+  "note": "No tick is forced into the observed network gap; absent first/pre-neutral tick is reported null/zero. Deterministic tests cover the exact historical gap.",
+  "checks": {
+    "timestamp_preserved": true,
+    "deadline_not_extended": true,
+    "all_other_limiter_state_preserved": true,
+    "real_neutral_receipt": true,
+    "pre_neutral_ticks_original_deadline": true
+  },
+  "passed": true
+}

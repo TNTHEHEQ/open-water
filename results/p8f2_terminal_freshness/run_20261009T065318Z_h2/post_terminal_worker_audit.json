@@ -1,0 +1,23 @@
+{
+  "native_discard_events": [
+    {
+      "episode_id": 1,
+      "event": "SOLVE_DISCARDED",
+      "generation": 2,
+      "protocol_version": 1,
+      "reason": "GENERATION_EPISODE_OR_TERMINAL_PHASE",
+      "simulation_time": 57.480000000003386,
+      "solve_in_flight": false,
+      "type": "async_event",
+      "wall_elapsed_sec": 60.413557173
+    }
+  ],
+  "receiver_discard_event_count": 0,
+  "classification": "POST_TERMINAL_WORKER_DISCARD",
+  "generation_after_completion": 2,
+  "not_activated": true,
+  "no_physics_after_final_physical_sample": true,
+  "no_extra_generation": true,
+  "active_solver_failure_count": 0,
+  "capture_boundary": "Native log contains the discard. Receiver log ends after SOLVE_RETURNED; the separately queued discard frame was not captured before close. No received-discard claim is made."
+}

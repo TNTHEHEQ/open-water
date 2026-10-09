@@ -1,0 +1,36 @@
+{
+  "P8F": {
+    "classification": "P8F_TASK_COMPLETE_WITH_RUNTIME_DEGRADATION",
+    "ordering": "neutral before INVALIDATE",
+    "neutral_accepted": false,
+    "generation_mismatch": 1
+  },
+  "P8F1": {
+    "classification": "P8F1_TERMINATION_H1_CONTROL_FAIL",
+    "ordering_fixed": true,
+    "neutral_accepted": true,
+    "generation_mismatch": 0,
+    "false_freshness_timeout": true,
+    "rejected_targets": 1,
+    "generation_rollovers": 2
+  },
+  "P8F2": {
+    "classification": "P8F2_AR10_OPENWATER_DYNAMIC_PASS",
+    "run_mode": "H2",
+    "ordering_fixed": true,
+    "neutral_accepted": true,
+    "generation_mismatch": 0,
+    "rejected_targets": 0,
+    "generation_rollovers": 1,
+    "freshness_deadline_preserved": true,
+    "clean_termination": true
+  },
+  "controller_equal": true,
+  "physics_equal": true,
+  "target_equal": true,
+  "buffer_equal": true,
+  "solver_equal": true,
+  "task_equal": true,
+  "mesh_equal": true,
+  "limits_equal": true
+}
