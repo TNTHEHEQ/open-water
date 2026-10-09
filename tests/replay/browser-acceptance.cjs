@@ -109,6 +109,7 @@ const crypto=require('node:crypto');
    const downloadPromise=page.waitForEvent('download');
    await page.getByRole('button',{name:'Save PNG',exact:true}).click();const download=await downloadPromise;
    const file=name.replaceAll(' ','_')+'.png';await download.saveAs(path.join(shots,file));
+   await fs.unlink(path.join(shots,file)+':Zone.Identifier').catch(()=>{});
    const bytes=await fs.readFile(path.join(shots,file));assert.equal(bytes.subarray(1,4).toString(),'PNG');
    checks.png.push({preset:name,time,file,width:bytes.readUInt32BE(16),height:bytes.readUInt32BE(20),sha256:crypto.createHash('sha256').update(bytes).digest('hex')});
  }

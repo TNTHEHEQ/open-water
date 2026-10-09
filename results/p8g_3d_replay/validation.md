@@ -46,6 +46,6 @@ Windows Chrome: http://localhost:8089/replay.html 。当前旧页面 Ctrl+F5 获
 
 ## 提交
 
-A: f8f1086126e640f605b0ed0c1c472b93ddb3cafc，B: e6b886b54eae3b3664ba9077bd163f5fa409efde，均已推送并核验 origin/test。本报告随 C 提交推送；两个 main 保持原 SHA。
+A: f8f1086126e640f605b0ed0c1c472b93ddb3cafc，B: e6b886b54eae3b3664ba9077bd163f5fa409efde，均已推送并核验 origin/test。C: 080c938c048a6288226fe139786818b113175f9f；交付哈希与下载元数据清理另随收尾提交推送；两个 main 保持原 SHA。
 
 P8G 完成后停止继续扩展可视化功能；后续阶段为 PAPER_FREEZE 与论文写作，不在本次启动。
