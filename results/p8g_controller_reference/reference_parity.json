@@ -1,0 +1,127 @@
+{
+  "status": "NUMERICAL_PARITY_PASS",
+  "source": "all-in-planner/research/lifted_stp/results/p8f2_terminal_freshness/run_20261009T065318Z_h2/execution.jsonl",
+  "execution_sha256": "6a2ca27b9b0dedd199154408bd66d53b377d5d5092c1b45b0946e6fcb79ca9d1",
+  "baseline_openwater": "b0935286c029ddf8bb64db0a89c0aa4da35ed95b",
+  "planner_head": "696e1cf18c4b2e59dc37f4d6dd1e980215a9b52b",
+  "records": 1919,
+  "duplicate_timestamps": 6,
+  "reference_coverage": [
+    19.19999999999968,
+    57.44000000000338
+  ],
+  "physical_telemetry_coverage": [
+    19.19999999999968,
+    57.480000000003386
+  ],
+  "reference_semantics": "Original simulation_time, no offset or interpolation; last recorded point within covered 0.02 s interval only. Last source-order record at duplicate timestamp.",
+  "segments": [
+    {
+      "plan_id": "execution-1",
+      "start": 0,
+      "end": 136
+    },
+    {
+      "plan_id": "execution-2",
+      "start": 136,
+      "end": 320
+    },
+    {
+      "plan_id": "execution-3",
+      "start": 320,
+      "end": 492
+    },
+    {
+      "plan_id": "execution-4",
+      "start": 492,
+      "end": 656
+    },
+    {
+      "plan_id": "execution-5",
+      "start": 656,
+      "end": 815
+    },
+    {
+      "plan_id": "execution-6",
+      "start": 815,
+      "end": 992
+    },
+    {
+      "plan_id": "execution-7",
+      "start": 992,
+      "end": 1919
+    }
+  ],
+  "jumps": [
+    {
+      "from_index": 135,
+      "to_index": 136,
+      "time": 21.91999999999962,
+      "distance": 0.05954634766186551
+    },
+    {
+      "from_index": 319,
+      "to_index": 320,
+      "time": 25.579999999999544,
+      "distance": 2.2091573463668963
+    },
+    {
+      "from_index": 491,
+      "to_index": 492,
+      "time": 28.99999999999947,
+      "distance": 3.2554226656107033
+    },
+    {
+      "from_index": 655,
+      "to_index": 656,
+      "time": 32.259999999999444,
+      "distance": 2.5593757305004408
+    },
+    {
+      "from_index": 814,
+      "to_index": 815,
+      "time": 35.41999999999994,
+      "distance": 2.65494022966179
+    },
+    {
+      "from_index": 991,
+      "to_index": 992,
+      "time": 38.94000000000049,
+      "distance": 2.6250212390655103
+    }
+  ],
+  "only_used_plans": [
+    "execution-1",
+    "execution-2",
+    "execution-3",
+    "execution-4",
+    "execution-5",
+    "execution-6",
+    "execution-7"
+  ],
+  "p8f2_files_unchanged": 307,
+  "prior_historical_files_unchanged": 8240,
+  "bank_display_s_range": [
+    -5,
+    115
+  ],
+  "bank_contract_l": [
+    -10,
+    10
+  ],
+  "buffer_m": 0.5,
+  "official_dynamic_clearance": 5.1134505020859,
+  "official_bank_margin": 1.443611819878718,
+  "official_result": "P8F2_AR10_OPENWATER_DYNAMIC_PASS",
+  "physics_runs": 0,
+  "nlp_solves": 0,
+  "production_planner_controller_edits": 0,
+  "node_tests": {
+    "passed": 17,
+    "failed": 0,
+    "skipped": 0
+  },
+  "eslint": "PASS",
+  "html_validate": "PASS",
+  "git_diff_check": "PASS"
+}

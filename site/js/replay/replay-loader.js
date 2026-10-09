@@ -1,3 +1,4 @@
+import { buildReferences } from './replay-reference-history.js';
 import { MANIFEST_SHA256 } from './replay-identity.js';
 export function validateDataset(d) {
   const fail=message=>{throw Error('REPLAY_DATA_VALIDATION_FAILED: '+message);};
@@ -14,6 +15,15 @@ export function validateDataset(d) {
     k.cpa.buffered_clearance!==m.official_dynamic_clearance||k.bank.bank_buffered!==m.official_bank_margin||
     k.rule15.selected_branch!=='STARBOARD_ASTERN'||k.rule15.passed!==true)fail('official audits');
   const ids=new Set(p.map(x=>x.plan_id));
+  const refs=d.references;
+  if(!refs||refs.records.length!==m.reference_count||m.reference_count!==1919)fail('reference count');
+  refs.records.forEach((r,i)=>{
+    if(r.source_index!==i||!ids.has(r.plan_id)||!Number.isFinite(r.simulation_time)||
+      (i&&r.simulation_time<refs.records[i-1].simulation_time)||
+      ![r.desired,r.actual].every(v=>Array.isArray(v)&&v.length===6&&v.every(Number.isFinite)))fail('reference record');
+  });
+  if(JSON.stringify(buildReferences(refs.records,m.episode_frame))!==JSON.stringify(refs))fail('reference coordinates/segments');
+  if(refs.segments.length!==7||refs.jumps.length!==6)fail('reference lifecycle');
   f.forEach((x,i)=>{
     if(!Number.isFinite(x.time)||(i&&x.time<=f[i-1].time)||x.episode_time!==x.time-m.episode_start_time)fail('clock');
     if(![...Object.values(x.pose.position),...Object.values(x.pose.orientation),x.pose.headingRad,x.dynamic_clearance,x.bank_margin].every(Number.isFinite))fail('nonfinite pose/metric');

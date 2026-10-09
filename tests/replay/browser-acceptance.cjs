@@ -74,8 +74,58 @@ const crypto=require('node:crypto');
    }return out;
  });
  assert.equal(checks.activations.length,7);
+
+ checks.reference_history=await page.evaluate(()=>{
+   const r=window.p8gReplay,refs=r.data.references;
+   const cases=[];
+   for(const jump of refs.jumps){
+     for(const time of [jump.time-1e-6,jump.time,jump.time+.01]){
+       r.seek(time);const s=r.snapshot(),used=refs.records.filter(x=>x.simulation_time<=time);
+       if(s.referenceCount!==used.length)throw Error('Future reference leak');
+       const last=used.at(-1);
+       if(s.referencePlan!==last.plan_id||s.referenceTime!==last.simulation_time)throw Error('Clock/plan mismatch');
+       const expected=[last.desired_enu.x,.35,last.desired_enu.y];
+       if(JSON.stringify(s.referencePosition)!==JSON.stringify(expected))throw Error('Reference marker interpolated');
+       if(r.view.referenceLines.some((line,i)=>line.geometry.drawRange.count!==s.referenceSegmentCounts[i]))throw Error('Segment draw range');
+       if(r.view.layers.referenceSwitches.children.filter(o=>o.visible).length!==s.referenceSwitchCount)throw Error('Future switch leak');
+       cases.push({time,count:s.referenceCount,plan:s.referencePlan,switches:s.referenceSwitchCount});
+     }
+   }
+   r.seek(r.data.manifest.end_time);
+   if(r.snapshot().referenceMarkerVisible||r.snapshot().referenceCovered)throw Error('Unrecorded terminal reference displayed');
+   r.seek(refs.jumps[4].time);const a=r.snapshot();r.seek(r.data.manifest.start_time);const start=r.snapshot();
+   if(start.referenceCount!==1||start.referenceSwitchCount!==0||start.trailCount!==1)throw Error('Reverse seek leak');
+   r.seek(refs.jumps[4].time);if(JSON.stringify(r.snapshot())!==JSON.stringify(a))throw Error('Nonrepeatable reference seek');
+   const range=r.view.bankRange;if(range.max<=100)throw Error('Truncated banks');
+   return {rows:refs.records.length,segments:refs.segments.length,jumps:refs.jumps.length,cases,terminal_marker_hidden:true,reverse_seek:true,bank_range:range};
+ });
  // Warm up optional layers before checking stable GPU allocations over 400 seeks.
  await page.getByText('Layers & diagnostics',{exact:true}).click();
+
+ const referenceLayerNames={'executed':'Actual telemetry history','referenceHistory':'Controller reference history','referencePoint':'Current tracking reference point','planned':'Future planned suffix (75 m, dashed)'};
+ checks.independent_reference_layers=[];
+ for(const [id,label] of Object.entries(referenceLayerNames)){
+   const before=await page.evaluate(()=>Object.fromEntries(Object.entries(window.p8gReplay.view.layers).map(([k,v])=>[k,v.visible])));
+   const control=page.getByLabel(label,{exact:true});
+   await control.setChecked(!before[id]);
+   const after=await page.evaluate(()=>Object.fromEntries(Object.entries(window.p8gReplay.view.layers).map(([k,v])=>[k,v.visible])));
+   for(const key of Object.keys(before))assert.equal(after[key],key===id?!before[key]:before[key]);
+   await control.setChecked(before[id]);checks.independent_reference_layers.push(label);
+ }
+ // Render screenshots showing each requested layer independently, and then all four.
+ await page.getByLabel('Controller reference switches',{exact:true}).uncheck();
+ await page.getByLabel('Future planned suffix (75 m, dashed)',{exact:true}).check();
+ await page.getByRole('button',{name:'Closest approach',exact:true}).click();
+ for(const [id,label] of Object.entries(referenceLayerNames)){
+   for(const [other,name] of Object.entries(referenceLayerNames))await page.getByLabel(name,{exact:true}).setChecked(id===other);
+   await page.screenshot({path:path.join(shots,'layer_'+id+'.png')});
+ }
+ for(const name of Object.values(referenceLayerNames))await page.getByLabel(name,{exact:true}).check();
+ await page.getByLabel('Controller reference switches',{exact:true}).check();
+ await page.getByLabel('Reference jumps (dashed)',{exact:true}).check();
+ await page.evaluate(()=>{const r=window.p8gReplay;r.seek(r.data.references.jumps[4].time);r.view.setCamera(1);document.querySelector('#camera').textContent='Top';r.view.render();});
+ await page.screenshot({path:path.join(shots,'reference_switch_all_layers.png')});
+ await page.getByLabel('Reference jumps (dashed)',{exact:true}).uncheck();
  for(const name of ['Audited three-circle footprint','Recorded activation positions','Old plans ghost (not actual execution)'])await page.getByLabel(name,{exact:true}).check();
  await page.getByRole('button',{name:'TASK_COMPLETE',exact:true}).click();
  const terminalShot=await snap();assert.equal(terminalShot.index,1914);assert.match(await page.locator('#state').innerText(),/TASK_COMPLETE/);
@@ -98,9 +148,10 @@ const crypto=require('node:crypto');
  assert.ok(requests.every(u=>u.startsWith('http://localhost:8089/')||u.startsWith('blob:http://localhost:8089/')));
  checks.no_live_network=true;
  const datasets=requests.filter(u=>u.includes('/replay-data/'));
- assert.equal(datasets.length,6);assert.equal(new Set(datasets).size,6);checks.dataset_loaded_once=true;
+ assert.equal(datasets.length,7);assert.equal(new Set(datasets).size,7);checks.dataset_loaded_once=true;
  for(const name of ['Audited three-circle footprint','Recorded activation positions','Old plans ghost (not actual execution)'])await page.getByLabel(name,{exact:true}).uncheck();
  await page.getByText('Layers & diagnostics',{exact:true}).click();
+ await page.evaluate(()=>{window.p8gReplay.view.setCamera(3);document.querySelector('#camera').textContent='Encounter Overview';});
  await page.getByRole('button',{name:'Paper Mode',exact:true}).click();
  checks.png=[];
  for(const name of ['Initial','Avoidance initiation','Before conflict','Closest approach','Conflict passed','TASK_COMPLETE']){
@@ -125,7 +176,7 @@ const crypto=require('node:crypto');
  await bad.waitForFunction(()=>document.querySelector('#loading')?.textContent.includes('REPLAY_DATA_VALIDATION_FAILED'));
  assert.equal(await bad.evaluate(()=>!!window.p8gReplay),false);
  checks.tampered_data_browser_rejected=true;
- const report={status:'AUTOMATED_BROWSER_CHECKS_PASS_PENDING_IMAGE_REVIEW',browser:await browser.version(),channel:'installed Windows Google Chrome',headless:true,url:'http://localhost:8089/replay.html',windows_localhost_http_status:200,chrome_extension:'unavailable: nodeRepl.fetch request failed; user-authorized Playwright fallback',checks};
+ const report={status:'AUTOMATED_BROWSER_CHECKS_PASS_PENDING_IMAGE_REVIEW',browser:await browser.version(),channel:'installed Windows Google Chrome',headless:true,url:'http://localhost:8089/replay.html',windows_localhost_http_status:200,automation:'Playwright driving installed Windows Chrome; no in-app browser',checks};
  await fs.writeFile(path.join(output,'browser_acceptance.json'),JSON.stringify(report,null,2)+'\n');
  console.log(JSON.stringify(report,null,2));await browser.close();
 })().catch(e=>{console.error(e);process.exitCode=1;process.exit(1);});

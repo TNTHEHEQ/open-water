@@ -1,0 +1,25 @@
+✔ A B F G H I K L M N O P Q: dataset contract and original identities (36.688675ms)
+✔ C D E: every actual pose and basis, heading, bow, roll/pitch directions (19.290538ms)
+✔ J: all CV truth snapshots exactly preserved (8.65697ms)
+✔ deterministic double export; source bytes unchanged (511.472818ms)
+✔ loader validates pinned manifest, every dataset file and original GLB (65.626458ms)
+✔ missing/tampered manifest, frame data, asset and invalid contracts fail closed (486.719564ms)
+✔ all 1919 reference points preserve execution rows, duplicates, coordinates and used plan identities (45.039974ms)
+✔ seven disjoint segments preserve six raw jumps without any inserted/smoothed point (0.396574ms)
+✔ all sample boundaries and reverse/random seeks repeat exactly; no future references or switches (81.920955ms)
+✔ current point never interpolates across a switch, across an unrecorded gap or past log end (0.319734ms)
+✔ background covers complete loaded plans and actual history without altering bank contract (1.133241ms)
+✔ all 307 P8F2 historical files retain pre-edit SHA256 (274.33566ms)
+✔ R: repeated reverse/random seek preserves source and identical transforms (94.316572ms)
+✔ every exact physical time returns its pose/plan; interpolated safety stays sampled (22.286666ms)
+✔ suffix uses unchanged request time; no past point in active range (3.555755ms)
+✔ clock anchored to wall time, pause and rates cannot integrate pose or drift (0.378924ms)
+✔ S T: display pose calls only update(0), and replay entry has no live control imports (29.843105ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1364.996124

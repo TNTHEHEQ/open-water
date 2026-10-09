@@ -1,12 +1,12 @@
 # P8G — frozen historical replay
 PAPER_VISUALIZATION only. Source: P8F2 H2 run_20261009T065318Z_h2.
 The source retains P8F2_AR10_OPENWATER_DYNAMIC_PASS. No solver or physical simulation is run.
-Dataset: 1914 physical ticks plus one separately identified initial snapshot, 7 activated plans, 6 switches.
+Dataset: 1914 physical ticks plus one separately identified initial snapshot, 1919 raw controller reference records, 7 activated plans, 6 switches.
 Run the exporter with Node: tools/build-p8g-replay-dataset.mjs. Optional positional arguments are source directory and output directory.
 The manifest pins original file hashes, derived file hashes, original source commits, and the unmodified Zodiac GLB.
 The checked-in replay-identity.js pins the manifest itself. Missing or tampered data fail closed.
 Independent safety values come from the original CSV audit and summary; Rule15 comes from rule15_actual_audit.json.
-Native SWITCH time and first observed telemetry activation are kept separately. The display uses telemetry identity.
+Native SWITCH time and first observed telemetry activation are kept separately. The future planned suffix uses telemetry identity; reference history uses the execution log's own plan identity.
 The initial snapshot uses native STARTUP_ACTIVE identity. Missing initial tracking/physical-command data are NOT_RECORDED.
 
 ## Run in Windows Chrome
@@ -21,9 +21,13 @@ The ordinary index.html and all existing simulation/physics/control files are un
 The default Chase view shows the original Zodiac close up. Press C or the camera button to cycle Chase, Top, Free Orbit and Encounter Overview.
 Free Orbit: left-drag rotates, wheel zooms, Shift-drag or right-drag pans. Reset View resets only the camera. Top uses the existing OpenWater screen-up convention (-Z).
 Playback supports 0.25, 0.5, 1, 2 and 4 times speed, pause, a time scrubber, exact previous/next physical sample and encounter/event jumps.
-The default trail contains only samples at or before the playhead. Entire historical path explicitly reveals future recorded history and is labeled accordingly.
-Gray old plans are optional context, never an executed trajectory. The cyan line contains only the active plan's current-time suffix; no prefix is retimed or stitched to the boat.
-A visible gap between the boat and cyan suffix is the recorded tracking difference, not a rendering error.
+Yellow actual telemetry history and cyan Controller reference history contain only records at or before the playhead. Reverse seek retracts both histories and their switch markers. The former entire-future-actual-history option has been removed.
+The current tracking reference point is a cyan sphere with a white outline. Actual history, reference history, current reference point and the pale cyan dashed future suffix have independent checkboxes. The future suffix is off by default and retains the original 75 m plan points/epochs. Gray old plans remain optional context.
+References come exclusively from the frozen H2 execution.jsonl, including all six duplicate timestamps (source row order is preserved). Each record retains simulation_time, plan_id, desired and actual, plus ENU projections using the original episode frame. The reference polyline uses only desired[0:2]; it is never drawn to the physical boat position.
+Seven separate geometries preserve all six plan-switch breaks. Incoming switch rings are visible only after the corresponding raw record; optional dashed reference-jump segments show the exact two adjacent endpoints. There is no smoothing or spline.
+For a playhead between recorded samples the marker shows the last recorded point, without interpolation, only inside one 0.02 s sampling interval and covered log range. Unrecorded gaps and times after the last row show NOT_RECORDED and hide the marker. At duplicate timestamps the marker uses the last row in source order; the history retains every row.
+The HUD separately identifies controller reference time/plan and physical telemetry time/plan. Neither clock is shifted: reference coverage ends at 57.44000000000338 s, physical telemetry ends at 57.480000000003386 s. During native switches the reference identity can precede telemetry identity by 0.04 s.
+Banks use the longitudinal extent of all loaded historical plans and actual samples, rounded outward to 5 m plus 5 m padding: currently s=-5..115 m. Top view fits this display extent. The l=-10/+10 m boundaries, 0.5 m buffer and all planning contracts remain unchanged.
 
 ## Numerical and time semantics
 - 1915 snapshots = one initial state + 1914 physical ticks. No authoritative downsampling.
@@ -56,7 +60,7 @@ node --test --import ./tests/register-three.mjs tests/replay/*.test.mjs
 npx eslint site/js/replay tests/replay/*.mjs
 npx html-validate site/replay.html
 ```
-The full raw parity/export tests require the frozen sibling Planner checkout. They explicitly skip when that checkout is absent (e.g. a standalone OpenWater CI checkout); the bundled dataset integrity and sampler tests still run. The final local acceptance ran all 11 tests with zero skips.
+The full raw parity/export tests require the frozen sibling Planner checkout. They explicitly skip when that checkout is absent (e.g. a standalone OpenWater CI checkout); the bundled dataset integrity and sampler tests still run. The controller-reference supplement ran all 17 tests with zero skips, including raw execution row parity, preserved jumps, repeatable reverse seeks, and SHA256 parity of all 307 P8F2 historical files across both repositories.
 Only replay tests were run: the legacy physical simulation suite is outside P8G's permitted scope.
 Browser regression is tests/replay/browser-acceptance.cjs. It uses installed Windows Chrome through Playwright, with PLAYWRIGHT_MODULE optionally identifying the existing bundled module and P8G_OUTPUT setting the report destination.
 Browser checks cover rendering, all controls/cameras, plan activation identity, request epochs, no future executed trail, deterministic seek, 400-seek stable GPU resources, no live sockets, single dataset load, original glTF identity, terminal state, genuine PNG downloads and rejection of corrupted data.
@@ -65,9 +69,12 @@ Chrome extension connection was unavailable; the task explicitly authorized Play
 ## Windows manual acceptance checklist
 1. Open localhost:8089/replay.html and confirm both read-only/source labels.
 2. Observe the red Zodiac's pointed bow facing its recorded heading in Chase; red target is a circular kinematic disc.
-3. Play, pause, change speed and scrub backward. Yellow trail must retract.
-4. Jump to Encounter; inspect the independent Rule15 figures and the cyan active suffix.
+3. Play, pause, change speed and scrub backward. Yellow and cyan histories plus reference switch markers must retract.
+4. Jump to Encounter; toggle yellow actual, cyan reference, current reference point and pale cyan dashed future suffix independently.
 5. Cycle all cameras; orbit/zoom/pan in Free Orbit; Reset View must keep the playhead.
 6. Inspect the 6 SWITCH markers and 7 historical plan IDs.
 7. Jump to TASK_COMPLETE, then save a PNG in Paper Mode; source/water labels must be included.
 8. After code updates, Ctrl+F5 reloads the viewer. A missing or altered replay file must produce REPLAY_DATA_VALIDATION_FAILED.
+
+## Controller-reference supplement evidence
+Current evidence and updated screenshots: results/p8g_controller_reference/. Original results/p8g_3d_replay/ reports remain snapshots of the prior P8G delivery; their hashes describe that earlier commit. No P8F2 source, planner, controller, N120, 75 m lookahead, or official PASS metric changed.

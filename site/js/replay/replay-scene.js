@@ -1,3 +1,4 @@
+import { sampleReferences,backgroundRange } from './replay-reference-history.js';
 import * as THREE from 'three';
 import { createReplayVessel,applyRecordedPose } from './replay-vessel.js';
 import { enuPositionToOpenWater } from '../twin/coordinate-adapter.js';
@@ -15,20 +16,21 @@ export async function createReplayScene(data,container){
   const sun=new THREE.DirectionalLight(0xffefd9,3);sun.position.set(-30,60,15);scene.add(sun);
   const camera=new THREE.PerspectiveCamera(52,1,.1,1000);
   const boat=await createReplayVessel(scene,data.asset);
-  const layers={};for(const name of ['planned','executed','targetPath','banks','footprint','buffer','switches','ghosts']){layers[name]=new THREE.Group();scene.add(layers[name]);}
-  layers.ghosts.visible=false;layers.footprint.visible=false;layers.switches.visible=false;
+  const layers={};for(const name of ['referenceHistory','referencePoint','referenceSwitches','referenceJumps','planned','executed','targetPath','banks','footprint','buffer','switches','ghosts']){layers[name]=new THREE.Group();scene.add(layers[name]);}
+  layers.planned.visible=false;layers.referenceJumps.visible=false;layers.ghosts.visible=false;layers.footprint.visible=false;layers.switches.visible=false;
   const lineSync=[];
   const line=(points,color,group,dashed=false)=>{
     const geometry=new THREE.BufferGeometry().setFromPoints(points);
-    const material=dashed?new THREE.LineDashedMaterial({color,dashSize:1,gapSize:.8,depthTest:false,transparent:true,opacity:.35}):new THREE.LineBasicMaterial({color,depthTest:false,depthWrite:false,transparent:true});
+    const material=dashed?new THREE.LineDashedMaterial({color,dashSize:1,gapSize:.8,depthTest:false,transparent:true,opacity:.65}):new THREE.LineBasicMaterial({color,depthTest:false,depthWrite:false,transparent:true});
     const o=new THREE.Line(geometry,material);o.frustumCulled=false;o.renderOrder=4;if(dashed)o.computeLineDistances();group.add(o);
     if(!dashed)lineSync.push(readableLine(o,renderer,group===layers.banks?1.5:3));
     return o;
   };
   const sl=(s,l,height=.1)=>{const p=plannerToEnu(data.manifest.episode_frame,s,l);return new THREE.Vector3(p.x,height,p.y);};
-  for(const l of [-10,10])line([sl(-10,l),sl(100,l)],0xd4e1e7,layers.banks);
-  for(const l of [-9.5,9.5])line([sl(-10,l),sl(100,l)],0x879da7,layers.buffer,true);
-  line([sl(-10,0),sl(100,0)],0x9cb3bf,layers.banks,true);
+  const bankRange=backgroundRange(data);
+  for(const l of [-10,10])line([sl(bankRange.min,l),sl(bankRange.max,l)],0xd4e1e7,layers.banks);
+  for(const l of [-9.5,9.5])line([sl(bankRange.min,l),sl(bankRange.max,l)],0x879da7,layers.buffer,true);
+  line([sl(bankRange.min,0),sl(bankRange.max,0)],0x9cb3bf,layers.banks,true);
   const labels=[];
   function label(text,position){
     const canvas=document.createElement('canvas');canvas.width=512;canvas.height=64;const ctx=canvas.getContext('2d');
@@ -54,13 +56,27 @@ export async function createReplayScene(data,container){
     const circle=new THREE.Mesh(new THREE.RingGeometry(Math.hypot(3.2/3,1)-.025,Math.hypot(3.2/3,1)+.025,48),new THREE.MeshBasicMaterial({color:0xffde45,side:THREE.DoubleSide,depthTest:false}));
     circle.rotation.x=-Math.PI/2;circle.position.set(0,.3,off);hull.add(circle);
   }
-  const active=line(Array.from({length:256},()=>new THREE.Vector3()),0x29e5ee,layers.planned);
+  const active=line(Array.from({length:256},()=>new THREE.Vector3()),0xb9f3f5,layers.planned,true);
   const ghostPlans=new Map(data.plans.map(p=>[p.plan_id,line(p.points.map(v=>vec(v)),0xa5b0b8,layers.ghosts,true)]));
   for(const a of data.metrics.activations.slice(1)){
     const f=data.frames.find(x=>x.time===a.first_sample_time),o=new THREE.Mesh(new THREE.SphereGeometry(.35,12,8),new THREE.MeshBasicMaterial({color:0xcff9fc}));o.position.copy(vec(f.pose.position)).y=.3;o.userData.time=f.time;layers.switches.add(o);
   }
+  const referenceLines=data.references.segments.map(seg=>line(
+    data.references.records.slice(seg.start,seg.end).map(r=>vec(r.desired_enu).setY(.25)),0x00edf5,layers.referenceHistory));
+  const referencePoint=new THREE.Mesh(new THREE.SphereGeometry(.45,20,12),new THREE.MeshBasicMaterial({color:0x00edf5,depthTest:false}));
+  referencePoint.renderOrder=7;layers.referencePoint.add(referencePoint);
+  const outline=new THREE.Mesh(new THREE.SphereGeometry(.57,16,10),new THREE.MeshBasicMaterial({color:0xffffff,wireframe:true,depthTest:false}));
+  referencePoint.add(outline);
+  for(const jump of data.references.jumps){
+    const a=vec(data.references.records[jump.from_index].desired_enu).setY(.25);
+    const b=vec(data.references.records[jump.to_index].desired_enu).setY(.25);
+    const mark=new THREE.Mesh(new THREE.RingGeometry(.4,.55,24),new THREE.MeshBasicMaterial({color:0x00edf5,side:THREE.DoubleSide,depthTest:false}));
+    mark.rotation.x=-Math.PI/2;mark.position.copy(b);mark.userData.time=jump.time;layers.referenceSwitches.add(mark);
+    const dashed=line([a,b],0x00edf5,layers.referenceJumps,true);dashed.userData.time=jump.time;
+  }
+  let referenceSample=null;
   const plans=new Map(data.plans.map(p=>[p.plan_id,p]));
-  let mode=0,entire=false,last=null,orbit={yaw:-.65,pitch:.8,distance:60,target:sl(45,0,0)};
+  let mode=0,last=null,orbit={yaw:-.65,pitch:.8,distance:60,target:sl(45,0,0)};
   const forward=new THREE.Vector3(),look=new THREE.Vector3();
   const reset=()=>{orbit={yaw:-.65,pitch:.8,distance:60,target:sl(45,0,0)};};
   const canvas=renderer.domElement;let drag=null;
@@ -75,13 +91,25 @@ export async function createReplayScene(data,container){
     target.position.copy(vec(sample.target.position)).y=.35;ring.position.copy(target.position).y=.12;
     arrow.position.copy(target.position).y=1;
     hull.position.copy(boat.pos);hull.rotation.y=sample.record.pose.headingRad;
-    actual.geometry.setDrawRange(0,entire?data.frames.length:sample.index+1);
-    targetTrail.geometry.setDrawRange(0,entire?data.targets.length:sample.index+1);
+    actual.geometry.setDrawRange(0,sample.index+1);
+    targetTrail.geometry.setDrawRange(0,sample.index+1);
     const plan=plans.get(sample.active_plan_id),suffix=suffixStart(plan,sample.time),attr=active.geometry.attributes.position;
     let count=0;
     if(suffix.point){attr.setXYZ(count++,suffix.point.x,.24,suffix.point.y);
       for(let i=suffix.index+1;i<plan.points.length;i++)attr.setXYZ(count++,plan.points[i].x,.24,plan.points[i].y);}
     attr.needsUpdate=true;active.geometry.setDrawRange(0,count);
+    const distances=active.geometry.attributes.lineDistance;let distance=0;
+    for(let i=0;i<count;i++){
+      if(i)distance+=Math.hypot(attr.getX(i)-attr.getX(i-1),attr.getZ(i)-attr.getZ(i-1));
+      distances.setX(i,distance);
+    }
+    distances.needsUpdate=true;
+    referenceSample=sampleReferences(data.references,sample.time);
+    referenceLines.forEach((o,i)=>o.geometry.setDrawRange(0,referenceSample.segmentCounts[i]));
+    referencePoint.visible=referenceSample.covered;
+    if(referenceSample.record)referencePoint.position.copy(vec(referenceSample.record.desired_enu)).y=.35;
+    for(const group of [layers.referenceSwitches,layers.referenceJumps])
+      for(const o of group.children)o.visible=o.userData.time<=sample.time;
     for(const [id,o] of ghostPlans)o.visible=id!==sample.active_plan_id&&data.metrics.activations.find(a=>a.plan_id===id).first_sample_time<=sample.time;
     for(const o of layers.switches.children)o.visible=o.userData.time<=sample.time;
     render();
@@ -92,7 +120,7 @@ export async function createReplayScene(data,container){
     if(mode===0){
       forward.set(0,0,1).applyQuaternion(boat.quat);forward.y=0;forward.normalize();
       camera.position.copy(boat.pos).addScaledVector(forward,-14);camera.position.y+=8;look.copy(boat.pos).addScaledVector(forward,5);camera.lookAt(look);
-    }else if(mode===1){camera.position.copy(sl(45,0,113));camera.up.set(0,0,-1);camera.lookAt(sl(45,0,0));}
+    }else if(mode===1){const center=(bankRange.min+bankRange.max)/2,height=Math.max(113,(bankRange.max-bankRange.min)*.56/Math.tan(26*Math.PI/180));camera.position.copy(sl(center,0,height));camera.up.set(0,0,-1);camera.lookAt(sl(center,0,0));}
     else if(mode===2){camera.position.set(orbit.target.x+Math.sin(orbit.yaw)*Math.cos(orbit.pitch)*orbit.distance,orbit.target.y+Math.sin(orbit.pitch)*orbit.distance,orbit.target.z+Math.cos(orbit.yaw)*Math.cos(orbit.pitch)*orbit.distance);camera.lookAt(orbit.target);}
     else{camera.position.copy(sl(15,-65,85));camera.lookAt(sl(48,0,0));}
     for(const sprite of labels){
@@ -105,8 +133,8 @@ export async function createReplayScene(data,container){
   }
   function resize(){const {width,height}=container.getBoundingClientRect();renderer.setSize(width,height);camera.aspect=width/height;camera.updateProjectionMatrix();render();}
   window.addEventListener('resize',resize);resize();
-  return {renderer,scene,boat,layers,water,update,render,reset,actual,active,target,arrow,
-    setCamera(i){mode=i;return CAMERAS[mode];},get cameraMode(){return mode;},setEntire(value){entire=value;},
+  return {renderer,scene,boat,layers,water,update,render,reset,actual,active,target,arrow,referenceLines,referencePoint,bankRange,get referenceSample(){return referenceSample;},
+    setCamera(i){mode=i;return CAMERAS[mode];},get cameraMode(){return mode;},
     setPaper(on){water.material.roughness=on?.85:.48;water.material.normalScale.setScalar(on?.035:.18);water.material.envMapIntensity=on?.12:.45;water.material.clearcoat=on?0:.12;},
     setResolution(ratio){renderer.setPixelRatio(ratio);resize();},
     resourceStats(){let objects=0;scene.traverse(()=>objects++);return {objects,geometries:renderer.info.memory.geometries,textures:renderer.info.memory.textures};}};

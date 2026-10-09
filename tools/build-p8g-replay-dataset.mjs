@@ -1,3 +1,4 @@
+import { buildReferences } from '../site/js/replay/replay-reference-history.js';
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { resolve, dirname, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -9,7 +10,7 @@ const encode = x => JSON.stringify(x) + '\n';
 export async function build(source = sourceDefault, output = resolve(root, 'site/replay-data/p8f2-ar10')) {
   if (resolve(output).startsWith(resolve(source))) throw Error('Source is read-only');
   const names = ['telemetry.json','frontend_plans.json','obstacle_truth.json','events.json','result.json','summary.json',
-    'actual_dynamic_clearance.csv','actual_bank_clearance.csv','tracking.csv','contract.json','rule15_actual_audit.json','provenance.json','post_terminal_worker_audit.json'];
+    'actual_dynamic_clearance.csv','actual_bank_clearance.csv','tracking.csv','contract.json','rule15_actual_audit.json','provenance.json','post_terminal_worker_audit.json','execution.jsonl'];
   const bytes = Object.fromEntries(await Promise.all(names.map(async n => [n, await readFile(resolve(source,n))])));
   const json = n => JSON.parse(bytes[n]);
   const csv = n => { const [header,...rows] = bytes[n].toString().trim().split(/\r?\n/); const keys=header.split(',');
@@ -50,7 +51,8 @@ export async function build(source = sourceDefault, output = resolve(root, 'site
       {name:'Conflict passed',time:frames.find(f=>f.time>=crossing).time,rule:'first recorded sample at or after audited s=50 crossing'},
       {name:'TASK_COMPLETE',time:task.receipt_sim_time,rule:'TASK_COMPLETE receipt simulation time; native time annotated separately'}
     ]};
-  const files={'frames.json':frames,'plans.json':plans,'targets.json':targets,'events.json':events.map(e=>{
+  const references=buildReferences(bytes['execution.jsonl'].toString().trim().split(/\r?\n/).map(r=>JSON.parse(r)),result.frame);
+  const files={'references.json':references,'frames.json':frames,'plans.json':plans,'targets.json':targets,'events.json':events.map(e=>{
     const {actual_state_snapshot,identity,...rest}=e;
     return {...rest,request_identity:identity ? {plan_start_sim_time:identity.plan_start_sim_time,parent_active_plan_id:identity.parent_active_plan_id}:undefined};
   }),'metrics.json':metrics};
@@ -60,6 +62,7 @@ export async function build(source = sourceDefault, output = resolve(root, 'site
     baseline_commits:{planner:'696e1cf18c4b2e59dc37f4d6dd1e980215a9b52b',openwater:'c7dc6155d5a9293bf97461a500cd72ca966afa22'},
     run_id:basename(source),source_files:Object.fromEntries(names.map(n=>[n,hash(bytes[n])])),
     derived_files:Object.fromEntries(Object.entries(files).map(([n,v])=>[n,hash(encode(v))])),
+    reference_count:references.records.length,reference_time_semantics:'Original execution simulation_time; no interpolation or clock offset',
     physical_tick_count:tele.length,initial_snapshot_count:1,sample_count:frames.length,start_time:start,end_time:frames.at(-1).time,
     episode_start_time:start,duration:frames.at(-1).time-start,source_frame:'ENU',episode_frame:result.frame,
     vessel_asset:{path:assetPath,sha256:hash(await readFile(resolve(root,'site',assetPath))),spec:'zodiac_boat',length:5.5,reversed:true,visualDraft:.6},

@@ -8,7 +8,7 @@ import { validateDataset, loadReplay } from '../../site/js/replay/replay-loader.
 import { enuPositionToOpenWater,openWaterPositionToENU,enuQuaternionToOpenWater,openWaterQuaternionToENU,openWaterHeadingRad,rotateVector } from '../../site/js/twin/coordinate-adapter.js';
 const base=resolve('site/replay-data/p8f2-ar10');
 const read=async(p)=>JSON.parse(await readFile(p,'utf8'));
-const d={};for(const name of ['manifest','frames','plans','targets','events','metrics'])d[name]=await read(resolve(base,name+'.json'));
+const d={};for(const name of ['manifest','frames','plans','targets','events','metrics','references'])d[name]=await read(resolve(base,name+'.json'));
 const sourceAvailable=await access(resolve(sourceDefault,'telemetry.json')).then(()=>true,()=>false);
 const sourceOnly={skip:sourceAvailable?false:'Frozen Planner checkout required for raw-source parity; dataset loader tests still run'};
 const raw=sourceAvailable?await read(resolve(sourceDefault,'telemetry.json')):[], result=sourceAvailable?await read(resolve(sourceDefault,'result.json')):null;
@@ -61,11 +61,11 @@ test('loader validates pinned manifest, every dataset file and original GLB',asy
   const loaded=await loadReplay('replay-data/p8f2-ar10/',fetchLocal);assert.equal(loaded.frames.length,1915);
 });
 test('missing/tampered manifest, frame data, asset and invalid contracts fail closed',async()=>{
-  for(const name of ['manifest.json','frames.json','zodiac_boat.glb']){
+  for(const name of ['manifest.json','frames.json','references.json','zodiac_boat.glb']){
     await assert.rejects(loadReplay('replay-data/p8f2-ar10/',async u=>u.endsWith(name)?new Response('tampered'):fetchLocal(u)),/REPLAY_DATA_VALIDATION_FAILED/);
     await assert.rejects(loadReplay('replay-data/p8f2-ar10/',async u=>u.endsWith(name)?new Response('',{status:404}):fetchLocal(u)),/REPLAY_DATA_VALIDATION_FAILED/);
   }
-  for(const edit of [x=>x.frames.pop(),x=>x.frames[1].time=NaN,x=>x.manifest.target.radius_m=3,x=>x.plans[0].plan_start_sim_time=0,x=>x.metrics.rule15.passed=false]){
+  for(const edit of [x=>x.frames.pop(),x=>x.frames[1].time=NaN,x=>x.manifest.target.radius_m=3,x=>x.plans[0].plan_start_sim_time=0,x=>x.metrics.rule15.passed=false,x=>x.references.records[10].desired[0]+=1,x=>x.references.segments[0].end+=1,x=>x.references.records[10].plan_id='execution-8']){
     const copy=structuredClone(d);edit(copy);assert.throws(()=>validateDataset(copy),/REPLAY_DATA_VALIDATION_FAILED/);
   }
 });

@@ -1,0 +1,302 @@
+{
+  "status": "AUTOMATED_BROWSER_CHECKS_PASS_PENDING_IMAGE_REVIEW",
+  "browser": "154.0.8037.97",
+  "channel": "installed Windows Google Chrome",
+  "headless": true,
+  "url": "http://localhost:8089/replay.html",
+  "windows_localhost_http_status": 200,
+  "automation": "Playwright driving installed Windows Chrome; no in-app browser",
+  "checks": {
+    "page_loaded": true,
+    "original_zodiac": {
+      "scene": "Sketchfab_Scene",
+      "names": [
+        "Material2_1",
+        "Material3",
+        "Material3_1",
+        "Material3_2",
+        "Material3_3",
+        "Material3_4",
+        "Material3_5",
+        "Material3_6",
+        "Material3_7",
+        "Material2_2",
+        "Material3_8",
+        "Material3_9",
+        "Material3_10",
+        "Material3_11",
+        "Material3_12",
+        "Material3-region",
+        "Material3_1-region",
+        "Material3_2-region",
+        "Material3_3-region",
+        "Material3_4-region",
+        "Material3-region",
+        "Material3_1-region",
+        "Material3_12-region"
+      ],
+      "length": 5.5,
+      "reversed": true,
+      "scale": 0.013306549449072351
+    },
+    "frame_steps": true,
+    "seek_deterministic_and_no_future_trail": true,
+    "play_pause_all_speeds": true,
+    "encounter_jump": true,
+    "cameras": {
+      "modes": 4,
+      "keyboard": true,
+      "orbit_pan_zoom": true,
+      "reset_preserves_time": true,
+      "screenshots": [
+        "camera_Chase.png",
+        "camera_Top.png",
+        "camera_Free_Orbit.png",
+        "camera_Encounter_Overview.png"
+      ]
+    },
+    "activations": [
+      {
+        "plan": "execution-1",
+        "native_time": 19.19999999999968,
+        "display_time": 19.19999999999968,
+        "request_time": 19.19999999999968
+      },
+      {
+        "plan": "execution-2",
+        "native_time": 21.91999999999962,
+        "display_time": 21.95999999999962,
+        "request_time": 19.19999999999968
+      },
+      {
+        "plan": "execution-3",
+        "native_time": 25.579999999999544,
+        "display_time": 25.619999999999543,
+        "request_time": 21.93999999999962
+      },
+      {
+        "plan": "execution-4",
+        "native_time": 28.99999999999947,
+        "display_time": 29.03999999999947,
+        "request_time": 25.599999999999543
+      },
+      {
+        "plan": "execution-5",
+        "native_time": 32.259999999999444,
+        "display_time": 32.29999999999945,
+        "request_time": 29.01999999999947
+      },
+      {
+        "plan": "execution-6",
+        "native_time": 35.41999999999994,
+        "display_time": 35.459999999999944,
+        "request_time": 32.27999999999945
+      },
+      {
+        "plan": "execution-7",
+        "native_time": 38.94000000000049,
+        "display_time": 38.980000000000494,
+        "request_time": 35.43999999999994
+      }
+    ],
+    "reference_history": {
+      "rows": 1919,
+      "segments": 7,
+      "jumps": 6,
+      "cases": [
+        {
+          "time": 21.91999899999962,
+          "count": 136,
+          "plan": "execution-1",
+          "switches": 0
+        },
+        {
+          "time": 21.91999999999962,
+          "count": 137,
+          "plan": "execution-2",
+          "switches": 1
+        },
+        {
+          "time": 21.929999999999623,
+          "count": 137,
+          "plan": "execution-2",
+          "switches": 1
+        },
+        {
+          "time": 25.579998999999543,
+          "count": 320,
+          "plan": "execution-2",
+          "switches": 1
+        },
+        {
+          "time": 25.579999999999544,
+          "count": 321,
+          "plan": "execution-3",
+          "switches": 2
+        },
+        {
+          "time": 25.589999999999545,
+          "count": 321,
+          "plan": "execution-3",
+          "switches": 2
+        },
+        {
+          "time": 28.99999899999947,
+          "count": 492,
+          "plan": "execution-3",
+          "switches": 2
+        },
+        {
+          "time": 28.99999999999947,
+          "count": 493,
+          "plan": "execution-4",
+          "switches": 3
+        },
+        {
+          "time": 29.009999999999472,
+          "count": 493,
+          "plan": "execution-4",
+          "switches": 3
+        },
+        {
+          "time": 32.259998999999446,
+          "count": 656,
+          "plan": "execution-4",
+          "switches": 3
+        },
+        {
+          "time": 32.259999999999444,
+          "count": 657,
+          "plan": "execution-5",
+          "switches": 4
+        },
+        {
+          "time": 32.26999999999944,
+          "count": 657,
+          "plan": "execution-5",
+          "switches": 4
+        },
+        {
+          "time": 35.41999899999994,
+          "count": 815,
+          "plan": "execution-5",
+          "switches": 4
+        },
+        {
+          "time": 35.41999999999994,
+          "count": 816,
+          "plan": "execution-6",
+          "switches": 5
+        },
+        {
+          "time": 35.429999999999936,
+          "count": 816,
+          "plan": "execution-6",
+          "switches": 5
+        },
+        {
+          "time": 38.93999900000049,
+          "count": 992,
+          "plan": "execution-6",
+          "switches": 5
+        },
+        {
+          "time": 38.94000000000049,
+          "count": 993,
+          "plan": "execution-7",
+          "switches": 6
+        },
+        {
+          "time": 38.950000000000486,
+          "count": 993,
+          "plan": "execution-7",
+          "switches": 6
+        }
+      ],
+      "terminal_marker_hidden": true,
+      "reverse_seek": true,
+      "bank_range": {
+        "min": -5,
+        "max": 115
+      }
+    },
+    "independent_reference_layers": [
+      "Actual telemetry history",
+      "Controller reference history",
+      "Current tracking reference point",
+      "Future planned suffix (75 m, dashed)"
+    ],
+    "task_complete": true,
+    "no_resource_growth": {
+      "before": {
+        "objects": 122,
+        "geometries": 91,
+        "textures": 9
+      },
+      "after": {
+        "objects": 122,
+        "geometries": 91,
+        "textures": 9
+      },
+      "seeks": 400
+    },
+    "no_physics": {
+      "stepRejected": true,
+      "positiveUpdateRejected": true
+    },
+    "no_live_network": true,
+    "dataset_loaded_once": true,
+    "png": [
+      {
+        "preset": "Initial",
+        "time": 19.19999999999968,
+        "file": "Initial.png",
+        "width": 3200,
+        "height": 1670,
+        "sha256": "4d51c0dbdecac219addbd1b86dbd672df52774e702fa3bd87c4de8c3944bb76a"
+      },
+      {
+        "preset": "Avoidance initiation",
+        "time": 20.07999999999966,
+        "file": "Avoidance_initiation.png",
+        "width": 3200,
+        "height": 1670,
+        "sha256": "53fd8ebd119c841d58ac43e2e57d8054b90fe6ec1733582317e33532b9a1e459"
+      },
+      {
+        "preset": "Before conflict",
+        "time": 42.54000000000105,
+        "file": "Before_conflict.png",
+        "width": 3200,
+        "height": 1670,
+        "sha256": "640750bef02f8118fcc0471d48d2fd2f5adeac40b5d0f02216e1f8dad0964f9b"
+      },
+      {
+        "preset": "Closest approach",
+        "time": 39.40000000000056,
+        "file": "Closest_approach.png",
+        "width": 3200,
+        "height": 1670,
+        "sha256": "dc6a4bfb1cc09451b63d3212131bd3ddbd7fb1852ff6d1667745c0cf148e9bdc"
+      },
+      {
+        "preset": "Conflict passed",
+        "time": 42.560000000001054,
+        "file": "Conflict_passed.png",
+        "width": 3200,
+        "height": 1670,
+        "sha256": "5b34b7695af37f3ce0b9ab8490ce6e251197fb4ab160e3977abec93071407dd3"
+      },
+      {
+        "preset": "TASK_COMPLETE",
+        "time": 57.480000000003386,
+        "file": "TASK_COMPLETE.png",
+        "width": 3200,
+        "height": 1670,
+        "sha256": "1f070d1386babbba1e45b0ce0fd3b03411eef6c9a58c4ddceac0302c3d69e6a6"
+      }
+    ],
+    "browser_errors": [],
+    "tampered_data_browser_rejected": true
+  }
+}
