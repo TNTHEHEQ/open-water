@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "run": "run_20261009T064955Z_h1",
+  "classification": "P8F2_H1_L75_CONTROL_PASS",
+  "counterfactual_min_buffered_m": -0.5619143918153755,
+  "summary_sha256": "17b2a62b100815b91c6b495337fec83ea2879cd867f2a727712264cd7dbcfbee",
+  "terminal_lifecycle_pass": true,
+  "freshness_pass": true,
+  "authority_pass": true
+}

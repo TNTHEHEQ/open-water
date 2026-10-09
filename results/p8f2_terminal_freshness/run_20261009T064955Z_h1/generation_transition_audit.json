@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "transitions": [
+    {
+      "rx_index": 4165,
+      "before": 1,
+      "after": 2,
+      "event": "INVALIDATE",
+      "valid": true
+    }
+  ]
+}

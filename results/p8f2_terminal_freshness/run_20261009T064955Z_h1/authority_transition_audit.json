@@ -1,0 +1,37 @@
+{
+  "physics_policy": "HOLD_PHYSICS_AFTER_MANUAL_UNTIL_TERMINAL_STATUS",
+  "manual_rx_index": 4167,
+  "terminal_status_rx_index": 4168,
+  "terminal_handoff_wait_count": 0,
+  "automatic_execution_abort_count": 0,
+  "generation3_observed": false,
+  "external_tick_without_ownership_count": 0,
+  "terminal_handoff_waits": [],
+  "completed": [
+    {
+      "reason": "TASK_COMPLETE",
+      "episode": 1,
+      "generation": 2,
+      "rx_index": 4165,
+      "startWallSec": 43.576615803,
+      "manualWallSec": 43.59482667,
+      "neutralAccepted": true,
+      "status": "TASK_COMPLETE",
+      "statusWallSec": 43.594856539
+    }
+  ],
+  "final_receiver_phase": "TASK_COMPLETE",
+  "terminal_error": null,
+  "external_command_timeout_sec": 0.5,
+  "terminal_status_watchdog_sec": 0.5,
+  "checks": {
+    "fixed_physics_policy": true,
+    "no_external_without_ownership": true,
+    "waits_only_trusted_manual": true,
+    "no_physical_step_during_wait": true,
+    "bounded_clean_completion": true,
+    "no_abort_or_generation3": true,
+    "manual_before_complete": true
+  },
+  "passed": true
+}

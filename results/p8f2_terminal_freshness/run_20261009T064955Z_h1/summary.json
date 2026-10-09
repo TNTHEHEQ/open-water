@@ -1,0 +1,424 @@
+{
+  "classification": "P8F2_H1_L75_CONTROL_PASS",
+  "passed": true,
+  "run_mode": "H1",
+  "issues": [],
+  "native_TASK_COMPLETE": true,
+  "final_world": {
+    "s_world": 91.95022255493585,
+    "l_world": 1.4819918564089276,
+    "psi": -0.242708680419463
+  },
+  "final_state": {
+    "timestamp": 59.140000000003646,
+    "pose": {
+      "position": {
+        "x": 0.22603827884668276,
+        "y": 116.03517256066705,
+        "z": 0.1627341740777405
+      },
+      "orientation": {
+        "x": -0.0027050019780055566,
+        "y": 0.012073054817948728,
+        "z": -0.12245135498622148,
+        "w": 0.9923973951868779
+      },
+      "headingRad": 0.24544077924290994
+    },
+    "velocity": {
+      "linear": {
+        "x": 0.5324785167202948,
+        "y": 2.2760583071068194,
+        "z": 0.14177629950783835
+      },
+      "angular": {
+        "x": 0.00626343667194127,
+        "y": -0.012824800663605371,
+        "z": 0.022491530123645288
+      },
+      "body": {
+        "surge": 2.335967900021828,
+        "sway": -0.04027214930720829,
+        "heave": 0.16033537126452085,
+        "rollRate": -0.011105408084423292,
+        "pitchRate": 0.008667511943918389,
+        "yawRate": -0.02260794608733692
+      }
+    },
+    "actuator": {
+      "type": "single_outboard",
+      "propulsionActual": 0.017941488654703845,
+      "rawThrustN": 188.3856308743904,
+      "effectiveThrustN": 180.0287837546449,
+      "steeringActualRad": 0.06857589019531839,
+      "steeringEffectiveRad": 0.06243054466950184,
+      "steeringRateRadPerSec": 0.02202165680563306,
+      "ventilationFactor": 0.989888936932671
+    },
+    "control": {
+      "propulsionCommand": 0,
+      "steeringCommandRad": 0
+    }
+  },
+  "requests": 22,
+  "successful_plans": 21,
+  "activated_plans": 21,
+  "switches": 20,
+  "solver_failures": 0,
+  "candidate_rejections": 0,
+  "fallbacks": 0,
+  "timeouts_failsafes": 0,
+  "protocol_failures": 0,
+  "invalid_control_messages": 0,
+  "active_plan_expiry": 0,
+  "terminal_generation_cancellations": 1,
+  "terminal_generation_events": [
+    {
+      "episode_id": 1,
+      "event": "SOLVE_DISCARDED",
+      "generation": 2,
+      "protocol_version": 1,
+      "reason": "GENERATION_EPISODE_OR_TERMINAL_PHASE",
+      "simulation_time": 59.140000000003646,
+      "solve_in_flight": false,
+      "type": "async_event",
+      "wall_elapsed_sec": 55.654012725
+    }
+  ],
+  "planned_audits_pass": true,
+  "actual_sampled_dynamic_CPA": null,
+  "H1_counterfactual_CPA": {
+    "simulation_time": 39.80000000000062,
+    "episode_time": 20.600000000000943,
+    "own_s": 46.667678986947934,
+    "own_l": 0.22079635159819774,
+    "psi": 0.14791073616777548,
+    "u": 2.3593041404278186,
+    "v": -0.14834811599284048,
+    "r": 0.004558637200178834,
+    "target_s": 50,
+    "target_l": 4.2389160106998744,
+    "circle": 2,
+    "circle_s": 48.77771874244787,
+    "circle_l": 0.5351899605041106,
+    "circle_target_distance": 3.9001997548153784,
+    "raw_clearance": -0.0619143918153755,
+    "buffered_clearance": -0.5619143918153755,
+    "bank_raw": 8.002695892865136,
+    "bank_buffered": 7.502695892865136
+  },
+  "actual_sampled_bank_minimum": {
+    "simulation_time": 54.32000000000289,
+    "episode_time": 35.120000000003216,
+    "own_s": 80.83893391659994,
+    "own_l": 3.111633053822695,
+    "psi": -0.21637679206653374,
+    "u": 2.3120307243467657,
+    "v": 0.4313115632948544,
+    "r": -0.040348128881194656,
+    "target_s": 50,
+    "target_l": 18.758916010702148,
+    "circle": 0,
+    "circle_s": 78.75534621890142,
+    "circle_l": 3.569643334395619,
+    "circle_target_distance": 32.520515687855884,
+    "raw_clearance": 28.55840154122513,
+    "buffered_clearance": 28.05840154122513,
+    "bank_raw": 4.968242518973627,
+    "bank_buffered": 4.468242518973627
+  },
+  "rule15": {
+    "applicable": false,
+    "selected_branch": "STARBOARD_ASTERN",
+    "starboard_sign": "negative_l",
+    "actual_at_s50": {
+      "episode_time": 22.0161221245801,
+      "simulation_time": 41.21612212457978,
+      "own_l": 0.5013534125891314,
+      "psi": 0.1501630661670365,
+      "u": 2.353590435783571,
+      "v": -0.16024661126218168,
+      "r": 0.001138262155989752,
+      "own_s": 50,
+      "target_l": 5.655038135279032,
+      "relative_l": -5.1536847226899,
+      "raw_clearance": 1.1915705760591462,
+      "buffered_clearance": 0.6915705760591462,
+      "method": "linear interpolation at first actual s=50 crossing"
+    },
+    "passed": null
+  },
+  "command_limits_pass": true,
+  "plant_capability_pass": true,
+  "max_applied_Tc_rate_Nps": 20.000000000000284,
+  "max_applied_delta_rate_radps": 0.15000000000000013,
+  "max_actual_steering_rad": 0.16701642395201527,
+  "max_actual_steering_rate_radps": 0.07241343762263597,
+  "raw_thrust_N": {
+    "minimum": 188.3856308743904,
+    "median": 199.98220351857665,
+    "maximum": 199.99999999999739
+  },
+  "tracking": {
+    "cross_error": {
+      "rms": 1.0414806087937323,
+      "maximum_absolute": 2.831574962308659,
+      "p95_absolute": 2.7435819174251814
+    },
+    "heading_error": {
+      "rms": 0.07861491674928887,
+      "maximum_absolute": 0.21447729246506977,
+      "p95_absolute": 0.19085868879601287
+    },
+    "speed_error": {
+      "rms": 0.7441164965423023,
+      "maximum_absolute": 0.92823785421584,
+      "p95_absolute": 0.8724694502947157
+    },
+    "yaw_error": {
+      "rms": 0.03174483957402783,
+      "maximum_absolute": 0.09589331553415265,
+      "p95_absolute": 0.07847562165663104
+    },
+    "along_error": {
+      "rms": 2.1128041182694317,
+      "maximum_absolute": 6.658115447572996,
+      "p95_absolute": 5.0905367913785655
+    }
+  },
+  "actual_at_conflict": {
+    "episode_time": 22.0161221245801,
+    "simulation_time": 41.21612212457978,
+    "own_l": 0.5013534125891314,
+    "psi": 0.1501630661670365,
+    "u": 2.353590435783571,
+    "v": -0.16024661126218168,
+    "r": 0.001138262155989752,
+    "own_s": 50,
+    "target_l": 5.655038135279032,
+    "relative_l": -5.1536847226899,
+    "raw_clearance": 1.1915705760591462,
+    "buffered_clearance": 0.6915705760591462,
+    "method": "linear interpolation at first actual s=50 crossing"
+  },
+  "offline_AR10_reference": {
+    "l": -4.672266,
+    "episode_time": 18.71568,
+    "u": 2.501698
+  },
+  "planning_wall_sec": {
+    "minimum": 1.414392679,
+    "median": 1.5105728379999999,
+    "maximum": 20.570615717
+  },
+  "worker_wall_sec": {
+    "minimum": 1.415653160999998,
+    "median": 1.5119523164999986,
+    "maximum": 20.571004368999994
+  },
+  "switch_age_sec": {
+    "minimum": 1.420000000000222,
+    "median": 1.5000000000000995,
+    "maximum": 2.539999999999946
+  },
+  "switch_remaining_suffix_sec": {
+    "minimum": 24.397837977676005,
+    "median": 25.370966222783693,
+    "maximum": 25.46266422399605
+  },
+  "dual_used_requests": 21,
+  "final_workspace_counters": {
+    "cache_hits": 22,
+    "cache_misses": 2,
+    "graph_builds": 1,
+    "graph_hits": 45,
+    "graph_seconds": 0.043979871,
+    "signature_seconds": 1.837839884,
+    "solver_constructions": 2,
+    "solver_creation_seconds": 2.929919818
+  },
+  "active_sim_duration_sec": 39.94000000000396,
+  "active_wall_duration_sec": 39.941421622,
+  "real_time_factor": 0.9999644073260714,
+  "maximum_tick_lateness_ms": 2.317478000000847,
+  "actual_safety_claim": "50Hz physical-tick sampled; no rigorous actual inter-tick certificate",
+  "environment": {
+    "sea_preset": 1,
+    "preset": {
+      "name": "Calm",
+      "hs": 0.35,
+      "tp": 4.5,
+      "windSpeed": 2.4,
+      "windDirection": 0.3839724354387525,
+      "gustiness": 0.12,
+      "currentSpeed": 0.12,
+      "currentDirection": 1.1868238913561442
+    },
+    "initial": {
+      "seaState": 1,
+      "localWaterHeight": -0.11351697093638378,
+      "wave": {
+        "significantHeightM": 0.35001426306825756,
+        "peakPeriodSec": 4.659875400235626
+      },
+      "windSpeedMps": 2.4233173083695303,
+      "windDirectionRad": 1.1791781892217488,
+      "currentSpeedMps": 0.1151470842609257,
+      "currentDirectionRad": 0.3163427389230472,
+      "waterVelocity": {
+        "x": -0.07537446384624613,
+        "y": 0.1030017561320117,
+        "z": -0.009509628889633331
+      },
+      "current": {
+        "x": 0.0358214360925301,
+        "y": 0.1094334305870994,
+        "z": 0
+      },
+      "wind": {
+        "x": 2.2398543818083754,
+        "y": 0.924942768682022,
+        "z": 0
+      }
+    },
+    "physical_dt_sec": 0.02
+  },
+  "runner_error": null,
+  "p8f_original_gates_pass": true,
+  "legacy_commands_log_rejected_count": 0,
+  "terminal_lifecycle": {
+    "old_generation": 1,
+    "new_generation": 2,
+    "invalidate_rx_index": 4165,
+    "neutral_rx_index": 4166,
+    "manual_rx_index": 4167,
+    "task_complete_rx_index": 4168,
+    "neutral_episode": 1,
+    "neutral_generation": 2,
+    "neutral_sequence": 2017,
+    "neutral_sender_timestamp": 59.12000000000364,
+    "neutral_receipt_sim_time": 59.140000000003646,
+    "neutral_accepted": true,
+    "neutral_rejection_reason": null,
+    "neutral_target": {
+      "Tc": 0,
+      "delta": 0
+    },
+    "old_generation_post_invalidate_accept_count": 0,
+    "generation_mismatch_count": 0,
+    "all_rejected_target_count": 0,
+    "terminal_generation_rollover_count": 1,
+    "terminal_INVALIDATE_received": 1,
+    "terminal_neutral_target_count": 1,
+    "final_mode": "MANUAL",
+    "final_control": {
+      "propulsionCommand": 0,
+      "steeringCommandRad": 0
+    },
+    "terminal_safety_handoff_excluded_from_ACTIVE_rate_statistics": true,
+    "checks": {
+      "one_rollover": true,
+      "one_accepted_neutral": true,
+      "wire_partial_order": true,
+      "same_episode_next_generation": true,
+      "sequence_monotonic": true,
+      "timestamp_rules": true,
+      "no_invalid_control": true,
+      "final_manual_neutral": true,
+      "rx_index_complete_unique": true,
+      "trusted_transitions_only": true
+    },
+    "passed": true
+  },
+  "freshness_transition": {
+    "last_active_command_receipt_wall": 43.555599077,
+    "last_active_command_age_at_invalidate": 0.020657529000004615,
+    "old_generation": 1,
+    "new_generation": 2,
+    "receiptWallSec_before": 43.555599077,
+    "receiptWallSec_after_identity": 43.555599077,
+    "freshness_preserved": true,
+    "first_tick_after_invalidate_wall": 43.594190317,
+    "age_at_first_tick": 0.03859124000000236,
+    "fresh_at_first_tick": true,
+    "first_tick_precedes_neutral": true,
+    "neutral_receipt_wall": 43.594747103,
+    "invalidate_to_neutral_gap": 0.018478394999995373,
+    "neutral_accepted": true,
+    "receiptWallSec_after_neutral": 43.594747103,
+    "original_timeout_deadline": 44.055599077,
+    "effective_timeout_deadline_before_neutral": 44.055599077,
+    "timeout_deadline_unchanged": true,
+    "pre_neutral_tick_count": 1,
+    "pre_neutral_tick_observations": [
+      {
+        "wall_sec": 43.368211208,
+        "wall_time_sec": 43.594190317,
+        "simulation_time": 59.12000000000364,
+        "last_rx_index": 4165,
+        "claimed": true,
+        "phase": "ACTIVE",
+        "generation": 2,
+        "receiptWallSec": 43.555599077,
+        "age": 0.03859124000000236,
+        "fresh": true,
+        "pending": {
+          "reason": "TASK_COMPLETE",
+          "episode": 1,
+          "generation": 2,
+          "rx_index": 4165,
+          "startWallSec": 43.576615803,
+          "manualWallSec": null,
+          "neutralAccepted": false
+        },
+        "action": "EXTERNAL"
+      }
+    ],
+    "note": "No tick is forced into the observed network gap; absent first/pre-neutral tick is reported null/zero. Deterministic tests cover the exact historical gap.",
+    "checks": {
+      "timestamp_preserved": true,
+      "deadline_not_extended": true,
+      "all_other_limiter_state_preserved": true,
+      "real_neutral_receipt": true,
+      "pre_neutral_ticks_original_deadline": true
+    },
+    "passed": true
+  },
+  "authority_transition": {
+    "physics_policy": "HOLD_PHYSICS_AFTER_MANUAL_UNTIL_TERMINAL_STATUS",
+    "manual_rx_index": 4167,
+    "terminal_status_rx_index": 4168,
+    "terminal_handoff_wait_count": 0,
+    "automatic_execution_abort_count": 0,
+    "generation3_observed": false,
+    "external_tick_without_ownership_count": 0,
+    "terminal_handoff_waits": [],
+    "completed": [
+      {
+        "reason": "TASK_COMPLETE",
+        "episode": 1,
+        "generation": 2,
+        "rx_index": 4165,
+        "startWallSec": 43.576615803,
+        "manualWallSec": 43.59482667,
+        "neutralAccepted": true,
+        "status": "TASK_COMPLETE",
+        "statusWallSec": 43.594856539
+      }
+    ],
+    "final_receiver_phase": "TASK_COMPLETE",
+    "terminal_error": null,
+    "external_command_timeout_sec": 0.5,
+    "terminal_status_watchdog_sec": 0.5,
+    "checks": {
+      "fixed_physics_policy": true,
+      "no_external_without_ownership": true,
+      "waits_only_trusted_manual": true,
+      "no_physical_step_during_wait": true,
+      "bounded_clean_completion": true,
+      "no_abort_or_generation3": true,
+      "manual_before_complete": true
+    },
+    "passed": true
+  }
+}
