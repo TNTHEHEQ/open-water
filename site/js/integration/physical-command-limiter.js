@@ -23,7 +23,9 @@ export class PhysicalCommandApplicationLimiter {
   setIdentity(episodeId, generation) {
     if (!Number.isSafeInteger(episodeId) || !Number.isSafeInteger(generation)
       || episodeId !== this.episodeId || generation !== this.generation + 1) throw Error('INVALID_LIFECYCLE_IDENTITY');
-    this.generation = generation; this.invalidate();
+    // Authorization advances; the last real receipt and its original timeout
+    // deadline remain valid. Only explicit authority loss cancels freshness.
+    this.generation = generation;
   }
   invalidate() { this.receiptWallSec = null; }
   age(now) { return this.receiptWallSec === null ? null : Math.max(0, now - this.receiptWallSec); }
