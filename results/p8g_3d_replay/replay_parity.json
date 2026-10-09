@@ -1,0 +1,10 @@
+{
+  "stage": "P8G-A",
+  "passed": true,
+  "tests": 6,
+  "physical_ticks": 1914,
+  "initial_snapshots": 1,
+  "activations": 7,
+  "switches": 6,
+  "deterministic_export": true
+}

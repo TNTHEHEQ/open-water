@@ -1,0 +1,31 @@
+{
+  "source_run": "run_20261009T065318Z_h2",
+  "source_commits": {
+    "planner": "58bc3ad67569fa16a9cb4f86cab5495173fd4153",
+    "openwater": "805a5b85817295697f198d3d6f59f4cc5dc924f8"
+  },
+  "baseline_commits": {
+    "planner": "696e1cf18c4b2e59dc37f4d6dd1e980215a9b52b",
+    "openwater": "c7dc6155d5a9293bf97461a500cd72ca966afa22"
+  },
+  "source_files": {
+    "telemetry.json": "3339c80cf5290b3b78e05159ae8301189cfc184b6ae8bc5bad5e3c9efb8c2691",
+    "frontend_plans.json": "23f7ba6766d80649c52aa08d8a805988b3d8ee25271340cfc0fbcc3227732962",
+    "obstacle_truth.json": "a7f5873e91714c940920bc71873ff11908a2d2e119fe0e8287f6da127486bd5c",
+    "events.json": "4052073121094b7d7e3b5e0f4a127a56c5ea3695e6c39db829ded7cf7226afa8",
+    "result.json": "0e5fef487a9b127ae57ee666eccddd3172d16baa8a809f0e814315a5dd23a352",
+    "summary.json": "520e9359156933835cf11aad77f57e71ae1106e8ba77ad6a621f27946f5fbe9a",
+    "actual_dynamic_clearance.csv": "ce1e0192b3f856f522af77256d1e99bad120c2fbfa0ba10d8af9b16a34555018",
+    "actual_bank_clearance.csv": "1dd256554d99ad16e71bd04c40850e29ed2afa120553ec80bd51cb8b21b09e2c",
+    "tracking.csv": "0562b7eb626b518691eaebd9c12459c4dc90869e4d2a221b035511a6eb97a167",
+    "contract.json": "1eb1c5eea2a8449c28b472f8b5d5f03acba98db77b90512b77b5830e77b9b2c7",
+    "rule15_actual_audit.json": "9335bdc750ad810159db40a0a810064df6052bc68b8ec6866c771355bb73fa80",
+    "provenance.json": "62e0cb9dc8e4e5812204a0424822a9cb95440323c5032eaddc825d1a5095b8ed",
+    "post_terminal_worker_audit.json": "33392a41db8b536870c8361e9304d84de0d3c1589887f1e8e315eeb59a182959"
+  },
+  "historical_files_checked": 8240,
+  "historical_files_unchanged": true,
+  "no_physics": true,
+  "no_solver": true,
+  "no_controller_changes": true
+}

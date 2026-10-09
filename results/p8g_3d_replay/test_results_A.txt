@@ -1,0 +1,14 @@
+✔ A B F G H I K L M N O P Q: dataset contract and original identities (14.134982ms)
+✔ C D E: every actual pose and basis, heading, bow, roll/pitch directions (32.919178ms)
+✔ J: all CV truth snapshots exactly preserved (12.804879ms)
+✔ deterministic double export; source bytes unchanged (445.093916ms)
+✔ loader validates pinned manifest, every dataset file and original GLB (79.688852ms)
+✔ missing/tampered manifest, frame data, asset and invalid contracts fail closed (203.594427ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 971.545293

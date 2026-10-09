@@ -1,0 +1,82 @@
+{
+  "schema": "P8G_REPLAY_V1",
+  "stage": "P8G",
+  "source_result": "P8F2_AR10_OPENWATER_DYNAMIC_PASS",
+  "source_commits": {
+    "planner": "58bc3ad67569fa16a9cb4f86cab5495173fd4153",
+    "openwater": "805a5b85817295697f198d3d6f59f4cc5dc924f8"
+  },
+  "baseline_commits": {
+    "planner": "696e1cf18c4b2e59dc37f4d6dd1e980215a9b52b",
+    "openwater": "c7dc6155d5a9293bf97461a500cd72ca966afa22"
+  },
+  "run_id": "run_20261009T065318Z_h2",
+  "source_files": {
+    "telemetry.json": "3339c80cf5290b3b78e05159ae8301189cfc184b6ae8bc5bad5e3c9efb8c2691",
+    "frontend_plans.json": "23f7ba6766d80649c52aa08d8a805988b3d8ee25271340cfc0fbcc3227732962",
+    "obstacle_truth.json": "a7f5873e91714c940920bc71873ff11908a2d2e119fe0e8287f6da127486bd5c",
+    "events.json": "4052073121094b7d7e3b5e0f4a127a56c5ea3695e6c39db829ded7cf7226afa8",
+    "result.json": "0e5fef487a9b127ae57ee666eccddd3172d16baa8a809f0e814315a5dd23a352",
+    "summary.json": "520e9359156933835cf11aad77f57e71ae1106e8ba77ad6a621f27946f5fbe9a",
+    "actual_dynamic_clearance.csv": "ce1e0192b3f856f522af77256d1e99bad120c2fbfa0ba10d8af9b16a34555018",
+    "actual_bank_clearance.csv": "1dd256554d99ad16e71bd04c40850e29ed2afa120553ec80bd51cb8b21b09e2c",
+    "tracking.csv": "0562b7eb626b518691eaebd9c12459c4dc90869e4d2a221b035511a6eb97a167",
+    "contract.json": "1eb1c5eea2a8449c28b472f8b5d5f03acba98db77b90512b77b5830e77b9b2c7",
+    "rule15_actual_audit.json": "9335bdc750ad810159db40a0a810064df6052bc68b8ec6866c771355bb73fa80",
+    "provenance.json": "62e0cb9dc8e4e5812204a0424822a9cb95440323c5032eaddc825d1a5095b8ed",
+    "post_terminal_worker_audit.json": "33392a41db8b536870c8361e9304d84de0d3c1589887f1e8e315eeb59a182959"
+  },
+  "derived_files": {
+    "frames.json": "a672eac8d2ca90676283c6c03fa2c0782f11f07f5f13d94c7c5392725eb563ea",
+    "plans.json": "626b124b4c627706c6e496e395ac2b0e51750d115725326b877326f34c78bd58",
+    "targets.json": "d6271b6a811271c65b3b3d0ce1b3eba25a0e3f986719a31a36bc777186877614",
+    "events.json": "aeaab31a22e422e49a8d1c2f6d73aeface28dd3664e7f254f8233f3f12bad3be",
+    "metrics.json": "0e5c34df7b1f8e5c302df5356f149952f156157ea93cb838acc1223ba38e09e3"
+  },
+  "physical_tick_count": 1914,
+  "initial_snapshot_count": 1,
+  "sample_count": 1915,
+  "start_time": 19.19999999999968,
+  "end_time": 57.480000000003386,
+  "episode_start_time": 19.19999999999968,
+  "duration": 38.28000000000371,
+  "source_frame": "ENU",
+  "episode_frame": {
+    "E_ref": 1.4568078218668974,
+    "N_ref": 24.081244237312283,
+    "H_ref": 0.002732098823446956,
+    "episode_start_sim_time": 19.19999999999968
+  },
+  "vessel_asset": {
+    "path": "assets/boats/zodiac_boat.glb",
+    "sha256": "135f8ec00491749f7a88a74b4e50e8c67c71d21fac5b4d753b959d66734ba9ee",
+    "spec": "zodiac_boat",
+    "length": 5.5,
+    "reversed": true,
+    "visualDraft": 0.6
+  },
+  "scenario": "P8F_AR10_DYNAMIC_CROSSING",
+  "target": {
+    "s_world": 50,
+    "l_at_episode_zero": -16.36108398930107,
+    "velocity": [
+      0,
+      1
+    ],
+    "radius_m": 2.5,
+    "planner_buffer_m": 0.5,
+    "model": "SIMULATOR_OWNED_KINEMATIC_CV_DISC",
+    "six_dof": false
+  },
+  "bank": [
+    -10,
+    10
+  ],
+  "bank_buffer": 0.5,
+  "mission_goal": 75,
+  "mode": "DIRECT_ASYNC_SUFFIX_V1",
+  "activation_count": 7,
+  "switch_count": 6,
+  "official_dynamic_clearance": 5.1134505020859,
+  "official_bank_margin": 1.443611819878718
+}
