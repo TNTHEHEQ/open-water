@@ -1,0 +1,13 @@
+{
+  "all_math_physics_fields_equal": true,
+  "changed_inherited_fields": [
+    "Planner_commit",
+    "OpenWater_commit",
+    "protocol_lifecycle_version"
+  ],
+  "added_fields": [
+    "external_timeout_requires_external_ownership",
+    "identity_advance_preserves_freshness",
+    "timeout_deadline_reset_on_identity"
+  ]
+}
