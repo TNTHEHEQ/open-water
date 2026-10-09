@@ -1,0 +1,185 @@
+{
+  "status": "P8G_VISUAL_REPLAY_PASS",
+  "browser": "154.0.8037.97",
+  "channel": "installed Windows Google Chrome",
+  "headless": true,
+  "url": "http://localhost:8089/replay.html",
+  "windows_localhost_http_status": 200,
+  "chrome_extension": "unavailable: nodeRepl.fetch request failed; user-authorized Playwright fallback",
+  "checks": {
+    "page_loaded": true,
+    "original_zodiac": {
+      "scene": "Sketchfab_Scene",
+      "names": [
+        "Material2_1",
+        "Material3",
+        "Material3_1",
+        "Material3_2",
+        "Material3_3",
+        "Material3_4",
+        "Material3_5",
+        "Material3_6",
+        "Material3_7",
+        "Material2_2",
+        "Material3_8",
+        "Material3_9",
+        "Material3_10",
+        "Material3_11",
+        "Material3_12",
+        "Material3-region",
+        "Material3_1-region",
+        "Material3_2-region",
+        "Material3_3-region",
+        "Material3_4-region",
+        "Material3-region",
+        "Material3_1-region",
+        "Material3_12-region"
+      ],
+      "length": 5.5,
+      "reversed": true,
+      "scale": 0.013306549449072351
+    },
+    "frame_steps": true,
+    "seek_deterministic_and_no_future_trail": true,
+    "play_pause_all_speeds": true,
+    "encounter_jump": true,
+    "cameras": {
+      "modes": 4,
+      "keyboard": true,
+      "orbit_pan_zoom": true,
+      "reset_preserves_time": true,
+      "screenshots": [
+        "camera_Chase.png",
+        "camera_Top.png",
+        "camera_Free_Orbit.png",
+        "camera_Encounter_Overview.png"
+      ]
+    },
+    "activations": [
+      {
+        "plan": "execution-1",
+        "native_time": 19.19999999999968,
+        "display_time": 19.19999999999968,
+        "request_time": 19.19999999999968
+      },
+      {
+        "plan": "execution-2",
+        "native_time": 21.91999999999962,
+        "display_time": 21.95999999999962,
+        "request_time": 19.19999999999968
+      },
+      {
+        "plan": "execution-3",
+        "native_time": 25.579999999999544,
+        "display_time": 25.619999999999543,
+        "request_time": 21.93999999999962
+      },
+      {
+        "plan": "execution-4",
+        "native_time": 28.99999999999947,
+        "display_time": 29.03999999999947,
+        "request_time": 25.599999999999543
+      },
+      {
+        "plan": "execution-5",
+        "native_time": 32.259999999999444,
+        "display_time": 32.29999999999945,
+        "request_time": 29.01999999999947
+      },
+      {
+        "plan": "execution-6",
+        "native_time": 35.41999999999994,
+        "display_time": 35.459999999999944,
+        "request_time": 32.27999999999945
+      },
+      {
+        "plan": "execution-7",
+        "native_time": 38.94000000000049,
+        "display_time": 38.980000000000494,
+        "request_time": 35.43999999999994
+      }
+    ],
+    "task_complete": true,
+    "no_resource_growth": {
+      "before": {
+        "objects": 91,
+        "geometries": 64,
+        "textures": 9
+      },
+      "after": {
+        "objects": 91,
+        "geometries": 64,
+        "textures": 9
+      },
+      "seeks": 400
+    },
+    "no_physics": {
+      "stepRejected": true,
+      "positiveUpdateRejected": true
+    },
+    "no_live_network": true,
+    "dataset_loaded_once": true,
+    "png": [
+      {
+        "preset": "Initial",
+        "time": 19.19999999999968,
+        "file": "Initial.png",
+        "width": 3200,
+        "height": 1670,
+        "sha256": "36ad7799fd64adb02706b1899cc58d2e80609ea536a41914a94d42866edc6ce9"
+      },
+      {
+        "preset": "Avoidance initiation",
+        "time": 20.07999999999966,
+        "file": "Avoidance_initiation.png",
+        "width": 3200,
+        "height": 1670,
+        "sha256": "b734f452225952fe113a1c49cce0036fe7a69ffdf0b466213ef91b15057a9d28"
+      },
+      {
+        "preset": "Before conflict",
+        "time": 42.54000000000105,
+        "file": "Before_conflict.png",
+        "width": 3200,
+        "height": 1670,
+        "sha256": "4f6c0e8221d7047b207ecde754615c89e9edddfeacb23601173d408275bf44fb"
+      },
+      {
+        "preset": "Closest approach",
+        "time": 39.40000000000056,
+        "file": "Closest_approach.png",
+        "width": 3200,
+        "height": 1670,
+        "sha256": "88fe70022703d9520dbfd2ab15b4ce00ccdcb5d305a5876b906f88476505c7fb"
+      },
+      {
+        "preset": "Conflict passed",
+        "time": 42.560000000001054,
+        "file": "Conflict_passed.png",
+        "width": 3200,
+        "height": 1670,
+        "sha256": "8f4c88f3c35e281449bc8c0251c8119be576a5da50e695732204986253ff054a"
+      },
+      {
+        "preset": "TASK_COMPLETE",
+        "time": 57.480000000003386,
+        "file": "TASK_COMPLETE.png",
+        "width": 3200,
+        "height": 1670,
+        "sha256": "e0e18cd365d10d4cbc16074677013b0b6fef84c94d0e5960a9201c37d31ef8d1"
+      }
+    ],
+    "browser_errors": [],
+    "tampered_data_browser_rejected": true
+  },
+  "visual_review": {
+    "passed": true,
+    "reviewer": "Codex rendered-image inspection",
+    "representative_files": [
+      "Closest_approach.png",
+      "camera_Chase.png"
+    ],
+    "notes": "Original Zodiac bow/pose, CV disc, cyan suffix, yellow actual, readable captions and illustrative-water labels inspected. Other cameras and six PNG exports passed automated acceptance."
+  },
+  "headed_chrome_opened_for_user": true
+}

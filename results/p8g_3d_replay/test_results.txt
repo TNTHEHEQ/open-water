@@ -1,0 +1,19 @@
+✔ A B F G H I K L M N O P Q: dataset contract and original identities (14.109889ms)
+✔ C D E: every actual pose and basis, heading, bow, roll/pitch directions (33.787651ms)
+✔ J: all CV truth snapshots exactly preserved (12.366149ms)
+✔ deterministic double export; source bytes unchanged (456.298066ms)
+✔ loader validates pinned manifest, every dataset file and original GLB (46.408521ms)
+✔ missing/tampered manifest, frame data, asset and invalid contracts fail closed (227.924161ms)
+✔ R: repeated reverse/random seek preserves source and identical transforms (92.20327ms)
+✔ every exact physical time returns its pose/plan; interpolated safety stays sampled (23.274314ms)
+✔ suffix uses unchanged request time; no past point in active range (3.010321ms)
+✔ clock anchored to wall time, pause and rates cannot integrate pose or drift (0.31448ms)
+✔ S T: display pose calls only update(0), and replay entry has no live control imports (28.159809ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1016.558796

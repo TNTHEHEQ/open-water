@@ -27,5 +27,14 @@
   "historical_files_unchanged": true,
   "no_physics": true,
   "no_solver": true,
-  "no_controller_changes": true
+  "no_controller_changes": true,
+  "historical_changed_files": [],
+  "ordinary_index_unchanged": true,
+  "production_files_unchanged": true,
+  "visual_sky": {
+    "path": "site/assets/sky_clear_4k.hdr",
+    "sha256": "5776f890607ff98e21cc1f04bdc3dacbdf33795386dbebb418f42b0fc92814d1",
+    "illustrative_only": true
+  },
+  "manifest_sha256": "c0eac026903c7e4b161714b4525d9682acfd53261b6aa71c1bfd950c37ad6117"
 }

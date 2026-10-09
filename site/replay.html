@@ -13,11 +13,11 @@
 <aside id="hud"><div id="state"></div><details><summary>Official audits &amp; encounter</summary><div id="audits"></div></details>
 <details><summary>Layers &amp; diagnostics</summary><div id="layers"></div><label><input id="entire" type="checkbox">Entire historical path (includes future)</label>
 <label><input id="water" type="checkbox" checked>Illustrative Water</label><div id="diagnostics"></div></details></aside>
-<nav id="view-controls" aria-label="Camera and paper controls"><button id="camera" type="button">Encounter Overview</button><button id="reset" type="button">Reset View</button><button id="paper" type="button">Paper Mode</button><button id="png" type="button">Save PNG</button></nav>
+<nav id="view-controls" aria-label="Camera and paper controls"><button id="camera" type="button">Chase</button><button id="reset" type="button">Reset View</button><button id="paper" type="button">Paper Mode</button><label>Render <select id="resolution"><option value="1">1×</option><option value="2" selected>2× HD</option><option value="3">3× Paper</option></select></label><button id="png" type="button">Save PNG</button></nav>
 <footer><div class="playback"><button id="play" type="button">Play</button><button id="previous" type="button" aria-label="Previous physical sample">◀ Frame</button><button id="next" type="button" aria-label="Next physical sample">Frame ▶</button>
 <label>Speed <select id="speed"><option value=".25">0.25×</option><option value=".5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option><option value="4">4×</option></select></label>
 <output id="time"></output><button id="encounter" type="button">Jump to Encounter</button></div>
 <label class="scrub-label" for="scrub">Historical simulation time</label><input id="scrub" type="range" min="0" max="1" step=".001" value="0">
-<div id="timeline" aria-label="Historical event markers"></div><div id="presets"></div><div id="event-note">Simulation time axis · worker wall durations are annotations only</div></footer>
+<div id="timeline" role="group" aria-label="Historical event markers"></div><div id="presets"></div><div id="event-note">Simulation time axis · worker wall durations are annotations only</div></footer>
 <script type="module" src="./js/replay/replay-main.js"></script>
 </body></html>

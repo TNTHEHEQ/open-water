@@ -1,10 +1,92 @@
 {
-  "stage": "P8G-A",
+  "stage": "P8G",
   "passed": true,
-  "tests": 6,
-  "physical_ticks": 1914,
-  "initial_snapshots": 1,
-  "activations": 7,
-  "switches": 6,
-  "deterministic_export": true
+  "unit_tests": 11,
+  "skipped": 0,
+  "checks": {
+    "A": {
+      "passed": true,
+      "evidence": "1914 physical ticks + 1 initial snapshot"
+    },
+    "B": {
+      "passed": true,
+      "evidence": "finite strictly ordered timestamps"
+    },
+    "C": {
+      "passed": true,
+      "evidence": "all 1915 poses equal raw source"
+    },
+    "D": {
+      "passed": true,
+      "evidence": "all positions/quaternions round trip"
+    },
+    "E": {
+      "passed": true,
+      "evidence": "all 3 basis directions, bow and heading agree"
+    },
+    "F": {
+      "passed": true,
+      "evidence": "7 recorded active plan IDs"
+    },
+    "G": {
+      "passed": true,
+      "evidence": "6 native switches"
+    },
+    "H": {
+      "passed": true,
+      "evidence": "native/receipt/telemetry identity preserved; 0.04 s observation lag"
+    },
+    "I": {
+      "passed": true,
+      "evidence": "all original request epochs unchanged"
+    },
+    "J": {
+      "passed": true,
+      "evidence": "all 1915 target truth snapshots identical"
+    },
+    "K": {
+      "passed": true,
+      "evidence": "radius 2.5 m"
+    },
+    "L": {
+      "passed": true,
+      "evidence": "planner buffer 0.5 m"
+    },
+    "M": {
+      "passed": true,
+      "evidence": "bank [-10,+10] m"
+    },
+    "N": {
+      "passed": true,
+      "evidence": "CPA record byte-equivalent JSON values"
+    },
+    "O": {
+      "passed": true,
+      "evidence": "5.1134505020859 m"
+    },
+    "P": {
+      "passed": true,
+      "evidence": "1.443611819878718 m"
+    },
+    "Q": {
+      "passed": true,
+      "evidence": "native TASK_COMPLETE and receiver terminal state"
+    },
+    "R": {
+      "passed": true,
+      "evidence": "repeated seek does not mutate source; browser reverse trail verified"
+    },
+    "S": {
+      "passed": true,
+      "evidence": "display only update(0); guard rejects integration before original method"
+    },
+    "T": {
+      "passed": true,
+      "evidence": "no live sockets/solver/control startup"
+    }
+  },
+  "deterministic_double_export": true,
+  "lint_js": true,
+  "lint_html": true,
+  "browser_status": "P8G_VISUAL_REPLAY_PASS"
 }

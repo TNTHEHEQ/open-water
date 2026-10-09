@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFile, readdir, mkdtemp, rm } from 'node:fs/promises';
+import { readFile, readdir, mkdtemp, rm, access } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { resolve } from 'node:path';
 import { build, sourceDefault } from '../../tools/build-p8g-replay-dataset.mjs';
@@ -9,8 +9,10 @@ import { enuPositionToOpenWater,openWaterPositionToENU,enuQuaternionToOpenWater,
 const base=resolve('site/replay-data/p8f2-ar10');
 const read=async(p)=>JSON.parse(await readFile(p,'utf8'));
 const d={};for(const name of ['manifest','frames','plans','targets','events','metrics'])d[name]=await read(resolve(base,name+'.json'));
-const raw=await read(resolve(sourceDefault,'telemetry.json')), result=await read(resolve(sourceDefault,'result.json'));
-test('A B F G H I K L M N O P Q: dataset contract and original identities',async()=>{
+const sourceAvailable=await access(resolve(sourceDefault,'telemetry.json')).then(()=>true,()=>false);
+const sourceOnly={skip:sourceAvailable?false:'Frozen Planner checkout required for raw-source parity; dataset loader tests still run'};
+const raw=sourceAvailable?await read(resolve(sourceDefault,'telemetry.json')):[], result=sourceAvailable?await read(resolve(sourceDefault,'result.json')):null;
+test('A B F G H I K L M N O P Q: dataset contract and original identities',sourceOnly,async()=>{
   validateDataset(d);
   assert.deepEqual(d.plans,await read(resolve(sourceDefault,'frontend_plans.json')));
   assert.deepEqual(d.metrics.rule15,await read(resolve(sourceDefault,'rule15_actual_audit.json')));
@@ -20,7 +22,7 @@ test('A B F G H I K L M N O P Q: dataset contract and original identities',async
   assert.equal(Math.min(...d.frames.map(f=>f.dynamic_clearance)),s.actual_sampled_dynamic_CPA.buffered_clearance);
   assert.equal(Math.min(...d.frames.map(f=>f.bank_margin)),s.actual_sampled_bank_minimum.bank_buffered);
 });
-test('C D E: every actual pose and basis, heading, bow, roll/pitch directions',()=>{
+test('C D E: every actual pose and basis, heading, bow, roll/pitch directions',sourceOnly,()=>{
   const states=[result.initial,...raw.map(r=>r.state)];
   for(let i=0;i<states.length;i++){
     const s=states[i],f=d.frames[i];assert.deepEqual(f.pose,s.pose);
@@ -40,8 +42,8 @@ test('C D E: every actual pose and basis, heading, bow, roll/pitch directions',(
     assert.ok(Math.abs(Math.atan2(bow.x,bow.z)-s.pose.headingRad)<1e-12);
   }
 });
-test('J: all CV truth snapshots exactly preserved',async()=>assert.deepEqual(d.targets,await read(resolve(sourceDefault,'obstacle_truth.json'))));
-test('deterministic double export; source bytes unchanged',async()=>{
+test('J: all CV truth snapshots exactly preserved',sourceOnly,async()=>assert.deepEqual(d.targets,await read(resolve(sourceDefault,'obstacle_truth.json'))));
+test('deterministic double export; source bytes unchanged',sourceOnly,async()=>{
   const before=await Promise.all(Object.keys(d.manifest.source_files).map(n=>readFile(resolve(sourceDefault,n))));
   const dir=await mkdtemp(resolve(tmpdir(),'p8g-'));
   try{
